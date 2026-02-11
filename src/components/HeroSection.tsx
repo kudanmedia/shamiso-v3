@@ -91,20 +91,24 @@ export function HeroSection() {
 
                         {/* CTAs */}
                         <div className="mb-10 flex flex-col gap-4 sm:flex-row">
-                            <Button
-                                size="lg"
-                                className="bg-shamiso-gold-bright px-10 py-6 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110"
-                            >
-                                Join Shamiso
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="border-2 border-white/80 px-10 py-6 text-base font-bold uppercase text-white transition-all hover:bg-white/10 hover:border-white"
-                            >
-                                Check Funding Eligibility
-                                <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
+                            <Link href="/signup">
+                                <Button
+                                    size="lg"
+                                    className="bg-shamiso-gold-bright px-10 py-6 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110"
+                                >
+                                    Join Shamiso
+                                </Button>
+                            </Link>
+                            <Link href="https://shamisomusic.chordcash.com">
+                                <Button
+                                    variant="outline"
+                                    size="lg"
+                                    className="border-2 border-white/80 px-10 py-6 text-base font-bold uppercase text-white transition-all hover:bg-white/10 hover:border-white"
+                                >
+                                    Check Funding Eligibility
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* Genre Pills */}

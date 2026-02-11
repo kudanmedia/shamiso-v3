@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { account } from "@/lib/appwrite";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,18 @@ export default function LoginPage() {
         email: "",
         password: "",
     });
+
+    useEffect(() => {
+        const checkSession = async () => {
+            try {
+                await account.get();
+                router.push("/dashboard");
+            } catch (error) {
+                // No session, allow login
+            }
+        };
+        checkSession();
+    }, [router]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
