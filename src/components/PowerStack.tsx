@@ -12,6 +12,7 @@ import {
     Wand2,
     ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const powerCards = [
     {
@@ -21,7 +22,7 @@ const powerCards = [
         description:
             "Instant Advances via Beatbread. Zero-Fee Payouts via Paystack. Your Cash, On-Demand.",
         cta: "Unlock Funding",
-        href: "#",
+        href: "https://shamisomusic.chordcash.com",
         gradient: "from-shamiso-gold/20 to-shamiso-gold/5",
         iconColor: "text-shamiso-gold-bright",
         borderColor: "hover:border-shamiso-gold/40",
@@ -33,7 +34,7 @@ const powerCards = [
         description:
             "White-Label Your Destiny. Automate Royalties. Keep 100% of Your Brand Equity.",
         cta: "Start Distribution",
-        href: "#",
+        href: "https://portal.shamiso-music.com/",
         gradient: "from-shamiso-gold/15 to-shamiso-gold/5",
         iconColor: "text-shamiso-gold-bright",
         borderColor: "hover:border-shamiso-gold/40",
@@ -44,7 +45,7 @@ const powerCards = [
         subtitle: "Embed The Future",
         description:
             "AI Mixing with ROEX. On-Demand Visuals with Roto Videos. Integrate Africa's Soundtrack into your tech stack.",
-        cta: "Explore Tools",
+        cta: "Coming Soon",
         href: "#",
         gradient: "from-shamiso-gold/20 to-shamiso-gold/5",
         iconColor: "text-shamiso-gold",
@@ -99,13 +100,15 @@ export function PowerStack() {
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <Button
-                                    variant="ghost"
-                                    className="group/btn -ml-4 text-sm font-semibold text-muted-foreground transition-colors hover:text-white"
-                                >
-                                    {card.cta}
-                                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                                </Button>
+                                <Link href={card.href}>
+                                    <Button
+                                        variant="ghost"
+                                        className="group/btn -ml-4 text-sm font-semibold text-muted-foreground transition-colors hover:text-white"
+                                    >
+                                        {card.cta}
+                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                    </Button>
+                                </Link>
                             </CardContent>
                         </Card>
                     ))}

@@ -14,6 +14,7 @@ const quickLinks = [
     { label: "Distribute Music", href: "#services" },
     { label: "Promote Music", href: "#partners" },
     { label: "Funding Advances", href: "https://shamisomusic.chordcash.com/" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Partners", href: "#partners" },
     { label: "Terms of Use", href: "#terms" },
 ];
@@ -22,7 +23,7 @@ const services = [
     { label: "Beatbread (Funding)", href: "https://shamisomusic.chordcash.com/" },
     { label: "Feature:FM", href: "https://developers.feature.fm/" },
     { label: "Groover", href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music" },
-    { label: "ROEX (AI Mixing)", href: "#" },
+    { label: "ROEX (Coming Soon)", href: "#" },
     { label: "Roto Videos", href: "https://rotorvideos.com/shamiso" },
     { label: "Song Tools", href: "https://amplifiedpro.songtools.io/" },
 ];

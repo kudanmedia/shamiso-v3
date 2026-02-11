@@ -8,9 +8,8 @@ import { ArrowRight } from "lucide-react";
 const genrePills = [
     { label: "Lekompo", href: "/distribute-lekompo" },
     { label: "3-Step", href: "/distribute-3-step" },
-    { label: "Afro House", href: "/distribute-lekompo#afro-house" },
     { label: "Maskandi", href: "/distribute-maskandi" },
-    { label: "Amapiano", href: "#" },
+    { label: "Afro House", href: "/distribute-lekompo#afro-house" },
 ];
 
 const trustPartners = [
@@ -74,17 +73,16 @@ export function HeroSection() {
 
                         {/* H1 */}
                         <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl">
-                            Your Masters.<br />
-                            Your Money.
-                            <br />
-                            <span className="gradient-text">Your Sovereignty.</span>
+                            Don't Just Distribute.<br />
+                            Dominate.<br />
+                            <span className="gradient-text">Your Masters. Your Money.</span>
                         </h1>
 
                         {/* Subtitle */}
                         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl">
                             The Sovereign Home for Amapiano, 3-Step, Lekompo &amp; Afro House.
                             <br />
-                            <strong className="text-white">Save 30% on US Tax</strong> and Get{" "}
+                            <strong className="text-white">Save 30% on US Tax</strong>. Get{" "}
                             <strong className="text-shamiso-gold-bright">Non-Dilutive Funding</strong>{" "}
                             up to <strong className="text-white">$5M</strong>.
                         </p>

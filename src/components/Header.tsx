@@ -19,13 +19,12 @@ const genreLinks = [
     { label: "Lekompo", href: "/distribute-lekompo" },
     { label: "3-Step", href: "/distribute-3-step" },
     { label: "Maskandi", href: "/distribute-maskandi" },
-    { label: "Afro House", href: "/distribute-lekompo#afro-house" },
 ];
 
 const navLinks = [
-    { label: "Promote Music", href: "#partners" },
-    { label: "Funding", href: "#funding" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Promote Music", href: "/#partners" },
+    { label: "Funding", href: "/#funding" },
+    { label: "Pricing", href: "/pricing" },
 ];
 
 export function Header() {
@@ -79,7 +78,7 @@ export function Header() {
                                 type="button"
                                 className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-white hover:bg-white/5"
                             >
-                                Distribute Music
+                                Specialized Distribution
                                 <ChevronDown className="h-3.5 w-3.5" />
                             </button>
                         </DropdownMenuTrigger>

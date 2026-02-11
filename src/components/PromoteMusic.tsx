@@ -30,7 +30,15 @@ const services = [
     {
         category: "PROMOTE MUSIC",
         items: [
-
+            {
+                name: "Feature.fm (Coming Soon)",
+                description: "Smart Links & Pre-Saves",
+                icon: Share2,
+                href: "#",
+                color: "text-shamiso-gold-bright",
+                borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
+                bgColor: "bg-shamiso-gold/5",
+            },
             {
                 name: "Song Tools",
                 description: "Artist growth toolkit",
@@ -42,7 +50,7 @@ const services = [
             },
             {
                 name: "un:hurd",
-                description: "Data-driven music promotion — Use code SMDPASS",
+                description: "Data-driven music promotion",
                 icon: Volume2,
                 href: "https://app.unhurdmusic.com/?ref=shamisomusicgroup&utm_source=shamisomusicgroup&utm_medium=referral&utm_campaign=partnership",
                 color: "text-shamiso-gold-bright",
@@ -50,9 +58,9 @@ const services = [
                 bgColor: "bg-shamiso-gold/5",
             },
             {
-                name: "SymphonyOS — The AdBox",
+                name: "SymphonyOS — The AdBox (Coming Soon)",
                 description: "Automated music advertising",
-                icon: Share2,
+                icon: Megaphone,
                 href: "#",
                 color: "text-shamiso-gold-bright",
                 borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
@@ -82,7 +90,7 @@ const services = [
         category: "AI MIXING",
         items: [
             {
-                name: "ROEX",
+                name: "ROEX (Coming Soon)",
                 description: "AI-powered mixing & mastering",
                 icon: Headphones,
                 href: "#",

@@ -59,13 +59,15 @@ export function GenrePage({
                         </p>
 
                         <div className="mb-10 flex flex-col gap-4 sm:flex-row">
-                            <Button
-                                size="lg"
-                                className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright px-8 text-base font-bold text-black shadow-xl shadow-shamiso-gold/20 hover:shadow-shamiso-gold/40"
-                            >
-                                <Zap className="mr-2 h-5 w-5" />
-                                Start Distributing {genre}
-                            </Button>
+                            <a href="https://portal.shamiso-music.com" target="_blank" rel="noopener noreferrer">
+                                <Button
+                                    size="lg"
+                                    className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright px-8 text-base font-bold text-black shadow-xl shadow-shamiso-gold/20 hover:shadow-shamiso-gold/40"
+                                >
+                                    <Zap className="mr-2 h-5 w-5" />
+                                    Start Distributing {genre}
+                                </Button>
+                            </a>
                             <Button
                                 variant="outline"
                                 size="lg"
