@@ -28,18 +28,6 @@ const powerCards = [
         borderColor: "hover:border-shamiso-gold/40",
     },
     {
-        icon: Crown,
-        title: "Own Your Empire",
-        subtitle: "Build Your Empire",
-        description:
-            "White-Label Your Destiny. Automate Royalties. Keep 100% of Your Brand Equity.",
-        cta: "Start Distribution",
-        href: "https://portal.shamiso-music.com/",
-        gradient: "from-shamiso-gold/15 to-shamiso-gold/5",
-        iconColor: "text-shamiso-gold-bright",
-        borderColor: "hover:border-shamiso-gold/40",
-    },
-    {
         icon: Wand2,
         title: "AI Creative",
         subtitle: "Embed The Future",
@@ -75,7 +63,7 @@ export function PowerStack() {
                 </div>
 
                 {/* Cards grid */}
-                <div className="grid gap-6 md:grid-cols-3">
+                <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
                     {powerCards.map((card) => (
                         <Card
                             key={card.title}
