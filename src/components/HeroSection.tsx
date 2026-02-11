@@ -14,14 +14,16 @@ const genrePills = [
 ];
 
 const trustPartners = [
-    "Paystack",
-    "Too Lost",
-    "Merlin",
-    "Beatbread",
-    "TikTok",
-    "Apple Music",
-    "Spotify",
-    "Deezer",
+    { name: "Paystack", logo: "/paystack-2.svg" },
+    { name: "Too Lost", logo: "/logo.png" },
+    { name: "Merlin", logo: null },
+    { name: "Beatbread", logo: "/beatbread.svg" },
+    { name: "TikTok", logo: "/tiktok-logo-2--1.svg" },
+    { name: "Apple Music", logo: "/apple-music-3.svg" },
+    { name: "Spotify", logo: "/spotify-2.svg" },
+    { name: "Deezer", logo: "/deezer-new-logo.svg" },
+    { name: "Groover", logo: "/Groover_Logo_Main_White.png" },
+    { name: "Roto", logo: "/rotor-logo-full-white-4a612660f893ff6eccba4f8e79769d01de704cf49d875e40c57041c9f77b421a.svg" },
 ];
 
 export function HeroSection() {
@@ -129,25 +131,31 @@ export function HeroSection() {
                     <div className="w-full overflow-hidden rounded-xl border border-shamiso-gold/15 bg-black/40 py-4 backdrop-blur-md">
                         <div className="flex animate-ticker items-center gap-12 whitespace-nowrap">
                             {[...trustPartners, ...trustPartners].map((partner, i) => (
-                                <span
-                                    key={`${partner}-${i}`}
-                                    className="text-sm font-medium text-neutral-500 transition-colors hover:text-shamiso-gold-bright"
+                                <div
+                                    key={`${partner.name}-${i}`}
+                                    className="flex items-center justify-center opacity-50 transition-opacity hover:opacity-100 grayscale hover:grayscale-0"
                                 >
-                                    {partner === "Paystack" && "💳 "}
-                                    {partner === "Too Lost" && "🎵 "}
-                                    {partner === "Merlin" && "🛡️ "}
-                                    {partner === "Beatbread" && "🍞 "}
-                                    {partner === "TikTok" && "🎬 "}
-                                    {partner === "Apple Music" && "🎧 "}
-                                    {partner === "Spotify" && "🎶 "}
-                                    {partner === "Deezer" && "🎤 "}
-                                    {partner}
-                                </span>
+                                    {partner.logo ? (
+                                        <img
+                                            src={partner.logo}
+                                            alt={partner.name}
+                                            className={`w-auto object-contain ${(partner.name === "Spotify" || partner.name === "TikTok") ? "" : "brightness-0 invert"
+                                                } ${partner.name === "Groover"
+                                                    ? "h-16 max-w-[180px]"
+                                                    : "h-10 max-w-[140px]"
+                                                }`}
+                                        />
+                                    ) : (
+                                        <span className="text-xl font-bold text-white/40 hover:text-white transition-colors">
+                                            {partner.name}
+                                        </span>
+                                    )}
+                                </div>
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

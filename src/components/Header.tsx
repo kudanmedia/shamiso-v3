@@ -87,19 +87,23 @@ export function Header() {
 
                 {/* Desktop CTAs */}
                 <div className="hidden items-center gap-3 lg:flex">
-                    <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-shamiso-gold/30 text-muted-foreground transition-all hover:border-shamiso-gold-bright hover:text-shamiso-gold-bright"
-                    >
-                        Login
-                    </Button>
-                    <Button
-                        size="sm"
-                        className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40 hover:brightness-110"
-                    >
-                        Join Shamiso
-                    </Button>
+                    <Link href="/login">
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="border-shamiso-gold/30 text-muted-foreground transition-all hover:border-shamiso-gold-bright hover:text-shamiso-gold-bright"
+                        >
+                            Login
+                        </Button>
+                    </Link>
+                    <Link href="/signup">
+                        <Button
+                            size="sm"
+                            className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40 hover:brightness-110"
+                        >
+                            Join Shamiso
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* Mobile menu */}
@@ -142,15 +146,19 @@ export function Header() {
                             </div>
 
                             <div className="mt-4 flex flex-col gap-3 px-4">
-                                <Button
-                                    variant="outline"
-                                    className="w-full border-shamiso-gold/30 text-muted-foreground"
-                                >
-                                    Login
-                                </Button>
-                                <Button className="w-full bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black">
-                                    Join Shamiso
-                                </Button>
+                                <Link href="/login" onClick={() => setMobileOpen(false)}>
+                                    <Button
+                                        variant="outline"
+                                        className="w-full border-shamiso-gold/30 text-muted-foreground"
+                                    >
+                                        Login
+                                    </Button>
+                                </Link>
+                                <Link href="/signup" onClick={() => setMobileOpen(false)}>
+                                    <Button className="w-full bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black">
+                                        Join Shamiso
+                                    </Button>
+                                </Link>
                             </div>
                         </nav>
                     </SheetContent>
