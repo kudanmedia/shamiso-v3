@@ -142,7 +142,7 @@ export function PromoteMusic() {
                                         href={service.href}
                                         target={service.href.startsWith("http") ? "_blank" : undefined}
                                         rel={service.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                        className={`glass-card group flex items-center gap-4 rounded-xl border ${service.borderColor} ${service.bgColor} p-5 transition-all duration-300`}
+                                        className={`glass-card group flex w-full max-w-full items-center gap-4 rounded-xl border ${service.borderColor} ${service.bgColor} p-4 sm:p-5 transition-all duration-300 overflow-hidden`}
                                     >
                                         <div
                                             className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-shamiso-surface/80 ${service.color}`}

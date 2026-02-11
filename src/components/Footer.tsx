@@ -138,10 +138,6 @@ export function Footer() {
                         © {new Date().getFullYear()} Shamiso Music Group. All rights
                         reserved.
                     </p>
-                    <p className="text-xs text-muted-foreground/60">
-                        Powered by{" "}
-                        <span className="font-medium text-muted-foreground">Too Lost</span>
-                    </p>
                 </div>
             </div>
         </footer>

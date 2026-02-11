@@ -54,22 +54,7 @@ export function HeroSection() {
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20">
                     <div className="max-w-4xl">
-                        {/* Live ticker */}
-                        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-shamiso-gold/25 bg-shamiso-gold/5 px-4 py-2 backdrop-blur-sm shadow-lg shadow-shamiso-gold/5">
-                            <span className="relative flex h-2 w-2">
-                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-shamiso-gold-bright opacity-75" />
-                                <span className="relative inline-flex h-2 w-2 rounded-full bg-shamiso-gold-bright" />
-                            </span>
-                            <span className="text-xs font-medium text-shamiso-gold-bright">
-                                LIVE
-                            </span>
-                            <span className="text-xs text-neutral-400">
-                                Total Payouts Last 24h:
-                            </span>
-                            <span className="text-xs font-bold text-white">
-                                $1,450,890 USD
-                            </span>
-                        </div>
+
 
                         {/* H1 */}
                         <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl">
