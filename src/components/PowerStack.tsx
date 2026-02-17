@@ -10,6 +10,7 @@ import {
     Banknote,
     Crown,
     Wand2,
+    Zap,
     ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
@@ -28,15 +29,15 @@ const powerCards = [
         borderColor: "hover:border-shamiso-gold/40",
     },
     {
-        icon: Wand2,
-        title: "AI Creative",
-        subtitle: "Embed The Future",
+        icon: Zap,
+        title: "Growth Engine",
+        subtitle: "Audience Mastery",
         description:
-            "AI Mixing with ROEX. On-Demand Visuals with Roto Videos. Integrate Africa's Soundtrack into your tech stack.",
-        cta: "Coming Soon",
-        href: "#",
+            "Data-driven marketing via un:hurd. Smart Links & CRM via Feature.fm. Turn global listeners into stans instantly.",
+        cta: "Master Your Growth",
+        href: "#partners",
         gradient: "from-shamiso-gold/20 to-shamiso-gold/5",
-        iconColor: "text-shamiso-gold",
+        iconColor: "text-shamiso-gold-bright",
         borderColor: "hover:border-shamiso-gold/40",
     },
 ];

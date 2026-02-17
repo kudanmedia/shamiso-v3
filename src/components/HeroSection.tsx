@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Fingerprint, TrendingUp } from "lucide-react";
 
 const genrePills = [
     { label: "Lekompo", href: "/distribute-lekompo" },
@@ -54,22 +54,34 @@ export function HeroSection() {
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20">
                     <div className="max-w-4xl">
-
+                        {/* System Ticker */}
+                        <div className="mb-12 inline-flex items-center gap-6 rounded-full border border-shamiso-gold/20 bg-shamiso-gold/5 px-6 py-2.5 backdrop-blur-sm">
+                            <div className="flex items-center gap-2">
+                                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Live System Ticker</span>
+                            </div>
+                            <div className="h-4 w-px bg-shamiso-gold/20" />
+                            <div className="flex gap-4 overflow-hidden text-xs font-medium text-shamiso-gold-bright">
+                                <span className="flex items-center gap-1.5 whitespace-nowrap">
+                                    USD/ZAR 19.12 <TrendingUp className="h-3 w-3 text-emerald-500" />
+                                </span>
+                                <span className="flex items-center gap-1.5 whitespace-nowrap">
+                                    USD/NGN 1,450.00 <TrendingUp className="h-3 w-3 text-emerald-500" />
+                                </span>
+                                <div className="h-4 w-px bg-shamiso-gold/10" />
+                                <span className="whitespace-nowrap font-bold text-white">RECAPTURED: $14.2M</span>
+                            </div>
+                        </div>
 
                         {/* H1 */}
                         <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl">
-                            Don't Just Distribute.<br />
-                            Dominate.<br />
-                            <span className="gradient-text">Your Masters. Your Money.</span>
+                            The Global Financial Bridge<br />
+                            <span className="gradient-text">For African Music.</span>
                         </h1>
 
                         {/* Subtitle */}
                         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl">
-                            The Sovereign Home for Amapiano, 3-Step, Lekompo &amp; Afro House.
-                            <br />
-                            <strong className="text-white">Save 30% on US Tax</strong>. Get{" "}
-                            <strong className="text-shamiso-gold-bright">Non-Dilutive Funding</strong>{" "}
-                            up to <strong className="text-white">$5M</strong>.
+                            Stop losing 30% of your US royalties to foreign taxes. Claim your sovereignty with Africa&apos;s first institutional-grade music investment infrastructure.
                         </p>
 
                         {/* CTAs */}
@@ -79,16 +91,17 @@ export function HeroSection() {
                                     size="lg"
                                     className="bg-shamiso-gold-bright px-10 py-6 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110"
                                 >
-                                    Join Shamiso
+                                    <Fingerprint className="mr-2 h-5 w-5" />
+                                    RECLAIM YOUR 30% NOW
                                 </Button>
                             </Link>
-                            <Link href="https://shamisomusic.chordcash.com">
+                            <Link href="#valuation">
                                 <Button
                                     variant="outline"
                                     size="lg"
                                     className="border-2 border-white/80 px-10 py-6 text-base font-bold uppercase text-white transition-all hover:bg-white/10 hover:border-white"
                                 >
-                                    Check Funding Eligibility
+                                    VIEW CATALOG VALUATION
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>

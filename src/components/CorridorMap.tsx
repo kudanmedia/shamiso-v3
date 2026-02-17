@@ -31,7 +31,7 @@ export function CorridorMap() {
     const getCity = (name: string) => cityPositions.find((c) => c.name === name)!;
 
     return (
-        <section className="relative py-24 overflow-hidden">
+        <section id="corridor" className="relative py-24 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-black to-[#060500]" />
 
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

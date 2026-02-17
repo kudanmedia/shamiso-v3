@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ChevronDown, Menu, User, LogOut, LayoutDashboard } from "lucide-react";
+import { ChevronDown, Menu, User, LogOut, LayoutDashboard, Fingerprint } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const genreLinks = [
@@ -22,9 +22,10 @@ const genreLinks = [
 ];
 
 const navLinks = [
-    { label: "Promote Music", href: "/#partners" },
-    { label: "Funding", href: "/#funding" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "The Vault", href: "/#vault" },
+    { label: "Sovereign Corridor", href: "/#corridor" },
+    { label: "Catalog Valuation", href: "/#valuation" },
+    { label: "MaaS Report", href: "/#maas" },
 ];
 
 export function Header() {
@@ -150,7 +151,8 @@ export function Header() {
                                     size="sm"
                                     className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40 hover:brightness-110"
                                 >
-                                    Join Shamiso
+                                    <Fingerprint className="mr-2 h-4 w-4" />
+                                    ACCESS YOUR VAULT
                                 </Button>
                             </Link>
                         </>
@@ -232,7 +234,8 @@ export function Header() {
                                         </Link>
                                         <Link href="/signup" onClick={() => setMobileOpen(false)}>
                                             <Button className="w-full bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black">
-                                                Join Shamiso
+                                                <Fingerprint className="mr-2 h-4 w-4" />
+                                                ACCESS YOUR VAULT
                                             </Button>
                                         </Link>
                                     </>

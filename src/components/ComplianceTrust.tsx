@@ -59,28 +59,27 @@ export function ComplianceTrust() {
                         </div>
                     </div>
 
-                    {/* Industry Report card */}
+                    {/* Institutional Report card */}
                     <div className="glass-card group overflow-hidden rounded-2xl border border-shamiso-gold/15 p-8 transition-all hover:border-shamiso-gold/35">
                         <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-shamiso-gold/10">
                             <FileText className="h-7 w-7 text-shamiso-gold-bright" />
                         </div>
-                        <h3 className="mb-3 text-xl font-bold text-white">
-                            The MaaS Economy
+                        <h3 id="maas" className="mb-3 text-xl font-bold text-white uppercase tracking-tight">
+                            The Institutional MaaS Report
                         </h3>
-                        <p className="mb-2 text-sm font-medium text-muted-foreground">
-                            An Executive Guide to Music-as-a-Service in Africa
+                        <p className="mb-2 text-sm font-medium text-shamiso-gold-bright">
+                            Sovereign Infrastructure for the African Creator Economy
                         </p>
                         <p className="mb-6 text-sm leading-relaxed text-muted-foreground/80">
-                            Download our comprehensive whitepaper on the future of African
-                            music distribution, fintech integration, and the emerging MaaS
-                            economy.
+                            Download our comprehensive whitepaper on the transition to Music-as-a-Service,
+                            cross-border liquidity models, and institutional metadata taxonomies.
                         </p>
                         <Button
                             variant="outline"
                             className="border-shamiso-gold/30 text-muted-foreground transition-all hover:border-shamiso-gold-bright hover:text-shamiso-gold-bright"
                         >
                             <FileText className="mr-2 h-4 w-4" />
-                            Download Industry Report
+                            Download MaaS Report
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                     </div>
@@ -92,22 +91,22 @@ export function ComplianceTrust() {
                         {
                             icon: Shield,
                             title: "FCA Regulated (UK)",
-                            desc: "Sovereign financial infrastructure",
-                        },
-                        {
-                            icon: BadgeCheck,
-                            title: "GDPR Compliant",
-                            desc: "European data protection standards",
+                            desc: "Institutional financial rails",
                         },
                         {
                             icon: Shield,
-                            title: "SOC2 Certified",
-                            desc: "Enterprise-grade security",
+                            title: "ISO 27001",
+                            desc: "Global security standard",
+                        },
+                        {
+                            icon: BadgeCheck,
+                            title: "SARB Compliant",
+                            desc: "South African Reserve Bank standards",
                         },
                         {
                             icon: BadgeCheck,
                             title: "Merlin Member",
-                            desc: "Independent music rights advocate",
+                            desc: "Institutional-grade rights advocacy",
                         },
                     ].map((badge) => (
                         <div
