@@ -50,9 +50,9 @@ const services = [
             },
             {
                 name: "un:hurd",
-                description: "Data-driven music promotion",
+                description: "The #1 marketing tool for artists. Automated Ads & Playlist pitching.",
                 icon: Volume2,
-                href: "https://app.unhurdmusic.com/?ref=shamisomusicgroup&utm_source=shamisomusicgroup&utm_medium=referral&utm_campaign=partnership",
+                href: "https://www.unhurdmusic.com/p/shamiso-music-entertainment",
                 color: "text-shamiso-gold-bright",
                 borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
                 bgColor: "bg-shamiso-gold/5",
