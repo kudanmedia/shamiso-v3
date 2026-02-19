@@ -104,7 +104,7 @@ const services = [
 
 export function PromoteMusic() {
     return (
-        <section id="partners" className="relative py-24">
+        <section id="promote" className="relative py-24">
             <div className="absolute inset-0 bg-gradient-to-b from-[#0a0800] to-black" />
 
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

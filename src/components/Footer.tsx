@@ -12,10 +12,10 @@ const solutions = [
 
 const quickLinks = [
     { label: "Distribute Music", href: "#services" },
-    { label: "Promote Music", href: "#partners" },
+    { label: "Promote Music", href: "#promote" },
     { label: "Funding Advances", href: "https://shamisomusic.chordcash.com/" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Partners", href: "#partners" },
+    { label: "Partners", href: "#promote" },
     { label: "Terms of Use", href: "#terms" },
 ];
 
@@ -45,12 +45,7 @@ export function Footer() {
                             />
                         </Link>
                         <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                            The Sovereign Distributor for African Music. Distribution,
-                            Fintech, and AI-Driven Infrastructure for the SSA-UK Corridor.
-                        </p>
-                        <p className="text-xs text-muted-foreground/60">
-                            South Africa, Zimbabwe, Nigeria, USA, Ghana, Tanzania, Eswatini,
-                            Zambia, Botswana, DRC & Congo Brazzaville.
+                            The Sovereign Music Investment Infrastructure & MaaS Architecture for the Global South: A Fintech led & Data Intelligence Ecosystem uniting the SSA, UK, and USA Creative Corridors.
                         </p>
                     </div>
 
@@ -117,19 +112,17 @@ export function Footer() {
                 <Separator className="my-10 bg-shamiso-gold/10" />
 
                 {/* Compliance Badges */}
-                <div className="mb-8 flex flex-wrap items-center justify-center gap-6 md:gap-10">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                        <Shield className="h-4 w-4 text-shamiso-gold-bright" />
-                        <span className="text-xs font-medium">FCA Regulated</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                        <Globe className="h-4 w-4 text-shamiso-gold-bright" />
-                        <span className="text-xs font-medium">GDPR Compliant</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                        <Lock className="h-4 w-4 text-shamiso-gold-bright" />
-                        <span className="text-xs font-medium">SOC2 Certified</span>
-                    </div>
+                {/* Compliance Footer */}
+                <div className="mb-12 text-center">
+                    <p className="mx-auto max-w-4xl text-[10px] leading-relaxed text-neutral-500">
+                        Shamiso Music Group (Pty) Ltd and its subsidiaries (collectively &quot;Shamiso&quot;) are financial technology and digital infrastructure providers. Shamiso is not a bank. Investment and Capital Infrastructure services (including Advances and Funding) are powered by Beatbread and other institutional capital partners. Payment and Remittance services are facilitated through regulated partners including Stitch (Pty) Ltd, Paystack, and Mukuru, which are authorized Financial Services Providers (FSPs) and/or regulated by the South African Reserve Bank (SARB), the Financial Conduct Authority (UK), and relevant authorities in the USA.
+                    </p>
+                    <p className="mx-auto mt-4 max-w-4xl text-[10px] leading-relaxed text-neutral-500">
+                        Capital at Risk. Music catalogs are alternative assets. Future earnings and valuation projections are estimates based on historical data and are not guaranteed. Any funding provided is subject to technical eligibility and credit assessment.
+                    </p>
+                    <p className="mx-auto mt-4 max-w-4xl text-[10px] leading-relaxed text-neutral-500 font-bold uppercase">
+                        Data Protection: Compliant with the AU Malabo Convention. SOC2 Type II & ISO 27001 Certified.
+                    </p>
                 </div>
 
                 {/* Bottom Bar */}

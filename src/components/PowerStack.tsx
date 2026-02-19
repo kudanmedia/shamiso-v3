@@ -8,94 +8,120 @@ import {
 import { Button } from "@/components/ui/button";
 import {
     Banknote,
-    Crown,
-    Wand2,
     Zap,
     ArrowRight,
+    Mic2,
+    CheckCircle2
 } from "lucide-react";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 const powerCards = [
     {
         icon: Banknote,
-        title: "Fintech Flow",
-        subtitle: "Artist Prosperity",
+        title: "Sovereign Capital Vault",
+        subtitle: "CAPITAL",
         description:
-            "Instant Advances via Beatbread. Zero-Fee Payouts via Paystack. Your Cash, On-Demand.",
+            "Access non-dilutive funding from $1k to $5M. Keep 100% of your masters. Institutional capital backed by your data.",
         cta: "Unlock Funding",
         href: "https://shamisomusic.chordcash.com",
-        gradient: "from-shamiso-gold/20 to-shamiso-gold/5",
-        iconColor: "text-shamiso-gold-bright",
-        borderColor: "hover:border-shamiso-gold/40",
+        gradient: "from-emerald-500/20 to-emerald-900/5",
+        iconColor: "text-emerald-400",
+        borderColor: "hover:border-emerald-500/40",
+        features: ["Up to $5 Million", "Keep 100% Masters", "Automated Repayment"]
     },
     {
         icon: Zap,
-        title: "Growth Engine",
-        subtitle: "Audience Mastery",
+        title: "AI Growth Engine",
+        subtitle: "GROWTH",
         description:
-            "Data-driven marketing via un:hurd. Smart Links & CRM via Feature.fm. Turn global listeners into stans instantly.",
-        cta: "Master Your Growth",
-        href: "#partners",
-        gradient: "from-shamiso-gold/20 to-shamiso-gold/5",
-        iconColor: "text-shamiso-gold-bright",
-        borderColor: "hover:border-shamiso-gold/40",
+            "Let AI find your fans on TikTok & Spotify. Automated playlisting and ad-targeting in the SSA-USA corridor.",
+        cta: "Scale My Growth",
+        href: "#promote",
+        gradient: "from-blue-500/20 to-blue-900/5",
+        iconColor: "text-blue-400",
+        borderColor: "hover:border-blue-500/40",
+        features: ["Spotify Playlisting", "TikTok Ad Auto-Pilot", "Fan Data Analytics"]
+    },
+    {
+        icon: Mic2,
+        title: "AI Studio Suite",
+        subtitle: "STUDIO",
+        description:
+            "Grammy-quality AI Mixing & Mastering. Professional sound optimized for global streaming standards.",
+        cta: "Master My Track",
+        href: "#promote",
+        gradient: "from-purple-500/20 to-purple-900/5",
+        iconColor: "text-purple-400",
+        borderColor: "hover:border-purple-500/40",
+        features: ["AI Mastering", "Stem Separation", "-14 LUFS Standards"]
     },
 ];
 
 export function PowerStack() {
     return (
-        <section id="services" className="relative py-24 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-black to-[#0a0800]" />
+        <section id="services" className="relative py-24 overflow-hidden bg-black">
+            <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
 
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Section header */}
                 <div className="mb-16 text-center">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-shamiso-gold-bright">
-                        The Power Stack
-                    </p>
-                    <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-                        Everything You Need to{" "}
-                        <span className="gradient-text">Win</span>
+                    <Badge variant="outline" className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright">
+                        THE POWER STACK (Music-as-a-Service)
+                    </Badge>
+                    <h2 className="text-3xl font-black text-white uppercase sm:text-4xl md:text-5xl">
+                        Everything You Need <span className="gradient-text">to Win</span>
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                        Distribution, funding, and AI tools — unified under one sovereign
-                        platform built for African artists.
+                    <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
+                        We don&apos;t just distribute your music. We fund your career, find your fans, and polish your sound.
                     </p>
                 </div>
 
                 {/* Cards grid */}
-                <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+                <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
                     {powerCards.map((card) => (
                         <Card
                             key={card.title}
-                            className={`glass-card group cursor-pointer border-shamiso-border bg-gradient-to-br ${card.gradient} ${card.borderColor} transition-all duration-300`}
+                            className={`glass-card group cursor-pointer border-white/5 bg-gradient-to-b ${card.gradient} ${card.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50`}
                         >
                             <CardHeader className="space-y-4">
-                                <div
-                                    className={`flex h-14 w-14 items-center justify-center rounded-xl bg-shamiso-surface/80 ${card.iconColor} shadow-lg`}
-                                >
-                                    <card.icon className="h-7 w-7" />
-                                </div>
-                                <div>
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">
+                                <div className="flex justify-between items-start">
+                                    <div
+                                        className={`flex h-14 w-14 items-center justify-center rounded-xl bg-black/40 ${card.iconColor} shadow-lg ring-1 ring-white/10`}
+                                    >
+                                        <card.icon className="h-7 w-7" />
+                                    </div>
+                                    <Badge variant="secondary" className="bg-black/40 text-xs font-bold text-white/70 hover:bg-black/60">
                                         {card.subtitle}
-                                    </p>
-                                    <CardTitle className="text-xl font-bold text-white">
+                                    </Badge>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <CardTitle className="text-2xl font-black text-white uppercase tracking-tight">
                                         {card.title}
                                     </CardTitle>
+                                    <CardDescription className="text-sm leading-relaxed text-neutral-400 font-medium">
+                                        {card.description}
+                                    </CardDescription>
                                 </div>
-                                <CardDescription className="text-sm leading-relaxed text-muted-foreground">
-                                    {card.description}
-                                </CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                <Link href={card.href}>
+                            <CardContent className="space-y-6">
+                                {/* Feature list */}
+                                <ul className="space-y-2">
+                                    {card.features.map((feature) => (
+                                        <li key={feature} className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wide">
+                                            <CheckCircle2 className={`h-3.5 w-3.5 ${card.iconColor}`} />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <Link href={card.href} className="block">
                                     <Button
-                                        variant="ghost"
-                                        className="group/btn -ml-4 text-sm font-semibold text-muted-foreground transition-colors hover:text-white"
+                                        className="w-full bg-white/5 hover:bg-white/10 text-white font-bold uppercase border border-white/10 group-hover:border-white/20"
                                     >
                                         {card.cta}
-                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                     </Button>
                                 </Link>
                             </CardContent>

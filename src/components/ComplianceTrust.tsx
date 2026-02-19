@@ -85,44 +85,7 @@ export function ComplianceTrust() {
                     </div>
                 </div>
 
-                {/* Trust badges */}
-                <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {[
-                        {
-                            icon: Shield,
-                            title: "FCA Regulated (UK)",
-                            desc: "Institutional financial rails",
-                        },
-                        {
-                            icon: Shield,
-                            title: "ISO 27001",
-                            desc: "Global security standard",
-                        },
-                        {
-                            icon: BadgeCheck,
-                            title: "SARB Compliant",
-                            desc: "South African Reserve Bank standards",
-                        },
-                        {
-                            icon: BadgeCheck,
-                            title: "Merlin Member",
-                            desc: "Institutional-grade rights advocacy",
-                        },
-                    ].map((badge) => (
-                        <div
-                            key={badge.title}
-                            className="flex items-start gap-3 rounded-xl border border-shamiso-gold/10 bg-white/[0.02] p-4 transition-colors hover:border-shamiso-gold/25"
-                        >
-                            <badge.icon className="h-5 w-5 shrink-0 text-shamiso-gold-bright" />
-                            <div>
-                                <p className="text-sm font-semibold text-white">
-                                    {badge.title}
-                                </p>
-                                <p className="text-xs text-muted-foreground">{badge.desc}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                {/* Trust badges removed as per user request */}
             </div>
         </section>
     );

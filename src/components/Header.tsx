@@ -22,10 +22,9 @@ const genreLinks = [
 ];
 
 const navLinks = [
-    { label: "The Vault", href: "/#vault" },
-    { label: "Sovereign Corridor", href: "/#corridor" },
-    { label: "Catalog Valuation", href: "/#valuation" },
-    { label: "MaaS Report", href: "/#maas" },
+    { label: "Promoting Music", href: "/#promote" },
+    { label: "Funding", href: "https://shamisomusic.chordcash.com" },
+    { label: "Pricing", href: "/pricing" },
 ];
 
 export function Header() {
@@ -79,7 +78,7 @@ export function Header() {
                                 type="button"
                                 className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-white hover:bg-white/5"
                             >
-                                Specialized Distribution
+                                Distributing Music
                                 <ChevronDown className="h-3.5 w-3.5" />
                             </button>
                         </DropdownMenuTrigger>
@@ -104,6 +103,7 @@ export function Header() {
                         <Link
                             key={link.label}
                             href={link.href}
+                            target={link.href.startsWith("http") ? "_blank" : undefined}
                             className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-white hover:bg-white/5"
                         >
                             {link.label}
@@ -143,7 +143,7 @@ export function Header() {
                                     size="sm"
                                     className="border-shamiso-gold/30 text-muted-foreground transition-all hover:border-shamiso-gold-bright hover:text-shamiso-gold-bright"
                                 >
-                                    Login
+                                    Log in
                                 </Button>
                             </Link>
                             <Link href="/signup">
@@ -152,7 +152,7 @@ export function Header() {
                                     className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40 hover:brightness-110"
                                 >
                                     <Fingerprint className="mr-2 h-4 w-4" />
-                                    ACCESS YOUR VAULT
+                                    Sign on
                                 </Button>
                             </Link>
                         </>
@@ -175,6 +175,7 @@ export function Header() {
                                 <Link
                                     key={link.label}
                                     href={link.href}
+                                    target={link.href.startsWith("http") ? "_blank" : undefined}
                                     className="rounded-md px-4 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-white/5 hover:text-white"
                                     onClick={() => setMobileOpen(false)}
                                 >
@@ -184,7 +185,7 @@ export function Header() {
 
                             <div className="px-4 py-2">
                                 <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-shamiso-gold-bright">
-                                    Specialized Distribution
+                                    Distributing Music
                                 </p>
                                 {genreLinks.map((link) => (
                                     <Link
@@ -229,13 +230,13 @@ export function Header() {
                                                 variant="outline"
                                                 className="w-full border-shamiso-gold/30 text-muted-foreground"
                                             >
-                                                Login
+                                                Log in
                                             </Button>
                                         </Link>
                                         <Link href="/signup" onClick={() => setMobileOpen(false)}>
                                             <Button className="w-full bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black">
                                                 <Fingerprint className="mr-2 h-4 w-4" />
-                                                ACCESS YOUR VAULT
+                                                Sign on
                                             </Button>
                                         </Link>
                                     </>

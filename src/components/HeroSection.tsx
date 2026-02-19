@@ -3,14 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { ArrowRight, Fingerprint, TrendingUp } from "lucide-react";
-
-const genrePills = [
-    { label: "Lekompo", href: "/distribute-lekompo" },
-    { label: "3-Step", href: "/distribute-3-step" },
-    { label: "Maskandi", href: "/distribute-maskandi" },
-    { label: "Afro House", href: "/distribute-lekompo#afro-house" },
-];
+import { ArrowRight, Fingerprint, TrendingUp, ShieldCheck } from "lucide-react";
 
 const trustPartners = [
     { name: "Paystack", logo: "/paystack-2.svg" },
@@ -54,81 +47,61 @@ export function HeroSection() {
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20">
                     <div className="max-w-4xl">
-                        {/* System Ticker */}
+                        {/* Recapture Ticker */}
                         <div className="mb-12 inline-flex items-center gap-6 rounded-full border border-shamiso-gold/20 bg-shamiso-gold/5 px-6 py-2.5 backdrop-blur-sm">
                             <div className="flex items-center gap-2">
-                                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Live System Ticker</span>
+                                <span className="relative flex h-3 w-3">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                                </span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Live Recapture Ticker</span>
                             </div>
                             <div className="h-4 w-px bg-shamiso-gold/20" />
                             <div className="flex gap-4 overflow-hidden text-xs font-medium text-shamiso-gold-bright">
                                 <span className="flex items-center gap-1.5 whitespace-nowrap">
-                                    USD/ZAR 19.12 <TrendingUp className="h-3 w-3 text-emerald-500" />
+                                    <ShieldCheck className="h-3 w-3 text-emerald-500" />
+                                    <span className="font-bold text-white tracking-wide">RECAPTURED FOR ARTISTS: $14.2M</span>
                                 </span>
-                                <span className="flex items-center gap-1.5 whitespace-nowrap">
-                                    USD/NGN 1,450.00 <TrendingUp className="h-3 w-3 text-emerald-500" />
-                                </span>
-                                <div className="h-4 w-px bg-shamiso-gold/10" />
-                                <span className="whitespace-nowrap font-bold text-white">RECAPTURED: $14.2M</span>
                             </div>
                         </div>
 
                         {/* H1 */}
                         <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl">
-                            The Global Financial Bridge<br />
-                            <span className="gradient-text">For African Music.</span>
+                            Stop Losing 30% of Your Money.<br />
+                            <span className="gradient-text">Get Paid Like a Global Star.</span>
                         </h1>
 
                         {/* Subtitle */}
-                        <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl">
-                            Stop losing 30% of your US royalties to foreign taxes. Claim your sovereignty with Africa&apos;s first institutional-grade music investment infrastructure.
+                        <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl font-light">
+                            Join Africa&apos;s first institutional music infrastructure. Return your rightful earnings, access funding up to <span className="text-white font-bold">$5 Million</span>, and master your sound with AI—all in one Sovereign Vault.
                         </p>
 
                         {/* CTAs */}
-                        <div className="mb-10 flex flex-col gap-4 sm:flex-row">
+                        <div className="mb-16 flex flex-col gap-4 sm:flex-row">
                             <Link href="/signup">
                                 <Button
                                     size="lg"
-                                    className="bg-shamiso-gold-bright px-10 py-6 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110"
+                                    className="bg-shamiso-gold-bright px-10 py-7 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110 w-full sm:w-auto"
                                 >
                                     <Fingerprint className="mr-2 h-5 w-5" />
-                                    RECLAIM YOUR 30% NOW
+                                    Reclaim My 30% Now
                                 </Button>
                             </Link>
                             <Link href="#valuation">
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="border-2 border-white/80 px-10 py-6 text-base font-bold uppercase text-white transition-all hover:bg-white/10 hover:border-white"
+                                    className="border-2 border-white/80 px-10 py-7 text-base font-bold uppercase text-white transition-all hover:bg-white/10 hover:border-white w-full sm:w-auto"
                                 >
-                                    VIEW CATALOG VALUATION
+                                    Check My Catalog Value
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>
                         </div>
-
-                        {/* Genre Pills */}
-                        <div className="mb-12">
-                            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-neutral-500">
-                                Specializing in
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                                {genrePills.map((pill) => (
-                                    <Link key={pill.label} href={pill.href}>
-                                        <Badge
-                                            variant="outline"
-                                            className="cursor-pointer border-shamiso-gold/30 bg-shamiso-gold/8 px-4 py-1.5 text-sm font-medium text-shamiso-gold-bright transition-all hover:border-shamiso-gold-bright hover:bg-shamiso-gold/20 hover:shadow-md hover:shadow-shamiso-gold/10"
-                                        >
-                                            {pill.label}
-                                        </Badge>
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
                     </div>
 
                     {/* Trust partners ticker */}
-                    <div className="w-full overflow-hidden rounded-xl border border-shamiso-gold/15 bg-black/40 py-4 backdrop-blur-md">
+                    <div className="w-full overflow-hidden rounded-xl border border-shamiso-gold/15 bg-black/40 py-6 backdrop-blur-md">
                         <div className="flex animate-ticker items-center gap-12 whitespace-nowrap">
                             {[...trustPartners, ...trustPartners].map((partner, i) => (
                                 <div

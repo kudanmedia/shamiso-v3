@@ -7,7 +7,7 @@
  */
 
 const CITIES = [
-    { name: "London", x: 988, y: 168, label: "UK HQ", stat: "FCA Regulated", anchor: "end" as const },
+    { name: "London", x: 988, y: 168, label: "UK HQ", stat: "Global Capital", anchor: "end" as const },
     { name: "Lagos", x: 1043, y: 453, label: "West Africa", stat: "Paystack Payouts", anchor: "start" as const },
     { name: "Johannesburg", x: 1145, y: 660, label: "Southern Africa", stat: "ZAR On-Ramp", anchor: "start" as const },
     { name: "Accra", x: 999, y: 460, label: "Ghana", stat: "MoMo Enabled", anchor: "end" as const },
