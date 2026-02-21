@@ -61,20 +61,20 @@ export function HeroSection() {
 
                         {/* H1 */}
                         <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl">
-                            Stop Losing 30% of Your Money.<br />
-                            <span className="gradient-text">Get Paid Like a Global Star.</span>
+                            Stop Renting Your Fans.<br />
+                            <span className="gradient-text">Start Owning Your Future.</span>
                         </h1>
 
                         {/* Subtitle */}
                         <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl font-light">
-                            Join Africa&apos;s first institutional music infrastructure. Return your rightful earnings, access funding up to <span className="text-white font-bold">$5 Million</span>, and master your sound with AI—all in one Sovereign Vault.
+                            South Africa’s first D2C-integrated distribution agency. Sell direct, get paid instantly, and break the 90-day royalty cycle. Keep 100% of your data and 100% of your D2C revenue with our integrated <span className="text-white font-bold">Even™ Engine</span>.
                         </p>
 
                         {/* Additional Info */}
                         <div className="mb-10 grid gap-4 sm:grid-cols-2 max-w-2xl">
                             <div className="flex flex-col gap-2 p-4 rounded-xl border border-shamiso-gold/20 bg-shamiso-gold/5">
                                 <p className="text-sm font-bold text-white uppercase tracking-tight">Non-Dilutive Funding</p>
-                                <p className="text-xs text-neutral-400">Get non dilutive funding up to $5M. Keep 100% of your masters</p>
+                                <p className="text-xs text-neutral-400">Get non-dilutive funding up to $5M. Keep 100% of your masters</p>
                                 <Link href="https://shamisomusic.chordcash.com" target="_blank">
                                     <Button variant="link" className="p-0 h-auto text-shamiso-gold-bright text-xs font-bold uppercase">
                                         Check funding eligibility <ArrowRight className="ml-1 h-3 w-3" />
@@ -82,8 +82,8 @@ export function HeroSection() {
                                 </Link>
                             </div>
                             <div className="flex flex-col gap-2 p-4 rounded-xl border border-white/10 bg-white/5">
-                                <p className="text-sm font-bold text-white uppercase tracking-tight">Sovereign Distributor</p>
-                                <p className="text-xs text-neutral-400">The Sovereign distributor Lekompo, 3-Step, Afro House, Amapiano</p>
+                                <p className="text-sm font-bold text-white uppercase tracking-tight">Sovereign Home</p>
+                                <p className="text-xs text-neutral-400">Integrated D2C + Strategic Distribution: Amapiano, Afro House, 3-Step, Lekompo</p>
                                 <Link href="/#services">
                                     <Button variant="link" className="p-0 h-auto text-white/60 text-xs font-bold uppercase">
                                         View Strategic Genres <ArrowRight className="ml-1 h-3 w-3" />
@@ -100,16 +100,16 @@ export function HeroSection() {
                                     className="bg-shamiso-gold-bright px-10 py-7 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110 w-full sm:w-auto"
                                 >
                                     <Fingerprint className="mr-2 h-5 w-5" />
-                                    Reclaim My 30% Now
+                                    Start Selling Now
                                 </Button>
                             </Link>
-                            <Link href="#valuation">
+                            <Link href="#services">
                                 <Button
                                     variant="outline"
                                     size="lg"
                                     className="border-2 border-white/80 px-10 py-7 text-base font-bold uppercase text-white transition-all hover:bg-white/10 hover:border-white w-full sm:w-auto"
                                 >
-                                    Check My Catalog Value
+                                    Distribute Everywhere Else
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>

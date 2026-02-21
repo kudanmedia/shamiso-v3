@@ -76,13 +76,13 @@ const powerCards = [
         title: "Direct-To-Fan",
         subtitle: "SELL",
         description:
-            "Let artists sell music, content, merchandise, tickets, & exclusive experiences directly to superfans.",
-        cta: "Access D2C Storefronts",
+            "Sell music directly to fans before global release. Keep 100% of your data and revenue with our integrated Even™ engine.",
+        cta: "Start Your D2C Campaign",
         href: "https://portal.shamiso-music.com",
         gradient: "from-orange-500/20 to-orange-900/5",
         iconColor: "text-orange-400",
         borderColor: "hover:border-orange-500/40",
-        features: ["Sales engagement service", "Consumer-facing discovery", "Daily payouts"]
+        features: ["Early access sales", "Collect fan emails", "Instant payouts"]
     },
 ];
 
