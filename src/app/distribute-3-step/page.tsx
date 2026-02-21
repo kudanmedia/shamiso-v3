@@ -29,7 +29,7 @@ export default function DistributeThreeStep() {
         <GenrePage
             genre="3-Step"
             tagline="South Africa's dance floor anthem, heard worldwide."
-            description="3-Step is the pulse of South Africa's nightlife. Shamiso's specialized distribution ensures your 3-Step tracks reach the playlists, DJs, and audiences that matter — from Johannesburg to London to Lagos."
+            description="3-Step is the pulse of South Africa's nightlife. Shamiso's specialized distribution ensures your 3-Step tracks reach the 450 Stores and audiences that matter — from Durban (Umlazi, Lamontville), Pietermaritzburg to London, New York to Lagos."
             highlights={highlights}
             stores="450"
             relatedGenres={relatedGenres}

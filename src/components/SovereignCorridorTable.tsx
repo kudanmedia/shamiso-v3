@@ -5,35 +5,31 @@ import { Badge } from "@/components/ui/badge";
 
 const comparisonData = [
     {
-        feature: "Tax Status",
+        feature: "Taxes",
         icon: ShieldCheck,
-        smd: "0% (Tax Shield)",
-        distrokid: "30% US Withholding",
-        unitedmasters: "Variable (Treaty Dependent)",
+        smd: "Keep 100%. You don't lose money to US tax withholding.",
+        rivals: "Lose up to 30%. They take a large chunk for US taxes.",
         highlight: true
     },
     {
-        feature: "Funding Access",
+        feature: "Funding",
         icon: Banknote,
-        smd: "Up to $5M (Vault)",
-        distrokid: "None / Third-party",
-        unitedmasters: "Invite Only",
+        smd: "Easy access. You can get up to $5M to grow your career.",
+        rivals: "Hard to get. Usually no funding, or you have to be invited.",
         highlight: true
     },
     {
-        feature: "Payout Speed",
+        feature: "Getting Paid",
         icon: Clock,
-        smd: "Instant (MoMo/RTC)",
-        distrokid: "3–5 Days (SWIFT)",
-        unitedmasters: "1–3 Days",
+        smd: "Instant. Money hits your account immediately.",
+        rivals: "Slow. You have to wait 1 to 5 days for transfers.",
         highlight: false
     },
     {
-        feature: "AI Integration",
+        feature: "AI Tools",
         icon: Zap,
-        smd: "Production + Promo",
-        distrokid: "Promo Only",
-        unitedmasters: "Promo Only",
+        smd: "Full Support. AI helps you make and promote music.",
+        rivals: "Basic. AI only helps with basic promotion.",
         highlight: false
     },
 ];
@@ -47,10 +43,10 @@ export function SovereignCorridorTable() {
                         The Competitive Moat
                     </Badge>
                     <h2 className="text-3xl font-black text-white uppercase sm:text-4xl md:text-5xl">
-                        Why We <span className="gradient-text">Win</span>
+                        Why Artists choose <span className="gradient-text">Shamiso Music Distribution</span>
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
-                        Institutional-grade financial rails vs. Legacy distribution. The choice is yours.
+                        Institutional-grade financial rails (modern, bank-level) technology vs. Legacy distribution (old-school) systems. The choice is yours.
                     </p>
                 </div>
 
@@ -59,12 +55,11 @@ export function SovereignCorridorTable() {
                         <table className="w-full text-left border-collapse">
                             <thead>
                                 <tr className="bg-white/5">
-                                    <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-neutral-500 w-1/4">Feature</th>
-                                    <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-shamiso-gold-bright w-1/4 bg-shamiso-gold/5 border-t-4 border-shamiso-gold-bright">
+                                    <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-neutral-500 w-1/3">Feature</th>
+                                    <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-shamiso-gold-bright w-1/3 bg-shamiso-gold/5 border-t-4 border-shamiso-gold-bright">
                                         SMD (The Displacer)
                                     </th>
-                                    <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-neutral-500 w-1/4 opacity-60">DistroKid / Ditto</th>
-                                    <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-neutral-500 w-1/4 opacity-60">UnitedMasters</th>
+                                    <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-neutral-500 w-1/3 opacity-60">Traditional Rivals (DistroKid, etc.)</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/5">
@@ -94,34 +89,14 @@ export function SovereignCorridorTable() {
                                             )}
                                         </td>
 
-                                        {/* DistroKid Column */}
+                                        {/* Rivals Column */}
                                         <td className="px-8 py-6 opacity-60">
                                             <div className="flex items-center gap-3">
-                                                {row.distrokid.includes("None") || row.distrokid.includes("30%") || row.distrokid.includes("Variable") ? (
-                                                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500/20 text-red-500">
-                                                        <X className="h-4 w-4" />
-                                                    </div>
-                                                ) : (
-                                                    <div className="w-6" />
-                                                )}
+                                                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500/20 text-red-500">
+                                                    <X className="h-4 w-4" />
+                                                </div>
                                                 <span className="text-sm font-medium text-neutral-400">
-                                                    {row.distrokid}
-                                                </span>
-                                            </div>
-                                        </td>
-
-                                        {/* UnitedMasters Column */}
-                                        <td className="px-8 py-6 opacity-60">
-                                            <div className="flex items-center gap-3">
-                                                {row.unitedmasters.includes("Invite") || row.unitedmasters.includes("Variable") ? (
-                                                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/20 text-yellow-500">
-                                                        <div className="h-2 w-2 rounded-full bg-current" />
-                                                    </div>
-                                                ) : (
-                                                    <div className="w-6" />
-                                                )}
-                                                <span className="text-sm font-medium text-neutral-400">
-                                                    {row.unitedmasters}
+                                                    {row.rivals}
                                                 </span>
                                             </div>
                                         </td>

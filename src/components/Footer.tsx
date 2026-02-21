@@ -7,7 +7,8 @@ const solutions = [
     { label: "Distribute Lekompo", href: "/distribute-lekompo" },
     { label: "Distribute 3-Step", href: "/distribute-3-step" },
     { label: "Distribute Maskandi", href: "/distribute-maskandi" },
-    { label: "Distribute Afro House", href: "/distribute-lekompo#afro-house" },
+    { label: "Distribute Afro House", href: "/distribute-afro-house" },
+    { label: "Distribute Amapiano", href: "/distribute-amapiano" },
 ];
 
 const quickLinks = [
@@ -22,9 +23,11 @@ const quickLinks = [
 const services = [
     { label: "Beatbread (Funding)", href: "https://shamisomusic.chordcash.com/" },
     { label: "Feature:FM", href: "https://developers.feature.fm/" },
+    { label: "un:hurd", href: "https://www.unhurdmusic.com/p/shamiso" },
     { label: "Groover", href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music" },
-    { label: "ROEX (Coming Soon)", href: "#" },
-    { label: "Roto Videos", href: "https://rotorvideos.com/shamiso" },
+    { label: "Rotor Videos", href: "https://rotorvideos.com/shamiso" },
+    { label: "ROEX", href: "https://automix.roexaudio.com/?via=06e63a" },
+    { label: "Mix Check Studio", href: "https://mixcheckstudio.roexaudio.com/?via=07431b" },
     { label: "Song Tools", href: "https://amplifiedpro.songtools.io/" },
 ];
 
@@ -44,7 +47,7 @@ export function Footer() {
                                 className="h-8 w-auto"
                             />
                         </Link>
-                        <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+                        <p className="max-w-xs py-2 text-sm leading-relaxed text-muted-foreground">
                             The Sovereign Music Investment Infrastructure & MaaS Architecture for the Global South: A Fintech led & Data Intelligence Ecosystem uniting the SSA, UK, and USA Creative Corridors.
                         </p>
                     </div>
@@ -115,13 +118,10 @@ export function Footer() {
                 {/* Compliance Footer */}
                 <div className="mb-12 text-center">
                     <p className="mx-auto max-w-4xl text-[10px] leading-relaxed text-neutral-500">
-                        Shamiso Music Group (Pty) Ltd and its subsidiaries (collectively &quot;Shamiso&quot;) are financial technology and digital infrastructure providers. Shamiso is not a bank. Investment and Capital Infrastructure services (including Advances and Funding) are powered by Beatbread and other institutional capital partners. Payment and Remittance services are facilitated through regulated partners including Stitch (Pty) Ltd, Paystack, and Mukuru, which are authorized Financial Services Providers (FSPs) and/or regulated by the South African Reserve Bank (SARB), the Financial Conduct Authority (UK), and relevant authorities in the USA.
+                        Shamiso is a fintech and digital infrastructure provider, not a bank. Capital services and funding are provided via institutional partners. All payment and remittance services are facilitated through regulated FSPs and entities authorized by the SARB, FCA, and relevant US regulators.
                     </p>
                     <p className="mx-auto mt-4 max-w-4xl text-[10px] leading-relaxed text-neutral-500">
-                        Capital at Risk. Music catalogs are alternative assets. Future earnings and valuation projections are estimates based on historical data and are not guaranteed. Any funding provided is subject to technical eligibility and credit assessment.
-                    </p>
-                    <p className="mx-auto mt-4 max-w-4xl text-[10px] leading-relaxed text-neutral-500 font-bold uppercase">
-                        Data Protection: Compliant with the AU Malabo Convention. SOC2 Type II & ISO 27001 Certified.
+                        Asset Disclosure: Music catalogs are alternative assets; capital is at risk. Projections are estimates and not guaranteed. Funding is subject to technical assessment.
                     </p>
                 </div>
 

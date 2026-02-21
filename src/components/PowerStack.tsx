@@ -11,7 +11,9 @@ import {
     Zap,
     ArrowRight,
     Mic2,
-    CheckCircle2
+    CheckCircle2,
+    Share2,
+    Video
 } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -35,9 +37,9 @@ const powerCards = [
         title: "AI Growth Engine",
         subtitle: "GROWTH",
         description:
-            "Let AI find your fans on TikTok & Spotify. Automated playlisting and ad-targeting in the SSA-USA corridor.",
+            "Let AI find your fans on TikTok & Spotify. Automated playlisting and ad-targeting in the SSA-UK-USA corridor.",
         cta: "Scale My Growth",
-        href: "#promote",
+        href: "/#promote",
         gradient: "from-blue-500/20 to-blue-900/5",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/40",
@@ -50,11 +52,37 @@ const powerCards = [
         description:
             "Grammy-quality AI Mixing & Mastering. Professional sound optimized for global streaming standards.",
         cta: "Master My Track",
-        href: "#promote",
+        href: "/#promote",
         gradient: "from-purple-500/20 to-purple-900/5",
         iconColor: "text-purple-400",
         borderColor: "hover:border-purple-500/40",
         features: ["AI Mastering", "Stem Separation", "-14 LUFS Standards"]
+    },
+    {
+        icon: Video,
+        title: "MUSIC VIDEO CREATOR",
+        subtitle: "VISUALISE",
+        description:
+            "Make music videos, promo videos, Spotify canvas videos and lyric videos in minutes.",
+        cta: "Online Music Video Creation",
+        href: "https://rotorvideos.com/shamiso",
+        gradient: "from-pink-500/20 to-pink-900/5",
+        iconColor: "text-pink-400",
+        borderColor: "hover:border-pink-500/40",
+        features: ["Visualizers", "Lyric videos", "Spotify Canvas"]
+    },
+    {
+        icon: Share2,
+        title: "Direct-To-Fan",
+        subtitle: "SELL",
+        description:
+            "Let artists sell music, content, merchandise, tickets, & exclusive experiences directly to superfans.",
+        cta: "Access D2C Storefronts",
+        href: "https://portal.shamiso-music.com",
+        gradient: "from-orange-500/20 to-orange-900/5",
+        iconColor: "text-orange-400",
+        borderColor: "hover:border-orange-500/40",
+        features: ["Sales engagement service", "Consumer-facing discovery", "Daily payouts"]
     },
 ];
 
@@ -67,18 +95,18 @@ export function PowerStack() {
                 {/* Section header */}
                 <div className="mb-16 text-center">
                     <Badge variant="outline" className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright">
-                        THE POWER STACK (Music-as-a-Service)
+                        THE SHAMISO MUSIC DISTRIBUTION POWER STACK (Music-as-a-Service)
                     </Badge>
                     <h2 className="text-3xl font-black text-white uppercase sm:text-4xl md:text-5xl">
                         Everything You Need <span className="gradient-text">to Win</span>
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
-                        We don&apos;t just distribute your music. We fund your career, find your fans, and polish your sound.
+                        We don&apos;t just distribute your music. We fund your career, find your fans, create music videos and polish your sound.
                     </p>
                 </div>
 
                 {/* Cards grid */}
-                <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
                     {powerCards.map((card) => (
                         <Card
                             key={card.title}

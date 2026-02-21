@@ -11,7 +11,7 @@ const CITIES = [
     { name: "Lagos", x: 1043, y: 453, label: "West Africa", stat: "Paystack Payouts", anchor: "start" as const },
     { name: "Johannesburg", x: 1145, y: 660, label: "Southern Africa", stat: "ZAR On-Ramp", anchor: "start" as const },
     { name: "Accra", x: 999, y: 460, label: "Ghana", stat: "MoMo Enabled", anchor: "end" as const },
-    { name: "Nairobi", x: 1205, y: 438, label: "East Africa", stat: "M-Pesa Ready", anchor: "start" as const },
+    { name: "Nairobi", x: 1210, y: 505, label: "East Africa", stat: "M-Pesa Ready", anchor: "start" as const },
     { name: "New York", x: 585, y: 258, label: "USA", stat: "30% Tax Saving", anchor: "end" as const },
 ];
 
@@ -164,6 +164,15 @@ export function CorridorMap() {
                                 <p className="mt-1 text-[10px] font-medium text-white">{city.stat}</p>
                             </div>
                         ))}
+                    </div>
+
+                    <div className="mt-12 text-center">
+                        <p className="mx-auto max-w-4xl text-lg font-medium leading-relaxed text-neutral-400">
+                            From your <span className="text-white font-bold uppercase">BEDROOM</span> in Soweto, Johannesburg (Braamfontein), Pretoria (Soshanguve), Ivory Park, Durban (Umlazi, Lamontville), Pietermaritzburg, Polokwane to a <span className="text-shamiso-gold-bright font-bold uppercase">CLUB</span> in LONDON, NEW YORK, PARIS.
+                        </p>
+                        <p className="mx-auto mt-4 max-w-3xl text-base text-neutral-500 italic">
+                            You keep <span className="text-white font-bold">100% of your sovereignty</span> and recapture <span className="text-shamiso-gold-bright font-bold">30% of the wealth</span> that foreign distributors ignored for decades.
+                        </p>
                     </div>
                 </div>
             </div>

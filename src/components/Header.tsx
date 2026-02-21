@@ -19,6 +19,8 @@ const genreLinks = [
     { label: "Lekompo", href: "/distribute-lekompo" },
     { label: "3-Step", href: "/distribute-3-step" },
     { label: "Maskandi", href: "/distribute-maskandi" },
+    { label: "Afro House", href: "/distribute-afro-house" },
+    { label: "Amapiano", href: "/distribute-amapiano" },
 ];
 
 const navLinks = [
@@ -78,7 +80,7 @@ export function Header() {
                                 type="button"
                                 className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-white hover:bg-white/5"
                             >
-                                Distributing Music
+                                Strategic Genres
                                 <ChevronDown className="h-3.5 w-3.5" />
                             </button>
                         </DropdownMenuTrigger>
@@ -185,7 +187,7 @@ export function Header() {
 
                             <div className="px-4 py-2">
                                 <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-shamiso-gold-bright">
-                                    Distributing Music
+                                    STRATEGIC GENRES
                                 </p>
                                 {genreLinks.map((link) => (
                                     <Link

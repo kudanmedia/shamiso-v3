@@ -42,7 +42,7 @@ export function GenrePage({
                             className="mb-6 border-shamiso-accent/30 bg-shamiso-accent/10 px-4 py-1.5 text-shamiso-accent font-semibold"
                         >
                             <Music2 className="mr-2 h-3.5 w-3.5" />
-                            Specialized Distribution
+                            STRATEGIC GENRE
                         </Badge>
 
                         <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">

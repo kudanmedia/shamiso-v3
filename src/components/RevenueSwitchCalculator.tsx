@@ -90,7 +90,7 @@ export function RevenueSwitchCalculator() {
                                 <div className="relative overflow-hidden rounded-2xl bg-neutral-900/40 border border-white/5 p-8 flex flex-col justify-between group hover:bg-neutral-900/60 transition-colors">
                                     <div>
                                         <div className="mb-6 flex items-center justify-between">
-                                            <span className="text-xs font-black uppercase tracking-widest text-neutral-500">Legacy Distributor</span>
+                                            <span className="text-xs font-black uppercase tracking-widest text-neutral-500">Your Distributor</span>
                                             <TrendingDown className="h-5 w-5 text-red-500/80" />
                                         </div>
                                         <div className="space-y-3 mb-8">
@@ -122,8 +122,8 @@ export function RevenueSwitchCalculator() {
 
                                     <div>
                                         <div className="mb-6 flex items-center justify-between relative z-10">
-                                            <span className="text-xs font-black uppercase tracking-widest text-shamiso-gold-bright">SMD Sovereign</span>
-                                            <Badge className="bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border-emerald-500/20 text-[10px] px-2 py-0.5 h-auto">RECOMMENDED</Badge>
+                                            <span className="text-xs font-black uppercase tracking-widest text-shamiso-gold-bright">Shamiso Music Distribution</span>
+                                            <Badge className="bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border-emerald-500/20 text-[10px] px-2 py-0.5 h-auto">(RECOMMENDED)</Badge>
                                         </div>
                                         <div className="space-y-3 mb-8 relative z-10">
                                             <div className="flex justify-between text-sm">
@@ -160,6 +160,7 @@ export function RevenueSwitchCalculator() {
                                     <p className="text-3xl font-black text-white leading-none mt-1">
                                         +R{monthlySavingZAR.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-lg text-neutral-500 font-medium">/mo</span>
                                     </p>
+                                    <p className="text-xs text-neutral-400 mt-1">(extra money you will get per month)</p>
                                 </div>
                             </div>
 
