@@ -145,7 +145,7 @@ export function PricingSection() {
         <section id="pricing" className="relative py-24 bg-black/40">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
-                    <Badge variant="outline" className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright uppercase tracking-widest">
+                    <Badge className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright uppercase tracking-widest">
                         SMD Subscription Pricing and Benefits Plan
                     </Badge>
                     <h2 className="text-4xl font-black text-white uppercase sm:text-5xl">
