@@ -130,7 +130,7 @@ export function HeroSection() {
                                 {[...trustPartners, ...trustPartners, ...trustPartners, ...trustPartners, ...trustPartners, ...trustPartners].map((partner, i) => (
                                     <div
                                         key={`${partner.name}-${i}`}
-                                        className="flex items-center justify-center opacity-50 transition-opacity hover:opacity-100 grayscale hover:grayscale-0"
+                                        className="flex items-center justify-center opacity-80 transition-opacity hover:opacity-100 grayscale hover:grayscale-0"
                                     >
                                         {partner.logo ? (
                                             <img
