@@ -39,12 +39,11 @@ export function CorridorMap() {
                     <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-shamiso-gold-bright">
                         The Corridor
                     </p>
-                    <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-                        SSA → UK → <span className="gradient-text">Global</span>
+                    <h2 className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl md:text-5xl">
+                        SSA → UK → USA <span className="gradient-text">→ Global</span>
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                        Purpose-built infrastructure connecting Sub-Saharan Africa to
-                        the world&apos;s biggest music markets.
+                    <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
+                        Purpose-built infrastructure connecting Sub-Saharan Africa to the world&apos;s biggest music markets.
                     </p>
                 </div>
 

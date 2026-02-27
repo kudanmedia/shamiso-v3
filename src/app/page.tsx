@@ -7,6 +7,7 @@ import { SovereignCorridorTable } from "@/components/SovereignCorridorTable";
 import { SovereignMultiplier } from "@/components/SovereignMultiplier";
 import { PricingSection } from "@/components/PricingSection";
 import { D2CSection } from "@/components/D2CSection";
+import { StrategicGenres } from "@/components/StrategicGenres";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <RevenueSwitchCalculator />
       <PowerStack />
       <D2CSection />
+      <StrategicGenres />
       <SovereignCorridorTable />
       <SovereignMultiplier />
       <PricingSection />

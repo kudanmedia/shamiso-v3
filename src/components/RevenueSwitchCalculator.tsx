@@ -26,7 +26,7 @@ export function RevenueSwitchCalculator() {
     const smdTotalUSD = monthlyRevenueUSD;
 
     const monthlySavingUSD = smdTotalUSD - westernTotalUSD;
-    const monthlySavingZAR = monthlySavingUSD * ZAR_RATE;
+    const annualSavingUSD = monthlySavingUSD * 12;
 
     return (
         <section id="vault" className="relative py-24 bg-black/40">
@@ -39,7 +39,7 @@ export function RevenueSwitchCalculator() {
                         Calculate Your <span className="gradient-text">Bonus</span>
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
-                        See exactly how much extra cash you earn just by switching your infrastructure.
+                        See exactly how much extra cash you earn just by switching to Shamiso Music Distribution.
                     </p>
                 </div>
 
@@ -60,7 +60,7 @@ export function RevenueSwitchCalculator() {
                                     <input
                                         type="range"
                                         min="5000"
-                                        max="1000000"
+                                        max="5000000"
                                         step="5000"
                                         value={streams}
                                         onChange={(e) => setStreams(parseInt(e.target.value))}
@@ -69,7 +69,9 @@ export function RevenueSwitchCalculator() {
                                     <div className="mt-3 flex justify-between text-xs font-bold uppercase text-neutral-600">
                                         <span>5K</span>
                                         <span>500K</span>
-                                        <span>1M+</span>
+                                        <span>1M</span>
+                                        <span>2.5M</span>
+                                        <span>5M</span>
                                     </div>
                                 </div>
 
@@ -150,22 +152,36 @@ export function RevenueSwitchCalculator() {
                         </div>
 
                         {/* Analysis Footer */}
-                        <div className="mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="mt-8 pt-8 border-t border-white/5 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             <div className="flex items-center gap-4">
                                 <div className="h-12 w-12 rounded-full bg-shamiso-gold-bright/10 flex items-center justify-center text-shamiso-gold-bright">
                                     <Wallet className="h-6 w-6" />
                                 </div>
                                 <div className="text-left">
-                                    <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">Your Monthly Sovereign Bonus</p>
+                                    <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">Monthly Sovereign Bonus</p>
                                     <p className="text-3xl font-black text-white leading-none mt-1">
-                                        +R{monthlySavingZAR.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-lg text-neutral-500 font-medium">/mo</span>
+                                        +${monthlySavingUSD.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-lg text-neutral-500 font-medium">/mo</span>
                                     </p>
-                                    <p className="text-xs text-neutral-400 mt-1">(extra money you will get per month)</p>
+                                    <p className="text-xs text-neutral-400 mt-1">(extra money you keep per month)</p>
                                 </div>
                             </div>
 
-                            <div className="text-right">
-                                <p className="text-sm text-neutral-400 mb-1">This isn&apos;t a gift. It&apos;s your right.</p>
+                            <div className="flex items-center gap-4">
+                                <div className="h-12 w-12 rounded-full bg-shamiso-gold-bright/20 flex items-center justify-center text-shamiso-gold-bright shadow-lg shadow-shamiso-gold/20">
+                                    <TrendingUp className="h-6 w-6" />
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-xs font-bold uppercase tracking-widest text-shamiso-gold-bright">Annual Sovereign Bonus</p>
+                                    <p className="text-4xl font-black text-white leading-none mt-1">
+                                        +${annualSavingUSD.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-xl text-shamiso-gold-bright font-medium">/yr</span>
+                                    </p>
+                                    <p className="text-xs text-neutral-400 mt-1">(recaptured yearly revenue)</p>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center md:items-end text-right">
+                                <p className="text-lg font-bold text-white mb-1 uppercase italic tracking-tighter">This isn&apos;t a gift. It&apos;s your right.</p>
+                                <p className="text-xs text-neutral-500 uppercase tracking-widest font-bold">Switch to Sovereign Infrastructure</p>
                             </div>
                         </div>
                     </Card>

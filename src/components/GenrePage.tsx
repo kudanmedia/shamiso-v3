@@ -9,6 +9,7 @@ import {
     Zap,
     ArrowRight,
     CheckCircle2,
+    Fingerprint,
 } from "lucide-react";
 
 interface GenrePageProps {
@@ -59,15 +60,15 @@ export function GenrePage({
                         </p>
 
                         <div className="mb-10 flex flex-col gap-4 sm:flex-row">
-                            <a href="https://portal.shamiso-music.com" target="_blank" rel="noopener noreferrer">
+                            <Link href="/signup">
                                 <Button
                                     size="lg"
                                     className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright px-8 text-base font-bold text-black shadow-xl shadow-shamiso-gold/20 hover:shadow-shamiso-gold/40"
                                 >
-                                    <Zap className="mr-2 h-5 w-5" />
-                                    Start Distributing {genre}
+                                    <Fingerprint className="mr-2 h-5 w-5" />
+                                    Join Shamiso
                                 </Button>
-                            </a>
+                            </Link>
                             <Button
                                 variant="outline"
                                 size="lg"
@@ -104,28 +105,42 @@ export function GenrePage({
                         ))}
                     </div>
 
-                    {/* Stats row */}
-                    <div className="mt-16 grid gap-6 sm:grid-cols-3">
-                        <div className="glass-card rounded-xl border border-shamiso-border p-6 text-center">
-                            <Store className="mx-auto mb-3 h-8 w-8 text-shamiso-gold" />
-                            <p className="text-3xl font-extrabold text-white">{stores}+</p>
-                            <p className="text-sm text-muted-foreground">
-                                Stores & Platforms
-                            </p>
+                    {/* Even™ Engine Benefits */}
+                    <div className="mt-24 space-y-8">
+                        <div className="text-center sm:text-left">
+                            <Badge variant="outline" className="mb-4 border-shamiso-gold/30 bg-shamiso-gold/10 text-shamiso-gold">
+                                <Zap className="mr-1.5 h-3 w-3" />
+                                POWERED BY EVEN™ ENGINE
+                            </Badge>
+                            <h3 className="text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
+                                The <span className="text-shamiso-gold-bright">Even™</span> Advantage
+                            </h3>
                         </div>
-                        <div className="glass-card rounded-xl border border-shamiso-border p-6 text-center">
-                            <DollarSign className="mx-auto mb-3 h-8 w-8 text-shamiso-gold" />
-                            <p className="text-3xl font-extrabold text-white">30%</p>
-                            <p className="text-sm text-muted-foreground">
-                                Saved on US Tax Withholding
-                            </p>
-                        </div>
-                        <div className="glass-card rounded-xl border border-shamiso-border p-6 text-center">
-                            <Shield className="mx-auto mb-3 h-8 w-8 text-shamiso-accent" />
-                            <p className="text-3xl font-extrabold text-white">100%</p>
-                            <p className="text-sm text-muted-foreground">
-                                You Keep Your Masters
-                            </p>
+                        <div className="grid gap-6 sm:grid-cols-3">
+                            <div className="glass-card rounded-xl border border-shamiso-gold/20 bg-shamiso-gold/5 p-8 text-center transition-all hover:border-shamiso-gold/40">
+                                <Store className="mx-auto mb-4 h-10 w-10 text-shamiso-gold" />
+                                <p className="text-4xl font-black text-white">{stores}+</p>
+                                <p className="mt-2 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                                    Stores & Platforms
+                                </p>
+                            </div>
+                            <div className="glass-card rounded-xl border border-shamiso-gold/20 bg-shamiso-gold/5 p-8 text-center transition-all hover:border-shamiso-gold/40">
+                                <DollarSign className="mx-auto mb-4 h-10 w-10 text-shamiso-gold" />
+                                <p className="text-4xl font-black text-white">30%</p>
+                                <p className="mt-2 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                                    Saved on US Tax Withholding
+                                </p>
+                                <p className="mt-4 text-[10px] leading-tight text-neutral-400">
+                                    For every $1,000 earned, an artist keeps <span className="text-white font-bold">$400 more</span> on Shamiso.
+                                </p>
+                            </div>
+                            <div className="glass-card rounded-xl border border-shamiso-gold/20 bg-shamiso-gold/5 p-8 text-center transition-all hover:border-shamiso-gold/40">
+                                <Shield className="mx-auto mb-4 h-10 w-10 text-shamiso-accent" />
+                                <p className="text-4xl font-black text-white">100%</p>
+                                <p className="mt-2 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                                    You Keep Your Masters
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,6 +165,29 @@ export function GenrePage({
                             </Link>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Final CTA */}
+            <section className="relative overflow-hidden py-24">
+                <div className="absolute inset-0 bg-linear-to-t from-shamiso-navy to-shamiso-navy-light" />
+                <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-shamiso-gold/5 blur-[80px]" />
+
+                <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+                    <h2 className="mb-8 text-3xl font-black uppercase tracking-tight text-white sm:text-5xl">
+                        Ready to Take Your <span className="gradient-text">{genre}</span> Global?
+                    </h2>
+                    <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
+                        Join the world's most innovative artists and start owning your future today with Shamiso's sovereign distribution.
+                    </p>
+                    <Link href="/signup">
+                        <Button
+                            size="lg"
+                            className="bg-shamiso-gold-bright px-12 py-8 text-lg font-black uppercase text-black shadow-2xl shadow-shamiso-gold/20 transition-all hover:scale-105 hover:shadow-shamiso-gold/40"
+                        >
+                            Join Shamiso
+                        </Button>
+                    </Link>
                 </div>
             </section>
         </div>

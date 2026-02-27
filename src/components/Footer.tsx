@@ -21,14 +21,14 @@ const quickLinks = [
 ];
 
 const services = [
-    { label: "Beatbread (Funding)", href: "https://shamisomusic.chordcash.com/" },
-    { label: "Feature:FM", href: "https://developers.feature.fm/" },
-    { label: "un:hurd", href: "https://www.unhurdmusic.com/p/shamiso" },
-    { label: "Groover", href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music" },
-    { label: "Rotor Videos", href: "https://rotorvideos.com/shamiso" },
-    { label: "ROEX", href: "https://automix.roexaudio.com/?via=06e63a" },
-    { label: "Mix Check Studio", href: "https://mixcheckstudio.roexaudio.com/?via=07431b" },
-    { label: "Song Tools", href: "https://amplifiedpro.songtools.io/" },
+    { label: "Sovereign Capital Vault", href: "https://shamisomusic.chordcash.com/" },
+    { label: "Sovereign Growth Engine", href: "https://unhurd-staging.webflow.io/p/shamiso" },
+    { label: "Smartlink Suite", href: "https://developers.feature.fm/" },
+    { label: "Curator Pitch Portal", href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music" },
+    { label: "Visualizer Lab", href: "https://rotorvideos.com/shamiso" },
+    { label: "AI Master Lab", href: "https://automix.roexaudio.com/?via=06e63a" },
+    { label: "AI Audio Auditor", href: "https://mixcheckstudio.roexaudio.com/?via=07431b" },
+    { label: "Fan Data Analytics", href: "https://amplifiedpro.songtools.io/" },
 ];
 
 export function Footer() {
@@ -48,7 +48,7 @@ export function Footer() {
                             />
                         </Link>
                         <p className="max-w-xs py-2 text-sm leading-relaxed text-muted-foreground">
-                            The Sovereign Music Investment Infrastructure & MaaS Architecture for the Global South: A Fintech led & Data Intelligence Ecosystem uniting the SSA, UK, and USA Creative Corridors.
+                            The Sovereign Music Investment Infrastructure & MaaS Architecture for the Global South: A Fintech led & Data Intelligence Ecosystem uniting the SSA → UK → USA → Global Creative Corridors.
                         </p>
                     </div>
 

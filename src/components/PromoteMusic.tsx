@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
     DollarSign,
     Megaphone,
@@ -14,11 +15,11 @@ import {
 
 const services = [
     {
-        category: "FUNDING",
+        category: "FINANCE",
         items: [
             {
-                name: "Beatbread",
-                description: "Advances from $1K to $5M — Keep your masters",
+                name: "Sovereign Capital Vault",
+                description: "Non-dilutive funding from $1K to $5M — Keep your masters",
                 icon: DollarSign,
                 href: "https://shamisomusic.chordcash.com/",
                 color: "text-shamiso-gold-bright",
@@ -28,11 +29,20 @@ const services = [
         ],
     },
     {
-        category: "PROMOTE MUSIC",
+        category: "MARKETING",
         items: [
             {
-                name: "Feature.fm (Coming Soon)",
-                description: "Smart Links & Pre-Saves",
+                name: "Sovereign Growth Engine",
+                description: "Integrated campaign links and automated fan-finding ad technology.",
+                icon: Volume2,
+                href: "https://unhurd-staging.webflow.io/p/shamiso",
+                color: "text-shamiso-gold-bright",
+                borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
+                bgColor: "bg-shamiso-gold/5",
+            },
+            {
+                name: "Pre-Save & Smartlink Suite",
+                description: "Integrated campaign links for every release within your dashboard.",
                 icon: Share2,
                 href: "#",
                 color: "text-shamiso-gold-bright",
@@ -40,26 +50,22 @@ const services = [
                 bgColor: "bg-shamiso-gold/5",
             },
             {
-                name: "Song Tools",
-                description: "Artist growth toolkit",
+                name: "Fan Data Analytics",
+                description: "Comprehensive artist growth insights and corridor data intelligence.",
                 icon: Music,
                 href: "https://amplifiedpro.songtools.io/",
                 color: "text-shamiso-gold-bright",
                 borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
                 bgColor: "bg-shamiso-gold/5",
             },
+        ],
+    },
+    {
+        category: "PROMOTION",
+        items: [
             {
-                name: "un:hurd",
-                description: "The #1 marketing tool for artists. Automated Ads & Playlist pitching.",
-                icon: Volume2,
-                href: "https://www.unhurdmusic.com/p/shamiso",
-                color: "text-shamiso-gold-bright",
-                borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
-                bgColor: "bg-shamiso-gold/5",
-            },
-            {
-                name: "Groover",
-                description: "Pitch your music to playlists, blogs, & labels",
+                name: "Curator Pitch Portal",
+                description: "Direct outreach to top curators with access to Mr Luu's Editorial Desk.",
                 icon: Radio,
                 href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music",
                 color: "text-shamiso-gold-bright",
@@ -67,31 +73,22 @@ const services = [
                 bgColor: "bg-shamiso-gold/5",
             },
             {
-                name: "Rotor Videos",
-                description: "Create high-quality music videos in minutes",
+                name: "Visualizer Lab",
+                description: "Auto-generate music videos, promo clips, and Spotify Canvas visuals.",
                 icon: Video,
                 href: "https://rotorvideos.com/shamiso",
                 color: "text-shamiso-gold-bright",
                 borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
                 bgColor: "bg-shamiso-gold/5",
             },
-            // {
-            //     name: "SymphonyOS — The AdBox (Coming Soon)",
-            //     description: "Automated music advertising",
-            //     icon: Megaphone,
-            //     href: "#",
-            //     color: "text-shamiso-gold-bright",
-            //     borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
-            //     bgColor: "bg-shamiso-gold/5",
-            // },
         ],
     },
     {
-        category: "AI MIXING",
+        category: "PRODUCTION",
         items: [
             {
-                name: "ROEX Mix Check Studio",
-                description: "Free automated mix analysis",
+                name: "AI Audio Auditor",
+                description: "Automated mix analysis for global -14 LUFS standards.",
                 icon: Headphones,
                 href: "https://mixcheckstudio.roexaudio.com/?via=07431b",
                 color: "text-shamiso-gold-bright",
@@ -99,8 +96,8 @@ const services = [
                 bgColor: "bg-shamiso-gold/5",
             },
             {
-                name: "ROEX AUTOMIX",
-                description: "AI-powered mixing & mastering",
+                name: "AI Master Lab",
+                description: "Cloud-based AI mixing & high-performance mastering engine.",
                 icon: Headphones,
                 href: "https://automix.roexaudio.com/?via=06e63a",
                 color: "text-shamiso-gold-bright",
@@ -118,16 +115,14 @@ export function PromoteMusic() {
 
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-shamiso-gold-bright">
-                        Your Toolkit
-                    </p>
-                    <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-                        Fund. Promote.{" "}
-                        <span className="gradient-text">Create.</span>
+                    <Badge variant="outline" className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright uppercase tracking-widest">
+                        Unified Creative Infrastructure
+                    </Badge>
+                    <h2 className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl md:text-5xl">
+                        The <span className="gradient-text">Sovereign Stack</span>
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                        Access world-class tools via our partner ecosystem. One landing
-                        page, every service you need.
+                    <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
+                        Stop juggling 10 different subscriptions. The Sovereign Stack integrates the world&apos;s most powerful creative and financial tools into a single, high-performance dashboard. One login. One ecosystem. Total control.
                     </p>
                 </div>
 

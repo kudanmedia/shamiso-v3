@@ -18,9 +18,9 @@ const highlights = [
     "Dedicated Lekompo metadata tagging — your genre, classified correctly from day one across all 450+ platforms.",
     "Cultural context-aware pitching to Spotify, Apple Music, and Deezer editorial teams who understand Lekompo.",
     "Save 30% on US royalty withholding tax through our sovereign distribution structure.",
-    "Instant advances from $1,000 to $5,000,000 via Beatbread — keep 100% of your masters.",
-    "AI-powered mixing and mastering via ROEX, tuned for Lekompo's signature sound profile.",
-    "Music video creation on-demand with Roto Videos — bring your Lekompo visuals to life.",
+    "Instant advances from $1,000 to $5,000,000 via our Sovereign Capital Vault — keep 100% of your masters.",
+    "Integrated AI Master Lab — purpose-built mastering tuned for Lekompo's signature sound profle.",
+    "Visualizer Lab — auto-generate high-performance music videos and promo clips on-demand.",
 ];
 
 export default function DistributeLekompo() {

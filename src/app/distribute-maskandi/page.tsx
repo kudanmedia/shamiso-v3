@@ -19,9 +19,9 @@ const highlights = [
     "Maskandi-native metadata — correct Zulu-language tagging and genre classification across all 450+ stores.",
     "Cultural preservation meets global reach — your authentic Maskandi sound, distributed with integrity.",
     "Save 30% on US royalty withholding tax through our sovereign distribution structure.",
-    "Instant advances from $1,000 to $5,000,000 via Beatbread — keep 100% of your masters.",
-    "AI-powered mastering via ROEX calibrated for Maskandi's acoustic guitar and vocal richness.",
-    "Connect with Maskandi curators and playlists via Groover — grow your fanbase organically.",
+    "Instant advances from $1,000 to $5,000,000 via our Sovereign Capital Vault — keep 100% of your masters.",
+    "Integrated AI Master Lab — purpose-built mastering calibrated for Maskandi's acoustic richness.",
+    "Curator Pitch Portal — direct access to specialized playlists and global tastemakers.",
 ];
 
 export default function DistributeMaskandi() {

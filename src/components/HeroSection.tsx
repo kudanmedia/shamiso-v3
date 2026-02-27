@@ -9,6 +9,7 @@ const trustPartners = [
     { name: "TikTok", logo: "/tiktok-logo-2--1.svg" },
     { name: "Apple Music", logo: "/apple-music-3.svg" },
     { name: "Spotify", logo: "/spotify-2.svg" },
+    { name: "YouTube", logo: "/youtube-play-button-28308.png" },
     { name: "Deezer", logo: "/deezer-new-logo.svg" },
 ];
 
@@ -67,7 +68,7 @@ export function HeroSection() {
 
                         {/* Subtitle */}
                         <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl font-light">
-                            South Africa’s first D2C-integrated distribution agency. Sell direct, get paid instantly, and break the 90-day royalty cycle. Keep 100% of your data and 100% of your D2C revenue with our integrated <span className="text-white font-bold">Even™ Engine</span>.
+                            Africa’s first D2C-integrated distribution agency. Sell direct, get paid instantly, and break the 90-day royalty cycle. Keep 100% of your data and 100% of your D2C revenue with our integrated <span className="text-white font-bold">Even™ Engine</span>.
                         </p>
 
                         {/* Additional Info */}
@@ -82,11 +83,14 @@ export function HeroSection() {
                                 </Link>
                             </div>
                             <div className="flex flex-col gap-2 p-4 rounded-xl border border-white/10 bg-white/5">
-                                <p className="text-sm font-bold text-white uppercase tracking-tight">Sovereign Home</p>
-                                <p className="text-xs text-neutral-400">Integrated D2C + Strategic Distribution: Amapiano, Afro House, 3-Step, Lekompo</p>
-                                <Link href="/#services">
-                                    <Button variant="link" className="p-0 h-auto text-white/60 text-xs font-bold uppercase">
-                                        View Strategic Genres <ArrowRight className="ml-1 h-3 w-3" />
+                                <div className="flex items-center justify-between">
+                                    <p className="text-sm font-bold text-white uppercase tracking-tight">Sovereign Home</p>
+                                    <Badge variant="outline" className="border-emerald-500/30 bg-emerald-500/10 text-emerald-500 text-[10px]">30% USA TAX SAVED</Badge>
+                                </div>
+                                <p className="text-xs text-neutral-400">For every $1,000 earned, an artist keeps <span className="text-white font-bold">$400 more</span> on Shamiso Music Distribution.</p>
+                                <Link href="/#strategic-genres">
+                                    <Button variant="link" className="p-0 h-auto text-shamiso-gold-bright text-xs font-bold uppercase">
+                                        Strategic Distribution <ArrowRight className="ml-1 h-3 w-3" />
                                     </Button>
                                 </Link>
                             </div>
@@ -100,7 +104,7 @@ export function HeroSection() {
                                     className="bg-shamiso-gold-bright px-10 py-7 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110 w-full sm:w-auto"
                                 >
                                     <Fingerprint className="mr-2 h-5 w-5" />
-                                    Start Selling Now
+                                    Join Shamiso
                                 </Button>
                             </Link>
                             <Link href="#services">
@@ -118,7 +122,7 @@ export function HeroSection() {
 
                     {/* Trust partners ticker */}
                     <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-shamiso-gold/60 text-center sm:text-left ml-2">
+                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-white text-center sm:text-left ml-2">
                             Distribute your songs to over 450 top music streaming stores and platforms
                         </p>
                         <div className="w-full overflow-hidden rounded-xl border border-shamiso-gold/15 bg-black/40 py-6 backdrop-blur-md">
@@ -132,7 +136,7 @@ export function HeroSection() {
                                             <img
                                                 src={partner.logo}
                                                 alt={partner.name}
-                                                className={`w-auto object-contain ${(partner.name === "Spotify" || partner.name === "TikTok") ? "" : "brightness-0 invert"
+                                                className={`w-auto object-contain ${(partner.name === "Spotify" || partner.name === "TikTok" || partner.name === "YouTube") ? "" : "brightness-0 invert"
                                                     } ${partner.name === "Groover"
                                                         ? "h-16 max-w-[180px]"
                                                         : "h-10 max-w-[140px]"

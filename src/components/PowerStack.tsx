@@ -22,67 +22,67 @@ const powerCards = [
     {
         icon: Banknote,
         title: "Sovereign Capital Vault",
-        subtitle: "CAPITAL",
+        subtitle: "FINANCE",
         description:
-            "Access non-dilutive funding from $1k to $5M. Keep 100% of your masters. Institutional capital backed by your data.",
+            "Access non-dilutive funding from $1k to $5M. Keep 100% of your masters. Institutional capital backed by your sovereign data.",
         cta: "Unlock Funding",
         href: "https://shamisomusic.chordcash.com",
         gradient: "from-emerald-500/20 to-emerald-900/5",
         iconColor: "text-emerald-400",
         borderColor: "hover:border-emerald-500/40",
-        features: ["Up to $5 Million", "Keep 100% Masters", "Automated Repayment"]
+        features: ["Up to $5 Million", "Keep 100% Masters", "30% TAX RECLAIM", "Automated Repayment"]
     },
     {
         icon: Zap,
-        title: "AI Growth Engine",
-        subtitle: "GROWTH",
+        title: "Sovereign Growth Engine",
+        subtitle: "MARKETING",
         description:
-            "Let AI find your fans on TikTok & Spotify. Automated playlisting and ad-targeting in the SSA-UK-USA corridor.",
+            "AI-powered ad-targeting and fan-finding in the SSA → UK → USA → Global corridor. Integrated fan data analytics at your fingertips.",
         cta: "Scale My Growth",
         href: "/#promote",
         gradient: "from-blue-500/20 to-blue-900/5",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/40",
-        features: ["Spotify Playlisting", "TikTok Ad Auto-Pilot", "Fan Data Analytics"]
+        features: ["Automated Ad-Pilot", "Global Fan-Finding", "Corridor Analytics"]
     },
     {
         icon: Mic2,
         title: "AI Studio Suite",
-        subtitle: "STUDIO",
+        subtitle: "PRODUCTION",
         description:
-            "Grammy-quality AI Mixing & Mastering. Professional sound optimized for global streaming standards.",
-        cta: "Master My Track",
+            "Grammy-quality AI Mixing & Mastering to -14 LUFS global standards. Professional sound optimized for every major streaming platform.",
+        cta: "Polish My Sound",
         href: "/#promote",
         gradient: "from-purple-500/20 to-purple-900/5",
         iconColor: "text-purple-400",
         borderColor: "hover:border-purple-500/40",
-        features: ["AI Mastering", "Stem Separation", "-14 LUFS Standards"]
+        features: ["AI Mastering", "Mix Auditing", "LUFS Optimization"]
     },
     {
         icon: Video,
-        title: "MUSIC VIDEO CREATOR",
-        subtitle: "VISUALISE",
+        title: "Visualizer Lab",
+        subtitle: "VISUALS",
         description:
-            "Make music videos, promo videos, Spotify canvas videos and lyric videos in minutes.",
-        cta: "Online Music Video Creation",
+            "Auto-generate high-performance music videos, promo clips, and Spotify Canvas visuals in minutes from your dashboard.",
+        cta: "Create Visuals",
         href: "https://rotorvideos.com/shamiso",
         gradient: "from-pink-500/20 to-pink-900/5",
         iconColor: "text-pink-400",
         borderColor: "hover:border-pink-500/40",
-        features: ["Visualizers", "Lyric videos", "Spotify Canvas"]
+        features: ["Music Videos", "YouTube Shorts", "Spotify Canvas"]
     },
     {
         icon: Share2,
-        title: "Direct-To-Fan",
-        subtitle: "SELL",
+        title: "Curator Pitch Portal",
+        subtitle: "PROMOTION",
         description:
-            "Sell music directly to fans before global release. Keep 100% of your data and revenue with our integrated Even™ engine.",
-        cta: "Start Your D2C Campaign",
+            "Direct access to global curator networks and internal editorial desks. Pitch your music to the world's biggest tastemakers.",
+        cta: "Pitch Curators",
         href: "https://portal.shamiso-music.com",
         gradient: "from-orange-500/20 to-orange-900/5",
         iconColor: "text-orange-400",
         borderColor: "hover:border-orange-500/40",
-        features: ["Early access sales", "Collect fan emails", "Instant payouts"]
+        features: ["1.2M+ Subscriber Engines", "YouTube Content ID", "Direct Editorial Access"]
     },
 ];
 
@@ -94,14 +94,14 @@ export function PowerStack() {
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Section header */}
                 <div className="mb-16 text-center">
-                    <Badge variant="outline" className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright">
-                        THE SHAMISO MUSIC DISTRIBUTION POWER STACK (Music-as-a-Service)
+                    <Badge variant="outline" className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright uppercase tracking-widest">
+                        THE SOVEREIGN STACK™ (Music-as-a-Service)
                     </Badge>
                     <h2 className="text-3xl font-black text-white uppercase sm:text-4xl md:text-5xl">
-                        Everything You Need <span className="gradient-text">to Win</span>
+                        Unified Creative <span className="gradient-text">Infrastructure</span>
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
-                        We don&apos;t just distribute your music. We fund your career, find your fans, create music videos and polish your sound.
+                        Stop juggling 10 different subscriptions. The Sovereign Stack integrates the world&apos;s most powerful creative and financial tools into a single, high-performance dashboard.
                     </p>
                 </div>
 
