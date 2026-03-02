@@ -11,6 +11,7 @@ import {
     CheckCircle2,
     Fingerprint,
 } from "lucide-react";
+import { FAQ } from "@/components/FAQ";
 
 interface GenrePageProps {
     genre: string;
@@ -190,6 +191,8 @@ export function GenrePage({
                     </Link>
                 </div>
             </section>
+
+            <FAQ />
         </div>
     );
 }

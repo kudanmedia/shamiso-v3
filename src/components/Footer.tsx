@@ -16,6 +16,7 @@ const quickLinks = [
     { label: "Promote Music", href: "#promote" },
     { label: "Funding Advances", href: "https://shamisomusic.chordcash.com/" },
     { label: "Pricing", href: "/pricing" },
+    { label: "About Us", href: "/about" },
     { label: "Partners", href: "#promote" },
     { label: "Terms of Use", href: "#terms" },
 ];

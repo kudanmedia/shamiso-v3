@@ -1,0 +1,165 @@
+import { Metadata } from "next";
+import { Badge } from "@/components/ui/badge";
+
+export const metadata: Metadata = {
+    title: "About Us | Shamiso Music Group",
+    description: "The Operating System for the Global Artist. 30 Years of Culture.",
+};
+
+export default function AboutPage() {
+    return (
+        <main className="min-h-screen bg-black pt-32 pb-24 relative overflow-hidden">
+            <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-shamiso-gold/5 blur-[120px]" />
+            <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-blue-900/5 blur-[120px]" />
+
+            <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16 space-y-4">
+                    <Badge variant="outline" className="border-shamiso-gold/30 text-shamiso-gold-bright uppercase tracking-widest font-bold px-4 py-1.5 shadow-[0_0_15px_rgba(255,215,0,0.1)]">
+                        About Us: Shamiso Music Group
+                    </Badge>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight">
+                        The Operating System for the <span className="text-transparent bg-clip-text bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright drop-shadow-sm">Global Artist</span>
+                    </h1>
+                </div>
+
+                <div className="space-y-16 text-lg text-neutral-300 leading-relaxed font-light">
+                    {/* Heritage */}
+                    <section className="bg-zinc-900/40 border border-white/5 rounded-2xl p-8 backdrop-blur-sm sm:p-10 hover:border-shamiso-gold/20 transition-all duration-300">
+                        <div className="flex items-center gap-4 mb-6 pb-4 border-b border-white/10">
+                            <div className="h-10 w-1 bg-shamiso-gold rounded-full" />
+                            <h2 className="text-2xl font-black text-white uppercase tracking-wider">Our Heritage: 30 Years of Culture</h2>
+                        </div>
+                        <p className="mb-6 text-neutral-400">
+                            Founded in 1995, <strong className="text-white font-semibold">Shamiso Music Group (SMG)</strong> has been the silent engine behind the African musical renaissance. While the digital landscape has shifted, our mission remains the same: to provide the strategic backbone for the world's most iconic voices.
+                        </p>
+                        <p className="text-neutral-400">
+                            From the foundational legends of Highlife and Jazz to the global explosion of Amapiano and Afro-tech, SMG has built a 30-year legacy of trust with artists like Oliver "Tuku" Mtukudzi, Salif Keita, Sizzla Kalonji, Runtown, DJ Maphorisa, Uhuru and Sha Sha.
+                        </p>
+                    </section>
+
+                    {/* Evolution */}
+                    <section className="bg-zinc-900/40 border border-white/5 rounded-2xl p-8 backdrop-blur-sm sm:p-10 hover:border-shamiso-gold/20 transition-all duration-300">
+                        <div className="flex items-center gap-4 mb-6 pb-4 border-b border-white/10">
+                            <div className="h-10 w-1 bg-blue-500 rounded-full" />
+                            <h2 className="text-2xl font-black text-white uppercase tracking-wider">The Evolution: A Global Infrastructure</h2>
+                        </div>
+                        <p className="text-neutral-400">
+                            In 2026, music is borderless, but the industry's "plumbing" remains trapped in Western-centric models. <strong className="text-white font-semibold">Shamiso Music Distribution (SMD)</strong> was built to solve this. We aren't just a distributor; we are a fully integrated Operating System (OS) that empowers the entire music value chain.
+                        </p>
+                    </section>
+
+                    {/* Advantage Table */}
+                    <section>
+                        <h2 className="text-2xl font-black text-white uppercase tracking-wider mb-8 text-center">The Shamiso Advantage</h2>
+
+                        <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/40 shadow-2xl">
+                            <table className="w-full text-left text-sm md:text-base">
+                                <thead className="bg-black/60 uppercase font-black text-shamiso-gold-bright tracking-wider">
+                                    <tr>
+                                        <th className="px-6 py-5 border-b border-white/10 w-1/3">Feature</th>
+                                        <th className="px-6 py-5 border-b border-white/10">Why We Lead</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-white/5 text-neutral-400">
+                                    <tr className="hover:bg-white/2 transition-colors">
+                                        <td className="px-6 py-5 font-bold text-white uppercase tracking-wider">Full Ownership</td>
+                                        <td className="px-6 py-5 leading-relaxed">We believe in the "Master Rights" economy. You keep 100% of your ownership.</td>
+                                    </tr>
+                                    <tr className="hover:bg-white/2 transition-colors">
+                                        <td className="px-6 py-5 font-bold text-white uppercase tracking-wider">Instant Liquidity</td>
+                                        <td className="px-6 py-5 leading-relaxed">We bridge the gap between global streams and local spending power.</td>
+                                    </tr>
+                                    <tr className="hover:bg-white/2 transition-colors">
+                                        <td className="px-6 py-5 font-bold text-white uppercase tracking-wider">Cultural Intelligence</td>
+                                        <td className="px-6 py-5 leading-relaxed">Our AI is trained on global data, not just Western trends.</td>
+                                    </tr>
+                                    <tr className="hover:bg-white/2 transition-colors">
+                                        <td className="px-6 py-5 font-bold text-white uppercase tracking-wider">Enterprise-Ready</td>
+                                        <td className="px-6 py-5 leading-relaxed">We provide the API infrastructure for Banks, Telcos, Music Distributors and Record Labels.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    {/* Pillars */}
+                    <section>
+                        <h2 className="text-2xl font-black text-white uppercase tracking-wider mb-8 text-center">The Four Pillars of the Shamiso OS</h2>
+
+                        <div className="grid gap-6">
+                            <div className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:border-shamiso-gold/20 transition-all">
+                                <h3 className="text-xl font-black text-shamiso-gold-bright uppercase tracking-wider mb-3">1. Shamiso Rights <span className="text-sm font-bold text-neutral-500 capitalize tracking-normal block mt-1">Enterprise Infrastructure</span></h3>
+                                <p className="text-neutral-400">We provide "Label-in-a-Box" capabilities. Through our core infrastructure (powered by partners like Too Lost and Manifest), we deliver your music to 450+ platforms globally in under 48 hours with enterprise-grade metadata accuracy.</p>
+                            </div>
+
+                            <div className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:border-shamiso-gold/20 transition-all">
+                                <h3 className="text-xl font-black text-shamiso-gold-bright uppercase tracking-wider mb-3">2. Shamiso Studio <span className="text-sm font-bold text-neutral-500 capitalize tracking-normal block mt-1">Creative AI Suite</span></h3>
+                                <p className="mb-4 text-neutral-400">We’ve removed the financial barriers to professional production. Every client has access to:</p>
+                                <ul className="list-disc pl-5 space-y-3 text-neutral-400">
+                                    <li><strong className="text-white font-semibold">AI Mastering:</strong> Studio-quality audio optimized for global streaming standards.</li>
+                                    <li><strong className="text-white font-semibold">Automated Video Generation:</strong> High-fidelity music videos and social assets generated instantly.</li>
+                                </ul>
+                            </div>
+
+                            <div className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:border-shamiso-gold/20 transition-all">
+                                <h3 className="text-xl font-black text-shamiso-gold-bright uppercase tracking-wider mb-3">3. Shamiso Pulse <span className="text-sm font-bold text-neutral-500 capitalize tracking-normal block mt-1">Growth & Intelligence</span></h3>
+                                <p className="text-neutral-400">We don’t just distribute; we accelerate. Our Cultural Intelligence AI identifies regional growth patterns—spotting a bubbling hit in a specific city or suburb—and automatically triggers hyper-local marketing to scale your fanbase.</p>
+                            </div>
+
+                            <div className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:border-shamiso-gold/20 transition-all">
+                                <h3 className="text-xl font-black text-shamiso-gold-bright uppercase tracking-wider mb-3">4. Shamiso Pay <span className="text-sm font-bold text-neutral-500 capitalize tracking-normal block mt-1">The Fintech Moat</span></h3>
+                                <p className="mb-4 text-neutral-400">This is our "Last Mile" solution. By integrating with Mukuru, Paystack, PawaPay, and Ozow, we ensure money moves at the speed of culture.</p>
+                                <ul className="list-disc pl-5 space-y-3 text-neutral-400">
+                                    <li><strong className="text-white font-semibold">Local Payouts:</strong> Direct to Mobile Money (M-Pesa, MTN, Airtel) and Instant EFT.</li>
+                                    <li><strong className="text-white font-semibold">Cash Access:</strong> Withdraw physical cash via regional partners like Mukuru for unbanked creators.</li>
+                                    <li><strong className="text-white font-semibold">B2B Integration:</strong> We enable financial institutions to offer royalty-collateralized loans to their customers.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Who We Empower */}
+                    <section>
+                        <h2 className="text-2xl font-black text-white uppercase tracking-wider mb-8 text-center">Who We Empower</h2>
+                        <ul className="grid gap-6 sm:grid-cols-2">
+                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
+                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
+                                    Independent Artists
+                                </strong>
+                                <span className="text-neutral-400 block">Move from being a "user" to being a CEO with 100% royalties.</span>
+                            </li>
+                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
+                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
+                                    Record Labels
+                                </strong>
+                                <span className="text-neutral-400 block">Scalable white-label tools to manage global rosters and automated splits.</span>
+                            </li>
+                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
+                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
+                                    Telcos & Banks
+                                </strong>
+                                <span className="text-neutral-400 block">A turnkey API to drive youth engagement through music-backed rewards.</span>
+                            </li>
+                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
+                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
+                                    Content Creators
+                                </strong>
+                                <span className="text-neutral-400 block">A high-fidelity, pre-cleared catalog for the modern creator economy.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    {/* Final Word */}
+                    <section className="relative text-center py-16 px-8 rounded-3xl border border-shamiso-gold/30 bg-linear-to-b from-shamiso-gold/10 to-transparent overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-shamiso-gold/20 blur-[80px]" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 blur-[80px]" />
+
+                        <p className="relative z-10 text-xl md:text-3xl font-bold text-white leading-relaxed tracking-tight">
+                            "Legacy meets Technology. Shamiso Music Group spent 30 years understanding the pulse of the artist. Now, we’ve built the Operating System to make that pulse global. <br /><span className="mt-4 block text-transparent bg-clip-text bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright drop-shadow-sm font-black text-2xl md:text-4xl">Welcome to the future of independence.</span>"
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </main>
+    );
+}

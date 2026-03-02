@@ -12,6 +12,7 @@ import {
     Sparkles,
     LogIn,
 } from "lucide-react";
+import { FAQ } from "@/components/FAQ";
 
 const services = [
     {
@@ -193,6 +194,8 @@ export function PromoteMusic() {
                     </div>
                 </div>
             </div>
+
+            <FAQ />
         </section>
     );
 }
