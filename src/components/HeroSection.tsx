@@ -68,7 +68,7 @@ export function HeroSection() {
 
                         {/* Subtitle */}
                         <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl font-light">
-                            Africa’s first D2C-integrated distribution agency. Sell direct, get paid instantly, and break the 90-day royalty cycle. Keep 100% of your data and 100% of your D2C revenue with our integrated <span className="text-white font-bold">Even™ Engine</span>.
+                            Africa’s first D2F-integrated distribution agency. Sell direct, get paid instantly, and break the 90-day royalty cycle. Keep 100% of your data and 100% of your D2F revenue with our integrated <span className="text-white font-bold">Even™ Engine</span>.
                         </p>
 
                         {/* Additional Info */}

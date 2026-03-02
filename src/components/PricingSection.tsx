@@ -1,16 +1,17 @@
+import Link from "next/link";
 import {
     Tabs,
     TabsContent,
     TabsList,
     TabsTrigger,
 } from "@/components/ui/tabs";
-import { Badge, Building2, Check, Crown, Link, Zap } from "lucide-react";
+import { Badge, Building2, Check, Crown, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 
 const artistPlans = [
     {
-        name: "VIBE",
+        name: "BANTU FREE",
         price: "$0",
         period: "per year",
         description: "Best for basics.",
@@ -22,13 +23,13 @@ const artistPlans = [
             "Self-service playlisting",
         ],
         cta: "Get Started For Free",
-        href: "/signup?plan=vibe",
+        href: "/signup?plan=bantu-free",
         highlight: false,
         icon: Zap,
     },
     {
-        name: "HUSTLE",
-        price: "$24.99",
+        name: "BANTU RISE",
+        price: "$19.99",
         period: "/ year",
         description: "Most popular for growing artists.",
         features: [
@@ -40,12 +41,12 @@ const artistPlans = [
             "Advances if eligible",
         ],
         cta: "Get Started",
-        href: "/signup?plan=hustle",
+        href: "/signup?plan=bantu-rise",
         highlight: true,
         icon: Zap,
     },
     {
-        name: "STAR",
+        name: "BESPOKE",
         price: "Invite",
         period: "Only",
         description: "For heavyweights & viral stars.",
@@ -66,8 +67,8 @@ const artistPlans = [
 
 const labelPlans = [
     {
-        name: "LABEL",
-        price: "$129",
+        name: "BANTU LABEL",
+        price: "$79",
         period: "per year + $149 setup",
         description: "For boutique labels.",
         features: [
@@ -79,13 +80,13 @@ const labelPlans = [
             "Monthly payments",
         ],
         cta: "Get Started",
-        href: "/signup?plan=label",
+        href: "/signup?plan=bantu-label",
         highlight: false,
         icon: Building2,
     },
     {
-        name: "HUB",
-        price: "$449",
+        name: "BANTU HUB",
+        price: "$119",
         period: "per year + $199.99 setup",
         description: "For full-service collectives.",
         features: [
@@ -97,12 +98,12 @@ const labelPlans = [
             "Fund future with advances",
         ],
         cta: "Get Started",
-        href: "/signup?plan=hub",
+        href: "/signup?plan=bantu-hub",
         highlight: true,
         icon: Building2,
     },
     {
-        name: "ENTERPRISE",
+        name: "BANTU ENTERPRISE",
         price: "Invite",
         period: "Only",
         description: "For elite music groups.",
@@ -122,22 +123,22 @@ const labelPlans = [
 ];
 
 const advancedArtistBenefits = [
-    { pillar: "Distribution", vibe: "Unlimited releases", hustle: "Unlimited releases", star: "Unlimited releases" },
-    { pillar: "Store Speed", vibe: "14 business days", hustle: "14 business days", star: "White-glove priority" },
-    { pillar: "Monetization", vibe: "Social Media (TikTok/IG)", hustle: "YouTube Content ID", star: "YouTube Content ID" },
-    { pillar: "Financials", vibe: "Monthly Payments", hustle: "Monthly payments", star: "Monthly payments" },
-    { pillar: "Collaborators", vibe: "Split Pay (Unlimited)", hustle: "Split Pay (Unlimited)", star: "Bespoke royalty splits" },
-    { pillar: "Mastering", vibe: "Paid Service", hustle: "Paid Service", star: "Paid Service" },
-    { pillar: "Fan Tools", vibe: "ArtistPages", hustle: "MasterLinks & Fan Data", star: "Custom Rollout Strategy" },
+    { pillar: "Distribution", f: "Unlimited releases", r: "Unlimited releases", b: "Unlimited releases" },
+    { pillar: "Store Speed", f: "14 business days", r: "14 business days", b: "White-glove priority" },
+    { pillar: "Monetization", f: "Social Media (TikTok/IG)", r: "YouTube Content ID", b: "YouTube Content ID" },
+    { pillar: "Financials", f: "Monthly Payments", r: "Monthly payments", b: "Monthly payments" },
+    { pillar: "Collaborators", f: "Split Pay (Unlimited)", r: "Split Pay (Unlimited)", b: "Bespoke royalty splits" },
+    { pillar: "Mastering", f: "Paid Service", r: "Paid Service", b: "Paid Service" },
+    { pillar: "Fan Tools", f: "ArtistPages", r: "MasterLinks & Fan Data", b: "Custom Rollout Strategy" },
 ];
 
 const advancedLabelBenefits = [
-    { pillar: "Distribution", label: "Unlimited releases", hub: "Unlimited releases", enterprise: "Unlimited releases" },
-    { pillar: "Store Speed", label: "14 business days", hub: "2 business days", enterprise: "White-glove priority" },
-    { pillar: "Monetization", label: "Social Media (TikTok/IG)", hub: "YouTube Content ID", enterprise: "YouTube Content ID" },
-    { pillar: "Financials", label: "Monthly", hub: "Monthly", enterprise: "Monthly payments" },
-    { pillar: "Collaborators", label: "Split Pay (Unlimited)", hub: "Split Pay (Unlimited)", enterprise: "Bespoke royalty splits" },
-    { pillar: "Fan Tools", label: "ArtistPages", hub: "MasterLinks & Fan Data", enterprise: "Custom Rollout Strategy" },
+    { pillar: "Distribution", l: "Unlimited releases", h: "Unlimited releases", e: "Unlimited releases" },
+    { pillar: "Store Speed", l: "14 business days", h: "2 business days", e: "White-glove priority" },
+    { pillar: "Monetization", l: "Social Media (TikTok/IG)", h: "YouTube Content ID", e: "YouTube Content ID" },
+    { pillar: "Financials", l: "Monthly", h: "Monthly", e: "Monthly payments" },
+    { pillar: "Collaborators", l: "Split Pay (Unlimited)", h: "Split Pay (Unlimited)", e: "Bespoke royalty splits" },
+    { pillar: "Fan Tools", l: "ArtistPages", h: "MasterLinks & Fan Data", e: "Custom Rollout Strategy" },
 ];
 
 export function PricingSection() {
@@ -190,18 +191,18 @@ export function PricingSection() {
                                     <thead>
                                         <tr className="bg-white/5">
                                             <th className="px-6 py-4 text-xs font-bold uppercase text-neutral-500">Feature Pillar</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">VIBE</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">HUSTLE</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">STAR</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BANTU FREE</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">BANTU RISE</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BESPOKE</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-white/5">
                                         {advancedArtistBenefits.map((row) => (
                                             <tr key={row.pillar} className="hover:bg-white/[0.02] transition-colors">
                                                 <td className="px-6 py-4 text-sm font-bold text-neutral-400">{row.pillar}</td>
-                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.vibe}</td>
-                                                <td className="px-6 py-4 text-sm text-shamiso-gold-bright font-medium">{row.hustle}</td>
-                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.star}</td>
+                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.f}</td>
+                                                <td className="px-6 py-4 text-sm text-shamiso-gold-bright font-medium">{row.r}</td>
+                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.b}</td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -226,18 +227,18 @@ export function PricingSection() {
                                     <thead>
                                         <tr className="bg-white/5">
                                             <th className="px-6 py-4 text-xs font-bold uppercase text-neutral-500">Feature Pillar</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">LABEL</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">HUB</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">ENTERPRISE</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BANTU LABEL</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">BANTU HUB</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BANTU ENTERPRISE</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-white/5">
                                         {advancedLabelBenefits.map((row) => (
                                             <tr key={row.pillar} className="hover:bg-white/[0.02] transition-colors">
                                                 <td className="px-6 py-4 text-sm font-bold text-neutral-400">{row.pillar}</td>
-                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.label}</td>
-                                                <td className="px-6 py-4 text-sm text-shamiso-gold-bright font-medium">{row.hub}</td>
-                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.enterprise}</td>
+                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.l}</td>
+                                                <td className="px-6 py-4 text-sm text-shamiso-gold-bright font-medium">{row.h}</td>
+                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.e}</td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -273,7 +274,7 @@ function PlanCard({ plan }: { plan: any }) {
                     <plan.icon className="h-6 w-6" />
                 </div>
 
-                <div className="text-[10px] font-black uppercase tracking-widest text-shamiso-gold/60 mb-1">{plan.name === "VIBE" || plan.name === "HUSTLE" || plan.name === "STAR" ? "Artist Tier" : "Label Tier"}</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-shamiso-gold/60 mb-1">{plan.name === "BANTU FREE" || plan.name === "BANTU RISE" || plan.name === "BESPOKE" ? "Artist Tier" : "Label Tier"}</div>
                 <h3 className="text-xl font-bold text-white uppercase tracking-tight">{plan.name}</h3>
                 <div className="mt-4 flex items-baseline">
                     <span className="text-4xl font-black text-white">{plan.price}</span>
