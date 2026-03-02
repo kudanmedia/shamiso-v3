@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ChevronDown, Menu, User, LogOut, LayoutDashboard, Fingerprint } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const genreLinks = [
     { label: "Lekompo", href: "/distribute-lekompo" },
@@ -35,6 +35,7 @@ export function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [user, setUser] = useState<any>(null);
     const router = useRouter();
+    const pathname = usePathname();
 
     useEffect(() => {
         const checkSession = async () => {
@@ -46,7 +47,7 @@ export function Header() {
             }
         };
         checkSession();
-    }, []);
+    }, [pathname]);
 
     const handleLogout = async () => {
         try {

@@ -78,7 +78,7 @@ const powerCards = [
         description:
             "Direct access to global curator networks and internal editorial desks. Pitch your music to the world's biggest tastemakers.",
         cta: "Pitch Curators",
-        href: "https://portal.shamiso-music.com",
+        href: "/signup",
         gradient: "from-orange-500/20 to-orange-900/5",
         iconColor: "text-orange-400",
         borderColor: "hover:border-orange-500/40",

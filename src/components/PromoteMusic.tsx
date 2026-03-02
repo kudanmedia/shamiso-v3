@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import {
     DollarSign,
     Megaphone,
@@ -182,15 +183,15 @@ export function PromoteMusic() {
                             Already a Shamiso artist? Access your dashboard, analytics, and
                             royalties.
                         </p>
-                        <a href="https://portal.shamiso-music.com" target="_blank" rel="noopener noreferrer">
+                        <Link href="/signup">
                             <Button
                                 size="lg"
                                 className="w-full bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-bold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40"
                             >
                                 <Sparkles className="mr-2 h-5 w-5" />
-                                Login to Distribution Portal
+                                Sign Up for Distribution Portal
                             </Button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
