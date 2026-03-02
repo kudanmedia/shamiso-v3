@@ -39,7 +39,7 @@ const powerCards = [
         description:
             "AI-powered ad-targeting and fan-finding in the SSA → UK → USA → Global corridor. Integrated fan data analytics at your fingertips.",
         cta: "Scale My Growth",
-        href: "/#promote",
+        href: "/promote-music",
         gradient: "from-blue-500/20 to-blue-900/5",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/40",
@@ -52,7 +52,7 @@ const powerCards = [
         description:
             "Grammy-quality AI Mixing & Mastering to -14 LUFS global standards. Professional sound optimized for every major streaming platform.",
         cta: "Polish My Sound",
-        href: "/#promote",
+        href: "/promote-music",
         gradient: "from-purple-500/20 to-purple-900/5",
         iconColor: "text-purple-400",
         borderColor: "hover:border-purple-500/40",

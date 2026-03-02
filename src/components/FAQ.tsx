@@ -90,8 +90,23 @@ const faqs = [
     }
 ];
 
-export function FAQ() {
+export interface FAQItem {
+    question: string;
+    answer: React.ReactNode;
+}
+
+interface FAQProps {
+    faqs?: FAQItem[];
+    title?: React.ReactNode;
+}
+
+export function FAQ({ faqs: customFaqs, title: customTitle }: FAQProps = {}) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+    const displayFaqs = customFaqs || faqs;
+    const displayTitle = customTitle || (
+        <>Music distribution for independent artists <span className="text-shamiso-gold-bright">FAQs</span></>
+    );
 
     const toggleFaq = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -102,12 +117,12 @@ export function FAQ() {
             <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-12 text-center">
                     <h2 className="text-3xl font-black text-white uppercase sm:text-4xl">
-                        Music distribution for independent artists <span className="text-shamiso-gold-bright">FAQs</span>
+                        {displayTitle}
                     </h2>
                 </div>
 
                 <div className="space-y-4">
-                    {faqs.map((faq, index) => (
+                    {displayFaqs.map((faq, index) => (
                         <div
                             key={index}
                             className="border border-white/10 rounded-xl overflow-hidden bg-zinc-900/40 hover:bg-zinc-900/60 transition-colors"
