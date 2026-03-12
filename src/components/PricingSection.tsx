@@ -23,7 +23,7 @@ const artistPlans = [
             "Self-service playlisting",
         ],
         cta: "Get Started For Free",
-        href: "/signup?plan=bantu-free",
+        href: "https://portal.shamiso-music.com/signup?plan=bantu-free",
         highlight: false,
         icon: Zap,
     },
@@ -41,7 +41,7 @@ const artistPlans = [
             "Advances if eligible",
         ],
         cta: "Get Started",
-        href: "/signup?plan=bantu-rise",
+        href: "https://portal.shamiso-music.com/signup?plan=bantu-rise",
         highlight: true,
         icon: Zap,
     },
@@ -80,7 +80,7 @@ const labelPlans = [
             "Monthly payments",
         ],
         cta: "Get Started",
-        href: "/signup?plan=bantu-label",
+        href: "https://portal.shamiso-music.com/signup?plan=bantu-label",
         highlight: false,
         icon: Building2,
     },
@@ -98,7 +98,7 @@ const labelPlans = [
             "Fund future with advances",
         ],
         cta: "Get Started",
-        href: "/signup?plan=bantu-hub",
+        href: "https://portal.shamiso-music.com/signup?plan=bantu-hub",
         highlight: true,
         icon: Building2,
     },
@@ -293,7 +293,7 @@ function PlanCard({ plan }: { plan: any }) {
                     ))}
                 </ul>
 
-                <Link href={plan.href} className="w-full">
+                <a href={plan.href} className="w-full">
                     <Button
                         className={`w-full font-black uppercase tracking-tight transition-all hover:scale-[1.02] ${plan.highlight
                             ? "bg-shamiso-gold-bright text-black shadow-lg shadow-shamiso-gold/20"
@@ -301,7 +301,7 @@ function PlanCard({ plan }: { plan: any }) {
                     >
                         {plan.cta}
                     </Button>
-                </Link>
+                </a>
             </div>
         </Card>
     );

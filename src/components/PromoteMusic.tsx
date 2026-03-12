@@ -113,7 +113,7 @@ const services = [
 export function PromoteMusic() {
     return (
         <section id="promote" className="relative py-24">
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0800] to-black" />
+            <div className="absolute inset-0 bg-linear-to-b from-[#0a0800] to-black" />
 
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
@@ -134,11 +134,11 @@ export function PromoteMusic() {
                     {services.map((category) => (
                         <div key={category.category}>
                             <div className="mb-6 flex items-center gap-3">
-                                <div className="h-px flex-1 bg-gradient-to-r from-shamiso-gold/30 to-transparent" />
+                                <div className="h-px flex-1 bg-linear-to-r from-shamiso-gold/30 to-transparent" />
                                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-shamiso-gold/60">
                                     {category.category}
                                 </span>
-                                <div className="h-px flex-1 bg-gradient-to-l from-shamiso-gold/30 to-transparent" />
+                                <div className="h-px flex-1 bg-linear-to-l from-shamiso-gold/30 to-transparent" />
                             </div>
 
                             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -173,7 +173,7 @@ export function PromoteMusic() {
                 {/* Distribution Portal Login */}
                 <div className="mt-16 flex flex-col items-center">
                     <div className="glass-card animate-pulse-glow w-full max-w-md rounded-2xl border border-shamiso-gold/20 p-8 text-center">
-                        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-shamiso-gold to-shamiso-gold-bright">
+                        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-shamiso-gold to-shamiso-gold-bright">
                             <LogIn className="h-8 w-8 text-black" />
                         </div>
                         <h3 className="mb-2 text-xl font-bold text-white">
@@ -183,15 +183,15 @@ export function PromoteMusic() {
                             Already a Shamiso artist? Access your dashboard, analytics, and
                             royalties.
                         </p>
-                        <Link href="/signup">
+                        <a href="https://portal.shamiso-music.com/signup">
                             <Button
                                 size="lg"
-                                className="w-full bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright font-bold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40"
+                                className="w-full bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright font-bold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40"
                             >
                                 <Sparkles className="mr-2 h-5 w-5" />
                                 Sign Up for Distribution Portal
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -19,16 +19,9 @@ export default function LoginPage() {
     });
 
     useEffect(() => {
-        const checkSession = async () => {
-            try {
-                await account.get();
-                router.push("/dashboard");
-            } catch (error) {
-                // No session, allow login
-            }
-        };
-        checkSession();
-    }, [router]);
+        // Redirect to the external portal login
+        window.location.href = "https://portal.shamiso-music.com/login";
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -52,7 +45,7 @@ export default function LoginPage() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-black p-4">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a00] via-[#1a1400] to-[#0d0800] -z-10" />
+            <div className="absolute inset-0 bg-linear-to-br from-[#0c0a00] via-[#1a1400] to-[#0d0800] -z-10" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-amber-900/10 blur-[100px] -z-10" />
 
             <Card className="w-full max-w-md border-zinc-800 bg-zinc-900/50 backdrop-blur-xl text-white">
@@ -106,9 +99,9 @@ export default function LoginPage() {
                 <CardFooter className="flex justify-center">
                     <p className="text-sm text-neutral-400">
                         Don&apos;t have an account?{" "}
-                        <Link href="/signup" className="text-shamiso-gold-bright hover:underline">
+                        <a href="https://portal.shamiso-music.com/signup" className="text-shamiso-gold-bright hover:underline">
                             Sign up
-                        </Link>
+                        </a>
                     </p>
                 </CardFooter>
             </Card>

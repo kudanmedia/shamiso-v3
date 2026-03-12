@@ -35,11 +35,11 @@ export default function PromoteMusicPage() {
                         To start pushing your music to the right ears with Shamiso Music Distribution (SMD), you first need to pick your lane. While our <span className="text-white font-bold">Bantu Entry ($0)</span> tier gets you on the map, upgrading to <span className="text-white font-bold">Bantu Rise, Pro, Label, or Enterprise</span> unlocks the high-level tools needed to scale your brand across the continent and the diaspora.
                     </p>
                     <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                        <Link href="/signup">
+                        <a href="https://portal.shamiso-music.com/signup">
                             <Button size="lg" className="h-14 bg-shamiso-gold px-8 text-base font-bold text-black hover:bg-shamiso-gold-bright w-full sm:w-auto transition-transform hover:scale-105">
                                 Upgrade Your Arsenal
                             </Button>
-                        </Link>
+                        </a>
                         <Link href="/pricing">
                             <Button variant="outline" size="lg" className="h-14 border-zinc-700 text-white hover:bg-zinc-800 w-full sm:w-auto">
                                 View Pricing Tiers
@@ -184,9 +184,9 @@ export default function PromoteMusicPage() {
                         <p className="text-lg text-neutral-400 leading-relaxed">
                             Shamiso Music Distribution is committed to moving the culture forward. With our Enterprise partnership, our in-house Artist Relations team works hands-on with established acts to coordinate global release strategies, ensuring your <em>"drop"</em> isn't just a post, but a massive cultural moment.
                         </p>
-                        <Link href="/signup" className="inline-flex items-center text-shamiso-gold hover:text-shamiso-gold-bright font-bold uppercase tracking-wider transition-colors mt-4">
+                        <a href="https://portal.shamiso-music.com/signup" className="inline-flex items-center text-shamiso-gold hover:text-shamiso-gold-bright font-bold uppercase tracking-wider transition-colors mt-4">
                             Apply for Enterprise <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
+                        </a>
                     </div>
                     <div className="flex-1 relative w-full h-full min-h-[400px] rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-transparent opacity-50 transition-opacity group-hover:opacity-100" />
@@ -213,11 +213,11 @@ export default function PromoteMusicPage() {
                     <p className="max-w-2xl mx-auto text-sm text-neutral-400 mb-10 relative z-10">
                         Once the music is live, our Bantu Pro and Bantu Enterprise artists can then leverage our Sync Briefs and Brand Partnership portal to keep the momentum going long after release day.
                     </p>
-                    <Link href="/signup">
+                    <a href="https://portal.shamiso-music.com/signup">
                         <Button size="lg" className="h-14 bg-white text-black hover:bg-neutral-200 font-bold uppercase tracking-wider relative z-10 shadow-xl transition-transform hover:scale-105">
                             Generate Your First SmartLink
                         </Button>
-                    </Link>
+                    </a>
                 </div>
             </section>
 

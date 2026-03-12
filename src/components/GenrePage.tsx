@@ -34,7 +34,7 @@ export function GenrePage({
         <div className="min-h-screen pt-16">
             {/* Hero */}
             <section className="relative overflow-hidden py-24">
-                <div className="absolute inset-0 bg-gradient-to-br from-shamiso-navy via-shamiso-navy-light to-shamiso-navy" />
+                <div className="absolute inset-0 bg-linear-to-br from-shamiso-navy via-shamiso-navy-light to-shamiso-navy" />
                 <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-shamiso-gold/5 blur-[100px]" />
 
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -61,15 +61,15 @@ export function GenrePage({
                         </p>
 
                         <div className="mb-10 flex flex-col gap-4 sm:flex-row">
-                            <Link href="/signup">
+                            <a href="https://portal.shamiso-music.com/signup">
                                 <Button
                                     size="lg"
-                                    className="bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright px-8 text-base font-bold text-black shadow-xl shadow-shamiso-gold/20 hover:shadow-shamiso-gold/40"
+                                    className="bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright px-8 text-base font-bold text-black shadow-xl shadow-shamiso-gold/20 hover:shadow-shamiso-gold/40"
                                 >
                                     <Fingerprint className="mr-2 h-5 w-5" />
                                     Join Shamiso
                                 </Button>
-                            </Link>
+                            </a>
                             <Button
                                 variant="outline"
                                 size="lg"
@@ -181,14 +181,14 @@ export function GenrePage({
                     <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
                         Join the world's most innovative artists and start owning your future today with Shamiso's sovereign distribution.
                     </p>
-                    <Link href="/signup">
+                    <a href="https://portal.shamiso-music.com/signup">
                         <Button
                             size="lg"
                             className="bg-shamiso-gold-bright px-12 py-8 text-lg font-black uppercase text-black shadow-2xl shadow-shamiso-gold/20 transition-all hover:scale-105 hover:shadow-shamiso-gold/40"
                         >
                             Join Shamiso
                         </Button>
-                    </Link>
+                    </a>
                 </div>
             </section>
 

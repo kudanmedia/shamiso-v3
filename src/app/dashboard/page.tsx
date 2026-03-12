@@ -84,7 +84,7 @@ export default function DashboardPage() {
                 setUser(session);
             } catch (error) {
                 console.error("Session check failed", error);
-                router.push("/login");
+                window.location.href = "https://portal.shamiso-music.com/login";
             } finally {
                 setIsCheckingSession(false);
             }
@@ -95,7 +95,7 @@ export default function DashboardPage() {
     const handleLogout = async () => {
         try {
             await account.deleteSession("current");
-            router.push("/login");
+            window.location.href = "https://portal.shamiso-music.com/login";
         } catch (error) {
             console.error("Logout failed", error);
         }
