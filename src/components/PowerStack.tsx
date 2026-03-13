@@ -13,7 +13,9 @@ import {
     Mic2,
     CheckCircle2,
     Share2,
-    Video
+    Video,
+    Landmark,
+    MapPin
 } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -78,11 +80,37 @@ const powerCards = [
         description:
             "Direct access to global curator networks and internal editorial desks. Pitch your music to the world's biggest tastemakers.",
         cta: "Pitch Curators",
-        href: "/signup",
+        href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music",
         gradient: "from-orange-500/20 to-orange-900/5",
         iconColor: "text-orange-400",
         borderColor: "hover:border-orange-500/40",
         features: ["1.2M+ Subscriber Engines", "YouTube Content ID", "Direct Editorial Access"]
+    },
+    {
+        icon: Landmark,
+        title: "Mogul Partnerships",
+        subtitle: "TAX & WEALTH",
+        description:
+            "Automated tax optimization and wealth management specialized for music creators. Secure your financial future while you build your catalog.",
+        cta: "Explore Mogul",
+        href: "https://www.usemogul.com/partnerships",
+        gradient: "from-amber-500/20 to-amber-900/5",
+        iconColor: "text-amber-400",
+        borderColor: "hover:border-amber-500/40",
+        features: ["Tax Optimization", "Wealth Management", "Creator Specialists"]
+    },
+    {
+        icon: MapPin,
+        title: "Toorly for Artists",
+        subtitle: "LIVE & TOURING",
+        description:
+            "Seamlessly book and manage global tours. Connect with venues, fans, and logistics partners in the SSA → International corridor.",
+        cta: "Start Touring",
+        href: "https://toorly.com/for-artists",
+        gradient: "from-red-500/20 to-red-900/5",
+        iconColor: "text-red-400",
+        borderColor: "hover:border-red-500/40",
+        features: ["Global Tour Booking", "Venue Connectivity", "Logistics Support"]
     },
 ];
 

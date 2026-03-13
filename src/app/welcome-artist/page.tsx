@@ -159,7 +159,7 @@ export default function WelcomeArtistPage() {
                                     </Button>
                                 </Link>
                                 <div className="mt-4 text-center">
-                                    <Link href="/dashboard" className="text-neutral-400 hover:text-white text-sm font-medium transition-colors flex items-center justify-center gap-1">
+                                    <Link href="https://portal.shamiso-music.com" className="text-neutral-400 hover:text-white text-sm font-medium transition-colors flex items-center justify-center gap-1">
                                         Or return to dashboard <ArrowRight className="w-3 h-3" />
                                     </Link>
                                 </div>

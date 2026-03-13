@@ -30,6 +30,8 @@ const services = [
     { label: "AI Master Lab", href: "https://automix.roexaudio.com/?via=06e63a" },
     { label: "AI Audio Auditor", href: "https://mixcheckstudio.roexaudio.com/?via=07431b" },
     { label: "Fan Data Analytics", href: "https://amplifiedpro.songtools.io/" },
+    { label: "Mogul Partnerships", href: "https://www.usemogul.com/partnerships" },
+    { label: "Toorly for Artists", href: "https://toorly.com/for-artists" },
 ];
 
 export function Footer() {
