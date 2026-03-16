@@ -74,8 +74,29 @@ const partners: Partner[] = [
         name: "Smartlink Suite",
         category: "Marketing",
         description: "Integrated campaign links for every release within your dashboard.",
-        href: "#",
+        href: "https://developers.feature.fm/",
         icon: Radio,
+    },
+    {
+        name: "Fan Data Analytics",
+        category: "Marketing",
+        description: "Comprehensive artist growth insights and corridor data intelligence.",
+        href: "https://amplifiedpro.songtools.io/",
+        icon: BarChart3,
+    },
+    {
+        name: "Mogul Partnerships",
+        category: "Marketing",
+        description: "Automated tax optimization and wealth management for music creators.",
+        href: "https://www.usemogul.com/partnerships",
+        icon: Shield,
+    },
+    {
+        name: "Toorly for Artists",
+        category: "Promotion",
+        description: "Seamlessly book and manage global tours across the SSA corridor.",
+        href: "https://toorly.com/for-artists",
+        icon: ExternalLink,
     },
 ];
 

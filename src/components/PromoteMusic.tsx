@@ -46,7 +46,7 @@ const services = [
                 name: "Pre-Save & Smartlink Suite",
                 description: "Integrated campaign links for every release within your dashboard.",
                 icon: Share2,
-                href: "#",
+                href: "https://developers.feature.fm/",
                 color: "text-shamiso-gold-bright",
                 borderColor: "border-shamiso-gold/20 hover:border-shamiso-gold/50",
                 bgColor: "bg-shamiso-gold/5",
