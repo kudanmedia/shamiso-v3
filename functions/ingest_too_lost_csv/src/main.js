@@ -4,10 +4,19 @@ const Decimal = require('decimal.js');
 const { Readable } = require('stream');
 
 module.exports = async ({ req, res, log, error }) => {
+    const endpoint = process.env.APPWRITE_FUNCTION_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
+    const projectId = process.env.APPWRITE_FUNCTION_PROJECT_ID || '69b7d2fc0023faf8fc46';
+    const apiKey = process.env.APPWRITE_FUNCTION_API_KEY;
+
+    if (!apiKey) {
+        log('WARNING: APPWRITE_FUNCTION_API_KEY is not set. Database operations may fail.');
+    }
+
     const client = new Client()
-        .setEndpoint(process.env.APPWRITE_FUNCTION_ENDPOINT)
-        .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
-        .setKey(process.env.APPWRITE_FUNCTION_API_KEY);
+        .setEndpoint(endpoint)
+        .setProject(projectId);
+
+    if (apiKey) client.setKey(apiKey);
 
     const databases = new Databases(client);
     const storage = new Storage(client);
