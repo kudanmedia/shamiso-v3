@@ -1,0 +1,9 @@
+{
+  "name": "execute_admin_action",
+  "version": "1.0.0",
+  "description": "Orchestrates payouts via Verto FX and sends artist invitations.",
+  "main": "src/main.js",
+  "dependencies": {
+    "node-appwrite": "^14.0.0"
+  }
+}
