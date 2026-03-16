@@ -52,7 +52,7 @@ export default function AdminPayoutsPage() {
             const uploadedFile = await storage.createFile(bucketId, ID.unique(), file);
 
             // 2. Trigger Ingestion Function
-            const functionId = 'ingest_too_lost_csv';
+            const functionId = '69b8154c000dde3296d8';
             await functions.createExecution(functionId, JSON.stringify({
                 fileId: uploadedFile.$id,
                 batchName: `Batch ${new Date().toLocaleDateString()}`
