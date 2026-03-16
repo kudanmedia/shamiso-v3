@@ -50,7 +50,16 @@ module.exports = async ({ req, res, log, error }) => {
         log(`Processing File: ${fileId}`);
 
         // 1. Download file
-        const fileBuffer = await storage.getFileDownload(bucketId, fileId);
+        let fileBuffer = await storage.getFileDownload(bucketId, fileId);
+        
+        // Appwrite SDK might return ArrayBuffer in some environments
+        if (fileBuffer instanceof ArrayBuffer) {
+            fileBuffer = Buffer.from(fileBuffer);
+        } else if (typeof fileBuffer === 'object' && fileBuffer.buffer instanceof ArrayBuffer) {
+            // Handle TypedArrays (Uint8Array, etc.)
+            fileBuffer = Buffer.from(fileBuffer.buffer);
+        }
+
         const results = {};
         let reportingDate = '';
         let totalRows = 0;
