@@ -183,7 +183,7 @@ export function PromoteMusic() {
                             Already a Shamiso artist? Access your dashboard, analytics, and
                             royalties.
                         </p>
-                        <a href="https://portal.shamiso-music.com/signup">
+                        <Link href="/signup">
                             <Button
                                 size="lg"
                                 className="w-full bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright font-bold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40"
@@ -191,7 +191,7 @@ export function PromoteMusic() {
                                 <Sparkles className="mr-2 h-5 w-5" />
                                 Sign Up for Distribution Portal
                             </Button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

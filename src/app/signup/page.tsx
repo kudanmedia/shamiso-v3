@@ -21,10 +21,10 @@ export default function SignupPage() {
         phone: "",
     });
 
-    useEffect(() => {
-        // Redirect to the external portal signup
-        window.location.href = "https://portal.shamiso-music.com/signup";
-    }, []);
+    // useEffect(() => {
+    //     // Redirect to the external portal signup
+    //     window.location.href = "https://portal.shamiso-music.com/signup";
+    // }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,8 +51,8 @@ export default function SignupPage() {
             // 3. Update Phone Number
             await account.updatePhone(formData.phone, formData.password);
 
-            // 4. Redirect to Dashboard
-            router.push("/dashboard");
+            // 4. Redirect to Onboarding
+            router.push("/onboarding");
         } catch (err: any) {
             setError(err.message || "Registration failed. Please try again.");
         } finally {
@@ -139,12 +139,12 @@ export default function SignupPage() {
                         </Button>
                     </form>
                 </CardContent>
-                <CardFooter className="flex justify-center">
+                <CardFooter className="flex justify-center border-t border-zinc-800 pt-6">
                     <p className="text-sm text-neutral-400">
                         Already have an account?{" "}
-                        <a href="https://portal.shamiso-music.com/login" className="text-shamiso-gold-bright hover:underline">
+                        <Link href="/login" className="text-shamiso-gold-bright hover:underline">
                             Log in
-                        </a>
+                        </Link>
                     </p>
                 </CardFooter>
             </Card>

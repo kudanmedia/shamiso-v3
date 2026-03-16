@@ -98,7 +98,7 @@ export function HeroSection() {
 
                         {/* CTAs */}
                         <div className="mb-16 flex flex-col gap-4 sm:flex-row">
-                            <a href="https://portal.shamiso-music.com/signup">
+                            <Link href="/signup">
                                 <Button
                                     size="lg"
                                     className="bg-shamiso-gold-bright px-10 py-7 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110 w-full sm:w-auto"
@@ -106,7 +106,7 @@ export function HeroSection() {
                                     <Fingerprint className="mr-2 h-5 w-5" />
                                     Join Shamiso
                                 </Button>
-                            </a>
+                            </Link>
                             <Link href="#services">
                                 <Button
                                     variant="outline"

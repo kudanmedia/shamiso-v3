@@ -18,10 +18,10 @@ export default function LoginPage() {
         password: "",
     });
 
-    useEffect(() => {
-        // Redirect to the external portal login
-        window.location.href = "https://portal.shamiso-music.com/login";
-    }, []);
+    // useEffect(() => {
+    //     // Redirect to the external portal login
+    //     window.location.href = "https://portal.shamiso-music.com/login";
+    // }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -99,9 +99,9 @@ export default function LoginPage() {
                 <CardFooter className="flex justify-center">
                     <p className="text-sm text-neutral-400">
                         Don&apos;t have an account?{" "}
-                        <a href="https://portal.shamiso-music.com/signup" className="text-shamiso-gold-bright hover:underline">
+                        <Link href="/signup" className="text-shamiso-gold-bright hover:underline">
                             Sign up
-                        </a>
+                        </Link>
                     </p>
                 </CardFooter>
             </Card>

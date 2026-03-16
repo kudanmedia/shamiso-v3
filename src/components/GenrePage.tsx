@@ -61,7 +61,7 @@ export function GenrePage({
                         </p>
 
                         <div className="mb-10 flex flex-col gap-4 sm:flex-row">
-                            <a href="https://portal.shamiso-music.com/signup">
+                            <Link href="/signup">
                                 <Button
                                     size="lg"
                                     className="bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright px-8 text-base font-bold text-black shadow-xl shadow-shamiso-gold/20 hover:shadow-shamiso-gold/40"
@@ -69,7 +69,7 @@ export function GenrePage({
                                     <Fingerprint className="mr-2 h-5 w-5" />
                                     Join Shamiso
                                 </Button>
-                            </a>
+                            </Link>
                             <Button
                                 variant="outline"
                                 size="lg"
@@ -181,14 +181,14 @@ export function GenrePage({
                     <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
                         Join the world's most innovative artists and start owning your future today with Shamiso's sovereign distribution.
                     </p>
-                    <a href="https://portal.shamiso-music.com/signup">
+                    <Link href="/signup">
                         <Button
                             size="lg"
                             className="bg-shamiso-gold-bright px-12 py-8 text-lg font-black uppercase text-black shadow-2xl shadow-shamiso-gold/20 transition-all hover:scale-105 hover:shadow-shamiso-gold/40"
                         >
                             Join Shamiso
                         </Button>
-                    </a>
+                    </Link>
                 </div>
             </section>
 

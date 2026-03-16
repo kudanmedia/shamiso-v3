@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import { account } from "@/lib/appwrite";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Music, DollarSign, Radio, Video, Mic2, BarChart3, Disc, LogOut } from "lucide-react";
+import { ExternalLink, Music, DollarSign, Radio, Video, Mic2, BarChart3, Disc, LogOut, Settings, User, CreditCard } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface Partner {
     name: string;
-    category: "Distribution" | "Funding" | "Promotion" | "Marketing";
+    category: "Distribution" | "Funding" | "Promotion" | "Marketing" | "Production";
     description: string;
     href: string;
     logo?: string;
@@ -29,44 +29,51 @@ const partners: Partner[] = [
     {
         name: "Sovereign Capital Vault",
         category: "Funding",
-        description: "Get non-dilutive funding for your music career.",
+        description: "Non-dilutive funding from $1K to $5M — Keep your masters",
         href: "https://shamisomusic.chordcash.com/",
         icon: DollarSign,
     },
     {
+        name: "Sovereign Growth Engine",
+        category: "Marketing",
+        description: "Integrated campaign links and automated fan-finding ad technology.",
+        href: "https://unhurd-staging.webflow.io/p/shamiso",
+        icon: BarChart3,
+    },
+    {
         name: "Curator Pitch Portal",
         category: "Promotion",
-        description: "Promote your music to blogs, radios, and labels.",
+        description: "Direct outreach to top curators with access to Mr Luu's Editorial Desk.",
         href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music",
-        icon: Music,
+        icon: Radio,
     },
     {
         name: "Visualizer Lab",
         category: "Promotion",
-        description: "Create professional music videos in minutes.",
+        description: "Auto-generate music videos, promo clips, and Spotify Canvas visuals.",
         href: "https://rotorvideos.com/shamiso",
         icon: Video,
     },
     {
-        name: "Sovereign Growth Engine",
-        category: "Marketing",
-        description: "Automated marketing tools for your releases.",
-        href: "https://amplifiedpro.songtools.io/",
-        icon: BarChart3,
+        name: "AI Audio Auditor",
+        category: "Production",
+        description: "Automated mix analysis for global -14 LUFS standards.",
+        href: "https://mixcheckstudio.roexaudio.com/?via=07431b",
+        icon: Mic2,
+    },
+    {
+        name: "AI Master Lab",
+        category: "Production",
+        description: "Cloud-based AI mixing & high-performance mastering engine.",
+        href: "https://automix.roexaudio.com/?via=06e63a",
+        icon: Disc,
     },
     {
         name: "Smartlink Suite",
         category: "Marketing",
-        description: "Smart links, pre-saves, and music marketing tools.",
-        href: "https://feature.fm",
+        description: "Integrated campaign links for every release within your dashboard.",
+        href: "#",
         icon: Radio,
-    },
-    {
-        name: "AI Audio Auditor",
-        category: "Marketing",
-        description: "AI-powered audio check and marketing automation.",
-        href: "https://mixcheckstudio.roexaudio.com/?via=07431b",
-        icon: Mic2,
     },
 ];
 
@@ -84,7 +91,7 @@ export default function DashboardPage() {
                 setUser(session);
             } catch (error) {
                 console.error("Session check failed", error);
-                window.location.href = "https://portal.shamiso-music.com/login";
+                window.location.href = "/login";
             } finally {
                 setIsCheckingSession(false);
             }
@@ -95,7 +102,7 @@ export default function DashboardPage() {
     const handleLogout = async () => {
         try {
             await account.deleteSession("current");
-            window.location.href = "https://portal.shamiso-music.com/login";
+            window.location.href = "/login";
         } catch (error) {
             console.error("Logout failed", error);
         }
@@ -137,34 +144,27 @@ export default function DashboardPage() {
                     <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
                     <p className="text-neutral-400">Welcome back, {user.name}</p>
                 </div>
-                <Button
-                    onClick={handleLogout}
-                    variant="outline"
-                    className="border-red-900/30 text-red-500 hover:bg-red-950/50 hover:text-red-400 hover:border-red-900 bg-transparent"
-                >
-                    <LogOut className="mr-2 h-4 w-4" />
-                    Log Out
-                </Button>
-            </div>
-
-            <div className="mb-12 p-6 border rounded-xl border-zinc-800 bg-zinc-900/40">
-                <h2 className="text-lg font-semibold mb-4 text-white">System Connectivity</h2>
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex items-center gap-3">
+                    <Link href="/dashboard/profile">
+                        <Button
+                            variant="outline"
+                            className="border-zinc-800 text-white hover:bg-zinc-800 bg-transparent"
+                        >
+                            <User className="mr-2 h-4 w-4" />
+                            Profile Settings
+                        </Button>
+                    </Link>
                     <Button
-                        onClick={testConnection}
-                        disabled={isLoading}
+                        onClick={handleLogout}
                         variant="outline"
-                        className="bg-transparent border-zinc-700 hover:bg-zinc-800 hover:text-white"
+                        className="border-red-900/30 text-red-500 hover:bg-red-950/50 hover:text-red-400 hover:border-red-900 bg-transparent"
                     >
-                        {isLoading ? "Ping Appwrite..." : "Test Connection"}
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Log Out
                     </Button>
-                    {status && (
-                        <span className={`text-sm font-medium ${status.startsWith("Success") ? "text-green-500" : "text-red-500"}`}>
-                            {status}
-                        </span>
-                    )}
                 </div>
             </div>
+
 
             <section>
                 <div className="flex items-center justify-between mb-6">

@@ -142,7 +142,7 @@ export function Header() {
                         </DropdownMenu>
                     ) : (
                         <>
-                            <a href="https://portal.shamiso-music.com/login">
+                            <Link href="/login">
                                 <Button
                                     variant="outline"
                                     size="sm"
@@ -150,8 +150,8 @@ export function Header() {
                                 >
                                     Log in
                                 </Button>
-                            </a>
-                            <a href="https://portal.shamiso-music.com/signup">
+                            </Link>
+                            <Link href="/signup">
                                 <Button
                                     size="sm"
                                     className="bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black shadow-lg shadow-shamiso-gold/20 transition-all hover:shadow-shamiso-gold/40 hover:brightness-110"
@@ -159,7 +159,7 @@ export function Header() {
                                     <Fingerprint className="mr-2 h-4 w-4" />
                                     Sign on
                                 </Button>
-                            </a>
+                            </Link>
                         </>
                     )}
                 </div>
@@ -230,20 +230,20 @@ export function Header() {
                                     </>
                                 ) : (
                                     <>
-                                        <a href="https://portal.shamiso-music.com/login" onClick={() => setMobileOpen(false)}>
+                                        <Link href="/login" onClick={() => setMobileOpen(false)}>
                                             <Button
                                                 variant="outline"
                                                 className="w-full border-shamiso-gold/30 text-muted-foreground"
                                             >
                                                 Log in
                                             </Button>
-                                        </a>
-                                        <a href="https://portal.shamiso-music.com/signup" onClick={() => setMobileOpen(false)}>
+                                        </Link>
+                                        <Link href="/signup" onClick={() => setMobileOpen(false)}>
                                             <Button className="w-full bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright font-semibold text-black">
                                                 <Fingerprint className="mr-2 h-4 w-4" />
                                                 Sign on
                                             </Button>
-                                        </a>
+                                        </Link>
                                     </>
                                 )}
                             </div>
