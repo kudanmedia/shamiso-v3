@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import { account } from "@/lib/appwrite";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Music, DollarSign, Radio, Video, Mic2, BarChart3, Disc, LogOut, Settings, User, CreditCard } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { PayoutHistory } from "@/components/dashboard/payout-history";
 
 interface Partner {
     name: string;
@@ -167,6 +169,29 @@ export default function DashboardPage() {
 
 
             <section>
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+                    <Card className="lg:col-span-1 bg-linear-to-br from-shamiso-gold/20 to-shamiso-gold/5 border-shamiso-gold/20 text-white backdrop-blur-xl group overflow-hidden relative">
+                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <DollarSign className="w-16 h-16" />
+                        </div>
+                        <CardHeader className="pb-2">
+                            <CardDescription className="text-shamiso-gold-bright/60 font-bold uppercase tracking-widest text-[10px]">Total Revenue Distributed</CardDescription>
+                            <CardTitle className="text-4xl font-black tabular-nums">$0.00</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center gap-2 text-xs text-neutral-400">
+                                <span className="text-green-500 font-bold">+0%</span>
+                                <span>from last month</span>
+                            </div>
+                        </CardContent>
+                        <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-shamiso-gold to-transparent" />
+                    </Card>
+
+                    <div className="lg:col-span-3">
+                        <PayoutHistory />
+                    </div>
+                </div>
+
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-bold">Your Apps</h2>
                 </div>
