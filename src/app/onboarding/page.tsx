@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { account } from "@/lib/appwrite";
+import { account, databases } from "@/lib/appwrite";
+import { ID, Query } from "appwrite";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -95,11 +96,41 @@ export default function OnboardingPage() {
         setError("");
 
         try {
+            // 1. Update User Prefs (Legacy Support)
             await account.updatePrefs({
                 ...formData,
                 onboardingComplete: true,
                 updatedAt: new Date().toISOString(),
             });
+
+            // 2. Create/Update Profile in Database
+            const databaseId = '69b7fdaa001b7da3d224';
+            const collectionId = 'profiles';
+            const userId = user.$id;
+
+            // Extract currency from territory string: "South Africa (ZAR)" -> "ZAR"
+            const currencyMatch = formData.payoutTerritory.match(/\(([^)]+)\)/);
+            const currency = currencyMatch ? currencyMatch[1] : "USD";
+
+            // Check if profile already exists
+            const existingProfiles = await databases.listDocuments(databaseId, collectionId, [
+                Query.equal('appwrite_user_id', userId)
+            ]);
+
+            const profileData = {
+                appwrite_user_id: userId,
+                phone_number: formData.mobileNumber || user.phone || "N/A",
+                too_lost_email: formData.tooLostEmail || "N/A",
+                verto_payout_currency: currency,
+                verto_payout_method: formData.payoutMethod || "N/A"
+            };
+
+            if (existingProfiles.total > 0) {
+                await databases.updateDocument(databaseId, collectionId, existingProfiles.documents[0].$id, profileData);
+            } else {
+                await databases.createDocument(databaseId, collectionId, ID.unique(), profileData);
+            }
+
             router.push("/dashboard");
         } catch (err: any) {
             setError(err.message || "Failed to save details. Please try again.");
