@@ -11,7 +11,19 @@ module.exports = async ({ req, res, log, error }) => {
     const profilesCollectionId = 'profiles';
     const ledgerCollectionId = 'ledger_entries';
 
-    const { ledgerEntryIds, actionType } = req.body;
+    // Robust parsing for string or object body
+    let payload = {};
+    if (typeof req.body === 'string') {
+        try {
+            payload = JSON.parse(req.body);
+        } catch (e) {
+            payload = {};
+        }
+    } else {
+        payload = req.body || {};
+    }
+
+    const { ledgerEntryIds, actionType } = payload;
 
     if (!ledgerEntryIds || !Array.isArray(ledgerEntryIds) || !actionType) {
         return res.json({ success: false, message: 'Invalid payload' }, 400);

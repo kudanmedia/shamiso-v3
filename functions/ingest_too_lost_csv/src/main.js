@@ -18,11 +18,22 @@ module.exports = async ({ req, res, log, error }) => {
     const ledgerCollectionId = 'ledger_entries';
     const bucketId = 'royalty_csvs';
 
-    // File ID comes from the event or request body
-    const fileId = req.body.fileId || req.headers['x-appwrite-event-resource-id'];
+    // Payload can be a string or object depending on how it's triggered
+    let payload = {};
+    if (typeof req.body === 'string') {
+        try {
+            payload = JSON.parse(req.body);
+        } catch (e) {
+            payload = {};
+        }
+    } else {
+        payload = req.body || {};
+    }
+
+    const fileId = payload.fileId || req.headers['x-appwrite-event-resource-id'];
 
     if (!fileId) {
-        error('No fileId provided.');
+        log('No fileId provided in payload or headers.');
         return res.json({ success: false, message: 'No fileId provided' }, 400);
     }
 
