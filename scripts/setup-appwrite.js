@@ -1,16 +1,14 @@
-const { Client, Databases, Storage, ID } = require('node-appwrite');
+const { Client, Databases, Storage, ID, Permission, Role } = require('node-appwrite');
 
+// Use environment variables from .env
 const client = new Client()
-    .setEndpoint('https://fra.cloud.appwrite.io/v1')
-    .setProject('69b7d2fc0023faf8fc46')
-    // Note: In a real environment, an API Key should be used here via env var
-    // However, I will construct this to be run or explained for manual check
-    // since I don't have the API Secret in the frontend .env
+    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1')
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '69b7d2fc0023faf8fc46')
     .setKey(process.env.APPWRITE_API_KEY || ''); 
 
 const databases = new Databases(client);
 const storage = new Storage(client);
-const databaseId = '69b7fdaa001b7da3d224';
+const databaseId = process.env.DATABASE_ID || '69b7fdaa001b7da3d224';
 
 async function waitForAttribute(databaseId, collectionId, attributeKey) {
     console.log(`Waiting for attribute ${attributeKey} to be available...`);
@@ -73,8 +71,22 @@ async function setup() {
 
         // 4. Storage Bucket
         console.log('Creating Royalty_CSVs Bucket...');
-        try { await storage.createBucket('royalty_csvs', 'Royalty CSVs', ['role:all'], ['role:all']); } catch (e) {}
-        console.log('Bucket Created.');
+        try { 
+            await storage.createBucket(
+                'royalty_csvs', 
+                'Royalty CSVs', 
+                [
+                    Permission.read(Role.any()),
+                    Permission.create(Role.users()),
+                    Permission.update(Role.users()),
+                    Permission.delete(Role.users())
+                ],
+                false // fileSecurity
+            ); 
+        } catch (e) {
+            console.log('Bucket already exists or creation failed:', e.message);
+        }
+        console.log('Bucket Setup Check Done.');
 
         console.log('Infrastructure Setup Complete!');
     } catch (error) {
