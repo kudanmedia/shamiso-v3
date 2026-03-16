@@ -9,6 +9,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PayoutHistory } from "@/components/dashboard/payout-history";
+// import { SongToolsWidget } from "@/components/SongToolsWidget";
+
+
 
 interface Partner {
     name: string;
@@ -81,9 +84,10 @@ const partners: Partner[] = [
         name: "Fan Data Analytics",
         category: "Marketing",
         description: "Comprehensive artist growth insights and corridor data intelligence.",
-        href: "https://amplifiedpro.songtools.io/",
+        href: "/dashboard/analytics",
         icon: BarChart3,
     },
+
     {
         name: "Mogul Partnerships",
         category: "Marketing",
@@ -229,58 +233,78 @@ export default function DashboardPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {partners.map((partner) => (
-                        <Link
-                            key={partner.name}
-                            href={partner.href}
-                            target="_blank"
-                            className="group relative flex flex-col p-6 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-shamiso-gold/50 transition-all duration-300"
-                        >
-                            <div className="mb-4 h-12 flex items-center">
-                                {partner.logo ? (
-                                    <div className="relative h-10 w-full flex items-center justify-start">
-                                        <img
-                                            src={partner.logo}
-                                            alt={partner.name}
-                                            className={`h-full w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity ${partner.name === 'Groover' ? 'scale-125 origin-left' : ''}`}
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-zinc-800 text-shamiso-gold-bright">
-                                        {partner.icon && <partner.icon className="h-6 w-6" />}
+                    {partners.map((partner) => {
+                        const isInternal = partner.href.startsWith('/');
+                        const content = (
+                            <div className="group relative flex flex-col p-6 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-shamiso-gold/50 transition-all duration-300 h-full">
+                                <div className="mb-4 h-12 flex items-center">
+                                    {partner.logo ? (
+                                        <div className="relative h-10 w-full flex items-center justify-start">
+                                            <img
+                                                src={partner.logo}
+                                                alt={partner.name}
+                                                className={`h-full w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity ${partner.name === 'Groover' ? 'scale-125 origin-left' : ''}`}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-zinc-800 text-shamiso-gold-bright">
+                                            {partner.icon && <partner.icon className="h-6 w-6" />}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="mb-2">
+                                    <span className="text-xs font-medium uppercase tracking-wider text-shamiso-gold-bright/80">
+                                        {partner.category}
+                                    </span>
+                                </div>
+
+                                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-shamiso-gold-bright transition-colors">
+                                    {partner.name}
+                                </h3>
+
+                                <p className="text-sm text-neutral-400 mb-4 line-clamp-2">
+                                    {partner.description}
+                                </p>
+
+                                {partner.metadata && (
+                                    <div className="mt-auto pt-4 border-t border-zinc-800">
+                                        <p className="text-xs font-mono text-shamiso-gold-bright break-all">
+                                            {partner.metadata}
+                                        </p>
                                     </div>
                                 )}
-                            </div>
 
-                            <div className="mb-2">
-                                <span className="text-xs font-medium uppercase tracking-wider text-shamiso-gold-bright/80">
-                                    {partner.category}
-                                </span>
-                            </div>
-
-                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-shamiso-gold-bright transition-colors">
-                                {partner.name}
-                            </h3>
-
-                            <p className="text-sm text-neutral-400 mb-4 line-clamp-2">
-                                {partner.description}
-                            </p>
-
-                            {partner.metadata && (
-                                <div className="mt-auto pt-4 border-t border-zinc-800">
-                                    <p className="text-xs font-mono text-shamiso-gold-bright break-all">
-                                        {partner.metadata}
-                                    </p>
+                                <div className="absolute top-6 right-6 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                    <ExternalLink className="h-5 w-5 text-shamiso-gold-bright" />
                                 </div>
-                            )}
-
-                            <div className="absolute top-6 right-6 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                                <ExternalLink className="h-5 w-5 text-shamiso-gold-bright" />
                             </div>
-                        </Link>
-                    ))}
+                        );
+
+                        if (isInternal) {
+                            return (
+                                <Link key={partner.name} href={partner.href}>
+                                    {content}
+                                </Link>
+                            );
+                        }
+
+                        return (
+                            <Link
+                                key={partner.name}
+                                href={partner.href}
+                                target="_blank"
+                            >
+                                {content}
+                            </Link>
+                        );
+                    })}
                 </div>
+
+                {/* <SongToolsWidget /> */}
             </section>
+
+
         </div>
     );
 }
