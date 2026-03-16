@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { databases } from "@/lib/appwrite";
-import { Query } from "appwrite";
+import { databases, storage, functions } from "@/lib/appwrite";
+import { Query, ID } from "appwrite";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
@@ -12,27 +13,61 @@ import Link from "next/link";
 
 export default function AdminPayoutsPage() {
     const [isLoading, setIsLoading] = useState(true);
+    const [isUploading, setIsUploading] = useState(false);
     const [batches, setBatches] = useState<any[]>([]);
     const [error, setError] = useState("");
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const databaseId = '69b7fdaa001b7da3d224';
     const batchesCollectionId = 'royalty_batches';
 
+    const fetchBatches = async () => {
+        setIsLoading(true);
+        try {
+            const response = await databases.listDocuments(databaseId, batchesCollectionId, [
+                Query.orderDesc('reporting_date')
+            ]);
+            setBatches(response.documents);
+        } catch (err: any) {
+            setError(err.message || "Failed to load royalty batches.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     useEffect(() => {
-        const fetchBatches = async () => {
-            try {
-                const response = await databases.listDocuments(databaseId, batchesCollectionId, [
-                    Query.orderDesc('reporting_date')
-                ]);
-                setBatches(response.documents);
-            } catch (err: any) {
-                setError(err.message || "Failed to load royalty batches.");
-            } finally {
-                setIsLoading(false);
-            }
-        };
         fetchBatches();
     }, []);
+
+    const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        setIsUploading(true);
+        setError("");
+
+        try {
+            // 1. Upload to Storage
+            const bucketId = 'royalty_csvs';
+            const uploadedFile = await storage.createFile(bucketId, ID.unique(), file);
+
+            // 2. Trigger Ingestion Function
+            const functionId = 'ingest_too_lost_csv';
+            await functions.createExecution(functionId, JSON.stringify({
+                fileId: uploadedFile.$id,
+                batchName: `Batch ${new Date().toLocaleDateString()}`
+            }));
+
+            alert("CSV Uploaded Successfully! Ingestion has started.");
+            fetchBatches();
+        } catch (err: any) {
+            setError(err.message || "Upload failed.");
+            alert("Upload failed: " + err.message);
+        } finally {
+            setIsUploading(false);
+            if (fileInputRef.current) fileInputRef.current.value = "";
+        }
+    };
 
     if (isLoading) {
         return (
@@ -50,9 +85,27 @@ export default function AdminPayoutsPage() {
                         <h1 className="text-4xl font-bold tracking-tight">Royalty Ingestion</h1>
                         <p className="text-zinc-400 mt-2">Manage "Too Lost" monthly royalty CSV uploads and payouts.</p>
                     </div>
-                    <Button className="bg-shamiso-gold-bright text-black font-bold hover:bg-shamiso-gold">
-                        <Plus className="w-4 h-4 mr-2" /> Upload New CSV
-                    </Button>
+                    <div className="flex gap-4">
+                        <input 
+                            type="file" 
+                            ref={fileInputRef} 
+                            onChange={handleFileUpload} 
+                            accept=".csv" 
+                            className="hidden" 
+                        />
+                        <Button 
+                            className="bg-shamiso-gold-bright text-black font-bold hover:bg-shamiso-gold"
+                            onClick={() => fileInputRef.current?.click()}
+                            disabled={isUploading}
+                        >
+                            {isUploading ? (
+                                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            ) : (
+                                <Plus className="w-4 h-4 mr-2" />
+                            )}
+                            {isUploading ? "Uploading..." : "Upload New CSV"}
+                        </Button>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-6">

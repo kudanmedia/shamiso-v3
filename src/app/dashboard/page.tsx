@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { account } from "@/lib/appwrite";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Music, DollarSign, Radio, Video, Mic2, BarChart3, Disc, LogOut, Settings, User, CreditCard } from "lucide-react";
+import { ExternalLink, Music, DollarSign, Radio, Video, Mic2, BarChart3, Disc, LogOut, Settings, User, CreditCard, Shield } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
@@ -147,6 +147,17 @@ export default function DashboardPage() {
                     <p className="text-neutral-400">Welcome back, {user.name}</p>
                 </div>
                 <div className="flex items-center gap-3">
+                    {user?.labels?.includes("admin") && (
+                        <Link href="/admin/payouts">
+                            <Button
+                                variant="outline"
+                                className="border-shamiso-gold/30 text-shamiso-gold-bright hover:bg-shamiso-gold/10 hover:border-shamiso-gold bg-transparent"
+                            >
+                                <Shield className="mr-2 h-4 w-4" />
+                                Admin Portal
+                            </Button>
+                        </Link>
+                    )}
                     <Link href="/dashboard/profile">
                         <Button
                             variant="outline"
