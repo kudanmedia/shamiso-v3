@@ -31,7 +31,14 @@ async function setup() {
     try {
         // 1. Profiles Collection
         console.log('Creating Profiles Collection...');
-        try { await databases.createCollection(databaseId, 'profiles', 'Profiles'); } catch (e) {}
+        try { 
+            await databases.createCollection(databaseId, 'profiles', 'Profiles', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]); 
+        } catch (e) {}
         try { await databases.createStringAttribute(databaseId, 'profiles', 'appwrite_user_id', 36, true); } catch (e) {}
         try { await databases.createStringAttribute(databaseId, 'profiles', 'phone_number', 20, true); } catch (e) {}
         try { await databases.createStringAttribute(databaseId, 'profiles', 'too_lost_email', 255, true); } catch (e) {}
@@ -44,7 +51,14 @@ async function setup() {
 
         // 2. Royalty Batches
         console.log('Creating Royalty Batches Collection...');
-        try { await databases.createCollection(databaseId, 'royalty_batches', 'Royalty Batches'); } catch (e) {}
+        try { 
+            await databases.createCollection(databaseId, 'royalty_batches', 'Royalty Batches', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]); 
+        } catch (e) {}
         try { await databases.createStringAttribute(databaseId, 'royalty_batches', 'batch_name', 255, true); } catch (e) {}
         try { await databases.createDatetimeAttribute(databaseId, 'royalty_batches', 'reporting_date', true); } catch (e) {}
         try { await databases.createIntegerAttribute(databaseId, 'royalty_batches', 'total_rows', true); } catch (e) {}
@@ -53,7 +67,14 @@ async function setup() {
 
         // 3. Ledger Entries
         console.log('Creating Ledger Entries Collection...');
-        try { await databases.createCollection(databaseId, 'ledger_entries', 'Ledger Entries'); } catch (e) {}
+        try { 
+            await databases.createCollection(databaseId, 'ledger_entries', 'Ledger Entries', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]); 
+        } catch (e) {}
         try { await databases.createStringAttribute(databaseId, 'ledger_entries', 'batch_id', 36, true); } catch (e) {}
         try { await databases.createStringAttribute(databaseId, 'ledger_entries', 'too_lost_email', 255, true); } catch (e) {}
         try { await databases.createIntegerAttribute(databaseId, 'ledger_entries', 'total_cents', true); } catch (e) {}
