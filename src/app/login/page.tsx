@@ -17,11 +17,21 @@ export default function LoginPage() {
         email: "",
         password: "",
     });
+    const [isCheckingSession, setIsCheckingSession] = useState(true);
 
-    // useEffect(() => {
-    //     // Redirect to the external portal login
-    //     window.location.href = "https://portal.shamiso-music.com/login";
-    // }, []);
+    useEffect(() => {
+        const checkSession = async () => {
+            try {
+                await account.get();
+                // If successful, user is logged in
+                router.push("/dashboard");
+            } catch (error) {
+                // Not logged in, stay on page
+                setIsCheckingSession(false);
+            }
+        };
+        checkSession();
+    }, [router]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,6 +51,14 @@ export default function LoginPage() {
             setIsLoading(false);
         }
     };
+
+    if (isCheckingSession) {
+        return (
+            <div className="min-h-screen bg-black flex items-center justify-center text-white">
+                <div className="animate-pulse">Checking access...</div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-black p-4">

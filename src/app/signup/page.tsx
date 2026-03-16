@@ -20,6 +20,21 @@ export default function SignupPage() {
         password: "",
         phone: "",
     });
+    const [isCheckingSession, setIsCheckingSession] = useState(true);
+
+    useEffect(() => {
+        const checkSession = async () => {
+            try {
+                await account.get();
+                // If successful, user is already logged in
+                router.push("/dashboard");
+            } catch (error) {
+                // Not logged in, proceed
+                setIsCheckingSession(false);
+            }
+        };
+        checkSession();
+    }, [router]);
 
     // useEffect(() => {
     //     // Redirect to the external portal signup
@@ -59,6 +74,14 @@ export default function SignupPage() {
             setIsLoading(false);
         }
     };
+
+    if (isCheckingSession) {
+        return (
+            <div className="min-h-screen bg-black flex items-center justify-center text-white">
+                <div className="animate-pulse">Checking access...</div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-black p-4">
