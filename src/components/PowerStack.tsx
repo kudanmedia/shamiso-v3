@@ -23,42 +23,42 @@ import { Badge } from "@/components/ui/badge";
 const powerCards = [
     {
         icon: Banknote,
-        title: "Sovereign Capital Vault",
+        title: "Funding & Advances",
         subtitle: "FINANCE",
         description:
-            "Access non-dilutive funding from $1k to $5M. Keep 100% of your masters. Institutional capital backed by your sovereign data.",
-        cta: "Unlock Funding",
-        href: "https://shamisomusic.chordcash.com",
+            "Access non-dilutive funding from $1k to $10M+. Keep 100% of your masters. Partnered with beatBread for data-driven artist advances.",
+        cta: "Get Funded",
+        href: "/services/funding",
         gradient: "from-emerald-500/20 to-emerald-900/5",
         iconColor: "text-emerald-400",
         borderColor: "hover:border-emerald-500/40",
-        features: ["Up to $5 Million", "Keep 100% Masters", "30% TAX RECLAIM", "Automated Repayment"]
+        features: ["Up to $10 Million+", "Keep 100% Masters", "Artists & Label Tiers", "Institutional Capital"]
     },
     {
         icon: Zap,
-        title: "Sovereign Growth Engine",
+        title: "feature.fm Engine",
         subtitle: "MARKETING",
         description:
-            "AI-powered ad-targeting and fan-finding in the SSA → UK → USA → Global corridor. Integrated fan data analytics at your fingertips.",
+            "The industry's leading marketing & ad suite. Smart links, audience data, and retargeting pixels to grow your fan connection.",
         cta: "Scale My Growth",
-        href: "https://unhurd-staging.webflow.io/p/shamiso",
+        href: "/signup",
         gradient: "from-blue-500/20 to-blue-900/5",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/40",
-        features: ["Automated Ad-Pilot", "Global Fan-Finding", "Corridor Analytics"]
+        features: ["Smart Links & Pre-Saves", "Audience Data", "Retargeting Pixels"]
     },
     {
         icon: Mic2,
-        title: "AI Studio Suite",
+        title: "Roex Studio Suite",
         subtitle: "PRODUCTION",
         description:
-            "Grammy-quality AI Mixing & Mastering to -14 LUFS global standards. Professional sound optimized for every major streaming platform.",
+            "AI-powered mix analysis and professional mastering checks. Ensure your tracks are streaming-ready before the world hears them.",
         cta: "Polish My Sound",
-        href: "https://automix.roexaudio.com/?via=06e63a",
+        href: "/signup",
         gradient: "from-purple-500/20 to-purple-900/5",
         iconColor: "text-purple-400",
         borderColor: "hover:border-purple-500/40",
-        features: ["AI Mastering", "Mix Auditing", "LUFS Optimization"]
+        features: ["AI Mix Analysis", "Mastering+ Polish", "Streaming Optimized"]
     },
     {
         icon: Video,
@@ -67,7 +67,7 @@ const powerCards = [
         description:
             "Auto-generate high-performance music videos, promo clips, and Spotify Canvas visuals in minutes from your dashboard.",
         cta: "Create Visuals",
-        href: "https://rotorvideos.com/shamiso",
+        href: "/signup",
         gradient: "from-pink-500/20 to-pink-900/5",
         iconColor: "text-pink-400",
         borderColor: "hover:border-pink-500/40",
@@ -75,16 +75,16 @@ const powerCards = [
     },
     {
         icon: Share2,
-        title: "Curator Pitch Portal",
+        title: "SongTools Promo",
         subtitle: "PROMOTION",
         description:
-            "Direct access to global curator networks and internal editorial desks. Pitch your music to the world's biggest tastemakers.",
-        cta: "Pitch Curators",
-        href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music",
+            "Automated digital ads and algorithmic playlisting. Get label-grade marketing for your releases starting at just $10/day.",
+        cta: "Start Promoting",
+        href: "/signup",
         gradient: "from-orange-500/20 to-orange-900/5",
         iconColor: "text-orange-400",
         borderColor: "hover:border-orange-500/40",
-        features: ["1.2M+ Subscriber Engines", "YouTube Content ID", "Direct Editorial Access"]
+        features: ["Automated Ad Campaigns", "Playlist Pitching", "Real-Time Insights"]
     },
     {
         icon: Landmark,
@@ -93,24 +93,37 @@ const powerCards = [
         description:
             "Automated tax optimization and wealth management specialized for music creators. Secure your financial future while you build your catalog.",
         cta: "Explore Mogul",
-        href: "https://www.usemogul.com/partnerships",
+        href: "/signup",
         gradient: "from-amber-500/20 to-amber-900/5",
-        iconColor: "text-amber-400",
-        borderColor: "hover:border-amber-500/40",
+        iconColor: "text-emerald-400",
+        borderColor: "hover:border-emerald-500/40",
         features: ["Tax Optimization", "Wealth Management", "Creator Specialists"]
     },
     {
         icon: MapPin,
-        title: "Toorly for Artists",
-        subtitle: "LIVE & TOURING",
+        title: "TOORLY Touring",
+        subtitle: "TOURING",
         description:
-            "Seamlessly book and manage global tours. Connect with venues, fans, and logistics partners in the SSA → International corridor.",
-        cta: "Start Touring",
-        href: "https://toorly.com/for-artists",
+            "Stop guessing where your fans are. Start showing them where you're going. Fan-demand driven touring data to book with certainty.",
+        cta: "Request Tour",
+        href: "/signup",
+        gradient: "from-sky-500/20 to-sky-900/5",
+        iconColor: "text-sky-400",
+        borderColor: "hover:border-sky-500/40",
+        features: ["Fan-Demand Metrics", "Risk-Free Routing", "Direct Ticket Intent"]
+    },
+    {
+        icon: MapPin,
+        title: "Groover Networking",
+        subtitle: "NETWORKING",
+        description:
+            "Connect directly with 3,000+ industry pros. Guaranteed feedback from playlist curators, labels, and blogs in 7 days.",
+        cta: "Pitch Industry",
+        href: "/signup",
         gradient: "from-red-500/20 to-red-900/5",
         iconColor: "text-red-400",
         borderColor: "hover:border-red-500/40",
-        features: ["Global Tour Booking", "Venue Connectivity", "Logistics Support"]
+        features: ["Guaranteed Feedback", "Direct Label Pitching", "Radio & Blogs"]
     },
 ];
 

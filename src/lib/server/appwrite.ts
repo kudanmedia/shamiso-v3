@@ -1,8 +1,10 @@
-import { Client, Account } from "node-appwrite";
+import * as sdk from "node-appwrite";
 import { cookies } from "next/headers";
 
+export const { ID, Query } = sdk;
+
 export async function createSessionClient(jwt?: string) {
-    const client = new Client()
+    const client = new sdk.Client()
         .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
         .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!);
 
@@ -21,7 +23,29 @@ export async function createSessionClient(jwt?: string) {
 
     return {
         get account() {
-            return new Account(client);
+            return new sdk.Account(client);
+        },
+        get databases() {
+            return new sdk.Databases(client);
+        },
+    };
+}
+
+export async function createAdminClient() {
+    const client = new sdk.Client()
+        .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+        .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+        .setKey(process.env.APPWRITE_API_KEY!);
+
+    return {
+        get account() {
+            return new sdk.Account(client);
+        },
+        get databases() {
+            return new sdk.Databases(client);
+        },
+        get users() {
+            return new sdk.Users(client);
         },
     };
 }

@@ -76,7 +76,7 @@ export function HeroSection() {
                             <div className="flex flex-col gap-2 p-4 rounded-xl border border-shamiso-gold/20 bg-shamiso-gold/5">
                                 <p className="text-sm font-bold text-white uppercase tracking-tight">Non-Dilutive Funding</p>
                                 <p className="text-xs text-neutral-400">Get non-dilutive funding up to $5M. Keep 100% of your masters</p>
-                                <Link href="https://shamisomusic.chordcash.com" target="_blank">
+                                <Link href="/services/funding">
                                     <Button variant="link" className="p-0 h-auto text-shamiso-gold-bright text-xs font-bold uppercase">
                                         Check funding eligibility <ArrowRight className="ml-1 h-3 w-3" />
                                     </Button>

@@ -26,7 +26,7 @@ const genreLinks = [
 const navLinks = [
     { label: "About Us", href: "/about" },
     { label: "Promoting Music", href: "/promote-music" },
-    { label: "Funding", href: "https://shamisomusic.chordcash.com" },
+    { label: "Funding", href: "/services/funding" },
     { label: "Pricing", href: "/pricing" },
 
 ];

@@ -14,7 +14,7 @@ const solutions = [
 const quickLinks = [
     { label: "Distribute Music", href: "#services" },
     { label: "Promote Music", href: "#promote" },
-    { label: "Funding Advances", href: "https://shamisomusic.chordcash.com/" },
+    { label: "Funding Advances", href: "/services/funding" },
     { label: "Pricing", href: "/pricing" },
     { label: "About Us", href: "/about" },
     { label: "Partners", href: "#promote" },
@@ -22,16 +22,15 @@ const quickLinks = [
 ];
 
 const services = [
-    { label: "Sovereign Capital Vault", href: "https://shamisomusic.chordcash.com/" },
-    { label: "Sovereign Growth Engine", href: "https://unhurd-staging.webflow.io/p/shamiso" },
-    { label: "Smartlink Suite", href: "https://developers.feature.fm/" },
-    { label: "Curator Pitch Portal", href: "https://www.groover.co/en/?utm_source=Indirect&utm_medium=partner&utm_campaign=shamiso_music" },
-    { label: "Visualizer Lab", href: "https://rotorvideos.com/shamiso" },
-    { label: "AI Master Lab", href: "https://automix.roexaudio.com/?via=06e63a" },
-    { label: "AI Audio Auditor", href: "https://mixcheckstudio.roexaudio.com/?via=07431b" },
-    { label: "Fan Data Analytics", href: "https://amplifiedpro.songtools.io/" },
-    { label: "Mogul Partnerships", href: "https://www.usemogul.com/partnerships" },
-    { label: "Toorly for Artists", href: "https://toorly.com/for-artists" },
+    { label: "Funding & Advances", href: "/services/funding" },
+    { label: "feature.fm Engine", href: "/signup" },
+    { label: "Smartlinks & Pre-Saves", href: "/signup" },
+    { label: "Groover Networking", href: "/signup" },
+    { label: "Visualizer Lab", href: "/signup" },
+    { label: "Mix Check Studio", href: "/signup" },
+    { label: "SongTools Promo", href: "/signup" },
+    { label: "Mogul Tax & Wealth", href: "/signup" },
+    { label: "Toorly for Artists", href: "/signup" },
 ];
 
 export function Footer() {
