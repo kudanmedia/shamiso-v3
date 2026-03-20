@@ -129,20 +129,20 @@ const powerCards = [
 
 export function PowerStack() {
     return (
-        <section id="services" className="relative py-24 overflow-hidden bg-black">
+        <section id="sovereign-suite" className="relative py-24 overflow-hidden bg-black">
             <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
 
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Section header */}
                 <div className="mb-16 text-center">
                     <Badge variant="outline" className="mb-4 border-shamiso-gold/30 text-shamiso-gold-bright uppercase tracking-widest">
-                        THE SOVEREIGN STACK™ (Music-as-a-Service)
+                        THE SHAMISO SOVEREIGN SUITE
                     </Badge>
-                    <h2 className="text-3xl font-black text-white uppercase sm:text-4xl md:text-5xl">
-                        Unified Creative <span className="gradient-text">Infrastructure</span>
+                    <h2 className="text-3xl font-black text-white uppercase sm:text-4xl md:text-5xl lg:text-6xl">
+                        WHY ARTISTS CHOOSE <span className="gradient-text">SHAMISO MUSIC</span>
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
-                        Stop juggling 10 different subscriptions. The Sovereign Stack integrates the world&apos;s most powerful creative and financial tools into a single, high-performance dashboard.
+                    <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400 leading-relaxed font-light">
+                        Stop juggling 10 different subscriptions. The Shamiso Sovereign Suite integrates the world&apos;s most powerful creative and financial tools into a single, high-performance dashboard.
                     </p>
                 </div>
 

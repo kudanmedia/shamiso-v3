@@ -16,7 +16,7 @@ import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
     title: "Funding & Advances | Shamiso Music Distribution",
-    description: "Get funded from $1,000 to $1M+. Keep your masters. Powered by beatBread. The sovereign way to scale your music career.",
+    description: "Get funded from $1,000 to $10M+. Keep your masters. Powered by beatBread. The sovereign way to scale your music career.",
 };
 
 const pillars = [
@@ -112,7 +112,7 @@ export default function FundingPage() {
                             </p>
                         </div>
                         
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
                             {pillars.map((pillar) => (
                                 <div key={pillar.title} className="p-8 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:border-shamiso-gold/20 transition-colors group">
                                     <div className={`w-12 h-12 rounded-xl ${pillar.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
@@ -122,6 +122,48 @@ export default function FundingPage() {
                                     <p className="text-sm text-neutral-400 leading-relaxed">{pillar.description}</p>
                                 </div>
                             ))}
+                        </div>
+
+                        {/* Advances Table */}
+                        <div className="overflow-hidden rounded-3xl border border-shamiso-gold/15 bg-black/40 backdrop-blur-md shadow-2xl">
+                            <div className="bg-shamiso-gold/5 px-8 py-6 border-b border-shamiso-gold/15">
+                                <h3 className="text-xl font-bold uppercase tracking-widest text-shamiso-gold-bright">
+                                    Funding Tiers
+                                </h3>
+                            </div>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr className="bg-white/5">
+                                            <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-neutral-500 w-1/3">Feature</th>
+                                            <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-white w-1/3">Active Artists</th>
+                                            <th className="px-8 py-6 text-xs font-bold uppercase tracking-widest text-shamiso-gold-bright w-1/3 bg-shamiso-gold/5">Catalog / Label</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-white/5">
+                                        <tr className="transition-colors hover:bg-white/[0.02]">
+                                            <td className="px-8 py-6 text-sm font-bold text-neutral-400 uppercase tracking-tight">Advance Size</td>
+                                            <td className="px-8 py-6 text-base font-bold text-white">$1,000 - $3,000,000</td>
+                                            <td className="px-8 py-6 text-base font-black text-shamiso-gold-bright bg-shamiso-gold/[0.02]">Up to $10,000,000+</td>
+                                        </tr>
+                                        <tr className="transition-colors hover:bg-white/[0.02]">
+                                            <td className="px-8 py-6 text-sm font-bold text-neutral-400 uppercase tracking-tight">Requirement</td>
+                                            <td className="px-8 py-6 text-sm text-neutral-300">10k+ Monthly Listeners</td>
+                                            <td className="px-8 py-6 text-sm text-neutral-300 bg-shamiso-gold/[0.02]">Consistent Catalog Revenue</td>
+                                        </tr>
+                                        <tr className="transition-colors hover:bg-white/[0.02]">
+                                            <td className="px-8 py-6 text-sm font-bold text-neutral-400 uppercase tracking-tight">Master Ownership</td>
+                                            <td className="px-8 py-6 text-sm text-emerald-400 font-bold">Keep 100%</td>
+                                            <td className="px-8 py-6 text-sm text-emerald-400 font-bold bg-shamiso-gold/[0.02]">Keep 100%</td>
+                                        </tr>
+                                        <tr className="transition-colors hover:bg-white/[0.02]">
+                                            <td className="px-8 py-6 text-sm font-bold text-neutral-400 uppercase tracking-tight">Use of Funds</td>
+                                            <td className="px-8 py-6 text-sm text-neutral-300">Marketing, Touring, Production</td>
+                                            <td className="px-8 py-6 text-sm text-neutral-300 bg-shamiso-gold/[0.02]">Acquisitions, Operations, Expansion</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </section>

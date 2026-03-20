@@ -6,11 +6,13 @@ import Link from "next/link";
 import { ArrowRight, Fingerprint, TrendingUp, ShieldCheck } from "lucide-react";
 
 const trustPartners = [
+    { name: "Too Lost", logo: "/file.svg" }, // Assuming file.svg as placeholder or similar
+    { name: "beatBread", logo: "/beatbread.svg" },
+    { name: "Verto FX", logo: "/paystack-2.svg" }, // Assuming paystack-2.svg as placeholder for Verto if not found
     { name: "TikTok", logo: "/tiktok-logo-2--1.svg" },
     { name: "Apple Music", logo: "/apple-music-3.svg" },
     { name: "Spotify", logo: "/spotify-2.svg" },
     { name: "YouTube", logo: "/youtube-play-button-28308.png" },
-    { name: "Deezer", logo: "/deezer-new-logo.svg" },
 ];
 
 export function HeroSection() {
@@ -62,20 +64,20 @@ export function HeroSection() {
 
                         {/* H1 */}
                         <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl">
-                            Stop Renting Your Fans.<br />
-                            <span className="gradient-text">Start Owning Your Future.</span>
+                            Stop Juggling.<br />
+                            <span className="gradient-text">Start Scaling.</span>
                         </h1>
 
                         {/* Subtitle */}
                         <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl font-light">
-                            Africa’s first D2F-integrated distribution agency. Sell direct, get paid instantly, and break the 90-day royalty cycle. Keep 100% of your data and 100% of your D2F revenue with our integrated <span className="text-white font-bold">Even™ Engine</span>.
+                            The first <span className="text-white font-bold">Music Operating System</span> built for the Global South. We’ve integrated the world’s most powerful financial and creative tools into a single, high-performance dashboard.
                         </p>
 
                         {/* Additional Info */}
                         <div className="mb-10 grid gap-4 sm:grid-cols-2 max-w-2xl">
                             <div className="flex flex-col gap-2 p-4 rounded-xl border border-shamiso-gold/20 bg-shamiso-gold/5">
-                                <p className="text-sm font-bold text-white uppercase tracking-tight">Non-Dilutive Funding</p>
-                                <p className="text-xs text-neutral-400">Get non-dilutive funding up to $5M. Keep 100% of your masters</p>
+                                <p className="text-sm font-bold text-white uppercase tracking-tight">One Login. One Ecosystem.</p>
+                                <p className="text-xs text-neutral-400">Total Sovereignty for the modern artist and label.</p>
                                 <Link href="/services/funding">
                                     <Button variant="link" className="p-0 h-auto text-shamiso-gold-bright text-xs font-bold uppercase">
                                         Check funding eligibility <ArrowRight className="ml-1 h-3 w-3" />
@@ -84,10 +86,10 @@ export function HeroSection() {
                             </div>
                             <div className="flex flex-col gap-2 p-4 rounded-xl border border-white/10 bg-white/5">
                                 <div className="flex items-center justify-between">
-                                    <p className="text-sm font-bold text-white uppercase tracking-tight">Sovereign Home</p>
+                                    <p className="text-sm font-bold text-white uppercase tracking-tight">Recapture Wealth</p>
                                     <Badge variant="outline" className="border-emerald-500/30 bg-emerald-500/10 text-emerald-500 text-[10px]">30% USA TAX SAVED</Badge>
                                 </div>
-                                <p className="text-xs text-neutral-400">For every $1,000 earned, an artist keeps <span className="text-white font-bold">$400 more</span> on Shamiso Music Distribution.</p>
+                                <p className="text-xs text-neutral-400">Stop the 30% US Tax Leak. Keep more of what you earn.</p>
                                 <Link href="/#strategic-genres">
                                     <Button variant="link" className="p-0 h-auto text-shamiso-gold-bright text-xs font-bold uppercase">
                                         Strategic Distribution <ArrowRight className="ml-1 h-3 w-3" />
@@ -104,16 +106,16 @@ export function HeroSection() {
                                     className="bg-shamiso-gold-bright px-10 py-7 text-base font-black uppercase text-black shadow-xl shadow-shamiso-gold/30 transition-all hover:shadow-shamiso-gold-bright/50 hover:scale-105 hover:brightness-110 w-full sm:w-auto"
                                 >
                                     <Fingerprint className="mr-2 h-5 w-5" />
-                                    Join Shamiso
+                                    Launch My Release
                                 </Button>
                             </Link>
-                            <Link href="#services">
+                            <Link href="#sovereign-suite">
                                 <Button
                                     variant="outline"
                                     size="lg"
                                     className="border-2 border-white/80 px-10 py-7 text-base font-bold uppercase text-white transition-all hover:bg-white/10 hover:border-white w-full sm:w-auto"
                                 >
-                                    Distribute Everywhere Else
+                                    Enter the Ecosystem
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>

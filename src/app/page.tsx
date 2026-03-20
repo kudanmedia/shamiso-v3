@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/HeroSection";
-import { PowerStack } from "@/components/PowerStack";
+import { NarrativeSection } from "@/components/NarrativeSection";
 import { PromoteMusic } from "@/components/PromoteMusic";
 import { CorridorMap } from "@/components/CorridorMap";
 import { RevenueSwitchCalculator } from "@/components/RevenueSwitchCalculator";
@@ -8,20 +8,24 @@ import { SovereignMultiplier } from "@/components/SovereignMultiplier";
 import { PricingSection } from "@/components/PricingSection";
 import { D2CSection } from "@/components/D2CSection";
 import { StrategicGenres } from "@/components/StrategicGenres";
+import { FAQ } from "@/components/FAQ";
+import { FinalCommitment } from "@/components/FinalCommitment";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <RevenueSwitchCalculator />
-      <PowerStack />
-      <D2CSection />
+      <NarrativeSection />
+      <PromoteMusic />
       <StrategicGenres />
+      <RevenueSwitchCalculator />
+      <D2CSection />
       <SovereignCorridorTable />
       <SovereignMultiplier />
       <PricingSection />
-      <PromoteMusic />
       <CorridorMap />
+      <FinalCommitment />
+      <FAQ />
     </>
   );
 }

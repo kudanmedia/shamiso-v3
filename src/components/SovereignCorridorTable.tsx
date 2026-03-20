@@ -14,7 +14,7 @@ const comparisonData = [
     {
         feature: "Funding",
         icon: Banknote,
-        smd: "Easy access. You can get up to $5M to grow your career.",
+        smd: "Easy access. You can get up to $10M+ to grow your career.",
         rivals: "Hard to get. Usually no funding, or you have to be invited.",
         highlight: true
     },
@@ -108,11 +108,52 @@ export function SovereignCorridorTable() {
                 </div>
 
                 <div className="mt-12 text-center">
-                    <p className="text-sm text-neutral-500 italic max-w-lg mx-auto">
+                    <p className="text-sm text-neutral-500 italic max-w-lg mx-auto mb-16">
                         * Comparison based on standard "Indie" tiers vs. SMD's "Sovereign" tier. Competitor data sourced from public pricing pages as of 2026.
                     </p>
+                </div>
+
+                {/* 30% Tax Eligible Countries Table */}
+                <div className="mt-16">
+                    <div className="mb-8 text-center">
+                        <h3 className="text-2xl font-bold text-white uppercase tracking-tight">
+                            Eligible <span className="text-shamiso-gold-bright">Tax Treaty</span> Corridors
+                        </h3>
+                        <p className="mt-2 text-sm text-neutral-400 max-w-2xl mx-auto">
+                            Artists from these jurisdictions benefit from a 0% US Royalty Withholding Rate through our sovereign infrastructure, bypassing the standard 30% leak.
+                        </p>
+                    </div>
+
+                    <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-emerald-500/20 bg-emerald-950/10 backdrop-blur-md">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="bg-emerald-900/20">
+                                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest text-emerald-400 w-1/2">Country / Region</th>
+                                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest text-emerald-400 w-1/4">Standard Rate</th>
+                                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest text-emerald-400 w-1/4">SMD Treaty Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-emerald-500/10">
+                                {[
+                                    { country: "South Africa (ZA)", standard: "30%", smd: "0%" },
+                                    { country: "United Kingdom (UK)", standard: "30%", smd: "0%" },
+                                    { country: "Canada (CA)", standard: "30%", smd: "0%" },
+                                    { country: "Germany (DE)", standard: "30%", smd: "0%" },
+                                    { country: "France (FR)", standard: "30%", smd: "0%" },
+                                    { country: "Australia (AU)", standard: "30%", smd: "5% (Reduced)" },
+                                ].map((row) => (
+                                    <tr key={row.country} className="transition-colors hover:bg-emerald-500/5">
+                                        <td className="px-6 py-4 text-sm font-bold text-white">{row.country}</td>
+                                        <td className="px-6 py-4 text-sm text-red-400 line-through opacity-70">{row.standard}</td>
+                                        <td className="px-6 py-4 text-sm font-black text-emerald-400">{row.smd}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
     );
 }
+

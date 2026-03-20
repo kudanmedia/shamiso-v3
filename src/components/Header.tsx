@@ -25,10 +25,9 @@ const genreLinks = [
 
 const navLinks = [
     { label: "About Us", href: "/about" },
-    { label: "Promoting Music", href: "/promote-music" },
+    { label: "Sovereign Suite", href: "/#sovereign-suite" },
     { label: "Funding", href: "/services/funding" },
     { label: "Pricing", href: "/pricing" },
-
 ];
 
 export function Header() {

@@ -19,7 +19,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Shamiso | The Sovereign Distributor: Afro House, 3-Step & Funding",
   description:
-    "Distribute Lekompo, Maskandi & Afro House to 450+ stores. Save 30% on US Tax. Get funded up to $5M. Sell direct on EVEN. Join Africa's Sovereign Distributor.",
+    "Distribute Lekompo, Maskandi & Afro House to 450+ stores. Save 30% on US Tax. Get funded up to $10M+. Sell direct on EVEN. Join Africa's Sovereign Distributor.",
   keywords: [
     "music distribution",
     "Afro House",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shamiso | The Sovereign Distributor: Afro House, 3-Step & Funding",
     description:
-      "Distribute Lekompo, Maskandi & Afro House to 450+ stores. Save 30% on US Tax. Get funded up to $5M.",
+      "Distribute Lekompo, Maskandi & Afro House to 450+ stores. Save 30% on US Tax. Get funded up to $10M+.",
     type: "website",
     siteName: "Shamiso Music Distribution",
   },

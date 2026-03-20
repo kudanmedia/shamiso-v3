@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createAdminClient, ID } from "@/lib/server/appwrite";
+import { createAdminClient, createSessionClient, ID } from "@/lib/server/appwrite";
 
 const DATABASE_ID = '69b7fdaa001b7da3d224';
 const COLLECTION_ID = 'smd_funding_leads';
@@ -13,7 +13,17 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
-        const { databases } = await createAdminClient();
+        const authHeader = request.headers.get("x-appwrite-jwt");
+        let databases;
+
+        try {
+            const session = await createSessionClient(authHeader || undefined);
+            databases = session.databases;
+        } catch (e) {
+            // Fallback to admin if no session
+            const admin = await createAdminClient();
+            databases = admin.databases;
+        }
 
         // Save to Appwrite
         // Note: The collection must exist in Appwrite for this to work.
