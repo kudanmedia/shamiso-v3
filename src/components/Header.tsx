@@ -25,6 +25,7 @@ const genreLinks = [
 
 const navLinks = [
     { label: "About Us", href: "/about" },
+    { label: "News", href: "/news" },
     { label: "Sovereign Suite", href: "/#sovereign-suite" },
     { label: "Funding", href: "/services/funding" },
     { label: "Pricing", href: "/pricing" },

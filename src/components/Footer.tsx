@@ -5,6 +5,7 @@ import { Shield, Globe, Lock } from "lucide-react";
 
 const aboutShamiso = [
     { label: "About Us", href: "/about" },
+    { label: "News", href: "/news" },
     { label: "Our 30-Year Heritage", href: "/about#heritage" },
     { label: "Partners (beatBread, Mogul, Verto FX)", href: "/about#partners" },
 ];

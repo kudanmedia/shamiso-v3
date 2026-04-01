@@ -67,17 +67,17 @@ const artistPlans = [
 
 const labelPlans = [
     {
-        name: "BANTU LABEL",
-        price: "$79",
-        period: "per year + $149 setup",
-        description: "For boutique labels.",
+        name: "Shamiso LABEL",
+        price: "$75.00",
+        period: "/ month",
+        description: "Optimized for Currency Resilience and Operational Scalability.",
         features: [
-            "Keep 85% of royalties",
-            "Unlimited artists & releases",
-            "YouTube Content ID ($4.99/rel)",
-            "Self-service playlisting",
-            "Fund future with advances",
-            "Monthly payments",
+            "Up to 50 Artist Profiles",
+            "SMD-Branded Portal",
+            "Mobile Money (Real-Time)",
+            "2% Platform Fee",
+            "Low-barrier 'Sub-Manager' login",
+            "Keep 100% of royalties",
         ],
         cta: "Get Started",
         href: "/signup",
@@ -85,39 +85,21 @@ const labelPlans = [
         icon: Building2,
     },
     {
-        name: "BANTU HUB",
-        price: "$119",
-        period: "per year + $199.99 setup",
-        description: "For full-service collectives.",
+        name: "Shamiso Sovereign (Enterprise)",
+        price: "$250.00",
+        period: "/ month",
+        description: "High-Export 'Amapiano/Afrobeats' Hubs.",
         features: [
-            "Keep 100% of royalties",
-            "Unlimited artists & releases",
-            "YouTube Content ID Included",
-            "Store delivery in 2 days",
-            "Eligible for playlist invites",
-            "Fund future with advances",
+            "Unlimited Artists",
+            "SMD-Branded Portal",
+            "SWIFT / Local Bank / Crypto",
+            "1.5% Platform Fee",
+            "Priority Pitching to APAC (Melon/TME)",
+            "White-glove priority delivery",
         ],
         cta: "Get Started",
         href: "/signup",
         highlight: true,
-        icon: Building2,
-    },
-    {
-        name: "BANTU ENTERPRISE",
-        price: "Invite",
-        period: "Only",
-        description: "For elite music groups.",
-        features: [
-            "Keep 100% of royalties",
-            "White-glove priority delivery",
-            "Custom rollout strategy",
-            "Bespoke royalty splits",
-            "Daily payouts access",
-            "Institutional valuations",
-        ],
-        cta: "Learn More",
-        href: "mailto:enterprise@shamiso-music.com",
-        highlight: false,
         icon: Crown,
     },
 ];
@@ -133,12 +115,12 @@ const advancedArtistBenefits = [
 ];
 
 const advancedLabelBenefits = [
-    { pillar: "Distribution", l: "Unlimited releases", h: "Unlimited releases", e: "Unlimited releases" },
-    { pillar: "Store Speed", l: "14 business days", h: "2 business days", e: "White-glove priority" },
-    { pillar: "Monetization", l: "Social Media (TikTok/IG)", h: "YouTube Content ID", e: "YouTube Content ID" },
-    { pillar: "Financials", l: "Monthly", h: "Monthly", e: "Monthly payments" },
-    { pillar: "Collaborators", l: "Split Pay (Unlimited)", h: "Split Pay (Unlimited)", e: "Bespoke royalty splits" },
-    { pillar: "Fan Tools", l: "ArtistPages", h: "MasterLinks & Fan Data", e: "Custom Rollout Strategy" },
+    { pillar: "Strategic Target", l: "Emerging 'Street' Labels", h: "High-Export 'Export' Hubs" },
+    { pillar: "Artist Limit", l: "Up to 50 Artist Profiles", h: "Unlimited Artists" },
+    { pillar: "Branding", l: "SMD-Branded Portal", h: "SMD-Branded Portal" },
+    { pillar: "Payout Rail", l: "Mobile Money (Real-Time)", h: "SWIFT / Local Bank / Crypto" },
+    { pillar: "Revenue Share", l: "2% Platform Fee", h: "1.5% Platform Fee" },
+    { pillar: "Benefit Highlight", l: "Low-barrier 'Sub-Manager' login", h: "Priority Pitching to APAC" },
 ];
 
 export function PricingSection() {
@@ -213,7 +195,7 @@ export function PricingSection() {
 
                     <TabsContent value="labels" className="space-y-20">
                         {/* Label Plans Grid */}
-                        <div className="grid gap-8 md:grid-cols-3">
+                        <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
                             {labelPlans.map((plan) => (
                                 <PlanCard key={plan.name} plan={plan} />
                             ))}
@@ -226,19 +208,17 @@ export function PricingSection() {
                                 <table className="w-full text-left border-collapse">
                                     <thead>
                                         <tr className="bg-white/5">
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-neutral-500">Feature Pillar</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BANTU LABEL</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">BANTU HUB</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BANTU ENTERPRISE</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-neutral-500">Benefit Category</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">Shamiso LABEL</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">Shamiso Sovereign</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-white/5">
                                         {advancedLabelBenefits.map((row) => (
-                                            <tr key={row.pillar} className="hover:bg-white/[0.02] transition-colors">
+                                            <tr key={row.pillar} className="hover:bg-white/2 transition-colors">
                                                 <td className="px-6 py-4 text-sm font-bold text-neutral-400">{row.pillar}</td>
                                                 <td className="px-6 py-4 text-sm text-neutral-300">{row.l}</td>
                                                 <td className="px-6 py-4 text-sm text-shamiso-gold-bright font-medium">{row.h}</td>
-                                                <td className="px-6 py-4 text-sm text-neutral-300">{row.e}</td>
                                             </tr>
                                         ))}
                                     </tbody>

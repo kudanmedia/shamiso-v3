@@ -48,6 +48,28 @@ export default function AboutPage() {
                         </p>
                     </section>
 
+                    {/* Vision & Mission */}
+                    <section className="grid gap-8 md:grid-cols-2">
+                        <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-8 backdrop-blur-sm hover:border-shamiso-gold/20 transition-all duration-300">
+                            <div className="flex items-center gap-4 mb-6 pb-4 border-b border-white/10">
+                                <div className="h-10 w-1 bg-shamiso-gold rounded-full" />
+                                <h2 className="text-2xl font-black text-white uppercase tracking-wider">Our Vision</h2>
+                            </div>
+                            <p className="text-lg font-medium text-neutral-300 italic leading-relaxed">
+                                "To be the primary financial gateway and digital architect for the African creative economy, ensuring every beat created on the continent translates into generational wealth and global influence."
+                            </p>
+                        </div>
+                        <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-8 backdrop-blur-sm hover:border-shamiso-gold/20 transition-all duration-300">
+                            <div className="flex items-center gap-4 mb-6 pb-4 border-b border-white/10">
+                                <div className="h-10 w-1 bg-shamiso-gold-bright rounded-full" />
+                                <h2 className="text-2xl font-black text-white uppercase tracking-wider">Our Mission</h2>
+                            </div>
+                            <p className="text-neutral-400 leading-relaxed">
+                                Our mission is to empower African creators by bridging the <span className="text-white font-semibold">'Monetization Gap'</span> through hyper-local financial infrastructure, predictive capital, and global metadata excellence. We provide the tools to distribute music, but we exist to accelerate the velocity of African IP.
+                            </p>
+                        </div>
+                    </section>
+
                     {/* Advantage Table */}
                     <section>
                         <h2 className="text-2xl font-black text-white uppercase tracking-wider mb-8 text-center">The Shamiso Advantage</h2>
