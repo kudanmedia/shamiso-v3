@@ -189,8 +189,8 @@ export default function TaxSupportPage() {
                                         Every year by March 15th, Shamiso will provide you with IRS Form 1042-S.
                                     </p>
                                     <ul className="mb-4 ml-5 list-disc space-y-1 text-sm text-white/60">
-                                        <li>This document summarizes your total earnings and any tax withheld.</li>
-                                        <li>You can use this form to claim Foreign Tax Credits in your home country to avoid being taxed twice on the same income.</li>
+                                        <li>This document summarizes your US-sourced earnings and any tax withheld.</li>
+                                        <li><strong>South African Residents:</strong> You are taxed on your worldwide income by SARS. However, you can use the 1042-S to claim a <strong>Section 6quat credit</strong> in South Africa to prevent being taxed twice on the same money.</li>
                                     </ul>
                                     <Button variant="outline" size="sm" className="w-full border-shamiso-gold/30 text-shamiso-gold hover:bg-shamiso-gold/10">
                                         <DownloadCloud className="mr-2 h-4 w-4" /> Download Sample
@@ -224,8 +224,12 @@ export default function TaxSupportPage() {
                                     <p className="text-xs text-white/60 leading-relaxed">Yes. Even without a treaty, the W-8BEN establishes that you are a non-U.S. person, which prevents you from being subject to additional U.S. "backup withholding" and ensures you receive your 1042-S correctly.</p>
                                 </div>
                                 <div>
+                                    <h4 className="mb-2 text-sm font-semibold text-white">"Do I still need to pay tax in South Africa if the US rate is 0%?"</h4>
+                                    <p className="text-xs text-white/60 leading-relaxed">Yes. Shamiso Music Distribution is a South African resident entity. As such, you are liable for tax on your worldwide income. The treaty simply ensures you aren't taxed by the US and SARS on the same royalties.</p>
+                                </div>
+                                <div>
                                     <h4 className="mb-2 text-sm font-semibold text-white">"Can Shamiso help me fill out my form?"</h4>
-                                    <p className="text-xs text-white/60 leading-relaxed">While we provide these guides, Shamiso Music Distribution cannot provide specific tax or legal advice. We recommend consulting a local tax professional for complex entity structures.</p>
+                                    <p className="text-xs text-white/60 leading-relaxed">While we provide these specific guides for the SA-US corridor, we recommend consulting a local tax professional to ensure your W-8BEN-E matches your registered company structure.</p>
                                 </div>
                             </div>
                         </div>

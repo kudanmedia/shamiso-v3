@@ -70,7 +70,7 @@ const labelPlans = [
         name: "Shamiso LABEL",
         price: "$75.00",
         period: "/ month",
-        description: "Optimized for Currency Resilience and Operational Scalability.",
+        description: "Emerging 'Street' Labels / Collectives",
         features: [
             "Up to 50 Artist Profiles",
             "SMD-Branded Portal",
@@ -88,11 +88,11 @@ const labelPlans = [
         name: "Shamiso Sovereign (Enterprise)",
         price: "$250.00",
         period: "/ month",
-        description: "High-Export 'Amapiano/Afrobeats' Hubs.",
+        description: "High-Export 'Amapiano/Afrobeats' Hubs",
         features: [
             "Unlimited Artists",
             "SMD-Branded Portal",
-            "SWIFT / Local Bank / Crypto",
+            "SWIFT / Local Bank / Crypto-Stablecoin",
             "1.5% Platform Fee",
             "Priority Pitching to APAC (Melon/TME)",
             "White-glove priority delivery",
@@ -115,12 +115,12 @@ const advancedArtistBenefits = [
 ];
 
 const advancedLabelBenefits = [
-    { pillar: "Strategic Target", l: "Emerging 'Street' Labels", h: "High-Export 'Export' Hubs" },
+    { pillar: "Strategic Target", l: "Emerging 'Street' Labels / Collectives", h: "High-Export 'Amapiano/Afrobeats' Hubs" },
     { pillar: "Artist Limit", l: "Up to 50 Artist Profiles", h: "Unlimited Artists" },
     { pillar: "Branding", l: "SMD-Branded Portal", h: "SMD-Branded Portal" },
-    { pillar: "Payout Rail", l: "Mobile Money (Real-Time)", h: "SWIFT / Local Bank / Crypto" },
+    { pillar: "Payout Rail", l: "Mobile Money (Real-Time)", h: "SWIFT / Local Bank / Crypto-Stablecoin" },
     { pillar: "Revenue Share", l: "2% Platform Fee", h: "1.5% Platform Fee" },
-    { pillar: "Benefit Highlight", l: "Low-barrier 'Sub-Manager' login", h: "Priority Pitching to APAC" },
+    { pillar: "Benefit Highlight", l: "Low-barrier 'Sub-Manager' login", h: "Priority Pitching to APAC (Melon/TME)" },
 ];
 
 export function PricingSection() {
