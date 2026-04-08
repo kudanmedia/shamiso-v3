@@ -43,10 +43,11 @@ export default function TaxSupportPage() {
                                     Without a valid tax form on file:
                                 </h3>
                                 <ul className="ml-7 list-disc space-y-2 text-red-200/80">
-                                    <li><strong>Mandatory Withholding:</strong> We are legally required to withhold 30% of your U.S.-source royalties.</li>
+                                    <li><strong>Mandatory Withholding:</strong> We are legally required to withhold 30% of your U.S.-sourced royalties (royalties generated from listeners within the USA).</li>
                                     <li><strong>Payment Holds:</strong> Your payouts may be delayed until documentation is verified.</li>
                                 </ul>
                             </div>
+                            <p className="mt-4 text-xs text-white/40 italic">Note: Income earned from listeners outside the USA (e.g., South Africa, UK) is generally not subject to US withholding tax.</p>
                         </section>
 
                         {/* Which Form Should I Use? */}
@@ -96,9 +97,9 @@ export default function TaxSupportPage() {
                                     </div>
                                     <div className="rounded-lg border border-shamiso-gold/30 bg-shamiso-gold/10 p-4 relative overflow-hidden">
                                         <div className="absolute top-0 right-0 p-1 text-xs font-bold text-shamiso-gold">SA</div>
-                                        <div className="mb-2 text-3xl font-bold text-shamiso-gold-bright">5-0%</div>
+                                        <div className="mb-2 text-3xl font-bold text-shamiso-gold-bright">0%</div>
                                         <div className="text-xs uppercase tracking-wider text-white/60">South Africa</div>
-                                        <div className="mt-2 text-xs text-shamiso-gold/60">Verified Treaty</div>
+                                        <div className="mt-2 text-xs text-shamiso-gold/60">Verified Article 12(1)</div>
                                     </div>
                                     <div className="rounded-lg border border-white/10 bg-zinc-800/50 p-4">
                                         <div className="mb-2 text-3xl font-bold text-white">Variable</div>
@@ -109,27 +110,64 @@ export default function TaxSupportPage() {
                             </div>
                         </section>
 
+                        {/* The Master Checklist */}
+                        <section className="space-y-6">
+                            <h2 className="text-2xl font-semibold text-white">Your W-8BEN-E Preparation Checklist</h2>
+                            <div className="grid gap-4 md:grid-cols-3">
+                                <div className="rounded-xl border border-white/5 bg-zinc-900/40 p-5">
+                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 1: Essentials</h4>
+                                    <ul className="text-xs text-white/60 space-y-2">
+                                        <li>[ ] <strong>Legal Name:</strong> Exactly as it appears on CIPC.</li>
+                                        <li>[ ] <strong>Line 5:</strong> Select "Active NFFE" (for Labels).</li>
+                                        <li>[ ] <strong>Foreign TIN:</strong> Your SARS Income Tax Ref Number.</li>
+                                    </ul>
+                                </div>
+                                <div className="rounded-xl border border-white/5 bg-zinc-900/40 p-5">
+                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 2: Treaty Claim</h4>
+                                    <ul className="text-xs text-white/60 space-y-2">
+                                        <li>[ ] <strong>Article 12(1):</strong> Specify musical royalties.</li>
+                                        <li>[ ] <strong>Rate:</strong> Claim the 0% withholding rate.</li>
+                                        <li>[ ] <strong>Line 14b:</strong> "Ownership and base erosion test".</li>
+                                    </ul>
+                                </div>
+                                <div className="rounded-xl border border-white/5 bg-zinc-900/40 p-5">
+                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 3: Finalize</h4>
+                                    <ul className="text-xs text-white/60 space-y-2">
+                                        <li>[ ] <strong>Sign:</strong> Authorized Director signature.</li>
+                                        <li>[ ] <strong>Date:</strong> US Format (MM-DD-YYYY).</li>
+                                        <li>[ ] <strong>Letter:</strong> Submit <i>Letter of Instruction</i> to US Partner.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
                         {/* Step-by-Step */}
                         <section>
                             <h2 className="mb-6 flex items-center text-2xl font-semibold text-white">
                                 <FileText className="mr-3 h-6 w-6 text-shamiso-gold" />
-                                Step-by-Step: Filling out your W-8BEN
+                                Line 15: Special Rates & Conditions
                             </h2>
-                            <p className="mb-6 text-white/70">To ensure your form is accepted on the first attempt, please follow these guidelines for the most common fields:</p>
+                            <p className="mb-6 text-white/70">To ensure Shamiso music royalties are exempt from US tax at the source, use the following precise legal terminology in Line 15:</p>
                             
-                            <div className="space-y-4">
-                                {[
-                                    { line: "Line 1 (Name)", text: "Must match the legal name on your government ID (not your stage name)." },
-                                    { line: "Line 3 (Address)", text: "Use your permanent residential address. P.O. Boxes are not accepted by the IRS for residency verification." },
-                                    { line: "Line 5 (U.S. TIN)", text: "Leave blank if you do not have a U.S. Social Security Number." },
-                                    { line: "Line 6 (Foreign TIN)", text: "[IMPORTANT] Enter your local Tax Identification Number (e.g., your SARS tax number in South Africa or your NIN/TIN in Nigeria). This is required to claim treaty benefits.", highlight: true },
-                                    { line: "Line 10 (Special Rates)", text: "If you are a resident of a country with a tax treaty (like South Africa), you must explicitly claim the 0% rate for royalties here to avoid the 30% tax." }
-                                ].map((item, i) => (
-                                    <div key={i} className={`rounded-lg border p-4 transition-colors ${item.highlight ? 'border-shamiso-gold/40 bg-shamiso-gold/5' : 'border-white/10 bg-black/40 hover:border-white/20'}`}>
-                                        <h4 className="mb-1 font-semibold text-white">{item.line}</h4>
-                                        <p className="text-sm text-white/70">{item.text}</p>
+                            <div className="rounded-xl border border-shamiso-gold/20 bg-black p-6 space-y-4 font-mono text-xs">
+                                <div>
+                                    <span className="text-shamiso-gold">Article and Paragraph:</span>
+                                    <div className="mt-1 text-white bg-zinc-900 p-2 rounded">Article 12, Paragraph 1</div>
+                                </div>
+                                <div>
+                                    <span className="text-shamiso-gold">Rate of Withholding:</span>
+                                    <div className="mt-1 text-white bg-zinc-900 p-2 rounded">0%</div>
+                                </div>
+                                <div>
+                                    <span className="text-shamiso-gold">Type of Income:</span>
+                                    <div className="mt-1 text-white bg-zinc-900 p-2 rounded">Royalties (Copyrights for Musical Work)</div>
+                                </div>
+                                <div>
+                                    <span className="text-shamiso-gold">Explanation:</span>
+                                    <div className="mt-1 text-white bg-zinc-900 p-2 rounded leading-relaxed">
+                                        The beneficial owner is a resident of South Africa and the income consists of royalties derived from the use of, or the right to use, copyrights of musical work. Under Article 12(1) of the US-South Africa Income Tax Treaty, such royalties are taxable only in the state of residence (South Africa).
                                     </div>
-                                ))}
+                                </div>
                             </div>
                         </section>
 

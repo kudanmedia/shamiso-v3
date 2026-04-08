@@ -45,9 +45,9 @@ export default function TaxDashboardPage() {
                                 <CheckCircle2 className="h-10 w-10 text-black" />
                             </div>
                             
-                            <h2 className="mb-4 text-3xl sm:text-4xl font-extrabold text-white">🎉 You've Just Unlocked a 25% Pay Raise!</h2>
+                            <h2 className="mb-4 text-3xl sm:text-4xl font-extrabold text-white">🎉 You've Just Unlocked a 30% Pay Raise!</h2>
                             <p className="mb-8 max-w-2xl text-lg text-white/70">
-                                Excellent work. Your W-8BEN Tax Treaty form has been successfully verified. By activating the US-South Africa Tax Treaty through our portal, you have officially reduced your international royalty withholding from the standard 30% down to 5%.
+                                Excellent work. Your W-8BEN Tax Treaty form has been successfully verified. By activating the US-South Africa Tax Treaty through our portal, you have officially reduced your international royalty withholding from the standard 30% down to 0% (Article 12).
                             </p>
 
                             {/* Before & After Payouts Graphic */}
@@ -62,12 +62,23 @@ export default function TaxDashboardPage() {
                                 </div>
                                 <div className="rounded-xl border border-shamiso-gold/40 bg-shamiso-gold/10 p-6 shadow-[0_0_30px_rgba(255,200,0,0.1)]">
                                     <div className="mb-2 text-sm font-bold uppercase tracking-wider text-shamiso-gold-bright">Optimized Payout (Now)</div>
-                                    <div className="mb-4 text-4xl font-bold text-white flex items-center justify-center">95% <CheckCircle2 className="ml-2 h-6 w-6 text-shamiso-gold" /></div>
+                                    <div className="mb-4 text-4xl font-bold text-white flex items-center justify-center">100% <CheckCircle2 className="ml-2 h-6 w-6 text-shamiso-gold" /></div>
                                     <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-800">
-                                        <div className="h-full w-[95%] bg-shamiso-gold" />
+                                        <div className="h-full w-full bg-shamiso-gold" />
                                     </div>
-                                    <div className="mt-2 text-xs text-shamiso-gold/80">Only 5% Withheld via Verified Treaty</div>
+                                    <div className="mt-2 text-xs text-shamiso-gold/80">0% Withheld via Verified Article 12 Treaty</div>
                                 </div>
+                            </div>
+
+                            <div className="mb-8 w-full max-w-lg rounded-xl border border-white/5 bg-zinc-900/40 p-6 text-left">
+                                <h4 className="mb-2 text-sm font-bold text-white flex items-center gap-2">
+                                    <FileText className="h-4 w-4 text-shamiso-gold" />
+                                    Letter of Instruction for Too Lost
+                                </h4>
+                                <p className="mb-4 text-xs text-white/60">Generate a formal letter to ensure your US partner applies the 0% rate correctly.</p>
+                                <Button className="w-full bg-shamiso-gold text-black hover:bg-shamiso-gold/80 font-bold">
+                                    <DownloadCloud className="mr-2 h-4 w-4" /> Download Letter of Instruction
+                                </Button>
                             </div>
 
                             <div className="grid w-full max-w-lg grid-cols-1 gap-3 sm:grid-cols-2">
@@ -165,11 +176,21 @@ export default function TaxDashboardPage() {
                                         </div>
                                         <div className="space-y-2 pb-2">
                                             <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Claim of Tax Treaty Benefits</label>
-                                            <div className="flex h-10 w-full items-center rounded-md border border-green-500/20 bg-green-500/5 px-3 text-sm text-green-400">
-                                                <CheckCircle2 className="mr-2 h-4 w-4" /> US-SA Treaty (Article 12) Detected
+                                            <div className="flex h-10 w-full items-center rounded-md border border-shamiso-gold/20 bg-shamiso-gold/5 px-3 text-sm text-shamiso-gold">
+                                                <CheckCircle2 className="mr-2 h-4 w-4" /> US-SA Article 12 (0%) Detected
                                             </div>
                                         </div>
                                     </div>
+
+                                    {isEntity && (
+                                        <div className="space-y-3 rounded-lg border border-white/5 bg-zinc-900/40 p-4 animate-in slide-in-from-top-2">
+                                            <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Line 15: Special Treaty Wording (Pre-filled)</label>
+                                            <div className="text-[11px] font-mono leading-relaxed text-shamiso-gold/80 bg-black p-3 rounded-md border border-white/5">
+                                                The beneficial owner is a resident of South Africa and the income consists of royalties derived from the use of, or the right to use, copyrights of musical work. Under Article 12(1) of the US-South Africa Income Tax Treaty, such royalties are taxable only in the state of residence (South Africa).
+                                            </div>
+                                            <p className="text-[10px] text-white/40 italic">This authoritative wording ensures the 0% withholding rate is applied by the IRS.</p>
+                                        </div>
+                                    )}
 
                                     <div className="pt-4 border-t border-white/10">
                                         <Button type="submit" className="w-full bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black hover:brightness-110 font-bold">
@@ -207,18 +228,18 @@ export default function TaxDashboardPage() {
                                     <div className="rounded-lg border border-white/5 bg-black p-4 opacity-50 transition-opacity hover:opacity-100">
                                         <div className="mb-1 text-sm text-white">Verified Treaty Rate</div>
                                         <div className="flex justify-between items-baseline mb-2">
-                                            <span className="text-2xl font-bold text-shamiso-gold">5%</span>
+                                            <span className="text-2xl font-bold text-shamiso-gold">0%</span>
                                             <span className="text-xs text-shamiso-gold">Potential</span>
                                         </div>
                                         <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
-                                            <div className="h-full w-[5%] bg-shamiso-gold cursor-help" title="Pending Verification" />
+                                            <div className="h-full w-[0%] bg-shamiso-gold cursor-help" title="Pending Verification" />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="mt-6 rounded-md bg-shamiso-gold/10 p-3 text-center">
                                     <p className="text-xs font-semibold text-shamiso-gold-bright">
-                                        Complete your W-8BEN form to unlock an extra 25% of your global earnings.
+                                        Complete your W-8BEN form to unlock a 30% increase in your US-sourced earnings.
                                     </p>
                                 </div>
                             </div>

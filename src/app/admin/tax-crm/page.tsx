@@ -47,7 +47,8 @@ export default function AdminTaxCRMPage() {
                                     <h3 className="text-xs font-bold uppercase tracking-wider text-white/60">3. Treaty Logic (Part II)</h3>
                                     <ul className="mt-2 space-y-2 text-sm text-white/80">
                                         <li className="flex items-start"><CheckCircle2 className="mr-2 h-4 w-4 shrink-0 text-shamiso-gold mt-0.5" /> Line 9: Auto-selects "South Africa"</li>
-                                        <li className="flex items-start"><CheckCircle2 className="mr-2 h-4 w-4 shrink-0 text-shamiso-gold mt-0.5" /> Line 10: Article 12, Rate: 5% (or 0%).</li>
+                                        <li className="flex items-start"><CheckCircle2 className="mr-2 h-4 w-4 shrink-0 text-shamiso-gold mt-0.5" /> Line 10: Article 12(1), Rate: 0% (Copyrights).</li>
+                                        <li className="flex items-start"><CheckCircle2 className="mr-2 h-4 w-4 shrink-0 text-shamiso-gold mt-0.5" /> Mandatory Explanation: Verify Article 12 citing.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -155,7 +156,28 @@ export default function AdminTaxCRMPage() {
                                 <p>Best regards,<br/>The Shamiso Music Distribution Team</p>
                             </div>
                         </div>
-
+                        {/* Template 3: Letter of Instruction */}
+                        <div className="rounded-xl border border-white/10 bg-zinc-900/30 p-0 shadow-lg overflow-hidden">
+                            <div className="border-b border-white/10 bg-zinc-900 px-6 py-4">
+                                <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">Template 3</div>
+                                <h3 className="text-base font-medium text-white flex justify-between">
+                                    Letter of Instruction for US Partners
+                                    <span className="text-xs text-white/40 bg-white/5 px-2 py-1 rounded">Internal Legal Template</span>
+                                </h3>
+                            </div>
+                            <div className="p-6 text-[11px] font-mono text-white/60 space-y-4 bg-black/40">
+                                <p>Date: [Current Date]<br/>To: Too Lost Enterprise – Accounting/Tax Compliance Department<br/>From: [Entity Name]<br/>Subject: Submission of Form W-8BEN-E and Treaty Claim</p>
+                                
+                                <p>To whom it may concern,</p>
+                                <p>Please find attached the completed Form W-8BEN-E for our entity, [Entity Name], a company duly incorporated and tax-resident in South Africa.</p>
+                                
+                                <p><strong>Summary of Treaty Claim:</strong> Pursuant to the United States-South Africa Income Tax Treaty, we are claiming a 0% withholding rate on all US-sourced royalties under Article 12 (Royalties).</p>
+                                
+                                <p><strong>Reasoning:</strong> The beneficial owner is a resident of South Africa and the income consists of royalties derived from the use of, or the right to use, copyrights of musical work. According to the treaty, such royalties are taxable only in the state of residence (South Africa).</p>
+                                
+                                <p>We kindly request that you update our account records to reflect this 0% withholding rate effective immediately.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -530,7 +530,7 @@ export default function OnboardingPage() {
                 <Button
                     onClick={nextStep}
                     disabled={!!(formData.tooLostEmail && !formData.payoutMethod)}
-                    className={`flex-[2] font-black uppercase tracking-widest h-12 shadow-[0_0_20px_rgba(255,215,0,0.3)] ${
+                    className={`flex-2 font-black uppercase tracking-widest h-12 shadow-[0_0_20px_rgba(255,215,0,0.3)] ${
                         formData.tooLostEmail 
                         ? "bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black" 
                         : "bg-zinc-800 text-neutral-400 border border-zinc-700 hover:bg-zinc-700"
@@ -562,9 +562,9 @@ export default function OnboardingPage() {
                             <TrendingUp className="w-5 h-5 text-orange-400" />
                         </div>
                         <div>
-                            <h4 className="text-sm font-bold text-white">Keep up to 25% more of your revenue</h4>
+                            <h4 className="text-sm font-bold text-white">Unlock a 30% pay raise on US earnings</h4>
                             <p className="text-xs text-neutral-400 mt-1">
-                                Non-US residents are subject to a 30% default withholding tax. By completing your tax profile, this is reduced to 0%-5% for eligible African nations.
+                                Non-US residents are subject to a 30% default withholding tax. By completing your tax profile, this is reduced to 0% for eligible African nations (Article 12).
                             </p>
                         </div>
                     </div>
@@ -596,7 +596,7 @@ export default function OnboardingPage() {
                 <Button
                     onClick={handleSubmit}
                     disabled={isLoading || !formData.taxFormType}
-                    className="flex-[2] font-black uppercase tracking-widest h-12 shadow-[0_0_20px_rgba(255,215,0,0.3)] bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black"
+                    className="flex-2 font-black uppercase tracking-widest h-12 shadow-[0_0_20px_rgba(255,215,0,0.3)] bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black"
                 >
                     {isLoading ? "Finalizing Profile..." : "Finish Onboarding"}
                 </Button>

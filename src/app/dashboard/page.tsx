@@ -109,6 +109,13 @@ const partners: Partner[] = [
         href: "https://www.unhurdmusic.com/p/shamiso",
         icon: ExternalLink,
     },
+    {
+        name: "IRS Tax Compliance",
+        category: "Distribution",
+        description: "Claim your 0% withholding rate under Article 12 and keep 30% more of your royalties.",
+        href: "/dashboard/tax",
+        icon: Shield,
+    },
 ];
 
 export default function DashboardPage() {

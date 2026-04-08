@@ -13,7 +13,7 @@ const aboutShamiso = [
 const legalTrust = [
     { label: "Terms of Use", href: "/terms" },
     { label: "Privacy Policy", href: "/privacy" },
-    { label: "Tax & W-8BEN Support", href: "/tax-support" },
+    { label: "Tax & W-8BEN Support", href: "/support/tax" },
 ];
 
 const contact = [
