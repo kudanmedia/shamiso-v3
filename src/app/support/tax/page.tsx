@@ -110,32 +110,31 @@ export default function TaxSupportPage() {
                             </div>
                         </section>
 
-                        {/* The Master Checklist */}
                         <section className="space-y-6">
-                            <h2 className="text-2xl font-semibold text-white">Your W-8BEN-E Preparation Checklist</h2>
+                            <h2 className="text-2xl font-semibold text-white">Your Pro-Compliance Checklist</h2>
                             <div className="grid gap-4 md:grid-cols-3">
                                 <div className="rounded-xl border border-white/5 bg-zinc-900/40 p-5">
-                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 1: Essentials</h4>
+                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 1: Legal Identity</h4>
                                     <ul className="text-xs text-white/60 space-y-2">
-                                        <li>[ ] <strong>Legal Name:</strong> Exactly as it appears on CIPC.</li>
-                                        <li>[ ] <strong>Line 5:</strong> Select "Active NFFE" (for Labels).</li>
-                                        <li>[ ] <strong>Foreign TIN:</strong> Your SARS Income Tax Ref Number.</li>
+                                        <li>[ ] <strong>Legal Name:</strong> Match CIPC/SARS records exactly.</li>
+                                        <li>[ ] <strong>Line 5 (Labels):</strong> Verify "Active NFFE" status.</li>
+                                        <li>[ ] <strong>Foreign TIN:</strong> Valid SARS Income Tax Number.</li>
                                     </ul>
                                 </div>
                                 <div className="rounded-xl border border-white/5 bg-zinc-900/40 p-5">
-                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 2: Treaty Claim</h4>
+                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 2: Article 12(1) Claim</h4>
                                     <ul className="text-xs text-white/60 space-y-2">
-                                        <li>[ ] <strong>Article 12(1):</strong> Specify musical royalties.</li>
-                                        <li>[ ] <strong>Rate:</strong> Claim the 0% withholding rate.</li>
-                                        <li>[ ] <strong>Line 14b:</strong> "Ownership and base erosion test".</li>
+                                        <li>[ ] <strong>Line 14a:</strong> "South Africa" selected.</li>
+                                        <li>[ ] <strong>Rate:</strong> Explicitly claim 0% withholding.</li>
+                                        <li>[ ] <strong>Income Type:</strong> "Royalties - Copyright".</li>
                                     </ul>
                                 </div>
                                 <div className="rounded-xl border border-white/5 bg-zinc-900/40 p-5">
-                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 3: Finalize</h4>
+                                    <h4 className="text-shamiso-gold-bright font-bold text-xs uppercase mb-3 px-2 py-1 rounded-sm bg-shamiso-gold/10 inline-block">Phase 3: Dispatch</h4>
                                     <ul className="text-xs text-white/60 space-y-2">
-                                        <li>[ ] <strong>Sign:</strong> Authorized Director signature.</li>
-                                        <li>[ ] <strong>Date:</strong> US Format (MM-DD-YYYY).</li>
-                                        <li>[ ] <strong>Letter:</strong> Submit <i>Letter of Instruction</i> to US Partner.</li>
+                                        <li>[ ] <strong>Signature:</strong> Authorized officer / Director.</li>
+                                        <li>[ ] <strong>LOI:</strong> Generate Letter of Instruction.</li>
+                                        <li>[ ] <strong>Submission:</strong> Sync to Too Lost Compliance.</li>
                                     </ul>
                                 </div>
                             </div>

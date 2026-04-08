@@ -288,7 +288,7 @@ export default function OnboardingPage() {
                 </Button>
                 <Button
                     onClick={nextStep}
-                    className="flex-[2] bg-blue-600 text-white hover:bg-blue-500 font-bold h-12"
+                    className="flex-2 bg-blue-600 text-white hover:bg-blue-500 font-bold h-12"
                 >
                     {formData.tooLostEmail ? "Next: Setup Payouts" : "Next: Skip for now"}
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -562,9 +562,9 @@ export default function OnboardingPage() {
                             <TrendingUp className="w-5 h-5 text-orange-400" />
                         </div>
                         <div>
-                            <h4 className="text-sm font-bold text-white">Unlock a 30% pay raise on US earnings</h4>
-                            <p className="text-xs text-neutral-400 mt-1">
-                                Non-US residents are subject to a 30% default withholding tax. By completing your tax profile, this is reduced to 0% for eligible African nations (Article 12).
+                            <h4 className="text-sm font-bold text-white uppercase tracking-tight">The 30% Pay Raise: Sovereign Compliance</h4>
+                            <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                                US streaming platforms withhold 30% of royalties by default. South African residents are eligible for a <span className="text-shamiso-gold-bright font-bold">0% withholding rate</span> under Article 12(1) of the US-SA Tax Treaty. We’ll help you claim it.
                             </p>
                         </div>
                     </div>

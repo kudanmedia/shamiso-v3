@@ -171,9 +171,9 @@ export default function AdminTaxCRMPage() {
                                 <p>To whom it may concern,</p>
                                 <p>Please find attached the completed Form W-8BEN-E for our entity, [Entity Name], a company duly incorporated and tax-resident in South Africa.</p>
                                 
-                                <p><strong>Summary of Treaty Claim:</strong> Pursuant to the United States-South Africa Income Tax Treaty, we are claiming a 0% withholding rate on all US-sourced royalties under Article 12 (Royalties).</p>
+                                <p><strong>Summary of Treaty Claim:</strong> Pursuant to the United States-South Africa Income Tax Treaty, we are claiming a <span className="text-shamiso-gold font-bold">0% withholding rate</span> on all US-sourced royalties under <span className="text-shamiso-gold font-bold">Article 12 (Royalties)</span>.</p>
                                 
-                                <p><strong>Reasoning:</strong> The beneficial owner is a resident of South Africa and the income consists of royalties derived from the use of, or the right to use, copyrights of musical work. According to the treaty, such royalties are taxable only in the state of residence (South Africa).</p>
+                                <p><strong>Reasoning:</strong> The beneficial owner is a resident of South Africa and the income consists of royalties derived from the use of, or the right to use, copyrights of musical work. According to Article 12(1) of the treaty, such royalties are taxable only in the state of residence (South Africa).</p>
                                 
                                 <p>We kindly request that you update our account records to reflect this 0% withholding rate effective immediately.</p>
                             </div>

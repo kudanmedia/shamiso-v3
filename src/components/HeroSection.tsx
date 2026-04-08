@@ -6,13 +6,13 @@ import Link from "next/link";
 import { ArrowRight, Fingerprint, TrendingUp, ShieldCheck } from "lucide-react";
 
 const trustPartners = [
-    { name: "Too Lost", logo: "/file.svg" }, // Assuming file.svg as placeholder or similar
-    { name: "beatBread", logo: "/beatbread.svg" },
-    { name: "Verto FX", logo: "/paystack-2.svg" }, // Assuming paystack-2.svg as placeholder for Verto if not found
+    { name: "Un:hurd", logo: null }, // Using text for now as logo is not in public
+    { name: "Verto FX", logo: null }, // Verto without the paystack logo
     { name: "TikTok", logo: "/tiktok-logo-2--1.svg" },
     { name: "Apple Music", logo: "/apple-music-3.svg" },
     { name: "Spotify", logo: "/spotify-2.svg" },
     { name: "YouTube", logo: "/youtube-play-button-28308.png" },
+    { name: "Too Lost", logo: null }, // Removing generic file.svg
 ];
 
 export function HeroSection() {
