@@ -203,43 +203,48 @@ export default function TaxDashboardPage() {
 
                         {/* Sidebar "Wealth Meter" */}
                         <div className="space-y-6">
-                            <div className="rounded-xl border border-white/10 bg-zinc-900/50 p-6">
+                            <div className="rounded-xl border border-white/10 bg-zinc-900/50 p-6 shadow-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                    <Percent className="w-12 h-12 text-shamiso-gold" />
+                                </div>
                                 <h3 className="mb-4 flex items-center text-sm font-bold uppercase tracking-widest text-white/80">
                                     <Percent className="mr-2 h-4 w-4 text-shamiso-gold" />
-                                    Tax Savings Tracker
+                                    Wealth Retention Meter 
                                 </h3>
                                 
                                 <div className="space-y-4">
-                                    <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-4">
-                                        <div className="mb-1 text-sm text-white">Default US Withholding</div>
+                                    <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-4 transition-all hover:bg-red-500/10">
+                                        <div className="mb-1 text-xs font-semibold uppercase tracking-tighter text-white/40">Default IRS Leakage</div>
                                         <div className="flex justify-between items-baseline mb-2">
-                                            <span className="text-2xl font-bold text-red-500">30%</span>
-                                            <span className="text-xs text-red-400">Current Status</span>
+                                            <span className="text-3xl font-black text-red-500">30%</span>
+                                            <span className="text-[10px] font-bold text-red-400 bg-red-500/10 px-1.5 py-0.5 rounded uppercase">Current Baseline</span>
                                         </div>
                                         <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
-                                            <div className="h-full w-[30%] bg-red-500" />
+                                            <div className="h-full w-[30%] bg-linear-to-r from-red-600 to-red-400" />
                                         </div>
                                     </div>
-
-                                    <div className="flex justify-center py-1">
-                                        <ChevronRight className="h-5 w-5 rotate-90 text-white/20" />
+                                    
+                                    <div className="flex justify-center -my-2 relative z-10">
+                                        <div className="bg-black border border-white/10 rounded-full p-1 shadow-lg">
+                                            <ChevronRight className="h-4 w-4 rotate-90 text-shamiso-gold animate-bounce" />
+                                        </div>
                                     </div>
-
-                                    <div className="rounded-lg border border-white/5 bg-black p-4 opacity-50 transition-opacity hover:opacity-100">
-                                        <div className="mb-1 text-sm text-white">Verified Treaty Rate</div>
+                                    
+                                    <div className="rounded-lg border border-shamiso-gold/30 bg-shamiso-gold/5 p-4 transition-all hover:bg-shamiso-gold/10 group/item">
+                                        <div className="mb-1 text-xs font-semibold uppercase tracking-tighter text-shamiso-gold/60">Verified Treaty Target</div>
                                         <div className="flex justify-between items-baseline mb-2">
-                                            <span className="text-2xl font-bold text-shamiso-gold">0%</span>
-                                            <span className="text-xs text-shamiso-gold">Potential</span>
+                                            <span className="text-3xl font-black text-shamiso-gold-bright group-hover/item:scale-110 transition-transform origin-left">0%</span>
+                                            <span className="text-[10px] font-bold text-shamiso-gold bg-shamiso-gold/20 px-1.5 py-0.5 rounded uppercase tracking-widest">Optimized goal</span>
                                         </div>
                                         <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
-                                            <div className="h-full w-[0%] bg-shamiso-gold cursor-help" title="Pending Verification" />
+                                            <div className="h-full w-0 bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright transition-all duration-1000 group-hover/item:w-full opacity-50" />
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="mt-6 rounded-md bg-shamiso-gold/10 p-3 text-center">
-                                    <p className="text-xs font-semibold text-shamiso-gold-bright">
-                                        Complete your W-8BEN form to unlock a 30% increase in your US-sourced earnings.
+                                
+                                <div className="mt-6 rounded-md bg-zinc-950 border border-white/5 p-3 text-center">
+                                    <p className="text-[10px] leading-relaxed font-medium text-white/50">
+                                        By validating <span className="text-shamiso-gold">Article 12(1)</span>, you retain <span className="text-white font-bold">100%</span> of your royalties instead of the default 70%.
                                     </p>
                                 </div>
                             </div>

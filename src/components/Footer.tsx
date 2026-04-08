@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { Shield, Globe, Lock } from "lucide-react";
+import { Shield, Globe, Lock, Linkedin, Twitter, Instagram, Music } from "lucide-react";
 
 const aboutShamiso = [
     { label: "About Us", href: "/about" },
@@ -107,15 +107,18 @@ export function Footer() {
                         </ul>
                         
                         <div className="flex gap-4">
-                            <div className="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-shamiso-gold hover:bg-shamiso-gold hover:text-black transition-colors cursor-pointer">
-                                <Globe className="h-5 w-5" />
-                            </div>
-                            <div className="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-shamiso-gold hover:bg-shamiso-gold hover:text-black transition-colors cursor-pointer">
-                                <Shield className="h-5 w-5" />
-                            </div>
-                            <div className="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-shamiso-gold hover:bg-shamiso-gold hover:text-black transition-colors cursor-pointer">
-                                <Lock className="h-5 w-5" />
-                            </div>
+                            <a href="https://www.linkedin.com/company/shamiso-music-distribution/" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-shamiso-gold hover:bg-shamiso-gold hover:text-black transition-colors">
+                                <Linkedin className="h-5 w-5" />
+                            </a>
+                            <a href="https://twitter.com/MusicShamiso" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-shamiso-gold hover:bg-shamiso-gold hover:text-black transition-colors">
+                                <Twitter className="h-5 w-5" />
+                            </a>
+                            <a href="https://www.instagram.com/shamiso_music_distribution?igsh=bjJsZDBsaXJjNnFz" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-shamiso-gold hover:bg-shamiso-gold hover:text-black transition-colors">
+                                <Instagram className="h-5 w-5" />
+                            </a>
+                            <a href="https://soundcloud.com/shamisomusic" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-shamiso-gold hover:bg-shamiso-gold hover:text-black transition-colors">
+                                <Music className="h-5 w-5" />
+                            </a>
                         </div>
                     </div>
                 </div>

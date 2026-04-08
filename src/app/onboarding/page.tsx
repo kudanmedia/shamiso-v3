@@ -352,7 +352,7 @@ export default function OnboardingPage() {
                                     </div>
                                     <div className="text-left">
                                         <div className="font-bold text-white">Instant EFT</div>
-                                        <div className="text-xs text-neutral-500 text-shamiso-gold-bright/60">Powered by Ozow — Fastest</div>
+                                        <div className="text-xs text-shamiso-gold-bright/60">Powered by Ozow — Fastest</div>
                                     </div>
                                     {formData.payoutMethod === "ozow" && <CheckCircle2 className="ml-auto w-5 h-5 text-shamiso-gold-bright" />}
                                 </button>

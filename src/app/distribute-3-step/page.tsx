@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title:
         "Distribute 3-Step Music | Shamiso - Africa's Sovereign Distributor",
     description:
-        "Distribute 3-Step music to 450+ stores worldwide. Save 30% on US Tax. Keep 100% of your masters. Get funded up to $10M+ via the Sovereign Capital Vault. The #1 distributor for 3-Step artists.",
+        "Distribute 3-Step music worldwide. Claim a 0% US Withholding Rate (Article 12). Keep 100% of your masters. The premium distributor for 3-Step artists.",
 };
 
 const relatedGenres = [
@@ -18,7 +18,7 @@ const relatedGenres = [
 const highlights = [
     "3-Step expertise — proper genre classification and metadata to ensure your music reaches the right audiences.",
     "Targeted playlist pitching to curators who understand and champion South African electronic music.",
-    "Save 30% on US royalty withholding tax through our sovereign distribution structure.",
+    "Claim a 0% US Withholding Rate under Article 12(1) of the US-SA Tax Treaty — an immediate 30% pay raise on your US royalties.",
     "Instant advances from $1,000 to $10,000,000+ via our Sovereign Capital Vault — keep 100% of your masters.",
     "The Sovereign Growth Engine — automated fan-finding and ad-targeting purpose-built for dance music.",
     "The Curator Pitch Portal — direct access to influential curators and editorial desks in the 3-Step scene.",

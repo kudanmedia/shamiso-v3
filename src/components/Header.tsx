@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ChevronDown, Menu, User, LogOut, LayoutDashboard, Fingerprint } from "lucide-react";
+import { ChevronDown, Menu, User, LogOut, LayoutDashboard, Fingerprint, Linkedin, Twitter, Instagram, Music } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 
 const genreLinks = [
@@ -246,6 +246,20 @@ export function Header() {
                                         </Link>
                                     </>
                                 )}
+                            </div>
+                            <div className="mt-8 flex justify-center gap-6 px-4">
+                                <a href="https://www.linkedin.com/company/shamiso-music-distribution/" target="_blank" rel="noopener noreferrer" className="text-shamiso-gold hover:text-shamiso-gold-bright transition-colors">
+                                    <Linkedin className="h-6 w-6" />
+                                </a>
+                                <a href="https://twitter.com/MusicShamiso" target="_blank" rel="noopener noreferrer" className="text-shamiso-gold hover:text-shamiso-gold-bright transition-colors">
+                                    <Twitter className="h-6 w-6" />
+                                </a>
+                                <a href="https://www.instagram.com/shamiso_music_distribution?igsh=bjJsZDBsaXJjNnFz" target="_blank" rel="noopener noreferrer" className="text-shamiso-gold hover:text-shamiso-gold-bright transition-colors">
+                                    <Instagram className="h-6 w-6" />
+                                </a>
+                                <a href="https://soundcloud.com/shamisomusic" target="_blank" rel="noopener noreferrer" className="text-shamiso-gold hover:text-shamiso-gold-bright transition-colors">
+                                    <Music className="h-6 w-6" />
+                                </a>
                             </div>
                         </nav>
                     </SheetContent>
