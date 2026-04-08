@@ -23,7 +23,9 @@ import {
     CheckCircle2, 
     ArrowRight, 
     ArrowLeft,
-    Shield
+    Shield,
+    FileText,
+    TrendingUp
 } from "lucide-react";
 
 export default function OnboardingPage() {
@@ -51,6 +53,8 @@ export default function OnboardingPage() {
         mobileNumber: "",
         mobileProvider: "",
         swiftCode: "",
+        // Step 4: Tax Profile
+        taxFormType: "W-8BEN",
     });
 
     useEffect(() => {
@@ -122,7 +126,8 @@ export default function OnboardingPage() {
                 phone_number: formData.mobileNumber || user.phone || "N/A",
                 too_lost_email: formData.tooLostEmail || "N/A",
                 verto_payout_currency: currency,
-                verto_payout_method: formData.payoutMethod || "N/A"
+                verto_payout_method: formData.payoutMethod || "N/A",
+                tax_form_type: formData.taxFormType || "W-8BEN"
             };
 
             if (existingProfiles.total > 0) {
@@ -523,17 +528,82 @@ export default function OnboardingPage() {
                     Back
                 </Button>
                 <Button
-                    onClick={handleSubmit}
-                    disabled={isLoading || !!(formData.tooLostEmail && !formData.payoutMethod)}
+                    onClick={nextStep}
+                    disabled={!!(formData.tooLostEmail && !formData.payoutMethod)}
                     className={`flex-[2] font-black uppercase tracking-widest h-12 shadow-[0_0_20px_rgba(255,215,0,0.3)] ${
                         formData.tooLostEmail 
                         ? "bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black" 
                         : "bg-zinc-800 text-neutral-400 border border-zinc-700 hover:bg-zinc-700"
                     }`}
                 >
-                    {isLoading ? "Syncing Catalog..." : (formData.tooLostEmail ? "Confirm & Sync Catalog" : "Finish Onboarding")}
+                    Next: Tax Profile
+                    <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
             </div>
+        </div>
+    );
+
+    const renderStep4 = () => (
+        <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+            <div className="text-center mb-8">
+                <div className="mx-auto w-12 h-12 mb-4 rounded-xl bg-orange-500/20 flex items-center justify-center border border-orange-500/30">
+                    <FileText className="w-6 h-6 text-orange-400" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Global Tax Compliance</h3>
+                <p className="text-sm text-neutral-400">
+                    Maximize your payouts. By tracking your tax residency, we can ensure international treaties are applied.
+                </p>
+            </div>
+
+            <div className="space-y-4">
+                <div className="p-4 rounded-xl border border-orange-500/20 bg-orange-500/5">
+                    <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center shrink-0">
+                            <TrendingUp className="w-5 h-5 text-orange-400" />
+                        </div>
+                        <div>
+                            <h4 className="text-sm font-bold text-white">Keep up to 25% more of your revenue</h4>
+                            <p className="text-xs text-neutral-400 mt-1">
+                                Non-US residents are subject to a 30% default withholding tax. By completing your tax profile, this is reduced to 0%-5% for eligible African nations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="space-y-3">
+                    <Label className="text-white">Tax Profile Type</Label>
+                    <Select onValueChange={(v) => handleSelectChange("taxFormType", v)} defaultValue={formData.taxFormType}>
+                        <SelectTrigger className="h-12 bg-zinc-900 border-zinc-700">
+                            <SelectValue placeholder="Select your tax residency" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-zinc-900 border-zinc-800 text-white">
+                            <SelectItem value="W-8BEN">Non-US Individual (W-8BEN)</SelectItem>
+                            <SelectItem value="W-8BEN-E">Non-US Business / Label (W-8BEN-E)</SelectItem>
+                            <SelectItem value="W-9">US Individual or Entity (W-9)</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+            </div>
+
+            <div className="flex gap-3 pt-6">
+                <Button
+                    onClick={prevStep}
+                    variant="outline"
+                    className="flex-1 border-zinc-800 text-white hover:bg-zinc-800"
+                >
+                    Back
+                </Button>
+                <Button
+                    onClick={handleSubmit}
+                    disabled={isLoading || !formData.taxFormType}
+                    className="flex-[2] font-black uppercase tracking-widest h-12 shadow-[0_0_20px_rgba(255,215,0,0.3)] bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black"
+                >
+                    {isLoading ? "Finalizing Profile..." : "Finish Onboarding"}
+                </Button>
+            </div>
+            <p className="text-center text-[10px] text-neutral-500 uppercase tracking-widest pt-4">
+                You will complete the actual form later in your dashboard.
+            </p>
         </div>
     );
 
@@ -546,7 +616,7 @@ export default function OnboardingPage() {
             <div className="w-full max-w-2xl relative">
                 {/* Progress Bar */}
                 <div className="mb-8 flex items-center justify-center gap-4">
-                    {[1, 2, 3].map((s) => (
+                    {[1, 2, 3, 4].map((s) => (
                         <div 
                             key={s}
                             className={`h-1.5 flex-1 rounded-full transition-all duration-500 ${s <= step ? "bg-shamiso-gold shadow-[0_0_10px_rgba(255,215,0,0.4)]" : "bg-zinc-800/50"}`}
@@ -570,6 +640,7 @@ export default function OnboardingPage() {
                         {step === 1 && renderStep1()}
                         {step === 2 && renderStep2()}
                         {step === 3 && renderStep3()}
+                        {step === 4 && renderStep4()}
                         
                         {error && (
                             <p className="text-sm text-red-500 text-center bg-red-500/10 py-2 rounded border border-red-500/20 mt-4">{error}</p>

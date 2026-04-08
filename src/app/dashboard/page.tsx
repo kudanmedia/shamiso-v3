@@ -102,6 +102,13 @@ const partners: Partner[] = [
         href: "/services/toorly",
         icon: ExternalLink,
     },
+    {
+        name: "un:hurd music",
+        category: "Marketing",
+        description: "Automated music promotion and custom marketing pages.",
+        href: "https://www.unhurdmusic.com/p/shamiso",
+        icon: ExternalLink,
+    },
 ];
 
 export default function DashboardPage() {
