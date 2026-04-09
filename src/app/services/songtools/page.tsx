@@ -1,6 +1,12 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useEffect, useState } from "react";
+import { account } from "@/lib/appwrite";
+import { PartnerRedirect } from "@/components/PartnerRedirect";
+import { PARTNER_LINKS } from "@/lib/partner-links";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SongToolsWidget } from "@/components/SongToolsWidget";
 import { 
     Zap, 
     Target, 
@@ -9,7 +15,7 @@ import {
     BarChart3, 
     CheckCircle2,
     DollarSign,
-    Play
+    Loader2
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -52,12 +58,43 @@ const features = [
 ];
 
 export default function SongToolsPage() {
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                await account.get();
+                setIsLoggedIn(true);
+            } catch (error) {
+                setIsLoggedIn(false);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        checkAuth();
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-black flex items-center justify-center">
+                <Loader2 className="w-8 h-8 text-shamiso-gold animate-spin" />
+            </div>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-black text-white">
             <Header />
             
-            <main className="pt-32 pb-24">
-                {/* Hero Section */}
+            <main className={isLoggedIn ? "pt-24" : "pt-32 pb-24"}>
+                {isLoggedIn ? (
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <SongToolsWidget />
+                    </div>
+                ) : (
+                    <>
+                        {/* Hero Section */}
                 <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8">
@@ -207,8 +244,8 @@ export default function SongToolsPage() {
                                 </Button>
                             </Link>
                         </div>
-                    </div>
-                </section>
+                    </>
+                )}
             </main>
             
             <Footer />

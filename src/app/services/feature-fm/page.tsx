@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PartnerRedirect } from "@/components/PartnerRedirect";
+import { PARTNER_LINKS } from "@/lib/partner-links";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { 
@@ -54,6 +56,7 @@ const features = [
 export default function FeatureFMPage() {
     return (
         <div className="min-h-screen bg-black text-white">
+            <PartnerRedirect partnerUrl={PARTNER_LINKS.featureFm} />
             <Header />
             
             <main className="pt-32 pb-24">

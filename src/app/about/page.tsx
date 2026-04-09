@@ -1,5 +1,8 @@
 import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
+import { FoundersLetter } from "@/components/FoundersLetter";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
     title: "About Us | Shamiso Music Group",
@@ -140,48 +143,13 @@ export default function AboutPage() {
                         </div>
                     </section>
 
-                    {/* Who We Empower */}
-                    <section>
-                        <h2 className="text-2xl font-black text-white uppercase tracking-wider mb-8 text-center">Who We Empower</h2>
-                        <ul className="grid gap-6 sm:grid-cols-2">
-                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
-                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
-                                    Independent Artists
-                                </strong>
-                                <span className="text-neutral-400 block">Move from being a "user" to being a CEO with 100% royalties.</span>
-                            </li>
-                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
-                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
-                                    Record Labels
-                                </strong>
-                                <span className="text-neutral-400 block">Scalable white-label tools to manage global rosters and automated splits.</span>
-                            </li>
-                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
-                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
-                                    Telcos & Banks
-                                </strong>
-                                <span className="text-neutral-400 block">A turnkey API to drive youth engagement through music-backed rewards.</span>
-                            </li>
-                            <li className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:-translate-y-1 transition-transform duration-300">
-                                <strong className="flex text-shamiso-gold mb-3 text-xl font-black uppercase tracking-wider items-center gap-3">
-                                    Content Creators
-                                </strong>
-                                <span className="text-neutral-400 block">A high-fidelity, pre-cleared catalog for the modern creator economy.</span>
-                            </li>
-                        </ul>
-                    </section>
-
-                    {/* Final Word */}
-                    <section className="relative text-center py-16 px-8 rounded-3xl border border-shamiso-gold/30 bg-linear-to-b from-shamiso-gold/10 to-transparent overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-shamiso-gold/20 blur-[80px]" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 blur-[80px]" />
-
-                        <p className="relative z-10 text-xl md:text-3xl font-bold text-white leading-relaxed tracking-tight">
-                            "Legacy meets Technology. Shamiso Music Group spent 30 years understanding the pulse of the artist. Now, we’ve built the Operating System to make that pulse global. <br /><span className="mt-4 block text-transparent bg-clip-text bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright drop-shadow-sm font-black text-2xl md:text-4xl">Welcome to the future of independence.</span>"
-                        </p>
-                    </section>
                 </div>
             </div>
+
+            <FoundersLetter />
+            
+            <Header />
+            <Footer />
         </main>
     );
 }

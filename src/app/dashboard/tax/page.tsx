@@ -122,78 +122,127 @@ export default function TaxDashboardPage() {
                                                 </label>
                                                 <label className="flex items-center gap-2 text-sm text-white hover:cursor-pointer">
                                                     <input type="radio" className="text-shamiso-gold checked:bg-shamiso-gold focus:ring-shamiso-gold h-4 w-4 rounded-full border-white/20 bg-black" name="entityType" value="entity" onChange={() => setIsEntity(true)} />
-                                                    Business/Label (W-8BEN-E)
+                                                    Business (W-8BEN-E)
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {isEntity && (
-                                        <div className="rounded-lg border border-shamiso-gold/30 bg-shamiso-gold/5 p-4 animate-in fade-in">
-                                            <div className="flex justify-between items-start">
-                                                <label className="text-xs font-semibold uppercase tracking-wider text-shamiso-gold">Chapter 4 Status (FATCA Status)</label>
-                                                <div className="group relative cursor-help text-white/40 hover:text-white">
-                                                    <HelpCircle className="h-4 w-4" />
-                                                    {/* Tooltip for African Labels */}
-                                                    <div className="absolute right-0 top-6 z-20 hidden w-64 rounded-md border border-white/10 bg-zinc-800 p-3 text-xs text-white/80 shadow-xl group-hover:block">
-                                                        <strong className="text-shamiso-gold-bright block mb-1">Attention African Record Labels:</strong>
-                                                        Most music distribution companies are classified as "Active NFFE" (Non-Financial Foreign Entity). This applies if less than 50% of your gross income is from passive sources, and you are actively running a business.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <select className="mt-2 w-full rounded-md border border-white/20 bg-black px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden focus:ring-1 focus:ring-shamiso-gold">
-                                                <option>Active NFFE (Recommended for Labels)</option>
-                                                <option>Passive NFFE</option>
-                                                <option>Other / Not Sure</option>
-                                            </select>
-                                        </div>
-                                    )}
-
+                                    {/* Shared / Specific Inputs */}
                                     <div className="grid gap-4 sm:grid-cols-2">
                                         <div className="space-y-2">
-                                            <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Legal Name</label>
-                                            <input required type="text" className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden" placeholder="Ex: Shamiso Music Distribution (Pty) Ltd" />
+                                            <label className="text-xs font-semibold uppercase tracking-wider text-white/60">
+                                                {isEntity ? "Entity Legal Name" : "Legal Name (Must match Gov ID)"}
+                                            </label>
+                                            <input required type="text" className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden" placeholder={isEntity ? "Shamiso Music Distribution (Pty) Ltd" : "First Last Name"} />
                                         </div>
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Country of Residence</label>
-                                            <select className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden">
-                                                <option>South Africa</option>
-                                                <option>Nigeria</option>
-                                                <option>Zimbabwe</option>
-                                                <option>Kenya</option>
-                                                <option>Other</option>
-                                            </select>
-                                        </div>
+                                        
+                                        {!isEntity && (
+                                            <div className="space-y-2 animate-in fade-in">
+                                                <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Date of Birth</label>
+                                                <input required type="date" className="w-full rounded-md border border-white/10 bg-[color-scheme:dark] bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden" />
+                                            </div>
+                                        )}
+                                        {isEntity && (
+                                            <div className="space-y-2 animate-in fade-in">
+                                                <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Chapter 3 Status</label>
+                                                <select className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden">
+                                                    <option>Corporation</option>
+                                                    <option>Partnership</option>
+                                                    <option>Disregarded Entity</option>
+                                                    <option>Simple Trust</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="grid gap-4 sm:grid-cols-2">
                                         <div className="space-y-2">
+                                            <label className="text-xs font-semibold uppercase tracking-wider text-white/60">
+                                                {isEntity ? "Country of Incorporation" : "Country of Citizenship"}
+                                            </label>
+                                            <select className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden">
+                                                <option value="ZA">South Africa</option>
+                                                <option value="NG">Nigeria</option>
+                                                <option value="ZW">Zimbabwe</option>
+                                                <option value="KE">Kenya</option>
+                                                <option value="GH">Ghana</option>
+                                                <option value="US">United States</option>
+                                                <option value="OTHER">Other</option>
+                                            </select>
+                                        </div>
+                                        <div className="space-y-2">
                                             <label className="text-xs font-semibold uppercase tracking-wider text-white/60 flex items-center justify-between">
-                                                Foreign TIN
+                                                {isEntity ? "US TIN or Foreign TIN" : "Foreign Tax ID (FTIN)"}
                                                 <span className="text-[10px] text-shamiso-gold capitalize font-normal border border-shamiso-gold/50 rounded-sm px-1">Required for Treaty</span>
                                             </label>
                                             <input required type="text" className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden" placeholder="e.g. SARS Number" />
                                         </div>
-                                        <div className="space-y-2 pb-2">
-                                            <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Claim of Tax Treaty Benefits</label>
-                                            <div className="flex h-10 w-full items-center rounded-md border border-shamiso-gold/20 bg-shamiso-gold/5 px-3 text-sm text-shamiso-gold">
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-semibold uppercase tracking-wider text-white/60 flex items-center gap-2">
+                                            Permanent Residence Address
+                                            <span className="text-[10px] font-bold text-red-500 uppercase bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20">P.O. Boxes Prohibited</span>
+                                        </label>
+                                        <input 
+                                            required 
+                                            type="text" 
+                                            className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden invalid:border-red-500/50" 
+                                            placeholder="Full Street Address" 
+                                            pattern="^(?!.*([Pp]\.?\s*[Oo]\.?\s*[Bb]ox|[Pp]ost\s+[Oo]ffice\s+[Bb]ox)).*$"
+                                            title="P.O. Boxes are strictly prohibited for tax residency verification."
+                                        />
+                                    </div>
+
+                                    <div className="rounded-lg border border-shamiso-gold/30 bg-shamiso-gold/5 p-4 animate-in fade-in">
+                                        <div className="flex justify-between items-start mb-3">
+                                            <label className="text-xs font-semibold uppercase tracking-wider text-shamiso-gold">Claim of Tax Treaty Benefits</label>
+                                        </div>
+                                        <div className="flex flex-col gap-3">
+                                            <div className="flex h-10 w-full items-center rounded-md border border-shamiso-gold/20 bg-black/50 px-3 text-sm text-shamiso-gold font-medium shadow-[0_0_15px_rgba(255,215,0,0.05)]">
                                                 <CheckCircle2 className="mr-2 h-4 w-4" /> US-SA Article 12 (0%) Detected
+                                            </div>
+                                            <div className="text-[11px] font-mono leading-relaxed text-shamiso-gold/80 bg-black p-4 rounded-md border border-white/5 relative overflow-hidden">
+                                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-shamiso-gold/40" />
+                                                The beneficial owner is a resident of South Africa and the income consists of royalties derived from the use of, or the right to use, copyrights of musical work. Under Article 12(1) of the US-South Africa Income Tax Treaty, such royalties are taxable only in the state of residence (South Africa).
                                             </div>
                                         </div>
                                     </div>
 
-                                    {isEntity && (
-                                        <div className="space-y-3 rounded-lg border border-white/5 bg-zinc-900/40 p-4 animate-in slide-in-from-top-2">
-                                            <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Line 15: Special Treaty Wording (Pre-filled)</label>
-                                            <div className="text-[11px] font-mono leading-relaxed text-shamiso-gold/80 bg-black p-3 rounded-md border border-white/5">
-                                                The beneficial owner is a resident of South Africa and the income consists of royalties derived from the use of, or the right to use, copyrights of musical work. Under Article 12(1) of the US-South Africa Income Tax Treaty, such royalties are taxable only in the state of residence (South Africa).
-                                            </div>
-                                            <p className="text-[10px] text-white/40 italic">This authoritative wording ensures the 0% withholding rate is applied by the IRS.</p>
+                                    <div className="space-y-4 pt-4 border-t border-white/10">
+                                        <div className="text-[11px] font-light text-white/50 leading-relaxed bg-zinc-900/50 p-4 rounded-lg border border-white/5">
+                                            Under penalties of perjury, I declare that I have examined the information on this form and to the best of my knowledge and belief it is true, correct, and complete. I further certify under penalties of perjury that:
+                                            {isEntity ? (
+                                                <ul className="list-disc pl-4 mt-2 space-y-1">
+                                                    <li>The entity identified on line 1 is the beneficial owner of all the income to which this form relates</li>
+                                                    <li>The entity identified on line 1 is not a U.S. person.</li>
+                                                </ul>
+                                            ) : (
+                                                <ul className="list-disc pl-4 mt-2 space-y-1">
+                                                    <li>I am the individual that is the beneficial owner of all the income to which this form relates or am using this form to document myself for chapter 4 purposes,</li>
+                                                    <li>I am not a U.S. person.</li>
+                                                </ul>
+                                            )}
                                         </div>
-                                    )}
+                                        
+                                        <div className="grid gap-4 sm:grid-cols-2">
+                                            <div className="space-y-2">
+                                                <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Electronic Signature (FullName)</label>
+                                                <input required type="text" className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden" placeholder="Type your full legal name" />
+                                            </div>
+                                            {isEntity && (
+                                                <div className="space-y-2 animate-in fade-in">
+                                                    <label className="text-xs font-semibold uppercase tracking-wider text-white/60">Title (e.g. CEO/Director)</label>
+                                                    <input required type="text" className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white focus:border-shamiso-gold focus:outline-hidden" placeholder="Your Title" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
 
                                     <div className="pt-4 border-t border-white/10">
-                                        <Button type="submit" className="w-full bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black hover:brightness-110 font-bold">
+                                        <Button type="submit" className="w-full bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black hover:brightness-110 font-bold shadow-[0_0_20px_rgba(255,215,0,0.2)]">
                                             Sign and Submit securely
                                         </Button>
                                     </div>

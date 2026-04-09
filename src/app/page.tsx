@@ -10,6 +10,7 @@ import { D2CSection } from "@/components/D2CSection";
 import { StrategicGenres } from "@/components/StrategicGenres";
 import { FAQ } from "@/components/FAQ";
 import { FinalCommitment } from "@/components/FinalCommitment";
+import { FoundersLetter } from "@/components/FoundersLetter";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <PricingSection />
       <CorridorMap />
       <FinalCommitment />
+      <FoundersLetter />
       <FAQ />
     </>
   );

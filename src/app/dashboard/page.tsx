@@ -9,9 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PayoutHistory } from "@/components/dashboard/payout-history";
-// import { SongToolsWidget } from "@/components/SongToolsWidget";
-
-
+import { PARTNER_LINKS } from "@/lib/partner-links";
 
 interface Partner {
     name: string;
@@ -35,21 +33,21 @@ const partners: Partner[] = [
         name: "Funding & Advances",
         category: "Funding",
         description: "Non-dilutive funding from $1K to $10M+ — Keep your masters",
-        href: "/services/funding",
+        href: PARTNER_LINKS.funding,
         icon: DollarSign,
     },
     {
         name: "feature.fm Engine",
         category: "Marketing",
         description: "The industry's leading marketing & ad suite for smart links.",
-        href: "/services/feature-fm",
+        href: PARTNER_LINKS.featureFm,
         icon: BarChart3,
     },
     {
         name: "Groover Networking",
         category: "Promotion",
         description: "Direct outreach to top curators and guaranteed professional feedback.",
-        href: "/services/groover",
+        href: PARTNER_LINKS.groover,
         icon: Radio,
     },
     {
@@ -63,7 +61,7 @@ const partners: Partner[] = [
         name: "Mix Check Studio",
         category: "Production",
         description: "AI-powered feedback on your frequency balance and dynamics.",
-        href: "/services/roex",
+        href: PARTNER_LINKS.roex,
         icon: Mic2,
     },
     {
@@ -77,7 +75,7 @@ const partners: Partner[] = [
         name: "Smartlinks & Pre-Saves",
         category: "Marketing",
         description: "High-performance landing pages for every release.",
-        href: "/services/feature-fm",
+        href: PARTNER_LINKS.featureFm,
         icon: Radio,
     },
     {
@@ -92,21 +90,21 @@ const partners: Partner[] = [
         name: "Mogul Tax & Wealth",
         category: "Marketing",
         description: "Automated tax optimization and wealth management for music creators.",
-        href: "/services/mogul",
+        href: PARTNER_LINKS.mogul,
         icon: Shield,
     },
     {
         name: "Toorly for Artists",
         category: "Promotion",
         description: "Seamlessly book and manage global tours across the SSA corridor.",
-        href: "/services/toorly",
+        href: PARTNER_LINKS.toorly,
         icon: ExternalLink,
     },
     {
         name: "un:hurd music",
         category: "Marketing",
         description: "Automated music promotion and custom marketing pages.",
-        href: "https://www.unhurdmusic.com/p/shamiso",
+        href: PARTNER_LINKS.unhurd,
         icon: ExternalLink,
     },
     {
