@@ -47,7 +47,7 @@ export function FundingForm() {
             setIsSuccess(true);
             // Redirect after 2 seconds
             setTimeout(() => {
-                window.location.href = "https://www.beatbread.com/offers/shamus";
+                window.location.href = "https://www.beatbread.com/offers/shamiso";
             }, 2000);
         } catch (err: any) {
             setError(err.message || "Something went wrong. Please try again.");
