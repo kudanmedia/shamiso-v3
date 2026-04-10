@@ -11,7 +11,7 @@ import { Card } from "./ui/card";
 
 const artistPlans = [
     {
-        name: "BANTU FREE",
+        name: "SHAMISO ENTRY",
         price: "$0",
         period: "per year",
         description: "Best for basics.",
@@ -28,7 +28,7 @@ const artistPlans = [
         icon: Zap,
     },
     {
-        name: "BANTU RISE",
+        name: "SHAMISO RISE",
         price: "$19.99",
         period: "/ year",
         description: "Most popular for growing artists.",
@@ -46,7 +46,7 @@ const artistPlans = [
         icon: Zap,
     },
     {
-        name: "BESPOKE",
+        name: "SHAMISO PRO",
         price: "Invite",
         period: "Only",
         description: "For heavyweights & viral stars.",
@@ -109,7 +109,7 @@ const advancedArtistBenefits = [
     { pillar: "Store Speed", f: "14 business days", r: "14 business days", b: "White-glove priority" },
     { pillar: "Monetization", f: "Social Media (TikTok/IG)", r: "YouTube Content ID", b: "YouTube Content ID" },
     { pillar: "Financials", f: "Monthly Payments", r: "Monthly payments", b: "Monthly payments" },
-    { pillar: "Collaborators", f: "Split Pay (Unlimited)", r: "Split Pay (Unlimited)", b: "Bespoke royalty splits" },
+    { pillar: "Collaborators", f: "Split Pay (Unlimited)", r: "Split Pay (Unlimited)", b: "SHAMISO PRO royalty splits" },
     { pillar: "Mastering", f: "Paid Service", r: "Paid Service", b: "Paid Service" },
     { pillar: "Fan Tools", f: "ArtistPages", r: "MasterLinks & Fan Data", b: "Custom Rollout Strategy" },
 ];
@@ -173,9 +173,9 @@ export function PricingSection() {
                                     <thead>
                                         <tr className="bg-white/5">
                                             <th className="px-6 py-4 text-xs font-bold uppercase text-neutral-500">Feature Pillar</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BANTU FREE</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">BANTU RISE</th>
-                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">BESPOKE</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">SHAMISO ENTRY</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-shamiso-gold-bright">SHAMISO RISE</th>
+                                            <th className="px-6 py-4 text-xs font-bold uppercase text-white">SHAMISO PRO</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-white/5">
@@ -254,7 +254,7 @@ function PlanCard({ plan }: { plan: any }) {
                     <plan.icon className="h-6 w-6" />
                 </div>
 
-                <div className="text-[10px] font-black uppercase tracking-widest text-shamiso-gold/60 mb-1">{plan.name === "BANTU FREE" || plan.name === "BANTU RISE" || plan.name === "BESPOKE" ? "Artist Tier" : "Label Tier"}</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-shamiso-gold/60 mb-1">{plan.name === "SHAMISO ENTRY" || plan.name === "SHAMISO RISE" || plan.name === "SHAMISO PRO" ? "Artist Tier" : "Label Tier"}</div>
                 <h3 className="text-xl font-bold text-white uppercase tracking-tight">{plan.name}</h3>
                 <div className="mt-4 flex items-baseline">
                     <span className="text-4xl font-black text-white">{plan.price}</span>

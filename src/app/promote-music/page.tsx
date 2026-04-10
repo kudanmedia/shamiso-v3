@@ -32,7 +32,7 @@ export default function PromoteMusicPage() {
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-shamiso-gold to-shamiso-gold-bright">Online With Shamiso?</span>
                     </h1>
                     <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-neutral-400">
-                        To start pushing your music to the right ears with Shamiso Music Distribution (SMD), you first need to pick your lane. While our <span className="text-white font-bold">Bantu Entry ($0)</span> tier gets you on the map, upgrading to <span className="text-white font-bold">Bantu Rise, Pro, Label, or Enterprise</span> unlocks the high-level tools needed to scale your brand across the continent and the diaspora.
+                        To start pushing your music to the right ears with Shamiso Music Distribution (SMD), you first need to pick your lane. While our <span className="text-white font-bold">Shamiso Entry ($0)</span> tier gets you on the map, upgrading to <span className="text-white font-bold">Shamiso Rise, Pro, Label, or Enterprise</span> unlocks the high-level tools needed to scale your brand across the continent and the diaspora.
                     </p>
                     <div className="flex flex-col justify-center gap-4 sm:flex-row">
                         <Link href="/signup">
@@ -113,7 +113,7 @@ export default function PromoteMusicPage() {
                             Is it worth paying for<br /> <span className="text-shamiso-gold-bright">Marketing Services?</span>
                         </h2>
                         <p className="text-lg text-neutral-400 leading-relaxed">
-                            In a crowded market like Amapiano or Afrobeats, "vibe and inshallah" isn't a strategy. Investing in a <span className="text-white font-bold">Bantu Pro ($24.99)</span> or <span className="text-white font-bold">Bantu Enterprise ($149)</span> plan is an investment in your business infrastructure.
+                            In a crowded market like Amapiano or Afrobeats, "vibe and inshallah" isn't a strategy. Investing in a <span className="text-white font-bold">Shamiso Pro ($24.99)</span> or <span className="text-white font-bold">Shamiso Enterprise ($149)</span> plan is an investment in your business infrastructure.
                         </p>
                         <p className="text-lg text-neutral-400 leading-relaxed">
                             Our premium tiers give you the professional <strong>"MasterLink"</strong> tools and the <span className="text-shamiso-gold">Advance Fund eligibility</span> you need to finance your music videos, radio tours, and social media blitzes.
@@ -211,7 +211,7 @@ export default function PromoteMusicPage() {
                         Preparation is everything. For every release, SMD generates a custom <strong>SmartLink</strong>. This is a single landing page you can share on your WhatsApp Status or Instagram Bio. It allows your fans to <strong>"Pre-Save"</strong> your track so it lands in their library the second it drops.
                     </p>
                     <p className="max-w-2xl mx-auto text-sm text-neutral-400 mb-10 relative z-10">
-                        Once the music is live, our Bantu Pro and Bantu Enterprise artists can then leverage our Sync Briefs and Brand Partnership portal to keep the momentum going long after release day.
+                        Once the music is live, our Shamiso Pro and Shamiso Enterprise artists can then leverage our Sync Briefs and Brand Partnership portal to keep the momentum going long after release day.
                     </p>
                     <Link href="/signup">
                         <Button size="lg" className="h-14 bg-white text-black hover:bg-neutral-200 font-bold uppercase tracking-wider relative z-10 shadow-xl transition-transform hover:scale-105">

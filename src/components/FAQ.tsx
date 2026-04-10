@@ -16,7 +16,7 @@ const faqs = [
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
                     <li><strong>Finalise Your Tracks:</strong> Record your music in high-quality WAV or FLAC format. Ensure your mixing is crisp and club-ready.</li>
-                    <li><strong>Join the SMD Family:</strong> Sign up for a Shamiso Music Distribution account and build your Artist Profile. You can link existing Spotify and Apple Music pages or set up brand-new profiles. Choose the plan that fits your hustle: Bantu Entry, Bantu Pro, Bantu Label, or Bantu Enterprise.</li>
+                    <li><strong>Join the SMD Family:</strong> Sign up for a Shamiso Music Distribution account and build your Artist Profile. You can link existing Spotify and Apple Music pages or set up brand-new profiles. Choose the plan that fits your hustle: Shamiso Entry, Shamiso Pro, Shamiso Label, or Shamiso Enterprise.</li>
                     <li><strong>Upload Your Content:</strong> Drop your audio files and "metadata" (track titles, high-res cover art, and featured artists). You can even use our built-in Mastering tools to give your songs that professional edge.</li>
                     <li><strong>Lock in the Paperwork:</strong> Enter your release details and add your collaborators to the Smart-Split system. This ensures everyone—from the producer to the featured vocalist - gets their royalties automatically.</li>
                     <li><strong>Review and Fire:</strong> Submit your release for the SMD team to audit. Pro, Label, and Enterprise artists can pick their own release dates to align with their "Link Up" events or social media blitzes.</li>
@@ -33,11 +33,11 @@ const faqs = [
                     SMD is for the culture. We work with everyone - from Amapiano producers in Pretoria and Afrobeats stars in Lagos to Zimdancehall chanters, Kuduro, Bongoflava and Genge/Singeli artists. Whether you’re just dropping your first freestyle or you’re a household name, we have a plan for your stage:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
-                    <li><strong>BANTU ENTRY ($0):</strong> Perfect for those just starting their journey. You get Unlimited Music Distribution to all major stores while only paying a 15% commission on your earnings. It’s the best way to build your data and get discovered.</li>
-                    <li><strong>BANTU RISE ($24.99/year):</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
-                    <li><strong>BANTU PRO (Bespoke):</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
-                    <li><strong>BANTU LABEL ($79/year):</strong> For the local moguls running a stable. Manage multiple artists, enjoy automated ZAR/Naira/KES royalty splits, and use custom ISRC/UPC codes to own your data.</li>
-                    <li><strong>BANTU ENTERPRISE (Bespoke):</strong> Our top-tier partnership. You get hands-on support from our Artist Relations team and exclusive eligibility for the $2M Shamiso Capital Advance Fund.</li>
+                    <li><strong>SHAMISO ENTRY ($0):</strong> Perfect for those just starting their journey. You get Unlimited Music Distribution to all major stores while only paying a 15% commission on your earnings. It’s the best way to build your data and get discovered.</li>
+                    <li><strong>SHAMISO RISE ($24.99/year):</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
+                    <li><strong>SHAMISO PRO:</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
+                    <li><strong>SHAMISO LABEL ($79/year):</strong> For the local moguls running a stable. Manage multiple artists, enjoy automated ZAR/Naira/KES royalty splits, and use custom ISRC/UPC codes to own your data.</li>
+                    <li><strong>SHAMISO ENTERPRISE (SHAMISO PRO):</strong> Our top-tier partnership. You get hands-on support from our Artist Relations team and exclusive eligibility for the $2M Shamiso Capital Advance Fund.</li>
                 </ul>
             </div>
         )
@@ -83,7 +83,7 @@ const faqs = [
                 <p>It depends on your plan:</p>
                 <ul className="list-disc pl-5 space-y-2">
                     <li><strong>ENTRY:</strong> We take a 15% commission on royalties. There is no annual subscription fee.</li>
-                    <li><strong>BANTU RISE, BANTU PRO, BANTU LABEL, & BANTU ENTERPRISE:</strong> You keep 100% of your streaming royalties. You pay a flat annual fee, and we take 0% commission on your streams.</li>
+                    <li><strong>SHAMISO RISE, SHAMISO PRO, SHAMISO LABEL, & SHAMISO ENTERPRISE:</strong> You keep 100% of your streaming royalties. You pay a flat annual fee, and we take 0% commission on your streams.</li>
                 </ul>
             </div>
         )
