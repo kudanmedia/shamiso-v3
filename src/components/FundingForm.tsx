@@ -45,10 +45,15 @@ export function FundingForm() {
             }
 
             setIsSuccess(true);
-            // Redirect after 2 seconds
+            // Attempt to open in a new tab immediately
+            const newWindow = window.open("https://www.beatbread.com/offers/shamiso", "_blank");
+            
+            // If it fails or if they want to stay on the success page for a bit
             setTimeout(() => {
-                window.location.href = "https://www.beatbread.com/offers/shamiso";
-            }, 2000);
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+                    console.log("Popup blocked");
+                }
+            }, 500);
         } catch (err: any) {
             setError(err.message || "Something went wrong. Please try again.");
         } finally {
@@ -64,10 +69,19 @@ export function FundingForm() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Qualification Successful!</h3>
                 <p className="text-neutral-400 mb-8">
-                    Your details have been registered. You are now being redirected to beatBread to complete your application.
+                    Your details have been registered. Please click the button below to complete your application on beatBread.
                 </p>
-                <div className="flex items-center justify-center gap-2 text-shamiso-gold-bright animate-pulse">
-                    <span className="text-sm font-bold uppercase tracking-widest">Redirecting...</span>
+                <div className="space-y-4">
+                    <Button 
+                        onClick={() => window.open("https://www.beatbread.com/offers/shamiso", "_blank")}
+                        className="w-full bg-shamiso-gold hover:bg-shamiso-gold-bright text-black font-black uppercase tracking-widest h-14"
+                    >
+                        Proceed to beatBread
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                    <p className="text-shamiso-gold-bright/60 text-xs uppercase tracking-widest animate-pulse font-bold">
+                        Opening in a new tab...
+                    </p>
                 </div>
             </Card>
         );
