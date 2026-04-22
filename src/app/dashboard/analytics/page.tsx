@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Song ToolsWidget } from "@/components/Song ToolsWidget";
+import { SongToolsWidget } from "@/components/SongToolsWidget";
 
 export default function AnalyticsPage() {
     const [user, setUser] = useState<any>(null);
@@ -56,7 +56,7 @@ export default function AnalyticsPage() {
                 </div>
 
                 <div className="mt-8">
-                    <Song ToolsWidget />
+                    <SongToolsWidget />
                 </div>
             </div>
         </div>

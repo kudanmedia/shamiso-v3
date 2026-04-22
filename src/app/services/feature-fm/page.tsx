@@ -80,10 +80,10 @@ export default function FeatureFMPage() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row items-center gap-4">
-                                <Link href={PARTNER_LINKS.songtools} target="_blank">
-                                    <Button size="lg" className="bg-green-600 hover:bg-green-500 text-white font-black uppercase tracking-widest h-16 px-10 rounded-2xl shadow-xl shadow-green-600/20 transition-all hover:scale-105">
-                                        <Zap className="mr-2 h-5 w-5 fill-current" />
-                                        Launch Promotion
+                                <Link href={PARTNER_LINKS.featureFm} target="_blank">
+                                    <Button size="lg" className="bg-linear-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-black uppercase tracking-widest h-16 px-10 rounded-2xl shadow-xl shadow-pink-600/20 transition-all hover:scale-105">
+                                        <MousePointer2 className="mr-2 h-5 w-5" />
+                                        Create Your First Link
                                     </Button>
                                 </Link>
                                 <div className="text-xs font-bold uppercase tracking-widest text-neutral-500">

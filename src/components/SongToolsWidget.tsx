@@ -3,7 +3,7 @@ import Script from "next/script";
 import { account } from "@/lib/appwrite";
 
 
-export function Song ToolsWidget() {
+export function SongToolsWidget() {
     const [jwt, setJwt] = useState<string | null>(null);
     const [isLoadingJwt, setIsLoadingJwt] = useState(true);
 
@@ -81,7 +81,7 @@ export function Song ToolsWidget() {
                 ) : (
                     <iframe 
                         id="iframeWidget" 
-                        title="Song Tools Widget"
+                        title="SongToolsWidget"
                         frameBorder="0" 
                         scrolling="no" 
                         width="100%" 

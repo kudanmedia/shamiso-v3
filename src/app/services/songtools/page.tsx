@@ -53,7 +53,7 @@ const features = [
     }
 ];
 
-export default function Song ToolsPage() {
+export default function SongToolsPage() {
     return (
         <div className="min-h-screen bg-black text-white">
             <PartnerRedirect partnerUrl={PARTNER_LINKS.songtools} />
@@ -77,7 +77,7 @@ export default function Song ToolsPage() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row items-center gap-4">
-                                <Link href="/signup">
+                                <Link href={PARTNER_LINKS.songtools} target="_blank">
                                     <Button size="lg" className="bg-green-600 hover:bg-green-500 text-white font-black uppercase tracking-widest h-16 px-10 rounded-2xl shadow-xl shadow-green-600/20 transition-all hover:scale-105">
                                         <Zap className="mr-2 h-5 w-5 fill-current" />
                                         Launch Promotion
@@ -204,7 +204,7 @@ export default function Song ToolsPage() {
                             <p className="text-neutral-400 mb-8 text-sm leading-relaxed">
                                 Join 100,000+ artists who have moved past passive distribution into active promotion. Your fans are waiting. Go find them.
                             </p>
-                            <Link href="/signup">
+                            <Link href={PARTNER_LINKS.songtools} target="_blank">
                                 <Button size="lg" className="w-full bg-white text-black hover:bg-neutral-200 font-black uppercase tracking-widest h-16 rounded-2xl">
                                     Start Promoting at $10/Day
                                 </Button>

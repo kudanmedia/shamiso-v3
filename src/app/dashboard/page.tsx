@@ -320,7 +320,7 @@ export default function DashboardPage() {
                     })}
                 </div>
 
-                {/* <Song ToolsWidget /> */}
+                {/* <SongToolsWidget /> */}
             </section>
 
 
