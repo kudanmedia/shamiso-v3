@@ -6,6 +6,42 @@ import { ArrowRight, Music2, Disc, Play, Zap, Globe } from "lucide-react";
 
 const genres = [
     {
+        name: "Afrobeats",
+        description: "The heartbeat of West Africa, dominating global charts and festivals.",
+        href: "/distribute-afrobeats",
+        cta: "Distribute Afrobeats",
+        icon: Music2,
+        gradient: "from-green-500/20 to-emerald-600/20",
+        border: "border-green-500/30",
+    },
+    {
+        name: "Singeli",
+        description: "The high-speed pulse of Tanzania's streets, pushing the limits of BPM.",
+        href: "/distribute-singeli",
+        cta: "Distribute Singeli",
+        icon: Zap,
+        gradient: "from-pink-500/20 to-rose-600/20",
+        border: "border-pink-500/30",
+    },
+    {
+        name: "Bongoflava",
+        description: "The smooth, melodic fusion of East African sounds and storytelling.",
+        href: "/distribute-bongoflava",
+        cta: "Distribute Bongoflava",
+        icon: Play,
+        gradient: "from-indigo-500/20 to-purple-600/20",
+        border: "border-indigo-500/30",
+    },
+    {
+        name: "Kuduro",
+        description: "Angola's energetic and rhythmic electronic dance music revolution.",
+        href: "/distribute-kuduro",
+        cta: "Distribute Kuduro",
+        icon: Disc,
+        gradient: "from-red-500/20 to-orange-600/20",
+        border: "border-red-500/30",
+    },
+    {
         name: "Lekompo",
         description: "South Africa's authentic home-grown sound, scaling globally.",
         href: "/distribute-lekompo",

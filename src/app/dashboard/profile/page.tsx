@@ -242,7 +242,7 @@ export default function ProfilePage() {
                                         <div className="p-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400">
                                             <Link2 className="h-5 w-5" />
                                         </div>
-                                        <CardTitle>Too Lost Sync</CardTitle>
+                                        <CardTitle>Global Distribution Sync</CardTitle>
                                     </div>
                                     <CardDescription>Connect your distribution account to reconcile royalty statements.</CardDescription>
                                 </CardHeader>
@@ -258,7 +258,7 @@ export default function ProfilePage() {
                                             className="bg-zinc-800 border-zinc-700 h-12"
                                         />
                                         <p className="text-sm text-neutral-400 mt-2">
-                                            This email is used to match your CSV royalty data from Too Lost to your SMD account.
+                                            This email is used to match your CSV royalty data from your distribution partner to your SMD account.
                                         </p>
                                     </div>
                                     
@@ -282,7 +282,7 @@ export default function ProfilePage() {
                                             </div>
                                             <h4 className="text-lg font-bold">Payments Locked</h4>
                                             <p className="text-sm text-neutral-400">
-                                                You must link your Too Lost distribution account in the <span className="text-blue-400 font-bold">Distribution Link</span> tab before configuring payouts.
+                                                You must link your distribution account in the <span className="text-blue-400 font-bold">Distribution Link</span> tab before configuring payouts.
                                             </p>
                                         </div>
                                     </div>

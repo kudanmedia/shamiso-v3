@@ -12,8 +12,8 @@ import { Card } from "./ui/card";
 const artistPlans = [
     {
         name: "SHAMISO ENTRY",
-        price: "$0",
-        period: "per year",
+        price: "",
+        period: "",
         description: "Best for basics.",
         features: [
             "Keep 85% of royalties",
@@ -29,8 +29,8 @@ const artistPlans = [
     },
     {
         name: "SHAMISO RISE",
-        price: "$19.99",
-        period: "/ year",
+        price: "",
+        period: "",
         description: "Most popular for growing artists.",
         features: [
             "Keep 100% of royalties",
@@ -68,8 +68,8 @@ const artistPlans = [
 const labelPlans = [
     {
         name: "Shamiso LABEL",
-        price: "$75.00",
-        period: "/ month",
+        price: "",
+        period: "",
         description: "Emerging 'Street' Labels / Collectives",
         features: [
             "Up to 50 Artist Profiles",
@@ -85,14 +85,14 @@ const labelPlans = [
         icon: Building2,
     },
     {
-        name: "Shamiso Sovereign (Enterprise)",
-        price: "$250.00",
-        period: "/ month",
+        name: "Shamiso Sovereign",
+        price: "",
+        period: "",
         description: "High-Export 'Amapiano/Afrobeats' Hubs",
         features: [
             "Unlimited Artists",
             "SMD-Branded Portal",
-            "SWIFT / Local Bank / Crypto-Stablecoin",
+            "SWIFT / Local Bank",
             "1.5% Platform Fee",
             "Priority Pitching to APAC (Melon/TME)",
             "White-glove priority delivery",
@@ -118,7 +118,7 @@ const advancedLabelBenefits = [
     { pillar: "Strategic Target", l: "Emerging 'Street' Labels / Collectives", h: "High-Export 'Amapiano/Afrobeats' Hubs" },
     { pillar: "Artist Limit", l: "Up to 50 Artist Profiles", h: "Unlimited Artists" },
     { pillar: "Branding", l: "SMD-Branded Portal", h: "SMD-Branded Portal" },
-    { pillar: "Payout Rail", l: "Mobile Money (Real-Time)", h: "SWIFT / Local Bank / Crypto-Stablecoin" },
+    { pillar: "Payout Rail", l: "Mobile Money (Real-Time)", h: "SWIFT / Local Bank" },
     { pillar: "Revenue Share", l: "2% Platform Fee", h: "1.5% Platform Fee" },
     { pillar: "Benefit Highlight", l: "Low-barrier 'Sub-Manager' login", h: "Priority Pitching to APAC (Melon/TME)" },
 ];
@@ -132,10 +132,10 @@ export function PricingSection() {
                         SMD Subscription Pricing and Benefits Plan
                     </Badge>
                     <h2 className="text-4xl font-black text-white uppercase sm:text-5xl">
-                        Music Distribution <span className="gradient-text">Redefined</span>
+                        Music distribution <span className="gradient-text">redefined</span>
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-400">
-                        Transparent, high-performance plans for independent artists and high-growth labels.
+                        Transparent, high-performance plans for independent artists, content creators, producers, labels, distributors, telcos and banks.
                     </p>
                 </div>
 

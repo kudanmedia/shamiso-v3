@@ -36,7 +36,7 @@ export default function AboutPage() {
                             Founded in 1995, <strong className="text-white font-semibold">Shamiso Music Group (SMG)</strong> has been the silent engine behind the African musical renaissance. While the digital landscape has shifted, our mission remains the same: to provide the strategic backbone for the world's most iconic voices.
                         </p>
                         <p className="text-neutral-400">
-                            From the foundational legends of Highlife and Jazz to the global explosion of Amapiano and Afro-tech, SMG has built a 30-year legacy of trust with artists like Oliver "Tuku" Mtukudzi, Salif Keita, Sizzla Kalonji, Runtown, DJ Maphorisa, Uhuru and Sha Sha.
+                            From the foundational legends of Highlife and Jazz to the global explosion of Amapiano and Afro-tech, SMG has built a 30-year legacy of trust with artists like **Oliver Mtukuduzu**, **Salif Keita**, **Sizzla Kalonji**, **RUntown**, **DJ Maphorisa**, **Uhuru**, **ShaSha**, **Xelimpilo**, **Jahseed**, **speedy**, **Mapiano**, **Bongo Riot** etc.
                         </p>
                     </section>
 
@@ -98,10 +98,7 @@ export default function AboutPage() {
                                         <td className="px-6 py-5 font-bold text-white uppercase tracking-wider">Cultural Intelligence</td>
                                         <td className="px-6 py-5 leading-relaxed">Our AI is trained on global data, not just Western trends.</td>
                                     </tr>
-                                    <tr className="hover:bg-white/2 transition-colors">
-                                        <td className="px-6 py-5 font-bold text-white uppercase tracking-wider">Enterprise-Ready</td>
-                                        <td className="px-6 py-5 leading-relaxed">We provide the API infrastructure for Banks, Telcos, Music Distributors and Record Labels.</td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -114,7 +111,7 @@ export default function AboutPage() {
                         <div className="grid gap-6">
                             <div className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:border-shamiso-gold/20 transition-all">
                                 <h3 className="text-xl font-black text-shamiso-gold-bright uppercase tracking-wider mb-3">1. Shamiso Rights <span className="text-sm font-bold text-neutral-500 capitalize tracking-normal block mt-1">Enterprise Infrastructure</span></h3>
-                                <p className="text-neutral-400">We provide "Label-in-a-Box" capabilities. Through our core infrastructure (powered by partners like Too Lost and Manifest), we deliver your music to 450+ platforms globally in under 48 hours with enterprise-grade metadata accuracy.</p>
+                                <p className="text-neutral-400">We provide "Label-in-a-Box" capabilities. Through our core infrastructure, we deliver your music to 450+ platforms globally in under 48 hours with enterprise-grade metadata accuracy.</p>
                             </div>
 
                             <div className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:border-shamiso-gold/20 transition-all">

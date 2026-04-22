@@ -41,7 +41,7 @@ const powerCards = [
         description:
             "The industry's leading marketing & ad suite. Smart links, audience data, and retargeting pixels to grow your fan connection.",
         cta: "Scale My Growth",
-        href: "/signup",
+        href: "http://feature.fm/shamiso",
         gradient: "from-blue-500/20 to-blue-900/5",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/40",
@@ -54,7 +54,7 @@ const powerCards = [
         description:
             "AI-powered mix analysis and professional mastering checks. Ensure your tracks are streaming-ready before the world hears them.",
         cta: "Polish My Sound",
-        href: "/signup",
+        href: "/services/roex",
         gradient: "from-purple-500/20 to-purple-900/5",
         iconColor: "text-purple-400",
         borderColor: "hover:border-purple-500/40",
@@ -75,7 +75,7 @@ const powerCards = [
     },
     {
         icon: Share2,
-        title: "SongTools Promo",
+        title: "Song Tools Promo",
         subtitle: "PROMOTION",
         description:
             "Automated digital ads and algorithmic playlisting. Get label-grade marketing for your releases starting at just $10/day.",
@@ -89,11 +89,11 @@ const powerCards = [
     {
         icon: Landmark,
         title: "Mogul Partnerships",
-        subtitle: "TAX & WEALTH",
+        subtitle: "WEALTH/FINANCE",
         description:
             "Automated tax optimization and wealth management specialized for music creators. Secure your financial future while you build your catalog.",
         cta: "Explore Mogul",
-        href: "/signup",
+        href: "/services/mogul",
         gradient: "from-amber-500/20 to-amber-900/5",
         iconColor: "text-emerald-400",
         borderColor: "hover:border-emerald-500/40",

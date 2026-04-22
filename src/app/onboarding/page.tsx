@@ -254,7 +254,7 @@ export default function OnboardingPage() {
 
             <div className="space-y-4">
                 <div className="space-y-2">
-                    <Label htmlFor="tooLostEmail" className="text-white font-semibold">Too Lost Account Email</Label>
+                    <Label htmlFor="tooLostEmail" className="text-white font-semibold">Distribution Account Email</Label>
                     <Input
                         id="tooLostEmail"
                         name="tooLostEmail"
@@ -266,7 +266,7 @@ export default function OnboardingPage() {
                         className="h-12 bg-zinc-900/50 border-zinc-700 focus:border-blue-500 text-white placeholder:text-zinc-600"
                     />
                     <p className="text-xs text-neutral-500 mt-2">
-                        Enter the exact email address you use to log into Too Lost. Our automated system uses this to safely match your monthly royalty statements to your SMD wallet.
+                        Enter the exact email address you use for your global distribution account. Our automated system uses this to safely match your monthly royalty statements to your SMD wallet.
                     </p>
                 </div>
 
@@ -315,7 +315,7 @@ export default function OnboardingPage() {
                 <p className="text-sm text-neutral-400">
                     {formData.tooLostEmail 
                         ? "Select your primary territory. SMD pays out at premium interbank FX rates."
-                        : "Please link your Too Lost distribution email in the previous step to enable regional payouts."}
+                        : "Please link your distribution email in the previous step to enable regional payouts."}
                 </p>
             </div>
 

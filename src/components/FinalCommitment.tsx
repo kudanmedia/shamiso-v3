@@ -12,7 +12,7 @@ export function FinalCommitment() {
             
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
                 <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
-                    The Infrastructure of the <span className="gradient-text">Modern Mogul.</span>
+                    The Infrastructure of the <span className="gradient-text">Modern Mogule.</span>
                 </h2>
                 
                 <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">

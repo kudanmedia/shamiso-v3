@@ -18,8 +18,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "SongTools Promotion | One-Click Music Growth | Shamiso Music Distribution",
-    description: "Automate your digital ads and playlisting for just $10/day. Reach real fans across TikTok, Instagram, and more with SongTools on Shamiso.",
+    title: "Song Tools Promotion | One-Click Music Growth | Shamiso Music Distribution",
+    description: "Automate your digital ads and playlisting for just $10/day. Reach real fans across TikTok, Instagram, and more with Song Tools on Shamiso.",
 };
 
 const features = [
@@ -53,7 +53,7 @@ const features = [
     }
 ];
 
-export default function SongToolsPage() {
+export default function Song ToolsPage() {
     return (
         <div className="min-h-screen bg-black text-white">
             <PartnerRedirect partnerUrl={PARTNER_LINKS.songtools} />

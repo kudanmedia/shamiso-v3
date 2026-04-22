@@ -58,14 +58,21 @@ const partners: Partner[] = [
         icon: Video,
     },
     {
-        name: "Mix Check Studio",
+        name: "Automix by Roex",
         category: "Production",
-        description: "AI-powered feedback on your frequency balance and dynamics.",
-        href: PARTNER_LINKS.roex,
+        description: "Studio-quality AI mastering optimized for streaming.",
+        href: PARTNER_LINKS.automix,
         icon: Mic2,
     },
     {
-        name: "SongTools Promo",
+        name: "Mix Check Studio",
+        category: "Production",
+        description: "AI-powered feedback on your frequency balance and dynamics.",
+        href: PARTNER_LINKS.mixCheckStudio,
+        icon: Mic2,
+    },
+    {
+        name: "Song Tools Promo",
         category: "Promotion",
         description: "Automated digital ads and algorithmic playlisting.",
         href: "/services/songtools",
@@ -87,10 +94,10 @@ const partners: Partner[] = [
     },
 
     {
-        name: "Mogul Tax & Wealth",
+        name: "Mogul Wealth & Finance",
         category: "Marketing",
-        description: "Automated tax optimization and wealth management for music creators.",
-        href: PARTNER_LINKS.mogul,
+        description: "Automated financial optimization and wealth management for music creators.",
+        href: "/services/mogul",
         icon: Shield,
     },
     {
@@ -108,7 +115,7 @@ const partners: Partner[] = [
         icon: ExternalLink,
     },
     {
-        name: "IRS Tax Compliance",
+        name: "Wealth/Finance",
         category: "Distribution",
         description: "Claim your 0% withholding rate under Article 12 and keep 30% more of your royalties.",
         href: "/dashboard/tax",
@@ -313,7 +320,7 @@ export default function DashboardPage() {
                     })}
                 </div>
 
-                {/* <SongToolsWidget /> */}
+                {/* <Song ToolsWidget /> */}
             </section>
 
 

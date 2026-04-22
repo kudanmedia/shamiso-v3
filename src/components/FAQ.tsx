@@ -20,7 +20,7 @@ const faqs = [
                     <li><strong>Upload Your Content:</strong> Drop your audio files and "metadata" (track titles, high-res cover art, and featured artists). You can even use our built-in Mastering tools to give your songs that professional edge.</li>
                     <li><strong>Lock in the Paperwork:</strong> Enter your release details and add your collaborators to the Smart-Split system. This ensures everyone—from the producer to the featured vocalist - gets their royalties automatically.</li>
                     <li><strong>Review and Fire:</strong> Submit your release for the SMD team to audit. Pro, Label, and Enterprise artists can pick their own release dates to align with their "Link Up" events or social media blitzes.</li>
-                    <li><strong>Go Live:</strong> Your music hits the streets on the platforms included in your plan. With our Too Lost (TLE) powered backend, you can go live in as little as 5 business days on Entry and just 2 business days on our premium tiers.</li>
+                    <li><strong>Go Live:</strong> Your music hits the streets on the platforms included in your plan. You can go live in as little as 5 business days on Entry and just 2 business days on our premium tiers.</li>
                 </ul>
             </div>
         )
@@ -33,10 +33,10 @@ const faqs = [
                     SMD is for the culture. We work with everyone - from Amapiano producers in Pretoria and Afrobeats stars in Lagos to Zimdancehall chanters, Kuduro, Bongoflava and Genge/Singeli artists. Whether you’re just dropping your first freestyle or you’re a household name, we have a plan for your stage:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
-                    <li><strong>SHAMISO ENTRY ($0):</strong> Perfect for those just starting their journey. You get Unlimited Music Distribution to all major stores while only paying a 15% commission on your earnings. It’s the best way to build your data and get discovered.</li>
-                    <li><strong>SHAMISO RISE ($24.99/year):</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
+                    <li><strong>SHAMISO ENTRY:</strong> Perfect for those just starting their journey. You get Unlimited Music Distribution to all major stores while only paying a 15% commission on your earnings. It’s the best way to build your data and get discovered.</li>
+                    <li><strong>SHAMISO RISE:</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
                     <li><strong>SHAMISO PRO:</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
-                    <li><strong>SHAMISO LABEL ($79/year):</strong> For the local moguls running a stable. Manage multiple artists, enjoy automated ZAR/Naira/KES royalty splits, and use custom ISRC/UPC codes to own your data.</li>
+                    <li><strong>SHAMISO LABEL:</strong> For the local moguls running a stable. Manage multiple artists, enjoy automated ZAR/Naira/KES royalty splits, and use custom ISRC/UPC codes to own your data.</li>
                     <li><strong>SHAMISO ENTERPRISE (SHAMISO PRO):</strong> Our top-tier partnership. You get hands-on support from our Artist Relations team and exclusive eligibility for the $2M Shamiso Capital Advance Fund.</li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@ const faqs = [
                     SMD Entry is our "No-Barriers" plan. It allows you to distribute unlimited music for $0 upfront. We take a 15% commission to cover our administrative costs, meaning we only make money when you do. It’s ideal for building your catalog and testing the waters.
                 </p>
                 <p>
-                    SMD Pro is a premium subscription for $24.99 annually. The biggest difference? You keep 100% of your streaming royalties - we take zero commission. You also get advanced analytics, faster delivery times, and the ability to schedule your releases for maximum impact.
+                    SMD Pro is a premium subscription. The biggest difference? You keep 100% of your streaming royalties - we take zero commission. You also get advanced analytics, faster delivery times, and the ability to schedule your releases for maximum impact.
                 </p>
             </div>
         )
@@ -76,18 +76,7 @@ const faqs = [
             </div>
         )
     },
-    {
-        question: "DOES SHAMISO TAKE A CUT OF MY SALES?",
-        answer: (
-            <div className="space-y-4 text-neutral-400">
-                <p>It depends on your plan:</p>
-                <ul className="list-disc pl-5 space-y-2">
-                    <li><strong>ENTRY:</strong> We take a 15% commission on royalties. There is no annual subscription fee.</li>
-                    <li><strong>SHAMISO RISE, SHAMISO PRO, SHAMISO LABEL, & SHAMISO ENTERPRISE:</strong> You keep 100% of your streaming royalties. You pay a flat annual fee, and we take 0% commission on your streams.</li>
-                </ul>
-            </div>
-        )
-    }
+
 ];
 
 export interface FAQItem {

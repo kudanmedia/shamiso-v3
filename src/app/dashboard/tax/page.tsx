@@ -73,7 +73,7 @@ export default function TaxDashboardPage() {
                             <div className="mb-8 w-full max-w-lg rounded-xl border border-white/5 bg-zinc-900/40 p-6 text-left">
                                 <h4 className="mb-2 text-sm font-bold text-white flex items-center gap-2">
                                     <FileText className="h-4 w-4 text-shamiso-gold" />
-                                    Letter of Instruction for Too Lost
+                                    Letter of Instruction for Distribution Partner
                                 </h4>
                                 <p className="mb-4 text-xs text-white/60">Generate a formal letter to ensure your US partner applies the 0% rate correctly.</p>
                                 <Button className="w-full bg-shamiso-gold text-black hover:bg-shamiso-gold/80 font-bold">

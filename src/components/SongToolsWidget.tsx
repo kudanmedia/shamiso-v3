@@ -3,7 +3,7 @@ import Script from "next/script";
 import { account } from "@/lib/appwrite";
 
 
-export function SongToolsWidget() {
+export function Song ToolsWidget() {
     const [jwt, setJwt] = useState<string | null>(null);
     const [isLoadingJwt, setIsLoadingJwt] = useState(true);
 
@@ -25,7 +25,7 @@ export function SongToolsWidget() {
                     setJwt(data.jwt);
                 }
             } catch (error) {
-                console.error("Error fetching SongTools JWT:", error);
+                console.error("Error fetching Song Tools JWT:", error);
             } finally {
                 setIsLoadingJwt(false);
             }
@@ -42,7 +42,7 @@ export function SongToolsWidget() {
         window.addEventListener("message", handleMessage);
         
         (window as any).processParentEvent = (e: any) => {
-            console.log("SongTools Message received:", e.data);
+            console.log("Song Tools Message received:", e.data);
         };
 
         return () => {
@@ -57,7 +57,7 @@ export function SongToolsWidget() {
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 Fan Data Analytics 
                 <span className="text-xs font-medium uppercase tracking-widest text-shamiso-gold-bright bg-shamiso-gold/10 px-2 py-1 rounded">
-                    Powered by SongTools
+                    Powered by Song Tools
                 </span>
             </h2>
             
@@ -75,13 +75,13 @@ export function SongToolsWidget() {
                     <div className="absolute inset-0 flex items-center justify-center bg-zinc-900/20 backdrop-blur-sm">
                         <div className="flex flex-col items-center gap-4">
                             <div className="w-8 h-8 border-4 border-shamiso-gold border-t-transparent rounded-full animate-spin" />
-                            <p className="text-zinc-400 text-sm animate-pulse">Authenticating with SongTools...</p>
+                            <p className="text-zinc-400 text-sm animate-pulse">Authenticating with Song Tools...</p>
                         </div>
                     </div>
                 ) : (
                     <iframe 
                         id="iframeWidget" 
-                        title="SongTools Widget"
+                        title="Song Tools Widget"
                         frameBorder="0" 
                         scrolling="no" 
                         width="100%" 

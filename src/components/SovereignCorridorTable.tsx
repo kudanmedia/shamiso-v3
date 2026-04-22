@@ -31,7 +31,7 @@ const comparisonData = [
     {
         feature: "Getting Paid",
         icon: Clock,
-        smd: "Monthly/Immediate. Modern rails (Mobile Money, Crypto-rails, Instant-pay).",
+        smd: "Monthly. Modern rails (Mobile Money, Instant-pay).",
         mogul: "Transparency First. Tracks when you should be paid across 100+ sources.",
         rivals: "Slow. Legacy 45-day transfer cycles and fragmented bank transfers.",
         highlight: false

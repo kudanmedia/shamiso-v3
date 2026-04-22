@@ -79,8 +79,8 @@ export function FoundersLetter() {
                                 </p>
 
                                 <p className="text-2xl font-black text-white uppercase tracking-tight pt-8 leading-[0.9]">
-                                    This is the House of Shamiso. <br />
-                                    <span className="text-shamiso-gold-bright">Welcome to the Sovereign Era.</span>
+                                    This is the House of Shamiso. <br /><br />
+                                    <span className="text-shamiso-gold-bright uppercase tracking-tighter">Welcome to the Sovereign Era.</span>
                                 </p>
                             </div>
 

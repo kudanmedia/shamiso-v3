@@ -20,7 +20,7 @@ import {
 const pillars = [
     {
         id: "finance",
-        title: "Pillar I: Finance & Protection",
+        title: "Pillar 1: Finance & Protection",
         subtitle: "(The Founder Layer)",
         focus: "Wealth creation and capital access.",
         items: [
@@ -49,7 +49,7 @@ const pillars = [
     },
     {
         id: "marketing",
-        title: "Pillar II: Marketing & Discovery",
+        title: "Pillar 2: Marketing & Discovery",
         subtitle: "(The Fan Layer)",
         focus: "Turning data into a global audience.",
         items: [
@@ -65,7 +65,7 @@ const pillars = [
             },
             {
                 name: "Algorithmic Promotion",
-                description: "Automated digital ads and Spotify playlisting through SongTools.",
+                description: "Automated digital ads and Spotify playlisting through Song Tools.",
                 cta: "Boost My Streams",
                 href: "/services/songtools",
                 icon: Zap,
@@ -78,7 +78,7 @@ const pillars = [
     },
     {
         id: "production",
-        title: "Pillar III: Production & Content",
+        title: "Pillar 3: Production & Content",
         subtitle: "(The Studio Layer)",
         focus: "Ensuring the product meets global standards.",
         items: [
@@ -107,7 +107,7 @@ const pillars = [
     },
     {
         id: "connections",
-        title: "Pillar IV: Connections & Live",
+        title: "Pillar 4: Connections & Live",
         subtitle: "(The Stage Layer)",
         focus: "Breaking the digital bubble into real-world influence.",
         items: [
@@ -150,8 +150,12 @@ export function PromoteMusic() {
                         Four Pillars of <span className="gradient-text">Sovereignty</span>
                     </h2>
                     <p className="mx-auto max-w-3xl text-lg text-neutral-400 font-light">
-                        The infrastructure of the modern mogul. Each pillar represents an Integrated Inflection Point—a hand-selected partner tool designed to solve a specific barrier to growth.
+                        The infrastructure of the modern mogule. Each pillar represents an Integrated Inflection Point—a hand-selected partner tool designed to solve a specific barrier to growth.
                     </p>
+                    <div className="mt-8 flex flex-col items-center gap-4">
+                        <p className="text-2xl font-bold text-shamiso-gold-bright uppercase tracking-widest">One Login. One Ecosystem.</p>
+                        <p className="text-lg text-white font-medium">Total Sovereignty for the modern artist and label. Non-dilutive funding up to $10M.</p>
+                    </div>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -214,9 +218,7 @@ export function PromoteMusic() {
                         <div className="flex flex-col items-center gap-2">
                              <img src="/beatbread.svg" alt="beatBread" className="h-6 w-auto brightness-0 invert" />
                         </div>
-                        <div className="flex flex-col items-center gap-2">
-                             <span className="text-xl font-black text-white/40 tracking-tighter">TOO LOST</span>
-                        </div>
+
                         <div className="flex flex-col items-center gap-2">
                              <span className="text-xl font-black text-white/40 tracking-tighter italic">VERTO FX</span>
                         </div>
