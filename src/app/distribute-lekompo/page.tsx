@@ -8,10 +8,9 @@ export const metadata: Metadata = {
 };
 
 const relatedGenres = [
-    { label: "3-Step", href: "/distribute-3-step" },
+    { label: "Singeli", href: "/distribute-singeli" },
+    { label: "Amapiano", href: "/distribute-amapiano" },
     { label: "Maskandi", href: "/distribute-maskandi" },
-    { label: "Afro House", href: "#afro-house" },
-    { label: "Amapiano", href: "#" },
 ];
 
 const highlights = [

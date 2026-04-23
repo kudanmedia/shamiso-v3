@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const relatedGenres = [
+    { label: "Afrobeats", href: "/distribute-afrobeats" },
     { label: "Lekompo", href: "/distribute-lekompo" },
     { label: "3-Step", href: "/distribute-3-step" },
-    { label: "Afro House", href: "/distribute-afro-house" },
 ];
 
 const highlights = [

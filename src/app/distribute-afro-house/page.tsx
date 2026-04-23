@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const relatedGenres = [
-    { label: "Lekompo", href: "/distribute-lekompo" },
+    { label: "Kuduro", href: "/distribute-kuduro" },
     { label: "3-Step", href: "/distribute-3-step" },
     { label: "Amapiano", href: "/distribute-amapiano" },
 ];
