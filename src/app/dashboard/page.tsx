@@ -94,8 +94,8 @@ const partners: Partner[] = [
     },
 
     {
-        name: "Mogul Wealth & Finance",
-        category: "Marketing",
+        name: "Mogul Tax and Wealth",
+        category: "Wealth/Finance",
         description: "Automated financial optimization and wealth management for music creators.",
         href: "/services/mogul",
         icon: Shield,
@@ -115,8 +115,8 @@ const partners: Partner[] = [
         icon: ExternalLink,
     },
     {
-        name: "Wealth/Finance",
-        category: "Distribution",
+        name: "IRS Tax Compliance",
+        category: "Wealth/Finance",
         description: "Claim your 0% withholding rate under Article 12 and keep 30% more of your royalties.",
         href: "/dashboard/tax",
         icon: Shield,

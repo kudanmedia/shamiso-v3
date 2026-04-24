@@ -69,7 +69,7 @@ const comparisonData = [
         highlight: false
     },
     {
-        feature: "Wealth Mgmt",
+        feature: "Wealth Management",
         icon: TrendingUp,
         smd: "Automated. Full CFO-level tracking, tax-optimization, and wealth building.",
         mogul: "Audit-Only. Consolidates royalty sources to find 'black box' money.",

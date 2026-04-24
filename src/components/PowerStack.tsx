@@ -97,7 +97,7 @@ const powerCards = [
         gradient: "from-amber-500/20 to-amber-900/5",
         iconColor: "text-emerald-400",
         borderColor: "hover:border-emerald-500/40",
-        features: ["Tax Optimization", "Wealth Management", "Creator Specialists"]
+        features: ["IRS Compliance", "Tax Optimization", "Wealth Management"]
     },
     {
         icon: MapPin,

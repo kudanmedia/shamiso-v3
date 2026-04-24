@@ -20,9 +20,9 @@ import {
 const pillars = [
     {
         id: "finance",
-        title: "Pillar 1: Finance & Protection",
-        subtitle: "(The Founder Layer)",
-        focus: "Wealth creation and capital access.",
+        title: "Pillar 1: Wealth & Finance",
+        subtitle: "(IRS Compliance)",
+        focus: "Wealth/Finance and Tax Optimization.",
         items: [
             {
                 name: "Non-Dilutive Funding",
@@ -35,7 +35,7 @@ const pillars = [
                 borderColor: "border-emerald-500/20"
             },
             {
-                name: "Royalty Recovery & Tax Optimization",
+                name: "Mogul Tax and Wealth",
                 description: "Use Mogul to find missing global revenue and automate your 30% US tax recapture.",
                 cta: "Audit My Royalties",
                 href: "/services/mogul",
@@ -150,7 +150,7 @@ export function PromoteMusic() {
                         Four Pillars of <span className="gradient-text">Sovereignty</span>
                     </h2>
                     <p className="mx-auto max-w-3xl text-lg text-neutral-400 font-light">
-                        The infrastructure of the modern mogule. Each pillar represents an Integrated Inflection Point—a hand-selected partner tool designed to solve a specific barrier to growth.
+                        The infrastructure of the modern mogul. Each pillar represents an Integrated Inflection Point—a hand-selected partner tool designed to solve a specific barrier to growth.
                     </p>
                     <div className="mt-8 flex flex-col items-center gap-4">
                         <p className="text-2xl font-bold text-shamiso-gold-bright uppercase tracking-widest">One Login. One Ecosystem.</p>

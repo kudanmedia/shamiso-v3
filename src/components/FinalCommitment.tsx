@@ -11,8 +11,8 @@ export function FinalCommitment() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-shamiso-gold/10 blur-[120px] opacity-50" />
             
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-                <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
-                    The Infrastructure of the <span className="gradient-text">Modern Mogule.</span>
+                <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none mb-4">
+                    The Modern <span className="text-shamiso-gold-bright">Mogul</span> Era.
                 </h2>
                 
                 <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
