@@ -25,8 +25,11 @@ import {
     ArrowLeft,
     Shield,
     FileText,
-    TrendingUp
+    TrendingUp,
+    Building2
 } from "lucide-react";
+import { createVertoBeneficiaryAction } from "./actions";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function OnboardingPage() {
     const router = useRouter();
@@ -45,6 +48,10 @@ export default function OnboardingPage() {
         // Step 2: Identity Handshake
         tooLostEmail: "",
         // Step 3: Payouts
+        beneficiaryEntityType: "individual",
+        beneficiaryFirstName: "",
+        beneficiaryLastName: "",
+        beneficiaryCompanyName: "",
         payoutTerritory: "South Africa (ZAR)",
         payoutMethod: "",
         bankName: "",
@@ -100,19 +107,61 @@ export default function OnboardingPage() {
         setError("");
 
         try {
-            // 1. Update User Prefs (Legacy Support)
+            // 1. Create Verto Beneficiary if payout details are provided
+            let vertoBeneficiaryId = null;
+            if (formData.payoutMethod) {
+                const territoryMap: Record<string, { code: string; name: string; currency: string }> = {
+                    "South Africa (ZAR)": { code: "ZA", name: "South Africa", currency: "ZAR" },
+                    "Nigeria (NGN)": { code: "NG", name: "Nigeria", currency: "NGN" },
+                    "Kenya (KES)": { code: "KE", name: "Kenya", currency: "KES" },
+                    "Ghana (GHS)": { code: "GH", name: "Ghana", currency: "GHS" },
+                    "Rest of World (USD)": { code: "US", name: "United States", currency: "USD" },
+                };
+
+                const territory = territoryMap[formData.payoutTerritory] || territoryMap["Rest of World (USD)"];
+                
+                const beneficiaryData: any = {
+                    beneficiaryEntityType: formData.beneficiaryEntityType as "company" | "individual",
+                    currency: territory.currency,
+                    beneficiaryCountryCode: territory.code,
+                    accountNumber: formData.accountNumber || formData.mobileNumber,
+                    nationalId: (formData.branchCode?.trim() || formData.swiftCode?.trim() || 
+                                (territory.code === 'ZA' ? '000000' : 
+                                 territory.code === 'NG' ? '000000000' : '00000000')),
+                    country: territory.name,
+                    clientReference: `SMD-${user.$id.substring(0, 8)}`,
+                };
+
+                if (formData.beneficiaryEntityType === "individual") {
+                    beneficiaryData.beneficiaryFirstName = formData.beneficiaryFirstName;
+                    beneficiaryData.beneficiaryLastName = formData.beneficiaryLastName;
+                } else {
+                    beneficiaryData.beneficiaryCompanyName = formData.beneficiaryCompanyName;
+                }
+
+                const vertoResult = await createVertoBeneficiaryAction(beneficiaryData);
+                if (vertoResult.success) {
+                    vertoBeneficiaryId = vertoResult.data?.account?.id;
+                } else {
+                    console.warn("Verto beneficiary creation failed:", vertoResult.error);
+                    // We don't block onboarding if Verto fails, but we log it
+                }
+            }
+
+            // 2. Update User Prefs (Legacy Support)
             await account.updatePrefs({
                 ...formData,
+                verto_beneficiary_id: vertoBeneficiaryId,
                 onboardingComplete: true,
                 updatedAt: new Date().toISOString(),
             });
 
-            // 2. Create/Update Profile in Database
+            // 3. Create/Update Profile in Database
             const databaseId = '69b7fdaa001b7da3d224';
             const collectionId = 'profiles';
             const userId = user.$id;
 
-            // Extract currency from territory string: "South Africa (ZAR)" -> "ZAR"
+            // Extract currency from territory string
             const currencyMatch = formData.payoutTerritory.match(/\(([^)]+)\)/);
             const currency = currencyMatch ? currencyMatch[1] : "USD";
 
@@ -127,6 +176,8 @@ export default function OnboardingPage() {
                 too_lost_email: formData.tooLostEmail || "N/A",
                 verto_payout_currency: currency,
                 verto_payout_method: formData.payoutMethod || "N/A",
+                verto_beneficiary_id: vertoBeneficiaryId ? String(vertoBeneficiaryId) : "N/A",
+                beneficiary_entity_type: formData.beneficiaryEntityType,
                 tax_form_type: formData.taxFormType || "W-8BEN"
             };
 
@@ -320,6 +371,69 @@ export default function OnboardingPage() {
             </div>
 
             <div className={`space-y-6 ${!formData.tooLostEmail ? "opacity-40 pointer-events-none grayscale" : ""}`}>
+                <div className="space-y-4 p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+                    <Label className="text-shamiso-gold-bright uppercase tracking-widest text-[10px] font-bold">Account Type</Label>
+                    <RadioGroup 
+                        defaultValue={formData.beneficiaryEntityType} 
+                        onValueChange={(v) => handleSelectChange("beneficiaryEntityType", v)}
+                        className="flex gap-4"
+                    >
+                        <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="individual" id="individual" />
+                            <Label htmlFor="individual" className="text-white flex items-center gap-2 cursor-pointer">
+                                <User className="w-4 h-4" /> Individual
+                            </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="company" id="company" />
+                            <Label htmlFor="company" className="text-white flex items-center gap-2 cursor-pointer">
+                                <Building2 className="w-4 h-4" /> Company / Label
+                            </Label>
+                        </div>
+                    </RadioGroup>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        {formData.beneficiaryEntityType === "individual" ? (
+                            <>
+                                <div className="space-y-2">
+                                    <Label htmlFor="beneficiaryFirstName" className="text-zinc-400 text-xs">First Name</Label>
+                                    <Input 
+                                        id="beneficiaryFirstName" 
+                                        name="beneficiaryFirstName" 
+                                        value={formData.beneficiaryFirstName} 
+                                        onChange={handleChange} 
+                                        className="bg-zinc-900 border-zinc-800" 
+                                        placeholder="First Name"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="beneficiaryLastName" className="text-zinc-400 text-xs">Last Name</Label>
+                                    <Input 
+                                        id="beneficiaryLastName" 
+                                        name="beneficiaryLastName" 
+                                        value={formData.beneficiaryLastName} 
+                                        onChange={handleChange} 
+                                        className="bg-zinc-900 border-zinc-800" 
+                                        placeholder="Last Name"
+                                    />
+                                </div>
+                            </>
+                        ) : (
+                            <div className="space-y-2 md:col-span-2">
+                                <Label htmlFor="beneficiaryCompanyName" className="text-zinc-400 text-xs">Company Name</Label>
+                                <Input 
+                                    id="beneficiaryCompanyName" 
+                                    name="beneficiaryCompanyName" 
+                                    value={formData.beneficiaryCompanyName} 
+                                    onChange={handleChange} 
+                                    className="bg-zinc-900 border-zinc-800" 
+                                    placeholder="Registered Company Name"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+
                 <div className="space-y-2">
                     <Label className="text-white">Territory / Target Currency</Label>
                     <Select onValueChange={(v) => handleSelectChange("payoutTerritory", v)} defaultValue={formData.payoutTerritory}>
@@ -341,50 +455,20 @@ export default function OnboardingPage() {
                     <div className="grid grid-cols-1 gap-3">
                         {/* Dynamic Payout Methods */}
                         {formData.payoutTerritory === "South Africa (ZAR)" && (
-                            <>
-                                <button
-                                    type="button"
-                                    onClick={() => handleSelectChange("payoutMethod", "ozow")}
-                                    className={`flex items-center gap-4 p-4 rounded-xl border transition-all ${formData.payoutMethod === "ozow" ? "border-shamiso-gold bg-shamiso-gold/10" : "border-zinc-800 bg-zinc-900/40 hover:border-zinc-700"}`}
-                                >
-                                    <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-shamiso-gold-bright">
-                                        <Smartphone className="w-5 h-5" />
-                                    </div>
-                                    <div className="text-left">
-                                        <div className="font-bold text-white">Instant EFT</div>
-                                        <div className="text-xs text-shamiso-gold-bright/60">Powered by Ozow — Fastest</div>
-                                    </div>
-                                    {formData.payoutMethod === "ozow" && <CheckCircle2 className="ml-auto w-5 h-5 text-shamiso-gold-bright" />}
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => handleSelectChange("payoutMethod", "mukuru")}
-                                    className={`flex items-center gap-4 p-4 rounded-xl border transition-all ${formData.payoutMethod === "mukuru" ? "border-shamiso-gold bg-shamiso-gold/10" : "border-zinc-800 bg-zinc-900/40 hover:border-zinc-700"}`}
-                                >
-                                    <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-shamiso-gold-bright">
-                                        <Globe className="w-5 h-5" />
-                                    </div>
-                                    <div className="text-left">
-                                        <div className="font-bold text-white">Cash Pickup</div>
-                                        <div className="text-xs text-neutral-500">Powered by Mukuru</div>
-                                    </div>
-                                    {formData.payoutMethod === "mukuru" && <CheckCircle2 className="ml-auto w-5 h-5 text-shamiso-gold-bright" />}
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => handleSelectChange("payoutMethod", "bank")}
-                                    className={`flex items-center gap-4 p-4 rounded-xl border transition-all ${formData.payoutMethod === "bank" ? "border-shamiso-gold bg-shamiso-gold/10" : "border-zinc-800 bg-zinc-900/40 hover:border-zinc-700"}`}
-                                >
-                                    <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-shamiso-gold-bright">
-                                        <Landmark className="w-5 h-5" />
-                                    </div>
-                                    <div className="text-left">
-                                        <div className="font-bold text-white">Standard Bank Transfer</div>
-                                        <div className="text-xs text-neutral-500">Local Bank Account</div>
-                                    </div>
-                                    {formData.payoutMethod === "bank" && <CheckCircle2 className="ml-auto w-5 h-5 text-shamiso-gold-bright" />}
-                                </button>
-                            </>
+                            <button
+                                type="button"
+                                onClick={() => handleSelectChange("payoutMethod", "bank")}
+                                className={`flex items-center gap-4 p-4 rounded-xl border transition-all ${formData.payoutMethod === "bank" ? "border-shamiso-gold bg-shamiso-gold/10" : "border-zinc-800 bg-zinc-900/40 hover:border-zinc-700"}`}
+                            >
+                                <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-shamiso-gold-bright">
+                                    <Landmark className="w-5 h-5" />
+                                </div>
+                                <div className="text-left">
+                                    <div className="font-bold text-white">Standard Bank Transfer</div>
+                                    <div className="text-xs text-neutral-500">Local Bank Account</div>
+                                </div>
+                                {formData.payoutMethod === "bank" && <CheckCircle2 className="ml-auto w-5 h-5 text-shamiso-gold-bright" />}
+                            </button>
                         )}
 
                         {formData.payoutTerritory === "Nigeria (NGN)" && (
@@ -462,7 +546,7 @@ export default function OnboardingPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <Label htmlFor="bankName">Bank Name</Label>
-                                <Input id="bankName" name="bankName" value={formData.bankName} onChange={handleChange} className="bg-zinc-900 border-zinc-700" />
+                                <Input id="bankName" name="bankName" placeholder="e.g. Standard Bank, GTBank" value={formData.bankName} onChange={handleChange} className="bg-zinc-900 border-zinc-700" />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="accountNumber">{formData.payoutTerritory === "Nigeria (NGN)" ? "NUBAN Account Number" : "Account Number"}</Label>
@@ -470,8 +554,20 @@ export default function OnboardingPage() {
                             </div>
                             {formData.payoutTerritory === "South Africa (ZAR)" && (
                                 <div className="space-y-2">
-                                    <Label htmlFor="branchCode">Branch Code</Label>
-                                    <Input id="branchCode" name="branchCode" value={formData.branchCode} onChange={handleChange} className="bg-zinc-900 border-zinc-700" />
+                                    <Label htmlFor="branchCode">Branch Code (6 Digits)</Label>
+                                    <Input id="branchCode" name="branchCode" placeholder="e.g. 051001" value={formData.branchCode} onChange={handleChange} className="bg-zinc-900 border-zinc-700" />
+                                </div>
+                            )}
+                            {formData.payoutTerritory === "Nigeria (NGN)" && (
+                                <div className="space-y-2">
+                                    <Label htmlFor="branchCode">Sort Code (9 Digits)</Label>
+                                    <Input id="branchCode" name="branchCode" placeholder="e.g. 044150149" value={formData.branchCode} onChange={handleChange} className="bg-zinc-900 border-zinc-700" />
+                                </div>
+                            )}
+                            {(formData.payoutTerritory === "Kenya (KES)" || formData.payoutTerritory === "Ghana (GHS)") && (
+                                <div className="space-y-2">
+                                    <Label htmlFor="swiftCode">SWIFT / BIC Code</Label>
+                                    <Input id="swiftCode" name="swiftCode" placeholder="e.g. KCBKKENA" value={formData.swiftCode} onChange={handleChange} className="bg-zinc-900 border-zinc-700" />
                                 </div>
                             )}
                         </div>
@@ -529,14 +625,13 @@ export default function OnboardingPage() {
                 </Button>
                 <Button
                     onClick={nextStep}
-                    disabled={!!(formData.tooLostEmail && !formData.payoutMethod)}
                     className={`flex-2 font-black uppercase tracking-widest h-12 shadow-[0_0_20px_rgba(255,215,0,0.3)] ${
-                        formData.tooLostEmail 
+                        formData.payoutMethod 
                         ? "bg-linear-to-r from-shamiso-gold to-shamiso-gold-bright text-black" 
                         : "bg-zinc-800 text-neutral-400 border border-zinc-700 hover:bg-zinc-700"
                     }`}
                 >
-                    Next: Tax Profile
+                    {formData.payoutMethod ? "Next: Tax Profile" : "Skip Payout Setup"}
                     <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
             </div>
