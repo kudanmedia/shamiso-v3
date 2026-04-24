@@ -16,11 +16,15 @@ import { ChevronDown, Menu, User, LogOut, LayoutDashboard, Fingerprint, Linkedin
 import { useRouter, usePathname } from "next/navigation";
 
 const genreLinks = [
+    { label: "Afrobeats", href: "/distribute-afrobeats" },
+    { label: "Singeli", href: "/distribute-singeli" },
+    { label: "Bongoflava", href: "/distribute-bongoflava" },
+    { label: "Kuduro", href: "/distribute-kuduro" },
+    { label: "Amapiano", href: "/distribute-amapiano" },
     { label: "Lekompo", href: "/distribute-lekompo" },
+    { label: "Afro House", href: "/distribute-afro-house" },
     { label: "3-Step", href: "/distribute-3-step" },
     { label: "Maskandi", href: "/distribute-maskandi" },
-    { label: "Afro House", href: "/distribute-afro-house" },
-    { label: "Amapiano", href: "/distribute-amapiano" },
 ];
 
 const navLinks = [
