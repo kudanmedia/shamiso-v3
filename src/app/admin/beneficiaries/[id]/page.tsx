@@ -202,6 +202,87 @@ export default function BeneficiaryDetailPage({ params }: { params: Promise<{ id
         }
     };
 
+    const handleOneClickFXPayout = async () => {
+        if (!sourceWalletId || !sourceAmount || !purposeId) {
+            setPaymentError("Please fill in all required fields.");
+            return;
+        }
+        if (customReference && customReference.trim().length < 5) {
+            setPaymentError("Client Reference must be at least 5 characters long.");
+            return;
+        }
+
+        setPaymentError(null);
+        setIsExecuting(true);
+        setPaymentRoute("within-wallets");
+        
+        try {
+            // 1. Get FX Rate
+            const selectedWallet = wallets.find(w => w.id.toString() === sourceWalletId);
+            if (!selectedWallet) throw new Error("Invalid source wallet");
+            const rateRes = await fetchFxRateAction(selectedWallet.currency, beneficiary.currency);
+            if (!rateRes.success) throw new Error(rateRes.error || "Failed to fetch FX rate.");
+            
+            const rateObj = rateRes.data?.data || rateRes.data;
+            setFxRateData(rateObj);
+            const token = rateObj?.vfxToken || rateObj?.token || rateObj?.id || rateObj?.reference || rateObj?.vfx_token;
+            if (!token) throw new Error("Missing rate token.");
+
+            // 2. Find target wallet
+            const targetWallet = wallets.find(w => w.currency === beneficiary.currency);
+            if (!targetWallet) throw new Error(`Target wallet for ${beneficiary.currency} not found.`);
+
+            // 3. Execute Conversion
+            const conversionPayload = {
+                paymentType: "convertWithinWallets",
+                sourceWalletId: parseInt(sourceWalletId),
+                sourceAmount: parseFloat(sourceAmount),
+                targetWalletId: parseInt(targetWallet.id),
+                vfxToken: token,
+                paymentId: crypto.randomUUID(),
+                customPaymentReference: customReference || `ONE-${Date.now()}`
+            };
+            
+            const convRes = await executePaymentAction(conversionPayload);
+            if (!convRes.success) throw new Error(convRes.error || "FX Conversion failed.");
+
+            // 4. Execute Payout
+            const payoutAmount = rateObj?.targetAmount || (parseFloat(sourceAmount) * (parseFloat(rateObj?.rate || 0))).toFixed(2);
+            const directPayload = {
+                beneficiaryId: parseInt(beneficiary.id),
+                purposeId: parseInt(purposeId),
+                amount: parseFloat(payoutAmount),
+                walletId: parseInt(targetWallet.id),
+                paymentId: crypto.randomUUID(),
+                clientReference: customReference || null
+            };
+            
+            const directRes = await executeDirectPaymentAction(directPayload);
+            if (directRes.success) {
+                setPaymentResult({
+                    message: "One-Click Payout Successful",
+                    conversion: convRes.data,
+                    payout: directRes.data
+                });
+                setPaymentStep(3);
+                // Refresh table
+                fetchPaymentRequestsAction(beneficiary.clientReference || undefined).then(reqResult => {
+                    if (reqResult.success) {
+                        let requestsArray = Array.isArray(reqResult.data) ? reqResult.data : (reqResult.data?.data || []);
+                        requestsArray = requestsArray.filter((req: any) => req.account?.id === beneficiary.id || req.beneficiaryId === beneficiary.id);
+                        setPaymentRequests(requestsArray);
+                    }
+                });
+            } else {
+                throw new Error(directRes.error || "Direct payout failed after successful conversion.");
+            }
+        } catch (err: any) {
+            setPaymentError(err.message || "An unexpected error occurred during one-click payout.");
+        } finally {
+            setIsExecuting(false);
+        }
+    };
+
     const handleExecuteOrchestratedPayment = async () => {
         setPaymentError(null);
         setIsExecuting(true);
@@ -595,19 +676,28 @@ export default function BeneficiaryDetailPage({ params }: { params: Promise<{ id
                                             <div className="flex flex-col gap-2 w-full">
                                                 <Button 
                                                     disabled={isFetchingData || isExecuting || !sourceWalletId || !sourceAmount || !purposeId} 
-                                                    onClick={() => handleGetFxRate("within-wallets")}
+                                                    onClick={handleOneClickFXPayout}
                                                     className="w-full bg-shamiso-gold text-black hover:bg-shamiso-gold-bright"
                                                 >
                                                     {isExecuting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-                                                    FX Conversion & Payout
+                                                    {isExecuting ? "Processing Orchestrated Payout..." : "FX Conversion & Payout"}
                                                 </Button>
-                                                <Button 
-                                                    disabled={isFetchingData || isExecuting || !sourceWalletId || !sourceAmount || !purposeId} 
-                                                    onClick={() => handleGetFxRate("manual-orchestration")}
-                                                    className="w-full bg-zinc-900 text-white border border-zinc-800 hover:bg-zinc-800 text-xs"
-                                                >
-                                                    Alternative Manual Orchestration
-                                                </Button>
+                                                <div className="flex justify-between px-1">
+                                                    <button 
+                                                        disabled={isExecuting}
+                                                        onClick={() => handleGetFxRate("within-wallets")}
+                                                        className="text-[10px] text-zinc-500 hover:text-zinc-300 transition-colors uppercase tracking-widest"
+                                                    >
+                                                        Review Rate First
+                                                    </button>
+                                                    <button 
+                                                        disabled={isExecuting}
+                                                        onClick={() => handleGetFxRate("manual-orchestration")}
+                                                        className="text-[10px] text-zinc-500 hover:text-zinc-300 transition-colors uppercase tracking-widest"
+                                                    >
+                                                        Manual Method
+                                                    </button>
+                                                </div>
                                             </div>
                                         )}
                                     </div>
