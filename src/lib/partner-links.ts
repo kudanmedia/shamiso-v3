@@ -4,9 +4,9 @@ export const PARTNER_LINKS = {
     automix: "https://automix.roexaudio.com/?via=06e63a",
     mixCheckStudio: "https://mixcheckstudio.roexaudio.com/?via=07431b",
     roex: "https://roexaudio.com/",
-    funding: "https://www.beatbread.com/offers/shamiso",
+    funding: "https://www.beatbread.com/go/shamisomusic",
     songtools: "https://amplifiedpro.songtools.io/",
-    mogul: "https://www.usemogul.com/partnership",
+    mogul: "https://www.usemogul.com/shamiso-music",
     toorly: "https://toorly.com/",
     unhurd: "https://www.unhurdmusic.com/p/shamiso",
 };
