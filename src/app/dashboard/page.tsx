@@ -13,7 +13,7 @@ import { PARTNER_LINKS } from "@/lib/partner-links";
 
 interface Partner {
     name: string;
-    category: "Distribution" | "Funding" | "Promotion" | "Marketing" | "Production";
+    category: "Distribution" | "Funding" | "Promotion" | "Marketing" | "Production" | "Wealth/Finance";
     description: string;
     href: string;
     logo?: string;
