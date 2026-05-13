@@ -2,7 +2,7 @@ const { Client, Databases, Query } = require('node-appwrite');
 
 module.exports = async ({ req, res, log, error }) => {
     const endpoint = process.env.APPWRITE_FUNCTION_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
-    const projectId = process.env.APPWRITE_FUNCTION_PROJECT_ID || '69b7d2fc0023faf8fc46';
+    const projectId = process.env.APPWRITE_FUNCTION_PROJECT_ID || '6a045bf600381a3b882f';
     const apiKey = process.env.APPWRITE_FUNCTION_API_KEY;
 
     if (!apiKey) {

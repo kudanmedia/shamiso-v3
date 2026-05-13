@@ -5,6 +5,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TrendingDown, TrendingUp, DollarSign, Wallet } from "lucide-react";
 
+/** Fixed locale so SSR and client produce identical number strings (avoids hydration mismatch). */
+const DISPLAY_LOCALE = "en-US";
+
 const getSovereignAnalysis = (grossUSD: number, brandKey: string, localRate = 19.0) => {
     // Competitor Profile Map
     const profiles: Record<string, { c: number; t: number; f: number }> = {
@@ -84,7 +87,7 @@ export function RevenueSwitchCalculator() {
                                     <div className="mb-6 flex items-baseline tracking-tight">
                                         <span className="text-3xl font-bold text-neutral-500 mr-1">$</span>
                                         <span className="text-5xl font-black text-white tabular-nums">
-                                            {grossRevenue.toLocaleString()}
+                                            {grossRevenue.toLocaleString(DISPLAY_LOCALE)}
                                         </span>
                                     </div>
                                     <input
@@ -138,7 +141,7 @@ export function RevenueSwitchCalculator() {
                                             {analysis.legacyComm > 0 && (
                                                 <div className="flex justify-between text-sm group/tip relative">
                                                     <span className="text-neutral-500 flex items-center gap-1 cursor-help border-b border-dashed border-neutral-600">Commission Cut</span>
-                                                    <span className="font-bold text-red-500/80">-${analysis.legacyComm.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
+                                                    <span className="font-bold text-red-500/80">-${analysis.legacyComm.toLocaleString(DISPLAY_LOCALE, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
                                                     <div className="absolute hidden group-hover/tip:block bottom-full mb-2 left-0 w-48 p-2 bg-zinc-800 border border-white/10 rounded-lg text-xs text-neutral-300 z-20">
                                                         Most &apos;Free&apos; plans aren&apos;t free; they are a 15% success tax.
                                                     </div>
@@ -146,14 +149,14 @@ export function RevenueSwitchCalculator() {
                                             )}
                                             <div className="flex justify-between text-sm group/tip relative">
                                                 <span className="text-neutral-500 flex items-center gap-1 cursor-help border-b border-dashed border-neutral-600">30% US Tax Leak</span>
-                                                <span className="font-bold text-red-500/80">-${analysis.legacyTax.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
+                                                <span className="font-bold text-red-500/80">-${analysis.legacyTax.toLocaleString(DISPLAY_LOCALE, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
                                                 <div className="absolute hidden group-hover/tip:block bottom-full mb-2 left-0 w-64 p-3 bg-zinc-800 border border-white/10 rounded-xl text-xs text-neutral-300 shadow-xl z-20 leading-relaxed">
                                                     Legacy distributors are US-bound and must withhold 30%. SMD&apos;s localized infrastructure uses tax treaties to keep that 30% in your pocket.
                                                 </div>
                                             </div>
                                             <div className="flex justify-between text-sm group/tip relative">
                                                 <span className="text-neutral-500 flex items-center gap-1 cursor-help border-b border-dashed border-neutral-600">SWIFT Fees</span>
-                                                <span className="font-bold text-red-500/80">-${analysis.legacyFee.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
+                                                <span className="font-bold text-red-500/80">-${analysis.legacyFee.toLocaleString(DISPLAY_LOCALE, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
                                                 <div className="absolute hidden group-hover/tip:block bottom-full mb-2 right-0 w-56 p-3 bg-zinc-800 border border-white/10 rounded-xl text-xs text-neutral-300 shadow-xl z-20 leading-relaxed">
                                                     Stop paying $35 to receive your own money. We pay directly to local bank/mobile rails for $0.
                                                 </div>
@@ -165,7 +168,7 @@ export function RevenueSwitchCalculator() {
                                         <div className="flex justify-between items-baseline">
                                             <span className="text-xs font-bold text-neutral-400 uppercase">Net Pay</span>
                                             <span className="text-2xl font-black text-neutral-300">
-                                                ${analysis.legacyNet.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                ${analysis.legacyNet.toLocaleString(DISPLAY_LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                             </span>
                                         </div>
                                     </div>
@@ -203,7 +206,7 @@ export function RevenueSwitchCalculator() {
                                         <div className="flex justify-between items-baseline">
                                             <span className="text-xs font-bold text-shamiso-gold-bright/80 uppercase">Net Pay</span>
                                             <span className="text-3xl font-black text-white">
-                                                ${analysis.smdNet.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                ${analysis.smdNet.toLocaleString(DISPLAY_LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                             </span>
                                         </div>
                                     </div>
@@ -220,7 +223,7 @@ export function RevenueSwitchCalculator() {
                                 <div className="text-left">
                                     <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">Monthly Sovereign Bonus</p>
                                     <p className="text-3xl font-black text-white leading-none mt-1">
-                                        +${analysis.usdBonus.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-lg text-neutral-500 font-medium">/mo</span>
+                                        +${analysis.usdBonus.toLocaleString(DISPLAY_LOCALE, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-lg text-neutral-500 font-medium">/mo</span>
                                     </p>
                                     <p className="text-xs text-neutral-400 mt-1 pb-1">(extra money you keep)</p>
                                 </div>
@@ -233,7 +236,7 @@ export function RevenueSwitchCalculator() {
                                 <div className="text-left">
                                     <p className="text-xs font-bold uppercase tracking-widest text-shamiso-gold-bright">Annual Sovereign Bonus</p>
                                     <p className="text-4xl font-black text-white leading-none mt-1">
-                                        +${(analysis.usdBonus * 12).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-xl text-shamiso-gold-bright font-medium">/yr</span>
+                                        +${(analysis.usdBonus * 12).toLocaleString(DISPLAY_LOCALE, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}<span className="text-xl text-shamiso-gold-bright font-medium">/yr</span>
                                     </p>
                                     <p className="text-xs text-neutral-400 mt-1 pb-1">(recaptured yearly revenue)</p>
                                 </div>
