@@ -3,7 +3,7 @@
 import { AdminGuard } from "@/components/admin/admin-guard";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Newspaper, Banknote, ShieldCheck, Wallet, Users } from "lucide-react";
+import { Newspaper, Banknote, ShieldCheck, Wallet, Users, Link2 } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -12,6 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         { name: "Payouts", href: "/admin/payouts", icon: Banknote },
         { name: "Wallets", href: "/admin/wallets", icon: Wallet },
         { name: "Beneficiaries", href: "/admin/beneficiaries", icon: Users },
+        { name: "Partners", href: "/admin/partners", icon: Link2 },
         { name: "News", href: "/admin/news", icon: Newspaper },
     ];
 
