@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { databases } from "@/lib/appwrite";
 import { Query } from "appwrite";
 import { account } from "@/lib/appwrite";
+import { DATABASE_ID } from "@/lib/database-id";
 import { 
     Card, 
     CardContent, 
@@ -64,11 +65,10 @@ export default function PayoutsPage() {
     useEffect(() => {
         const fetchPayouts = async () => {
             try {
-                const databaseId = "69b7fdaa001b7da3d224";
                 const collectionId = "payouts";
                 
                 const response = await databases.listDocuments(
-                    databaseId,
+                    DATABASE_ID,
                     collectionId,
                     [
                         Query.equal("userId", user.$id),

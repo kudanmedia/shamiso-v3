@@ -85,7 +85,8 @@ const powerCardTemplates = [
         description:
             "Automated digital ads and algorithmic playlisting. Get label-grade marketing for your releases starting at just $10/day.",
         cta: "Start Promoting",
-        href: "/signup",
+        hrefKey: "songtools" as const,
+        href: "/services/songtools",
         gradient: "from-orange-500/20 to-orange-900/5",
         iconColor: "text-orange-400",
         borderColor: "hover:border-orange-500/40",
@@ -111,7 +112,8 @@ const powerCardTemplates = [
         description:
             "Stop guessing where your fans are. Start showing them where you're going. Fan-demand driven touring data to book with certainty.",
         cta: "Request Tour",
-        href: "/signup",
+        hrefKey: "toorly" as const,
+        href: "/services/toorly",
         gradient: "from-sky-500/20 to-sky-900/5",
         iconColor: "text-sky-400",
         borderColor: "hover:border-sky-500/40",
@@ -124,7 +126,8 @@ const powerCardTemplates = [
         description:
             "Connect directly with 3,000+ industry pros. Guaranteed feedback from playlist curators, labels, and blogs in 7 days.",
         cta: "Pitch Industry",
-        href: "/signup",
+        hrefKey: "groover" as const,
+        href: "/services/groover",
         gradient: "from-red-500/20 to-red-900/5",
         iconColor: "text-red-400",
         borderColor: "hover:border-red-500/40",

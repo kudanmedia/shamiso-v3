@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "shamiso-entry",
+    "name": "SHAMISO ENTRY",
+    "audience": "artist",
+    "price": "",
+    "period": "",
+    "description": "Best for basics.",
+    "features": [
+      "Keep 85% of royalties",
+      "450+ top music services",
+      "YouTube Content ID ($4.99/rel)",
+      "Unlimited releases (1 artist)",
+      "Self-service playlisting"
+    ],
+    "cta": "Get Started For Free",
+    "href": "/signup",
+    "highlight": false,
+    "icon": "Zap",
+    "sort_order": 1
+  },
+  {
+    "slug": "shamiso-rise",
+    "name": "SHAMISO RISE",
+    "audience": "artist",
+    "price": "",
+    "period": "",
+    "description": "Most popular for growing artists.",
+    "features": [
+      "Keep 100% of royalties",
+      "450+ top music services",
+      "Advanced marketing tools",
+      "YouTube Content ID ($4.99/rel)",
+      "Eligible for playlist invites",
+      "Advances if eligible"
+    ],
+    "cta": "Get Started",
+    "href": "/signup",
+    "highlight": true,
+    "icon": "Zap",
+    "sort_order": 2
+  },
+  {
+    "slug": "shamiso-pro",
+    "name": "SHAMISO PRO",
+    "audience": "artist",
+    "price": "Invite",
+    "period": "Only",
+    "description": "For heavyweights & viral stars.",
+    "features": [
+      "Keep 100% of royalties",
+      "Global bespoke marketing",
+      "Pitched to curators",
+      "Fund your future with advances",
+      "Monthly payments",
+      "White-glove priority"
+    ],
+    "cta": "Learn More",
+    "href": "mailto:star@shamiso-music.com",
+    "highlight": false,
+    "icon": "Crown",
+    "sort_order": 3
+  },
+  {
+    "slug": "shamiso-label",
+    "name": "Shamiso LABEL",
+    "audience": "label",
+    "price": "",
+    "period": "",
+    "description": "Emerging 'Street' Labels / Collectives",
+    "features": [
+      "Up to 50 Artist Profiles",
+      "SMD-Branded Portal",
+      "Mobile Money (Real-Time)",
+      "2% Platform Fee",
+      "Low-barrier 'Sub-Manager' login",
+      "Keep 100% of royalties"
+    ],
+    "cta": "Get Started",
+    "href": "/signup",
+    "highlight": false,
+    "icon": "Building2",
+    "sort_order": 1
+  },
+  {
+    "slug": "shamiso-sovereign",
+    "name": "Shamiso Sovereign",
+    "audience": "label",
+    "price": "",
+    "period": "",
+    "description": "High-Export 'Amapiano/Afrobeats' Hubs",
+    "features": [
+      "Unlimited Artists",
+      "SMD-Branded Portal",
+      "SWIFT / Local Bank",
+      "1.5% Platform Fee",
+      "Priority Pitching to APAC (Melon/TME)",
+      "White-glove priority delivery"
+    ],
+    "cta": "Get Started",
+    "href": "/signup",
+    "highlight": true,
+    "icon": "Crown",
+    "sort_order": 2
+  }
+]

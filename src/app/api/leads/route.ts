@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient, createSessionClient, ID } from "@/lib/server/appwrite";
 
-const DATABASE_ID = '69b7fdaa001b7da3d224';
+import { DATABASE_ID } from "@/lib/database-id";
 const COLLECTION_ID = 'smd_funding_leads';
 
 export async function POST(request: Request) {

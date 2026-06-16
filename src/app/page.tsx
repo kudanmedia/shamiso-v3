@@ -12,13 +12,20 @@ import { FAQ } from "@/components/FAQ";
 import { FinalCommitment } from "@/components/FinalCommitment";
 import { FoundersLetter } from "@/components/FoundersLetter";
 import { StructuredData } from "@/components/StructuredData";
+import { getHeroRecapturedAmount } from "@/lib/server/metrics";
+import { getPricingData } from "@/lib/server/pricing";
 
-export default function Home() {
+export default async function Home() {
+  const [recapturedAmount, pricingData] = await Promise.all([
+    getHeroRecapturedAmount(),
+    getPricingData(),
+  ]);
+
   return (
     <>
       <StructuredData type="organization" />
       <StructuredData type="website" />
-      <HeroSection />
+      <HeroSection recapturedAmount={recapturedAmount} />
       <NarrativeSection />
       <PromoteMusic />
       <StrategicGenres />
@@ -26,7 +33,7 @@ export default function Home() {
       <D2CSection />
       <SovereignCorridorTable />
       <SovereignMultiplier />
-      <PricingSection />
+      <PricingSection data={pricingData} />
       <CorridorMap />
       <FinalCommitment />
       <FoundersLetter />

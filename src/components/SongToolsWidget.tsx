@@ -1,16 +1,32 @@
 import { useEffect, useState } from "react";
 import Script from "next/script";
 import { account } from "@/lib/appwrite";
+import { SITE_SETTINGS_DEFAULTS } from "@/lib/site-settings";
 
+interface SongToolsWidgetConfig {
+    campaign: string;
+    appKey: string;
+    baseUrl: string;
+    scriptUrl: string;
+    jqueryUrl: string;
+}
+
+const DEFAULT_WIDGET_CONFIG: SongToolsWidgetConfig = {
+    campaign: SITE_SETTINGS_DEFAULTS.songtools_widget_campaign,
+    appKey: SITE_SETTINGS_DEFAULTS.songtools_app_key,
+    baseUrl: SITE_SETTINGS_DEFAULTS.songtools_widget_base_url,
+    scriptUrl: SITE_SETTINGS_DEFAULTS.songtools_script_url,
+    jqueryUrl: SITE_SETTINGS_DEFAULTS.songtools_jquery_url,
+};
 
 export function SongToolsWidget() {
     const [jwt, setJwt] = useState<string | null>(null);
+    const [widgetConfig, setWidgetConfig] = useState<SongToolsWidgetConfig>(DEFAULT_WIDGET_CONFIG);
     const [isLoadingJwt, setIsLoadingJwt] = useState(true);
 
     useEffect(() => {
         const fetchJwt = async () => {
             try {
-                // Generate a temporary Appwrite JWT to authenticate this request on the server
                 const appwriteJwtResponse = await account.createJWT();
                 const appwriteJwt = appwriteJwtResponse.jwt;
 
@@ -23,6 +39,9 @@ export function SongToolsWidget() {
 
                 if (data.jwt) {
                     setJwt(data.jwt);
+                }
+                if (data.widget) {
+                    setWidgetConfig(data.widget);
                 }
             } catch (error) {
                 console.error("Error fetching Song Tools JWT:", error);
@@ -50,7 +69,7 @@ export function SongToolsWidget() {
         };
     }, []);
 
-    const iframeSrc = `https://widgets.songtools.io/v1/CampaignTestX?app-key=5C61EF6E5D714CB083C4329C77580B81&autodetect=1${jwt ? `&jwt=${jwt}` : ""}`;
+    const iframeSrc = `${widgetConfig.baseUrl}/${widgetConfig.campaign}?app-key=${widgetConfig.appKey}&autodetect=1${jwt ? `&jwt=${jwt}` : ""}`;
 
     return (
         <div className="w-full mt-12 bg-zinc-950/50 rounded-2xl border border-zinc-800 p-6">
@@ -62,11 +81,11 @@ export function SongToolsWidget() {
             </h2>
             
             <Script 
-                src="https://amplifiedpro.songtools.io/js/wixgetcontent.js?v=1738787616" 
+                src={widgetConfig.scriptUrl} 
                 strategy="lazyOnload"
             />
             <Script 
-                src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6706d724bb0e4c6b5a5c849b" 
+                src={widgetConfig.jqueryUrl} 
                 strategy="lazyOnload"
             />
 

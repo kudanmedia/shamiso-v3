@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useRouter } from "next/navigation";
+import { DATABASE_ID } from "@/lib/database-id";
 import { 
     User, 
     CreditCard, 
@@ -174,10 +175,9 @@ export default function ProfilePage() {
 
             // 3. Update Profiles Collection (Optional but recommended for consistency)
             try {
-                const databaseId = '69b7fdaa001b7da3d224';
                 const collectionId = 'profiles';
                 
-                const existingProfiles = await databases.listDocuments(databaseId, collectionId, [
+                const existingProfiles = await databases.listDocuments(DATABASE_ID, collectionId, [
                     Query.equal('appwrite_user_id', user.$id)
                 ]);
 
@@ -195,10 +195,10 @@ export default function ProfilePage() {
                 };
 
                 if (existingProfiles.total > 0) {
-                    await databases.updateDocument(databaseId, collectionId, existingProfiles.documents[0].$id, profileData);
+                    await databases.updateDocument(DATABASE_ID, collectionId, existingProfiles.documents[0].$id, profileData);
                 } else {
                     // Only create if it doesn't exist (though onboarding usually handles this)
-                    await databases.createDocument(databaseId, collectionId, 'unique()', profileData);
+                    await databases.createDocument(DATABASE_ID, collectionId, 'unique()', profileData);
                 }
             } catch (pError) {
                 console.error("Profile Collection Sync Error:", pError);

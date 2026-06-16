@@ -8,22 +8,41 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Save, Loader2 } from "lucide-react";
-import { PARTNER_LINKS } from "@/lib/partner-links";
 import { DATABASE_ID } from "@/lib/database-id";
+import { SITE_SETTINGS_DEFAULTS, type SiteSettingKey } from "@/lib/site-settings";
 
-const COLLECTION_ID = "partner_links";
+const COLLECTION_ID = "site_settings";
 
-type PartnerRow = {
+type SettingRow = {
     $id?: string;
-    slug: string;
-    url: string;
-    utm_params?: string;
-    active: boolean;
+    key: SiteSettingKey;
+    value: string;
+    category: "url" | "integration" | "metric";
     updated_at?: string;
 };
 
-export default function AdminPartnersPage() {
-    const [rows, setRows] = useState<PartnerRow[]>([]);
+const SETTING_LABELS: Record<SiteSettingKey, string> = {
+    whatsapp_invite_url: "WhatsApp Invite URL",
+    songtools_widget_campaign: "Song Tools Campaign ID",
+    songtools_app_key: "Song Tools App Key",
+    songtools_widget_base_url: "Song Tools Widget Base URL",
+    songtools_script_url: "Song Tools Script URL",
+    songtools_jquery_url: "Song Tools jQuery Script URL",
+    hero_recaptured_amount: "Hero Recaptured Amount",
+};
+
+const SETTING_CATEGORIES: Record<SiteSettingKey, SettingRow["category"]> = {
+    whatsapp_invite_url: "url",
+    songtools_widget_campaign: "integration",
+    songtools_app_key: "integration",
+    songtools_widget_base_url: "integration",
+    songtools_script_url: "integration",
+    songtools_jquery_url: "integration",
+    hero_recaptured_amount: "metric",
+};
+
+export default function AdminSettingsPage() {
+    const [rows, setRows] = useState<SettingRow[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isSaving, setIsSaving] = useState(false);
     const [message, setMessage] = useState("");
@@ -35,27 +54,25 @@ export default function AdminPartnersPage() {
                     Query.limit(200),
                 ]);
 
-                const docs = response.documents as unknown as PartnerRow[];
-                const fromDb = new Map(docs.map((doc) => [doc.slug, doc]));
-                const merged: PartnerRow[] = Object.entries(PARTNER_LINKS).map(([slug, url]) => {
-                    const existing = fromDb.get(slug);
+                const docs = response.documents as unknown as SettingRow[];
+                const fromDb = new Map(docs.map((doc) => [doc.key, doc]));
+                const merged: SettingRow[] = (Object.keys(SITE_SETTINGS_DEFAULTS) as SiteSettingKey[]).map((key) => {
+                    const existing = fromDb.get(key);
                     return {
                         $id: existing?.$id,
-                        slug,
-                        url: existing?.url || url,
-                        utm_params: existing?.utm_params || "",
-                        active: existing?.active ?? true,
+                        key,
+                        value: existing?.value || SITE_SETTINGS_DEFAULTS[key],
+                        category: existing?.category || SETTING_CATEGORIES[key],
                         updated_at: existing?.updated_at,
                     };
                 });
                 setRows(merged);
             } catch {
                 setRows(
-                    Object.entries(PARTNER_LINKS).map(([slug, url]) => ({
-                        slug,
-                        url,
-                        active: true,
-                        utm_params: "",
+                    (Object.keys(SITE_SETTINGS_DEFAULTS) as SiteSettingKey[]).map((key) => ({
+                        key,
+                        value: SITE_SETTINGS_DEFAULTS[key],
+                        category: SETTING_CATEGORIES[key],
                     }))
                 );
             } finally {
@@ -65,7 +82,7 @@ export default function AdminPartnersPage() {
         load();
     }, []);
 
-    const updateRow = (index: number, patch: Partial<PartnerRow>) => {
+    const updateRow = (index: number, patch: Partial<SettingRow>) => {
         setRows((current) => current.map((row, i) => (i === index ? { ...row, ...patch } : row)));
     };
 
@@ -75,10 +92,9 @@ export default function AdminPartnersPage() {
         try {
             for (const row of rows) {
                 const payload = {
-                    slug: row.slug,
-                    url: row.url,
-                    utm_params: row.utm_params || "",
-                    active: row.active,
+                    key: row.key,
+                    value: row.value,
+                    category: row.category,
                     updated_at: new Date().toISOString(),
                 };
                 if (row.$id) {
@@ -87,9 +103,9 @@ export default function AdminPartnersPage() {
                     await databases.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), payload);
                 }
             }
-            setMessage("Partner links saved.");
+            setMessage("Site settings saved.");
         } catch (error: any) {
-            setMessage(error.message || "Failed to save partner links.");
+            setMessage(error.message || "Failed to save site settings.");
         } finally {
             setIsSaving(false);
         }
@@ -108,8 +124,8 @@ export default function AdminPartnersPage() {
             <div className="max-w-6xl mx-auto space-y-6 pb-12">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-black uppercase">Partner Link Management</h1>
-                        <p className="text-zinc-400 mt-1">Manage active partner URLs used across the platform.</p>
+                        <h1 className="text-3xl font-black uppercase">Site Settings</h1>
+                        <p className="text-zinc-400 mt-1">Manage operational URLs and integration config used across the platform.</p>
                     </div>
                     <Button onClick={saveAll} disabled={isSaving} className="bg-shamiso-gold-bright text-black hover:bg-shamiso-gold font-bold uppercase">
                         {isSaving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
@@ -125,40 +141,30 @@ export default function AdminPartnersPage() {
 
                 <Card className="bg-zinc-900/40 border-zinc-800">
                     <CardHeader>
-                        <CardTitle>Configured Links</CardTitle>
+                        <CardTitle>Operational Config</CardTitle>
                         <CardDescription className="text-zinc-400">
-                            Changes write to Appwrite `partner_links` and override static fallbacks.
+                            Changes write to Appwrite `site_settings` and override static fallbacks. Song Tools app key can also be set via `SONGTOOLS_APP_KEY` env var.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         {rows.map((row, index) => (
-                            <div key={row.slug} className="rounded-xl border border-zinc-800 p-4 bg-black/20 space-y-3">
+                            <div key={row.key} className="rounded-xl border border-zinc-800 p-4 bg-black/20 space-y-3">
                                 <div className="flex items-center justify-between">
-                                    <Badge className="uppercase tracking-widest text-[10px] bg-shamiso-gold/10 text-shamiso-gold-bright border border-shamiso-gold/30">
-                                        {row.slug}
-                                    </Badge>
-                                    <div className="flex items-center gap-2 text-xs text-zinc-400">
-                                        <label htmlFor={`active-${row.slug}`}>Active</label>
-                                        <input
-                                            id={`active-${row.slug}`}
-                                            type="checkbox"
-                                            checked={row.active}
-                                            onChange={(e) => updateRow(index, { active: e.target.checked })}
-                                            className="h-4 w-4 accent-yellow-400"
-                                        />
+                                    <div>
+                                        <p className="text-sm font-bold text-white">{SETTING_LABELS[row.key]}</p>
+                                        <Badge className="mt-1 uppercase tracking-widest text-[10px] bg-shamiso-gold/10 text-shamiso-gold-bright border border-shamiso-gold/30">
+                                            {row.key}
+                                        </Badge>
                                     </div>
+                                    <Badge variant="outline" className="text-[10px] uppercase text-zinc-500 border-zinc-700">
+                                        {row.category}
+                                    </Badge>
                                 </div>
 
                                 <Input
-                                    value={row.url}
-                                    onChange={(e) => updateRow(index, { url: e.target.value })}
+                                    value={row.value}
+                                    onChange={(e) => updateRow(index, { value: e.target.value })}
                                     placeholder="https://..."
-                                    className="bg-zinc-950 border-zinc-800"
-                                />
-                                <Input
-                                    value={row.utm_params || ""}
-                                    onChange={(e) => updateRow(index, { utm_params: e.target.value })}
-                                    placeholder="utm_source=...&utm_medium=..."
                                     className="bg-zinc-950 border-zinc-800"
                                 />
                             </div>

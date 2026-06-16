@@ -1,77 +1,17 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowRight, Newspaper, Loader2 } from "lucide-react";
-import Link from "next/link";
-import { databases } from "@/lib/appwrite";
-import { Query } from "appwrite";
+import { Calendar, ArrowRight, Newspaper } from "lucide-react";
+import { Metadata } from "next";
+import { getNewsArticles } from "@/lib/server/news";
 
-const INITIAL_ARTICLES = [
-    {
-        $id: "1",
-        title: "Shamiso Music Distribution Finalizes New Pricing Tiers for 2026",
-        published_at: "2026-04-01T08:00:00Z",
-        category: "Corporate",
-        summary: "We are excited to announce our optimized subscription pricing for labels and enterprises, focusing on currency resilience and operational scalability.",
-        image_url: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-        $id: "2",
-        title: "Bridging the 'Monetization Gap' for African Creators",
-        published_at: "2026-03-25T10:00:00Z",
-        category: "Industry",
-        summary: "How Shamiso is leveraging hyper-local financial infrastructure and predictive capital to accelerate the velocity of African IP globally.",
-        image_url: "https://images.unsplash.com/photo-1514525253361-bee8718a7439?q=80&w=1974&auto=format&fit=crop",
-    },
-    {
-        $id: "3",
-        title: "The Evolution of African IP: A 30-Year Heritage of Culture",
-        published_at: "2026-03-15T09:00:00Z",
-        category: "Heritage",
-        summary: "From Highlife to Amapiano, SMG has been the silent engine behind the African musical renaissance for three decades.",
-        image_url: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-        $id: "4",
-        title: "Expanding the Sovereign Multiplier Engine",
-        published_at: "2026-03-05T11:00:00Z",
-        category: "Technology",
-        summary: "Our proprietary valuation engine now includes advanced tax alpha calculations for catalogs with high US streaming exposure.",
-        image_url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
-    },
-];
+export const metadata: Metadata = {
+    title: "News & Insights | Shamiso Music",
+    description: "Stay updated with the latest trends, corporate announcements, and strategic insights from Shamiso Music Group.",
+};
 
-export default function NewsPage() {
-    const [articles, setArticles] = useState<any[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const databaseId = '69b7fdaa001b7da3d224';
-    const newsCollectionId = 'news_articles';
-
-    useEffect(() => {
-        const fetchArticles = async () => {
-            try {
-                const response = await databases.listDocuments(databaseId, newsCollectionId, [
-                    Query.orderDesc('published_at')
-                ]);
-                if (response.documents.length > 0) {
-                    setArticles(response.documents);
-                } else {
-                    setArticles(INITIAL_ARTICLES);
-                }
-            } catch (error) {
-                console.error("Failed to fetch articles:", error);
-                setArticles(INITIAL_ARTICLES);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchArticles();
-    }, []);
+export default async function NewsPage() {
+    const articles = await getNewsArticles();
 
     return (
         <main className="min-h-screen bg-black pt-32 pb-24 relative overflow-hidden">
@@ -91,9 +31,10 @@ export default function NewsPage() {
                     </p>
                 </div>
 
-                {isLoading ? (
-                    <div className="flex justify-center py-20">
-                        <Loader2 className="w-10 h-10 animate-spin text-shamiso-gold-bright" />
+                {articles.length === 0 ? (
+                    <div className="text-center py-20 space-y-4">
+                        <Newspaper className="w-12 h-12 mx-auto text-zinc-600" />
+                        <p className="text-neutral-500 text-lg">No articles published yet. Check back soon.</p>
                     </div>
                 ) : (
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 animate-in fade-in duration-700">
@@ -131,7 +72,6 @@ export default function NewsPage() {
                     </div>
                 )}
 
-                {/* Newsletter Section */}
                 <div className="mt-32 relative rounded-3xl border border-shamiso-gold/20 bg-linear-to-b from-shamiso-gold/10 to-transparent p-12 text-center overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-shamiso-gold/20 blur-[80px]" />
                     <div className="relative z-10 max-w-2xl mx-auto space-y-6">

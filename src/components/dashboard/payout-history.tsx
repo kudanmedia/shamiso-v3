@@ -18,6 +18,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import { DATABASE_ID } from "@/lib/database-id";
 import { Badge } from "@/components/ui/badge";
 import { 
     CreditCard, 
@@ -48,11 +49,10 @@ export function PayoutHistory() {
             try {
                 // In a real scenario, use the actual database/collection IDs from env
                 // For now, we scaffold with a try-catch for missing collection
-                const databaseId = "69b7fdaa001b7da3d224";
                 const collectionId = "payouts";
                 
                 const response = await databases.listDocuments(
-                    databaseId,
+                    DATABASE_ID,
                     collectionId,
                     [
                         Query.orderDesc("date"),

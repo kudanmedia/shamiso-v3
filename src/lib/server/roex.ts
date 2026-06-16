@@ -54,7 +54,7 @@ async function roexFetch<T>(path: string) {
     return response.json() as Promise<T>;
 }
 
-const DEFAULT_DATABASE_ID = "69b7fdaa001b7da3d224";
+import { DATABASE_ID } from "@/lib/database-id";
 
 type RoExJobDocument = {
     external_id: string;
@@ -68,7 +68,7 @@ type RoExJobDocument = {
 async function getSeededJobs(userId: string): Promise<RoExJob[]> {
     const { databases } = await createAdminClient();
     const result = await databases.listDocuments(
-        process.env.DATABASE_ID || DEFAULT_DATABASE_ID,
+        DATABASE_ID,
         "roex_jobs",
         [Query.equal("user_id", [userId, "global"]), Query.limit(100)]
     );

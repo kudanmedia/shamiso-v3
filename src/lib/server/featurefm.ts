@@ -99,7 +99,7 @@ async function featureFetch<T>(path: string) {
     return response.json() as Promise<T>;
 }
 
-const DEFAULT_DATABASE_ID = "69b7fdaa001b7da3d224";
+import { DATABASE_ID } from "@/lib/database-id";
 
 type FeatureFmCampaignDocument = {
     external_id: string;
@@ -118,7 +118,7 @@ type FeatureFmSmartLinkDocument = {
 async function getSeededCampaigns(userId: string): Promise<FeatureFmCampaign[]> {
     const { databases } = await createAdminClient();
     const result = await databases.listDocuments(
-        process.env.DATABASE_ID || DEFAULT_DATABASE_ID,
+        DATABASE_ID,
         "featurefm_campaigns",
         [Query.equal("user_id", [userId, "global"]), Query.limit(100)]
     );
@@ -137,7 +137,7 @@ async function getSeededCampaigns(userId: string): Promise<FeatureFmCampaign[]> 
 async function getSeededSmartLinks(userId: string): Promise<FeatureFmSmartLink[]> {
     const { databases } = await createAdminClient();
     const result = await databases.listDocuments(
-        process.env.DATABASE_ID || DEFAULT_DATABASE_ID,
+        DATABASE_ID,
         "featurefm_smartlinks",
         [Query.equal("user_id", [userId, "global"]), Query.limit(100)]
     );

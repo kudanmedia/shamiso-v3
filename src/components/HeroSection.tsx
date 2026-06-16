@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { ArrowRight, Fingerprint, TrendingUp, ShieldCheck } from "lucide-react";
+import { ArrowRight, Fingerprint, ShieldCheck } from "lucide-react";
 
 const trustPartners = [
     { name: "TikTok", logo: "/tiktok-logo-2--1.svg" },
@@ -12,20 +12,17 @@ const trustPartners = [
     { name: "YouTube", logo: "/youtube-play-button-28308.png" },
 ];
 
-export function HeroSection() {
+interface HeroSectionProps {
+    recapturedAmount?: string;
+}
+
+export function HeroSection({ recapturedAmount = "$14.2M" }: HeroSectionProps) {
     return (
         <section className="relative min-h-screen overflow-hidden pt-16">
-            {/* Rich layered background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a00] via-[#1a1400] to-[#0d0800]" />
-
-            {/* Gold ambient glow - top right */}
             <div className="absolute -top-32 -right-32 h-[700px] w-[700px] rounded-full bg-shamiso-gold-bright/10 blur-[150px]" />
-            {/* Gold ambient glow - bottom left */}
             <div className="absolute -bottom-20 -left-20 h-[500px] w-[500px] rounded-full bg-shamiso-gold/8 blur-[120px]" />
-            {/* Warm center glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-amber-900/15 blur-[100px]" />
-
-            {/* Subtle golden grid */}
             <div
                 className="absolute inset-0 opacity-[0.04]"
                 style={{
@@ -34,14 +31,11 @@ export function HeroSection() {
                     backgroundSize: "60px 60px",
                 }}
             />
-
-            {/* Radial vignette for depth */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(141,111,18,0.15),rgba(124,61,54,0.1),transparent_50%)]" />
 
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20">
                     <div className="max-w-4xl">
-                        {/* Recapture Ticker */}
                         <div className="mb-12 inline-flex items-center gap-6 rounded-full border border-shamiso-gold/20 bg-shamiso-gold/5 px-6 py-2.5 backdrop-blur-sm">
                             <div className="flex items-center gap-2">
                                 <span className="relative flex h-3 w-3">
@@ -54,23 +48,20 @@ export function HeroSection() {
                             <div className="flex gap-4 overflow-hidden text-xs font-medium text-shamiso-gold-bright">
                                 <span className="flex items-center gap-1.5 whitespace-nowrap">
                                     <ShieldCheck className="h-3 w-3 text-emerald-500" />
-                                    <span className="font-bold text-white tracking-wide">RECAPTURED FOR ARTISTS: $14.2M</span>
+                                    <span className="font-bold text-white tracking-wide">RECAPTURED FOR ARTISTS: {recapturedAmount}</span>
                                 </span>
                             </div>
                         </div>
 
-                        {/* H1 */}
                         <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl">
                             Stop Juggling.<br />
                             <span className="gradient-text">Start Scaling.</span>
                         </h1>
 
-                        {/* Subtitle */}
                         <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl font-light">
-                            The first <span className="text-white font-bold">Music Operating System</span> built for the Global South. We’ve integrated the world’s most powerful financial and creative tools into a single, high-performance dashboard.
+                            The first <span className="text-white font-bold">Music Operating System</span> built for the Global South. We&apos;ve integrated the world&apos;s most powerful financial and creative tools into a single, high-performance dashboard.
                         </p>
 
-                        {/* Additional Info */}
                         <div className="mb-10 grid gap-4 sm:grid-cols-2 max-w-2xl">
                             <div className="flex flex-col gap-2 p-4 rounded-xl border border-shamiso-gold/20 bg-shamiso-gold/5">
                                 <p className="text-sm font-bold text-white uppercase tracking-tight">One Login. One Ecosystem.</p>
@@ -95,7 +86,6 @@ export function HeroSection() {
                             </div>
                         </div>
 
-                        {/* CTAs */}
                         <div className="mb-16 flex flex-col gap-4 sm:flex-row">
                             <Link href="/signup">
                                 <Button
@@ -119,7 +109,6 @@ export function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Trust partners ticker */}
                     <div className="space-y-4">
                         <p className="text-xs font-bold uppercase tracking-[0.2em] text-white text-center sm:text-left ml-2">
                             Distribute your songs to over 450 top music streaming stores and platforms
@@ -135,11 +124,7 @@ export function HeroSection() {
                                             <img
                                                 src={partner.logo}
                                                 alt={partner.name}
-                                                className={`w-auto object-contain ${(partner.name === "Spotify" || partner.name === "TikTok" || partner.name === "YouTube") ? "" : "brightness-0 invert"
-                                                    } ${partner.name === "Groover"
-                                                        ? "h-16 max-w-[180px]"
-                                                        : "h-10 max-w-[140px]"
-                                                    }`}
+                                                className={`w-auto object-contain ${(partner.name === "Spotify" || partner.name === "TikTok" || partner.name === "YouTube") ? "" : "brightness-0 invert"} h-10 max-w-[140px]`}
                                             />
                                         ) : (
                                             <span className="text-xl font-bold text-white/40 hover:text-white transition-colors">
@@ -153,6 +138,6 @@ export function HeroSection() {
                     </div>
                 </div>
             </div>
-        </section >
+        </section>
     );
 }

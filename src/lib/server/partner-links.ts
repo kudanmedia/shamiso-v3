@@ -1,7 +1,7 @@
 import { Query, createAdminClient } from "@/lib/server/appwrite";
+import { DATABASE_ID } from "@/lib/database-id";
 import { PARTNER_LINKS, type PartnerLinksMap } from "@/lib/partner-links";
 
-const DEFAULT_DATABASE_ID = "69b7fdaa001b7da3d224";
 const PARTNER_LINKS_COLLECTION_ID = "partner_links";
 
 interface PartnerLinkDocument {
@@ -13,9 +13,8 @@ interface PartnerLinkDocument {
 export async function getPartnerLinks(): Promise<PartnerLinksMap> {
     try {
         const { databases } = await createAdminClient();
-        const db = process.env.DATABASE_ID || DEFAULT_DATABASE_ID;
         const result = await databases.listDocuments(
-            db,
+            DATABASE_ID,
             PARTNER_LINKS_COLLECTION_ID,
             [Query.equal("active", true), Query.limit(200)]
         );

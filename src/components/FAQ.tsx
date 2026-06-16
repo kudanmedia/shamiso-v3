@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import { PRICING_FACTS } from "@/lib/pricing";
+
 const faqs = [
     {
         question: "HOW DO INDEPENDENT ARTISTS OR LABELS DISTRIBUTE MUSIC IN AFRICA AND BEYOND?",
@@ -33,9 +35,9 @@ const faqs = [
                     SMD is for the culture. We work with everyone - from Amapiano producers in Pretoria and Afrobeats stars in Lagos to Zimdancehall chanters, Kuduro, Bongoflava and Genge/Singeli artists. Whether you’re just dropping your first freestyle or you’re a household name, we have a plan for your stage:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
-                    <li><strong>SHAMISO ENTRY:</strong> Perfect for those just starting their journey. You get Unlimited Music Distribution to all major stores while only paying a 15% commission on your earnings. It’s the best way to build your data and get discovered.</li>
-                    <li><strong>SHAMISO RISE:</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
-                    <li><strong>SHAMISO PRO:</strong> Designed for the career artist. You keep 100% of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
+                    <li><strong>SHAMISO ENTRY:</strong> Perfect for those just starting their journey. You get Unlimited Music Distribution to all major stores while only paying a {PRICING_FACTS.entryCommission} commission on your earnings. It&apos;s the best way to build your data and get discovered.</li>
+                    <li><strong>SHAMISO RISE:</strong> Designed for the career artist. You keep {PRICING_FACTS.proRoyaltyKeep} of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
+                    <li><strong>SHAMISO PRO:</strong> Designed for the career artist. You keep {PRICING_FACTS.proRoyaltyKeep} of your streaming royalties and get unlimited releases. This plan is built to displace expensive global competitors by offering local WhatsApp support.</li>
                     <li><strong>SHAMISO LABEL:</strong> For the local moguls running a stable. Manage multiple artists, enjoy automated ZAR/Naira/KES royalty splits, and use custom ISRC/UPC codes to own your data.</li>
                     <li><strong>SHAMISO ENTERPRISE (SHAMISO PRO):</strong> Our top-tier partnership. You get hands-on support from our Artist Relations team and exclusive eligibility for the $2M Shamiso Capital Advance Fund.</li>
                 </ul>
@@ -47,10 +49,10 @@ const faqs = [
         answer: (
             <div className="space-y-4 text-neutral-400">
                 <p>
-                    SMD Entry is our "No-Barriers" plan. It allows you to distribute unlimited music for $0 upfront. We take a 15% commission to cover our administrative costs, meaning we only make money when you do. It’s ideal for building your catalog and testing the waters.
+                    SMD Entry is our &quot;No-Barriers&quot; plan. It allows you to distribute unlimited music for $0 upfront. We take a {PRICING_FACTS.entryCommission} commission to cover our administrative costs, meaning we only make money when you do. It&apos;s ideal for building your catalog and testing the waters.
                 </p>
                 <p>
-                    SMD Pro is a premium subscription. The biggest difference? You keep 100% of your streaming royalties - we take zero commission. You also get advanced analytics, faster delivery times, and the ability to schedule your releases for maximum impact.
+                    SMD Pro is a premium subscription. The biggest difference? You keep {PRICING_FACTS.proRoyaltyKeep} of your streaming royalties - we take zero commission. You also get advanced analytics, faster delivery times, and the ability to schedule your releases for maximum impact.
                 </p>
             </div>
         )

@@ -29,7 +29,7 @@ function buildPartners(links: ReturnType<typeof usePartnerLinks>): Partner[] {
         name: "Distribution Portal",
         category: "Distribution",
         description: "Manage your distribution, analytics, and royalties.",
-        href: "https://portal.shamiso-music.com",
+        href: links.distributionPortal,
         icon: Disc,
     },
     {

@@ -1,6 +1,6 @@
 import { ID, Query, createAdminClient } from "@/lib/server/appwrite";
+import { DATABASE_ID } from "@/lib/database-id";
 
-const DEFAULT_DATABASE_ID = "69b7fdaa001b7da3d224";
 const CACHE_COLLECTION_ID = "api_cache";
 
 interface CacheDocument {
@@ -12,15 +12,11 @@ interface CacheDocument {
     user_id: string;
 }
 
-function getDatabaseId() {
-    return process.env.DATABASE_ID || DEFAULT_DATABASE_ID;
-}
-
 export async function getCached<T>(cacheKey: string) {
     try {
         const { databases } = await createAdminClient();
         const result = await databases.listDocuments(
-            getDatabaseId(),
+            DATABASE_ID,
             CACHE_COLLECTION_ID,
             [Query.equal("cache_key", cacheKey), Query.limit(1)]
         );
@@ -30,7 +26,7 @@ export async function getCached<T>(cacheKey: string) {
         }
 
         if (new Date(doc.expires_at).getTime() <= Date.now()) {
-            await databases.deleteDocument(getDatabaseId(), CACHE_COLLECTION_ID, doc.$id);
+            await databases.deleteDocument(DATABASE_ID, CACHE_COLLECTION_ID, doc.$id);
             return null;
         }
 
@@ -51,14 +47,14 @@ export async function setCached<T>(
         const { databases } = await createAdminClient();
         const expiresAt = new Date(Date.now() + ttlSeconds * 1000).toISOString();
         const existing = await databases.listDocuments(
-            getDatabaseId(),
+            DATABASE_ID,
             CACHE_COLLECTION_ID,
             [Query.equal("cache_key", cacheKey), Query.limit(1)]
         );
 
         if (existing.total > 0) {
             const doc = existing.documents[0] as unknown as CacheDocument;
-            await databases.updateDocument(getDatabaseId(), CACHE_COLLECTION_ID, doc.$id, {
+            await databases.updateDocument(DATABASE_ID, CACHE_COLLECTION_ID, doc.$id, {
                 payload: JSON.stringify(data),
                 expires_at: expiresAt,
                 partner,
@@ -67,7 +63,7 @@ export async function setCached<T>(
             return;
         }
 
-        await databases.createDocument(getDatabaseId(), CACHE_COLLECTION_ID, ID.unique(), {
+        await databases.createDocument(DATABASE_ID, CACHE_COLLECTION_ID, ID.unique(), {
             cache_key: cacheKey,
             payload: JSON.stringify(data),
             expires_at: expiresAt,
@@ -83,7 +79,7 @@ export async function invalidate(cacheKey: string) {
     try {
         const { databases } = await createAdminClient();
         const result = await databases.listDocuments(
-            getDatabaseId(),
+            DATABASE_ID,
             CACHE_COLLECTION_ID,
             [Query.equal("cache_key", cacheKey), Query.limit(1)]
         );
@@ -91,7 +87,7 @@ export async function invalidate(cacheKey: string) {
         if (!doc) {
             return;
         }
-        await databases.deleteDocument(getDatabaseId(), CACHE_COLLECTION_ID, doc.$id);
+        await databases.deleteDocument(DATABASE_ID, CACHE_COLLECTION_ID, doc.$id);
     } catch {
         // Non-fatal.
     }

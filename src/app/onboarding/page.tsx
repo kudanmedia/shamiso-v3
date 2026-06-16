@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
+import { DATABASE_ID } from "@/lib/database-id";
 import { 
     Music, 
     User, 
@@ -157,7 +158,6 @@ export default function OnboardingPage() {
             });
 
             // 3. Create/Update Profile in Database
-            const databaseId = '69b7fdaa001b7da3d224';
             const collectionId = 'profiles';
             const userId = user.$id;
 
@@ -166,7 +166,7 @@ export default function OnboardingPage() {
             const currency = currencyMatch ? currencyMatch[1] : "USD";
 
             // Check if profile already exists
-            const existingProfiles = await databases.listDocuments(databaseId, collectionId, [
+            const existingProfiles = await databases.listDocuments(DATABASE_ID, collectionId, [
                 Query.equal('appwrite_user_id', userId)
             ]);
 
@@ -182,9 +182,9 @@ export default function OnboardingPage() {
             };
 
             if (existingProfiles.total > 0) {
-                await databases.updateDocument(databaseId, collectionId, existingProfiles.documents[0].$id, profileData);
+                await databases.updateDocument(DATABASE_ID, collectionId, existingProfiles.documents[0].$id, profileData);
             } else {
-                await databases.createDocument(databaseId, collectionId, ID.unique(), profileData);
+                await databases.createDocument(DATABASE_ID, collectionId, ID.unique(), profileData);
             }
 
             router.push("/dashboard");

@@ -2,6 +2,7 @@
 
 import { Check, X, ShieldCheck, Banknote, Clock, Zap, Activity, Network, Users, MapPin, TrendingUp, Rocket, Target, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { PRICING_FACTS } from "@/lib/pricing";
 
 const comparisonData = [
     {
@@ -184,7 +185,7 @@ export function SovereignCorridorTable() {
 
                 <div className="mt-12 text-center">
                     <p className="text-sm text-neutral-500 italic max-w-lg mx-auto mb-16">
-                        * Comparison based on standard "Indie" tiers vs. SMD's "Sovereign" tier. Competitor data sourced from public pricing pages as of 2026.
+                        * Comparison based on standard &quot;Indie&quot; tiers vs. SMD&apos;s &quot;Sovereign&quot; tier ({PRICING_FACTS.sovereignPlatformFee} platform fee). Competitor data sourced from public pricing pages as of 2026.
                     </p>
                 </div>
 

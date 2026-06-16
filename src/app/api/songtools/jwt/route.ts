@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createSessionClient } from "@/lib/server/appwrite";
+import { getSiteSettings } from "@/lib/server/site-settings";
 import * as jose from "jose";
 
 export async function GET(request: Request) {
@@ -24,7 +25,18 @@ export async function GET(request: Request) {
             .setExpirationTime("30d")
             .sign(secret);
 
-        return NextResponse.json({ jwt });
+        const settings = await getSiteSettings();
+
+        return NextResponse.json({
+            jwt,
+            widget: {
+                campaign: settings.songtools_widget_campaign,
+                appKey: settings.songtools_app_key,
+                baseUrl: settings.songtools_widget_base_url,
+                scriptUrl: settings.songtools_script_url,
+                jqueryUrl: settings.songtools_jquery_url,
+            },
+        });
     } catch (error: any) {
         console.error("JWT Generation Error:", error);
         return NextResponse.json({ error: "Failed to generate token" }, { status: 500 });

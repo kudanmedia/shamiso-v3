@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "artist-distribution",
+    "audience": "artist",
+    "pillar": "Distribution",
+    "col1": "Unlimited releases",
+    "col2": "Unlimited releases",
+    "col3": "Unlimited releases",
+    "sort_order": 1
+  },
+  {
+    "slug": "artist-store-speed",
+    "audience": "artist",
+    "pillar": "Store Speed",
+    "col1": "14 business days",
+    "col2": "14 business days",
+    "col3": "White-glove priority",
+    "sort_order": 2
+  },
+  {
+    "slug": "artist-monetization",
+    "audience": "artist",
+    "pillar": "Monetization",
+    "col1": "Social Media (TikTok/IG)",
+    "col2": "YouTube Content ID",
+    "col3": "YouTube Content ID",
+    "sort_order": 3
+  },
+  {
+    "slug": "artist-financials",
+    "audience": "artist",
+    "pillar": "Financials",
+    "col1": "Monthly Payments",
+    "col2": "Monthly payments",
+    "col3": "Monthly payments",
+    "sort_order": 4
+  },
+  {
+    "slug": "artist-collaborators",
+    "audience": "artist",
+    "pillar": "Collaborators",
+    "col1": "Split Pay (Unlimited)",
+    "col2": "Split Pay (Unlimited)",
+    "col3": "SHAMISO PRO royalty splits",
+    "sort_order": 5
+  },
+  {
+    "slug": "artist-mastering",
+    "audience": "artist",
+    "pillar": "Mastering",
+    "col1": "Paid Service",
+    "col2": "Paid Service",
+    "col3": "Paid Service",
+    "sort_order": 6
+  },
+  {
+    "slug": "artist-fan-tools",
+    "audience": "artist",
+    "pillar": "Fan Tools",
+    "col1": "ArtistPages",
+    "col2": "MasterLinks & Fan Data",
+    "col3": "Custom Rollout Strategy",
+    "sort_order": 7
+  },
+  {
+    "slug": "label-strategic-target",
+    "audience": "label",
+    "pillar": "Strategic Target",
+    "col1": "Emerging 'Street' Labels / Collectives",
+    "col2": "High-Export 'Amapiano/Afrobeats' Hubs",
+    "col3": "",
+    "sort_order": 1
+  },
+  {
+    "slug": "label-artist-limit",
+    "audience": "label",
+    "pillar": "Artist Limit",
+    "col1": "Up to 50 Artist Profiles",
+    "col2": "Unlimited Artists",
+    "col3": "",
+    "sort_order": 2
+  },
+  {
+    "slug": "label-branding",
+    "audience": "label",
+    "pillar": "Branding",
+    "col1": "SMD-Branded Portal",
+    "col2": "SMD-Branded Portal",
+    "col3": "",
+    "sort_order": 3
+  },
+  {
+    "slug": "label-payout-rail",
+    "audience": "label",
+    "pillar": "Payout Rail",
+    "col1": "Mobile Money (Real-Time)",
+    "col2": "SWIFT / Local Bank",
+    "col3": "",
+    "sort_order": 4
+  },
+  {
+    "slug": "label-revenue-share",
+    "audience": "label",
+    "pillar": "Revenue Share",
+    "col1": "2% Platform Fee",
+    "col2": "1.5% Platform Fee",
+    "col3": "",
+    "sort_order": 5
+  },
+  {
+    "slug": "label-benefit-highlight",
+    "audience": "label",
+    "pillar": "Benefit Highlight",
+    "col1": "Low-barrier 'Sub-Manager' login",
+    "col2": "Priority Pitching to APAC (Melon/TME)",
+    "col3": "",
+    "sort_order": 6
+  }
+]

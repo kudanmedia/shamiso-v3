@@ -2,13 +2,16 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowRight, ShieldCheck, Zap } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import { getPublicSiteSettings } from "@/lib/server/site-settings";
 
 export const metadata: Metadata = {
     title: "Join the SMD Inner Circle | WhatsApp Community",
     description: "Join the exclusive SMD WhatsApp community for Collabo Engineering and A&R tips.",
 };
 
-export default function WhatsAppGroupPage() {
+export default async function WhatsAppGroupPage() {
+    const { whatsapp_invite_url } = await getPublicSiteSettings();
+
     return (
         <div className="relative min-h-[calc(100vh-4rem)] pt-24 pb-20 flex flex-col items-center justify-center overflow-hidden">
             {/* Background styling */}
@@ -36,7 +39,7 @@ export default function WhatsAppGroupPage() {
                 </h1>
 
                 <p className="text-lg md:text-xl text-neutral-300 font-light leading-relaxed mb-10">
-                    You're about to join the most exclusive network of African independent artists.
+                    You&apos;re about to join the most exclusive network of African independent artists.
                     Get direct access to our A&R team, Algorithmic Trigger strategies, and Collabo Engineering opportunities.
                 </p>
 
@@ -53,7 +56,7 @@ export default function WhatsAppGroupPage() {
 
                 {/* Action Button */}
                 <div className="flex flex-col items-center gap-6">
-                    <a href="https://chat.whatsapp.com/invitelinkplaceholder" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                    <a href={whatsapp_invite_url} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                         <Button size="lg" className="w-full sm:w-auto px-10 bg-[#25D366] hover:bg-[#1fb355] text-black font-black uppercase tracking-wide h-16 text-lg shadow-[0_0_30px_rgba(37,211,102,0.3)] hover:shadow-[0_0_40px_rgba(37,211,102,0.5)] transition-all hover:scale-[1.03]">
                             <MessageCircle className="w-6 h-6 mr-3" />
                             Open in WhatsApp

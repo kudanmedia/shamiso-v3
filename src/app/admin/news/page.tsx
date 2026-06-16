@@ -20,6 +20,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { DATABASE_ID } from "@/lib/database-id";
+
+const NEWS_COLLECTION_ID = "news_articles";
 
 export default function AdminNewsPage() {
     const [isLoading, setIsLoading] = useState(true);
@@ -29,13 +32,10 @@ export default function AdminNewsPage() {
     const [isSheetOpen, setIsSheetOpen] = useState(false);
     const [editingArticle, setEditingArticle] = useState<any>(null);
 
-    const databaseId = '69b7fdaa001b7da3d224';
-    const newsCollectionId = 'news_articles';
-
     const fetchArticles = async () => {
         setIsLoading(true);
         try {
-            const response = await databases.listDocuments(databaseId, newsCollectionId, [
+            const response = await databases.listDocuments(DATABASE_ID, NEWS_COLLECTION_ID, [
                 Query.orderDesc('published_at')
             ]);
             setArticles(response.documents);
@@ -68,9 +68,9 @@ export default function AdminNewsPage() {
 
         try {
             if (editingArticle) {
-                await databases.updateDocument(databaseId, newsCollectionId, editingArticle.$id, data);
+                await databases.updateDocument(DATABASE_ID, NEWS_COLLECTION_ID, editingArticle.$id, data);
             } else {
-                await databases.createDocument(databaseId, newsCollectionId, ID.unique(), data);
+                await databases.createDocument(DATABASE_ID, NEWS_COLLECTION_ID, ID.unique(), data);
             }
             setIsSheetOpen(false);
             setEditingArticle(null);
@@ -86,7 +86,7 @@ export default function AdminNewsPage() {
         if (!confirm("Are you sure you want to delete this article?")) return;
 
         try {
-            await databases.deleteDocument(databaseId, newsCollectionId, id);
+            await databases.deleteDocument(DATABASE_ID, NEWS_COLLECTION_ID, id);
             fetchArticles();
         } catch (err: any) {
             setError(err.message || "Failed to delete article.");

@@ -10,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Plus, Loader2, PlayCircle, Eye, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { DATABASE_ID } from "@/lib/database-id";
 
 export default function AdminPayoutsPage() {
     const [isLoading, setIsLoading] = useState(true);
@@ -18,13 +19,12 @@ export default function AdminPayoutsPage() {
     const [error, setError] = useState("");
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const databaseId = '69b7fdaa001b7da3d224';
     const batchesCollectionId = 'royalty_batches';
 
     const fetchBatches = async () => {
         setIsLoading(true);
         try {
-            const response = await databases.listDocuments(databaseId, batchesCollectionId, [
+            const response = await databases.listDocuments(DATABASE_ID, batchesCollectionId, [
                 Query.orderDesc('reporting_date')
             ]);
             setBatches(response.documents);

@@ -19,6 +19,8 @@ import {
     RefreshCcw 
 } from "lucide-react";
 
+import { DATABASE_ID } from "@/lib/database-id";
+
 export default function PayoutBatchPage() {
     const { batchId } = useParams();
     const router = useRouter();
@@ -28,17 +30,16 @@ export default function PayoutBatchPage() {
     const [entries, setEntries] = useState<any[]>([]);
     const [error, setError] = useState("");
 
-    const databaseId = '69b7fdaa001b7da3d224';
     const batchesCollectionId = 'royalty_batches';
     const ledgerCollectionId = 'ledger_entries';
 
     const fetchData = async () => {
         setIsLoading(true);
         try {
-            const batchDoc = await databases.getDocument(databaseId, batchesCollectionId, batchId as string);
+            const batchDoc = await databases.getDocument(DATABASE_ID, batchesCollectionId, batchId as string);
             setBatch(batchDoc);
 
-            const ledgerDocs = await databases.listDocuments(databaseId, ledgerCollectionId, [
+            const ledgerDocs = await databases.listDocuments(DATABASE_ID, ledgerCollectionId, [
                 Query.equal('batch_id', batchId as string),
                 Query.limit(100)
             ]);
