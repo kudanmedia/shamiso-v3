@@ -109,6 +109,106 @@ async function setup() {
         }
         console.log('Bucket Setup Check Done.');
 
+        // 5. API Cache
+        console.log('Creating API Cache Collection...');
+        try {
+            await databases.createCollection(databaseId, 'api_cache', 'API Cache', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]);
+        } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'api_cache', 'cache_key', 255, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'api_cache', 'payload', 65535, true); } catch (e) {}
+        try { await databases.createDatetimeAttribute(databaseId, 'api_cache', 'expires_at', true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'api_cache', 'partner', 50, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'api_cache', 'user_id', 64, true); } catch (e) {}
+        await waitForAttribute(databaseId, 'api_cache', 'cache_key');
+        try { await databases.createIndex(databaseId, 'api_cache', 'idx_api_cache_key', 'key', ['cache_key']); } catch (e) {}
+        console.log('API Cache Collection ready.');
+
+        // 6. Partner Links
+        console.log('Creating Partner Links Collection...');
+        try {
+            await databases.createCollection(databaseId, 'partner_links', 'Partner Links', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]);
+        } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'partner_links', 'slug', 50, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'partner_links', 'url', 1000, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'partner_links', 'utm_params', 500, false); } catch (e) {}
+        try { await databases.createBooleanAttribute(databaseId, 'partner_links', 'active', true); } catch (e) {}
+        try { await databases.createDatetimeAttribute(databaseId, 'partner_links', 'updated_at', true); } catch (e) {}
+        await waitForAttribute(databaseId, 'partner_links', 'slug');
+        try { await databases.createIndex(databaseId, 'partner_links', 'idx_partner_slug', 'unique', ['slug']); } catch (e) {}
+        console.log('Partner Links Collection ready.');
+
+        // 7. Feature.fm Campaigns (seed-backed fallback)
+        console.log('Creating Feature.fm Campaigns Collection...');
+        try {
+            await databases.createCollection(databaseId, 'featurefm_campaigns', 'Feature.fm Campaigns', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]);
+        } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'featurefm_campaigns', 'external_id', 100, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'featurefm_campaigns', 'user_id', 64, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'featurefm_campaigns', 'name', 255, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'featurefm_campaigns', 'status', 40, true); } catch (e) {}
+        try { await databases.createDatetimeAttribute(databaseId, 'featurefm_campaigns', 'starts_at', false); } catch (e) {}
+        await waitForAttribute(databaseId, 'featurefm_campaigns', 'external_id');
+        try { await databases.createIndex(databaseId, 'featurefm_campaigns', 'idx_ffm_campaign_external', 'unique', ['external_id']); } catch (e) {}
+        try { await databases.createIndex(databaseId, 'featurefm_campaigns', 'idx_ffm_campaign_user', 'key', ['user_id']); } catch (e) {}
+        console.log('Feature.fm Campaigns Collection ready.');
+
+        // 8. Feature.fm Smart Links (seed-backed fallback)
+        console.log('Creating Feature.fm Smart Links Collection...');
+        try {
+            await databases.createCollection(databaseId, 'featurefm_smartlinks', 'Feature.fm Smart Links', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]);
+        } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'featurefm_smartlinks', 'external_id', 100, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'featurefm_smartlinks', 'user_id', 64, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'featurefm_smartlinks', 'title', 255, true); } catch (e) {}
+        try { await databases.createIntegerAttribute(databaseId, 'featurefm_smartlinks', 'clicks', true); } catch (e) {}
+        try { await databases.createIntegerAttribute(databaseId, 'featurefm_smartlinks', 'pre_saves', true); } catch (e) {}
+        await waitForAttribute(databaseId, 'featurefm_smartlinks', 'external_id');
+        try { await databases.createIndex(databaseId, 'featurefm_smartlinks', 'idx_ffm_smart_external', 'unique', ['external_id']); } catch (e) {}
+        try { await databases.createIndex(databaseId, 'featurefm_smartlinks', 'idx_ffm_smart_user', 'key', ['user_id']); } catch (e) {}
+        console.log('Feature.fm Smart Links Collection ready.');
+
+        // 9. RoEx Jobs (seed-backed fallback)
+        console.log('Creating RoEx Jobs Collection...');
+        try {
+            await databases.createCollection(databaseId, 'roex_jobs', 'RoEx Jobs', [
+                Permission.read(Role.users()),
+                Permission.create(Role.users()),
+                Permission.update(Role.users()),
+                Permission.delete(Role.users())
+            ]);
+        } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'roex_jobs', 'external_id', 100, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'roex_jobs', 'user_id', 64, true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'roex_jobs', 'track_name', 255, true); } catch (e) {}
+        try { await databases.createEnumAttribute(databaseId, 'roex_jobs', 'status', ['queued', 'processing', 'complete', 'failed'], true); } catch (e) {}
+        try { await databases.createIntegerAttribute(databaseId, 'roex_jobs', 'progress', true); } catch (e) {}
+        try { await databases.createDatetimeAttribute(databaseId, 'roex_jobs', 'updated_at', true); } catch (e) {}
+        try { await databases.createStringAttribute(databaseId, 'roex_jobs', 'output_url', 1000, false); } catch (e) {}
+        await waitForAttribute(databaseId, 'roex_jobs', 'external_id');
+        try { await databases.createIndex(databaseId, 'roex_jobs', 'idx_roex_external', 'unique', ['external_id']); } catch (e) {}
+        try { await databases.createIndex(databaseId, 'roex_jobs', 'idx_roex_user', 'key', ['user_id']); } catch (e) {}
+        console.log('RoEx Jobs Collection ready.');
+
         console.log('Infrastructure Setup Complete!');
     } catch (error) {
         console.error('Setup failed:', error.message);
