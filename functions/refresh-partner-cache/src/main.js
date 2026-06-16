@@ -1,17 +1,12 @@
 const { Client, Databases, Query } = require("node-appwrite");
+const { getAppwriteFunctionEnv } = require("../../shared/appwrite-env");
 
 module.exports = async ({ res, log, error }) => {
-    const endpoint = process.env.APPWRITE_FUNCTION_ENDPOINT || "https://fra.cloud.appwrite.io/v1";
-    const projectId = process.env.APPWRITE_FUNCTION_PROJECT_ID || process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
-    const apiKey = process.env.APPWRITE_FUNCTION_API_KEY || process.env.APPWRITE_API_KEY;
-    const databaseId = process.env.DATABASE_ID || "69b7fdaa001b7da3d224";
+    const { endpoint, projectId, apiKey, databaseId } = getAppwriteFunctionEnv();
     const cacheCollectionId = "api_cache";
 
     try {
-        const client = new Client().setEndpoint(endpoint).setProject(projectId);
-        if (apiKey) {
-            client.setKey(apiKey);
-        }
+        const client = new Client().setEndpoint(endpoint).setProject(projectId).setKey(apiKey);
 
         const databases = new Databases(client);
         const nowIso = new Date().toISOString();

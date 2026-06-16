@@ -1,10 +1,11 @@
 import { Client, Account, Databases, Storage, Functions } from 'appwrite';
+import { APPWRITE_ENDPOINT, APPWRITE_PROJECT_ID } from '@/lib/appwrite-config';
 
 const client = new Client();
 
 client
-    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!);
+    .setEndpoint(APPWRITE_ENDPOINT)
+    .setProject(APPWRITE_PROJECT_ID);
 
 export const account = new Account(client);
 export const databases = new Databases(client);

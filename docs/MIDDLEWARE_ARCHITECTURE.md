@@ -6,7 +6,7 @@ Phase 1 uses **Appwrite** as the middleware and cache layer. Convex remains a po
 
 **Canonical schema source:** `scripts/setup-appwrite.js` — run this to provision collections. `appwrite.config.json` is a partial export and may lag behind the setup script.
 
-**Database ID:** centralized in `src/lib/database-id.ts` (`DATABASE_ID` env or default `69b7fdaa001b7da3d224`).
+**Database ID:** centralized in `src/lib/appwrite-config.ts` via `DATABASE_ID` / `NEXT_PUBLIC_DATABASE_ID` env vars.
 
 ## Core Components
 

@@ -1,15 +1,15 @@
 const { Client, Databases, Storage, ID, Permission, Role } = require('node-appwrite');
+const { endpoint, projectId, apiKey, databaseId } = require('./appwrite-env');
 
 // Canonical Appwrite schema source. appwrite.config.json may lag behind this script.
 // Run: node scripts/setup-appwrite.js && node scripts/seed-partner-mock-data.js
 const client = new Client()
-    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1')
-    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '69b7d2fc0023faf8fc46')
-    .setKey(process.env.APPWRITE_API_KEY || ''); 
+    .setEndpoint(endpoint)
+    .setProject(projectId)
+    .setKey(apiKey);
 
 const databases = new Databases(client);
 const storage = new Storage(client);
-const databaseId = process.env.DATABASE_ID || '69b7fdaa001b7da3d224';
 
 async function waitForAttribute(databaseId, collectionId, attributeKey) {
     console.log(`Waiting for attribute ${attributeKey} to be available...`);

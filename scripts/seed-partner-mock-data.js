@@ -1,14 +1,5 @@
-const path = require("path");
 const { Client, Databases, ID, Query } = require("node-appwrite");
-const { loadEnv } = require("./load-env");
-
-loadEnv();
-
-const DEFAULT_PROJECT_ID = "69b7d2fc0023faf8fc46";
-const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || "https://fra.cloud.appwrite.io/v1";
-const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || DEFAULT_PROJECT_ID;
-const apiKey = process.env.APPWRITE_API_KEY || "";
-const databaseId = process.env.DATABASE_ID || "69b7fdaa001b7da3d224";
+const { endpoint, projectId, apiKey, databaseId } = require("./appwrite-env");
 
 const DEFAULT_PARTNER_LINKS = require("../src/data/partner-links.defaults.json");
 const DEFAULT_NEWS_ARTICLES = require("../src/data/news-articles.seed.json");
@@ -47,18 +38,10 @@ const DEFAULT_SITE_SETTINGS = {
 };
 
 function assertConfig() {
-    const missing = [];
-    if (!projectId) missing.push("NEXT_PUBLIC_APPWRITE_PROJECT_ID");
-    if (!apiKey) missing.push("APPWRITE_API_KEY");
-
-    if (missing.length === 0) return;
-
-    console.error("Seed failed: missing required Appwrite environment variables:");
-    for (const key of missing) {
-        console.error(`  - ${key}`);
+    if (!projectId || !apiKey) {
+        console.error("Seed failed: missing Appwrite credentials in .env");
+        process.exit(1);
     }
-    console.error(`\nAdd them to ${path.join(process.cwd(), ".env")} and run again.`);
-    process.exit(1);
 }
 
 assertConfig();

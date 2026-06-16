@@ -2,26 +2,19 @@ const { Client, Databases, Storage, Query } = require('node-appwrite');
 const csv = require('csv-parser');
 const Decimal = require('decimal.js');
 const { Readable } = require('stream');
+const { getAppwriteFunctionEnv } = require('../../shared/appwrite-env');
 
 module.exports = async ({ req, res, log, error }) => {
-    const endpoint = process.env.APPWRITE_FUNCTION_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
-    const projectId = process.env.APPWRITE_FUNCTION_PROJECT_ID || '69b7d2fc0023faf8fc46';
-    const apiKey = process.env.APPWRITE_FUNCTION_API_KEY;
-
-    if (!apiKey) {
-        log('WARNING: APPWRITE_FUNCTION_API_KEY is not set. Database operations may fail.');
-    }
+    const { endpoint, projectId, apiKey, databaseId } = getAppwriteFunctionEnv();
 
     const client = new Client()
         .setEndpoint(endpoint)
-        .setProject(projectId);
-
-    if (apiKey) client.setKey(apiKey);
+        .setProject(projectId)
+        .setKey(apiKey);
 
     const databases = new Databases(client);
     const storage = new Storage(client);
 
-    const databaseId = '69b7fdaa001b7da3d224';
     const profilesCollectionId = 'profiles';
     const batchesCollectionId = 'royalty_batches';
     const ledgerCollectionId = 'ledger_entries';
