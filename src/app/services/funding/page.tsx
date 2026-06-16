@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PartnerRedirect } from "@/components/PartnerRedirect";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { getPartnerLinks } from "@/lib/server/partner-links";
 import { FundingForm } from "@/components/FundingForm";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -52,10 +52,11 @@ const pillars = [
     }
 ];
 
-export default function FundingPage() {
+export default async function FundingPage() {
+    const links = await getPartnerLinks();
     return (
         <div className="min-h-screen bg-black text-white">
-            <PartnerRedirect partnerUrl={PARTNER_LINKS.funding} />
+            <PartnerRedirect partnerUrl={links.funding} />
             <Header />
             
             <main className="pt-32 pb-24">

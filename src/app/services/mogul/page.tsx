@@ -17,7 +17,7 @@ import {
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import Link from "next/link";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { getPartnerLinks } from "@/lib/server/partner-links";
 
 export const metadata: Metadata = {
     title: "SMD x Mogul | Tax & Wealth Management | Shamiso Music Distribution",
@@ -42,7 +42,8 @@ const pillars = [
     },
 ];
 
-export default function MogulPage() {
+export default async function MogulPage() {
+    const links = await getPartnerLinks();
     return (
         <main className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
             <Header />
@@ -68,7 +69,7 @@ export default function MogulPage() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                        <Link href={PARTNER_LINKS.mogul} target="_blank">
+                        <Link href={links.mogul} target="_blank">
                             <Button className="h-14 px-10 bg-emerald-500 hover:bg-emerald-400 text-black font-black uppercase tracking-widest text-base shadow-[0_0_30px_rgba(16,185,129,0.3)]">
                                 Explore Mogul Now
                                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -177,7 +178,7 @@ export default function MogulPage() {
                         Join the elite tier of SMD creators who are taking control of their financial destiny.
                     </p>
                     
-                    <Link href={PARTNER_LINKS.mogul} target="_blank">
+                    <Link href={links.mogul} target="_blank">
                         <Button className="h-16 px-12 bg-white hover:bg-zinc-200 text-black font-black uppercase tracking-widest text-lg shadow-[0_0_50px_rgba(255,255,255,0.1)]">
                             Explore Mogul Now
                             <ArrowRight className="ml-3 h-6 w-6" />

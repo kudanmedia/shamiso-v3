@@ -7,9 +7,10 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sparkles, ArrowRight, Shield, CheckCircle2 } from "lucide-react";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { usePartnerLinks } from "@/hooks/use-partner-links";
 
 export function FundingForm() {
+    const partnerLinks = usePartnerLinks();
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState("");
@@ -47,7 +48,7 @@ export function FundingForm() {
 
             setIsSuccess(true);
             // Attempt to open in a new tab immediately
-            const newWindow = window.open(PARTNER_LINKS.funding, "_blank");
+            const newWindow = window.open(partnerLinks.funding, "_blank");
             
             // If it fails or if they want to stay on the success page for a bit
             setTimeout(() => {
@@ -74,7 +75,7 @@ export function FundingForm() {
                 </p>
                 <div className="space-y-4">
                     <Button 
-                        onClick={() => window.open(PARTNER_LINKS.funding, "_blank")}
+                        onClick={() => window.open(partnerLinks.funding, "_blank")}
                         className="w-full bg-shamiso-gold hover:bg-shamiso-gold-bright text-black font-black uppercase tracking-widest h-14"
                     >
                         Proceed to beatBread

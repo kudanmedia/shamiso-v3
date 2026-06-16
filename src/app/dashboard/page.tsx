@@ -9,7 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PayoutHistory } from "@/components/dashboard/payout-history";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { usePartnerLinks } from "@/hooks/use-partner-links";
 import { FeatureFmWidget } from "@/components/dashboard/FeatureFmWidget";
 import { RoExMasteringWidget } from "@/components/dashboard/RoExMasteringWidget";
 
@@ -23,7 +23,8 @@ interface Partner {
     metadata?: string;
 }
 
-const partners: Partner[] = [
+function buildPartners(links: ReturnType<typeof usePartnerLinks>): Partner[] {
+    return [
     {
         name: "Distribution Portal",
         category: "Distribution",
@@ -35,7 +36,7 @@ const partners: Partner[] = [
         name: "Funding & Advances",
         category: "Funding",
         description: "Non-dilutive funding from $1K to $10M+ — Keep your masters",
-        href: PARTNER_LINKS.funding,
+        href: links.funding,
         icon: DollarSign,
     },
     {
@@ -49,28 +50,28 @@ const partners: Partner[] = [
         name: "Groover Networking",
         category: "Promotion",
         description: "Direct outreach to top curators and guaranteed professional feedback.",
-        href: PARTNER_LINKS.groover,
+        href: links.groover,
         icon: Radio,
     },
     {
         name: "Visualizer Lab",
         category: "Promotion",
         description: "Auto-generate music videos, promo clips, and Spotify Canvas visuals.",
-        href: PARTNER_LINKS.rotor,
+        href: links.rotor,
         icon: Video,
     },
     {
         name: "Automix by Roex",
         category: "Production",
         description: "Studio-quality AI mastering optimized for streaming.",
-        href: PARTNER_LINKS.automix,
+        href: links.automix,
         icon: Mic2,
     },
     {
         name: "Mix Check Studio",
         category: "Production",
         description: "AI-powered feedback on your frequency balance and dynamics.",
-        href: PARTNER_LINKS.mixCheckStudio,
+        href: links.mixCheckStudio,
         icon: Mic2,
     },
     {
@@ -113,14 +114,14 @@ const partners: Partner[] = [
         name: "Toorly for Artists",
         category: "Promotion",
         description: "Seamlessly book and manage global tours across the SSA corridor.",
-        href: PARTNER_LINKS.toorly,
+        href: links.toorly,
         icon: ExternalLink,
     },
     {
         name: "un:hurd music",
         category: "Marketing",
         description: "Automated music promotion and custom marketing pages.",
-        href: PARTNER_LINKS.unhurd,
+        href: links.unhurd,
         icon: ExternalLink,
     },
     {
@@ -131,8 +132,11 @@ const partners: Partner[] = [
         icon: Shield,
     },
 ];
+}
 
 export default function DashboardPage() {
+    const partnerLinks = usePartnerLinks();
+    const partners = buildPartners(partnerLinks);
     const [status, setStatus] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState<any>(null);

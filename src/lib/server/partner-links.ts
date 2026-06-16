@@ -1,10 +1,8 @@
 import { Query, createAdminClient } from "@/lib/server/appwrite";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { PARTNER_LINKS, type PartnerLinksMap } from "@/lib/partner-links";
 
 const DEFAULT_DATABASE_ID = "69b7fdaa001b7da3d224";
 const PARTNER_LINKS_COLLECTION_ID = "partner_links";
-
-type PartnerLinksMap = typeof PARTNER_LINKS;
 
 interface PartnerLinkDocument {
     slug: keyof PartnerLinksMap;
@@ -22,7 +20,7 @@ export async function getPartnerLinks(): Promise<PartnerLinksMap> {
             [Query.equal("active", true), Query.limit(200)]
         );
 
-        const dynamicLinks = { ...PARTNER_LINKS };
+        const dynamicLinks = Object.assign({}, PARTNER_LINKS) as PartnerLinksMap;
         for (const rawDoc of result.documents) {
             const doc = rawDoc as unknown as PartnerLinkDocument;
             if (doc.slug && doc.url && doc.slug in dynamicLinks) {
@@ -32,6 +30,6 @@ export async function getPartnerLinks(): Promise<PartnerLinksMap> {
 
         return dynamicLinks;
     } catch {
-        return PARTNER_LINKS;
+        return PARTNER_LINKS as PartnerLinksMap;
     }
 }

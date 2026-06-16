@@ -12,3 +12,6 @@ export const PARTNER_LINKS = {
     toorly: "https://toorly.com/",
     unhurd: "https://www.unhurdmusic.com/p/shamiso",
 };
+
+export type PartnerLinkSlug = keyof typeof PARTNER_LINKS;
+export type PartnerLinksMap = Record<PartnerLinkSlug, string>;

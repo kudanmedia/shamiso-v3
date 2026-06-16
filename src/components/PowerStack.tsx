@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Card,
     CardContent,
@@ -19,9 +21,10 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { usePartnerLinks } from "@/hooks/use-partner-links";
+import type { PartnerLinksMap } from "@/lib/partner-links";
 
-const powerCards = [
+const powerCardTemplates = [
     {
         icon: Banknote,
         title: "Funding & Advances",
@@ -42,7 +45,8 @@ const powerCards = [
         description:
             "The industry's leading marketing & ad suite. Smart links, audience data, and retargeting pixels to grow your fan connection.",
         cta: "Scale My Growth",
-        href: PARTNER_LINKS.featureFm,
+        hrefKey: "featureFm" as const,
+        href: "/services/feature-fm",
         gradient: "from-blue-500/20 to-blue-900/5",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/40",
@@ -128,7 +132,16 @@ const powerCards = [
     },
 ];
 
+function resolvePowerCards(links: PartnerLinksMap) {
+    return powerCardTemplates.map((card) => ({
+        ...card,
+        href: "hrefKey" in card && card.hrefKey ? links[card.hrefKey] : card.href,
+    }));
+}
+
 export function PowerStack() {
+    const partnerLinks = usePartnerLinks();
+    const powerCards = resolvePowerCards(partnerLinks);
     return (
         <section id="sovereign-suite" className="relative py-24 overflow-hidden bg-black">
             <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />

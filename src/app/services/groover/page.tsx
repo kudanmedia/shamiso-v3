@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PartnerRedirect } from "@/components/PartnerRedirect";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { getPartnerLinks } from "@/lib/server/partner-links";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { 
@@ -48,10 +48,11 @@ const steps = [
     }
 ];
 
-export default function GrooverPage() {
+export default async function GrooverPage() {
+    const links = await getPartnerLinks();
     return (
         <div className="min-h-screen bg-black text-white">
-            <PartnerRedirect partnerUrl={PARTNER_LINKS.groover} />
+            <PartnerRedirect partnerUrl={links.groover} />
             <Header />
             
             <main className="pt-32 pb-24">

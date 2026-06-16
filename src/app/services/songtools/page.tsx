@@ -1,5 +1,5 @@
 import { PartnerRedirect } from "@/components/PartnerRedirect";
-import { PARTNER_LINKS } from "@/lib/partner-links";
+import { getPartnerLinks } from "@/lib/server/partner-links";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import {
@@ -53,10 +53,11 @@ const features = [
     }
 ];
 
-export default function SongToolsPage() {
+export default async function SongToolsPage() {
+    const links = await getPartnerLinks();
     return (
         <div className="min-h-screen bg-black text-white">
-            <PartnerRedirect partnerUrl={PARTNER_LINKS.songtools} />
+            <PartnerRedirect partnerUrl={links.songtools} />
             <Header />
 
             <main className="pt-32 pb-24">
@@ -77,7 +78,7 @@ export default function SongToolsPage() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row items-center gap-4">
-                                <Link href={PARTNER_LINKS.songtools} target="_blank">
+                                <Link href={links.songtools} target="_blank">
                                     <Button size="lg" className="bg-green-600 hover:bg-green-500 text-white font-black uppercase tracking-widest h-16 px-10 rounded-2xl shadow-xl shadow-green-600/20 transition-all hover:scale-105">
                                         <Zap className="mr-2 h-5 w-5 fill-current" />
                                         Launch Promotion
@@ -204,7 +205,7 @@ export default function SongToolsPage() {
                             <p className="text-neutral-400 mb-8 text-sm leading-relaxed">
                                 Join 100,000+ artists who have moved past passive distribution into active promotion. Your fans are waiting. Go find them.
                             </p>
-                            <Link href={PARTNER_LINKS.songtools} target="_blank">
+                            <Link href={links.songtools} target="_blank">
                                 <Button size="lg" className="w-full bg-white text-black hover:bg-neutral-200 font-black uppercase tracking-widest h-16 rounded-2xl">
                                     Start Promoting at $10/Day
                                 </Button>
