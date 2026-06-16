@@ -71,6 +71,7 @@ export default function PayoutsPage() {
                     databaseId,
                     collectionId,
                     [
+                        Query.equal("userId", user.$id),
                         Query.orderDesc("date"),
                         Query.limit(50)
                     ]
