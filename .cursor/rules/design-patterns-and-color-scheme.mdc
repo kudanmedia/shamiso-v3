@@ -1,0 +1,24 @@
+---
+description: Preserve Shamiso visual patterns for all new pages
+alwaysApply: true
+---
+
+# Shamiso Design and Color Continuity
+
+Apply these rules whenever creating or updating UI so new pages match existing Shamiso patterns.
+
+- Keep the dark-first visual system: black or near-black backgrounds, white or neutral foreground text, and subtle glow or gradient accents.
+- Reuse the established accent language (primarily sky/blue accents and neutral grayscale hierarchy); avoid introducing new dominant brand colors.
+- Preserve existing spacing rhythm and typography scale used across marketing, dashboard, and service pages.
+- Use existing UI primitives from `src/components/ui/*` (`Card`, `Button`, `Badge`, etc.) before creating custom visual patterns.
+- Keep page composition consistent: clear hero or intro block, supporting sections, and strong CTA placement near key decision points.
+- Match current border radius, shadow, and contrast patterns; favor subtle depth over heavy visual effects.
+- Keep iconography consistent with current Lucide usage and existing component style.
+- Prefer updating `PARTNER_LINKS` and shared components instead of hardcoding one-off styles or URLs in pages.
+- Maintain responsive behavior using the same Tailwind breakpoint conventions already used in the app (`sm`, `md`, `lg`, `xl`).
+
+## Do Not
+
+- Do not introduce a new color system for individual pages.
+- Do not create isolated page-specific style conventions that diverge from existing patterns.
+- Do not bypass shared layout and chrome patterns when a reusable project pattern already exists.

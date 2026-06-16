@@ -1,0 +1,25 @@
+---
+description: Enforce Shamiso page structure patterns for App Router pages
+globs: src/app/**/page.tsx
+alwaysApply: false
+---
+
+# Shamiso Page Structure Patterns
+
+Use these conventions for all `src/app/**/page.tsx` pages to keep structure consistent.
+
+- Start with a clear intro block (hero or page header) that states value and intent immediately.
+- Follow with logically grouped sections (problem, value, proof, CTA) rather than ad-hoc section ordering.
+- Keep CTA strategy consistent: at least one primary CTA above the fold and one near conversion points.
+- Reuse existing chrome and patterns from current pages (`Header`, `Footer`, section containers, card groupings).
+- Use consistent content width and spacing containers (`max-w-*`, responsive `px-*`, and section `py-*` rhythm).
+- Prefer existing interaction patterns (buttons, badges, cards, icon + heading + description blocks).
+- Keep metadata complete (`title`, `description`) and aligned with existing SEO tone and keyword strategy.
+- If linking partners, prefer centralized link references (`PARTNER_LINKS`) and `PartnerRedirect` where applicable.
+- Validate mobile-first responsiveness using existing Tailwind breakpoints.
+
+## Do Not
+
+- Do not invent new page scaffolding patterns when equivalent project patterns already exist.
+- Do not bury CTA actions at the bottom only.
+- Do not mix conflicting spacing systems within the same page.
