@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PartnerRedirect } from "@/components/PartnerRedirect";
-import { PARTNER_LINKS } from "@/lib/partner-links";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { 
@@ -20,15 +19,19 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { getPartnerLinks } from "@/lib/server/partner-links";
 
 export const metadata: Metadata = {
     title: "Roex x Shamiso | Your Sound, Globalized | Shamiso Music Distribution",
     description: "AI-powered studio suite for the modern creator. Master your tracks and perfect your sound with Roex on Shamiso.",
 };
 
-export default function RoexPage() {
+export default async function RoexPage() {
+    const links = await getPartnerLinks();
+
     return (
         <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
+            <PartnerRedirect partnerUrl={links.roex} />
             <Header />
             
             <main className="pt-32 pb-24">
@@ -49,7 +52,7 @@ export default function RoexPage() {
                         </p>
                         
                         <div className="grid sm:grid-cols-2 gap-4 pt-8">
-                            <Link href={PARTNER_LINKS.automix} target="_blank" className="group p-8 rounded-3xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-blue-500/30 transition-all text-left relative overflow-hidden">
+                            <Link href={links.automix} target="_blank" className="group p-8 rounded-3xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-blue-500/30 transition-all text-left relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                                     <Zap className="h-24 w-24 text-blue-500" />
                                 </div>
@@ -61,7 +64,7 @@ export default function RoexPage() {
                                 </Button>
                             </Link>
                             
-                            <Link href={PARTNER_LINKS.mixCheckStudio} target="_blank" className="group p-8 rounded-3xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-blue-500/30 transition-all text-left relative overflow-hidden">
+                            <Link href={links.mixCheckStudio} target="_blank" className="group p-8 rounded-3xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-blue-500/30 transition-all text-left relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                                     <BarChart className="h-24 w-24 text-blue-500" />
                                 </div>
@@ -157,7 +160,7 @@ export default function RoexPage() {
                         Don&apos;t let your masters collect digital dust. Join the Roex family on Shamiso Music Distribution and start your journey toward global recognition today.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href={PARTNER_LINKS.roex} target="_blank">
+                        <Link href={links.roex} target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-neutral-200 font-black uppercase tracking-widest h-16 px-12 rounded-2xl">
                                 Get Started Now
                             </Button>

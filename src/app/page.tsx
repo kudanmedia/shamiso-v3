@@ -11,10 +11,13 @@ import { StrategicGenres } from "@/components/StrategicGenres";
 import { FAQ } from "@/components/FAQ";
 import { FinalCommitment } from "@/components/FinalCommitment";
 import { FoundersLetter } from "@/components/FoundersLetter";
+import { StructuredData } from "@/components/StructuredData";
 
 export default function Home() {
   return (
     <>
+      <StructuredData type="organization" />
+      <StructuredData type="website" />
       <HeroSection />
       <NarrativeSection />
       <PromoteMusic />

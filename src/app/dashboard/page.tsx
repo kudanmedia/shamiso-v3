@@ -10,6 +10,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PayoutHistory } from "@/components/dashboard/payout-history";
 import { PARTNER_LINKS } from "@/lib/partner-links";
+import { FeatureFmWidget } from "@/components/dashboard/FeatureFmWidget";
+import { RoExMasteringWidget } from "@/components/dashboard/RoExMasteringWidget";
 
 interface Partner {
     name: string;
@@ -40,7 +42,7 @@ const partners: Partner[] = [
         name: "feature.fm Engine",
         category: "Marketing",
         description: "The industry's leading marketing & ad suite for smart links.",
-        href: PARTNER_LINKS.featureFm,
+        href: "/dashboard/marketing",
         icon: BarChart3,
     },
     {
@@ -54,7 +56,7 @@ const partners: Partner[] = [
         name: "Visualizer Lab",
         category: "Promotion",
         description: "Auto-generate music videos, promo clips, and Spotify Canvas visuals.",
-        href: "https://rotorvideos.com/shamiso",
+        href: PARTNER_LINKS.rotor,
         icon: Video,
     },
     {
@@ -82,7 +84,7 @@ const partners: Partner[] = [
         name: "Smartlinks & Pre-Saves",
         category: "Marketing",
         description: "High-performance landing pages for every release.",
-        href: PARTNER_LINKS.featureFm,
+        href: "/dashboard/marketing",
         icon: Radio,
     },
     {
@@ -93,6 +95,13 @@ const partners: Partner[] = [
         icon: BarChart3,
     },
 
+    {
+        name: "Symphony OS",
+        category: "Marketing",
+        description: "Coordinate release operations and campaign workflows in one partner workspace.",
+        href: "/services/symphony",
+        icon: Music,
+    },
     {
         name: "Mogul Tax and Wealth",
         category: "Wealth/Finance",
@@ -250,6 +259,9 @@ export default function DashboardPage() {
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-bold">Your Apps</h2>
                 </div>
+
+                <FeatureFmWidget />
+                <RoExMasteringWidget />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {partners.map((partner) => {

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PartnerRedirect } from "@/components/PartnerRedirect";
-import { PARTNER_LINKS } from "@/lib/partner-links";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { 
@@ -16,6 +15,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { getPartnerLinks } from "@/lib/server/partner-links";
 
 export const metadata: Metadata = {
     title: "feature.fm Marketing Engine | Smart Links & Pre-Saves | Shamiso Music Distribution",
@@ -53,10 +53,12 @@ const features = [
     }
 ];
 
-export default function FeatureFMPage() {
+export default async function FeatureFMPage() {
+    const links = await getPartnerLinks();
+
     return (
         <div className="min-h-screen bg-black text-white">
-            <PartnerRedirect partnerUrl={PARTNER_LINKS.featureFm} />
+            <PartnerRedirect partnerUrl={links.featureFm} />
             <Header />
             
             <main className="pt-32 pb-24">
@@ -80,7 +82,7 @@ export default function FeatureFMPage() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row items-center gap-4">
-                                <Link href={PARTNER_LINKS.featureFm} target="_blank">
+                                <Link href={links.featureFm} target="_blank">
                                     <Button size="lg" className="bg-linear-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-black uppercase tracking-widest h-16 px-10 rounded-2xl shadow-xl shadow-pink-600/20 transition-all hover:scale-105">
                                         <MousePointer2 className="mr-2 h-5 w-5" />
                                         Create Your First Link

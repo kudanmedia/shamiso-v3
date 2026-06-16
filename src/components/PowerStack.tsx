@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { PARTNER_LINKS } from "@/lib/partner-links";
 
 const powerCards = [
     {
@@ -41,7 +42,7 @@ const powerCards = [
         description:
             "The industry's leading marketing & ad suite. Smart links, audience data, and retargeting pixels to grow your fan connection.",
         cta: "Scale My Growth",
-        href: "http://feature.fm/shamiso",
+        href: PARTNER_LINKS.featureFm,
         gradient: "from-blue-500/20 to-blue-900/5",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/40",

@@ -17,6 +17,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://shamiso.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Shamiso | The Sovereign Distributor: Afro House, 3-Step & Funding",
   description:
     "Distribute Lekompo, Maskandi & Afro House to 450+ stores. Claim a 0% US Withholding Rate (Article 12). Get funded up to $10M+. Join Africa's Sovereign Distributor.",
@@ -37,12 +41,14 @@ export const metadata: Metadata = {
       "Distribute Lekompo, Maskandi & Afro House to 450+ stores. Claim a 0% US Withholding Rate (Article 12). Get funded up to $10M+.",
     type: "website",
     siteName: "Shamiso Music Distribution",
+    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Shamiso | The Sovereign Distributor",
     description:
       "Distribute Lekompo, Maskandi & Afro House to 450+ stores. Claim a 0% US Withholding Rate (Article 12).",
+    images: ["/opengraph-image"],
   },
 };
 
