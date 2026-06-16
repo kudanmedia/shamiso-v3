@@ -6,7 +6,9 @@ Phase 1 uses **Appwrite** as the middleware and cache layer. Convex remains a po
 
 **Canonical schema source:** `scripts/setup-appwrite.js` — run this to provision collections. `appwrite.config.json` is a partial export and may lag behind the setup script.
 
-**Database ID:** centralized in `src/lib/appwrite-config.ts` via `DATABASE_ID` / `NEXT_PUBLIC_DATABASE_ID` env vars.
+**Database ID:** `DATABASE_ID` / `NEXT_PUBLIC_DATABASE_ID` in `.env` (must match).
+
+**Verify IDs:** `node scripts/verify-appwrite-ids.js` — checks database, bucket, and function IDs against the live project.
 
 ## Core Components
 
@@ -62,7 +64,9 @@ Phase 1 uses **Appwrite** as the middleware and cache layer. Convex remains a po
 ## Seed Scripts
 
 ```bash
+node scripts/verify-appwrite-ids.js   # confirm .env IDs match live project
 node scripts/setup-appwrite.js      # create collections
+node scripts/setup-missing-collections.js  # new collections only (if full setup fails)
 node scripts/seed-partner-mock-data.js  # seed partner links, site settings, news, pricing, mock partner data
 ```
 

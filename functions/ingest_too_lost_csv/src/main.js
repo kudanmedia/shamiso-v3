@@ -5,7 +5,7 @@ const { Readable } = require('stream');
 const { getAppwriteFunctionEnv } = require('../../shared/appwrite-env');
 
 module.exports = async ({ req, res, log, error }) => {
-    const { endpoint, projectId, apiKey, databaseId } = getAppwriteFunctionEnv();
+    const { endpoint, projectId, apiKey, databaseId, royaltyCsvBucketId } = getAppwriteFunctionEnv();
 
     const client = new Client()
         .setEndpoint(endpoint)
@@ -18,7 +18,7 @@ module.exports = async ({ req, res, log, error }) => {
     const profilesCollectionId = 'profiles';
     const batchesCollectionId = 'royalty_batches';
     const ledgerCollectionId = 'ledger_entries';
-    const bucketId = 'royalty_csvs';
+    const bucketId = royaltyCsvBucketId;
 
     // Payload can be a string or object depending on how it's triggered
     let payload = {};

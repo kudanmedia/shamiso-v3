@@ -17,6 +17,7 @@ function getAppwriteFunctionEnv() {
         projectId: requireEnv("APPWRITE_FUNCTION_PROJECT_ID"),
         apiKey,
         databaseId: requireEnv("DATABASE_ID"),
+        royaltyCsvBucketId: requireEnv("APPWRITE_ROYALTY_BUCKET_ID"),
     };
 }
 

@@ -487,15 +487,11 @@
         {
             "$id": "news_articles",
             "$permissions": [
-                "create(\"team:69b81052001f8a7d42e1\")",
-                "read(\"team:69b81052001f8a7d42e1\")",
-                "update(\"team:69b81052001f8a7d42e1\")",
-                "delete(\"team:69b81052001f8a7d42e1\")",
+                "read(\"any\")",
                 "create(\"users\")",
                 "read(\"users\")",
                 "update(\"users\")",
                 "delete(\"users\")",
-                "read(\"guests\")",
                 "create(\"label:admin\")",
                 "read(\"label:admin\")",
                 "update(\"label:admin\")",

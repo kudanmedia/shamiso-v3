@@ -1,5 +1,5 @@
 const { Client, Databases, Storage, ID, Permission, Role } = require('node-appwrite');
-const { endpoint, projectId, apiKey, databaseId } = require('./appwrite-env');
+const { endpoint, projectId, apiKey, databaseId, royaltyCsvBucketId } = require('./appwrite-env');
 
 // Canonical Appwrite schema source. appwrite.config.json may lag behind this script.
 // Run: node scripts/setup-appwrite.js && node scripts/seed-partner-mock-data.js
@@ -95,7 +95,7 @@ async function setup() {
         console.log('Creating Royalty_CSVs Bucket...');
         try { 
             await storage.createBucket(
-                'royalty_csvs', 
+                royaltyCsvBucketId, 
                 'Royalty CSVs', 
                 [
                     Permission.read(Role.any()),

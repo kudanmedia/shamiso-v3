@@ -10,7 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Plus, Loader2, PlayCircle, Eye, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { DATABASE_ID } from "@/lib/database-id";
+import { DATABASE_ID, INGEST_CSV_FUNCTION_ID, ROYALTY_CSV_BUCKET_ID } from "@/lib/appwrite-config";
 
 export default function AdminPayoutsPage() {
     const [isLoading, setIsLoading] = useState(true);
@@ -48,12 +48,9 @@ export default function AdminPayoutsPage() {
 
         try {
             // 1. Upload to Storage
-            const bucketId = 'royalty_csvs';
-            const uploadedFile = await storage.createFile(bucketId, ID.unique(), file);
+            const uploadedFile = await storage.createFile(ROYALTY_CSV_BUCKET_ID, ID.unique(), file);
 
-            // 2. Trigger Ingestion Function
-            const functionId = '69b8154c000dde3296d8';
-            await functions.createExecution(functionId, JSON.stringify({
+            await functions.createExecution(INGEST_CSV_FUNCTION_ID, JSON.stringify({
                 fileId: uploadedFile.$id,
                 batchName: `Batch ${new Date().toLocaleDateString()}`
             }));
@@ -179,7 +176,7 @@ export default function AdminPayoutsPage() {
                             </div>
                             <div className="flex justify-between items-center text-sm">
                                 <span className="text-zinc-400">Storage Bucket:</span>
-                                <code className="text-xs bg-zinc-900 px-2 py-1 rounded">royalty_csvs</code>
+                                <code className="text-xs bg-zinc-900 px-2 py-1 rounded">{ROYALTY_CSV_BUCKET_ID}</code>
                             </div>
                         </CardContent>
                     </Card>
@@ -201,7 +198,7 @@ export default function AdminPayoutsPage() {
                             </div>
                             <div className="flex justify-between items-center text-sm">
                                 <span className="text-zinc-400">DB ID:</span>
-                                <code className="text-xs bg-zinc-900 px-2 py-1 rounded">69b7fdaa001...</code>
+                                <code className="text-xs bg-zinc-900 px-2 py-1 rounded truncate max-w-[140px]">{DATABASE_ID}</code>
                             </div>
                         </CardContent>
                     </Card>
